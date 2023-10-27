@@ -34,7 +34,7 @@ export default function ForgotPassword() {
                         <div className="auth-form-content-main">
                             <div className="auth-form-content-intro">
                                 <h3>Recover account</h3>
-                                <p className="auth-form-content-intro-text">Forgot your account's password? Enter your email address and we'll send you a recovery link.</p>
+                                <p className="auth-form-content-intro-text">Forgot your account&apos;s password? Enter your email address and we&apos;ll send you a recovery link.</p>
                             </div>
                         </div>
                         <div className="auth-form-inputs">

@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import Header from "../components/header/header";
 import CustomButton from "../components/utility/custombutton";
+import Image from 'next/image'
 import "./style/homepage.css"
 
 import { useState } from 'react';
