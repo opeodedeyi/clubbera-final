@@ -130,3 +130,14 @@
 .auth-dark-link:hover {
     color: var(--color-dark);
 }
+
+@media screen and  (max-width: 768px) {
+    .auth-container {
+        padding: 87px 24px 0;
+    }
+
+    .auth-container-main {
+        padding: 32px 24px;
+        border-radius: 8px;
+    }
+}

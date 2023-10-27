@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Fragment } from "react";
+import Logo from "../../components/utility/logo";
 import Header from "../../components/header/header";
 import MainInput from "@/components/forminput/maininput";
 import MainPasswordInput from "../../components/forminput/passwordinput";
@@ -16,9 +17,7 @@ const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPa
     return (
         <>
             <div className="auth-form-content">
-                <div className="auth-form-content-Logo">
-                    LOGO
-                </div>
+                <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
                 <div className="auth-form-content-main">
                     <div className="auth-form-content-intro">
                         <h3>Join the adventure</h3>
@@ -82,7 +81,7 @@ const SignupStepTwo = () => {
 }
 
 export default function Signup() {
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(1);
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');

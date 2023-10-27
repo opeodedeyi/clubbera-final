@@ -14,11 +14,9 @@ const MainInput = ( props ) => {
             <div className="main-input-text">
                 <div className="form-label-container">
                     <label className="form-label" htmlFor={props.input}>{ props.input }</label>
-                    {props.forgotpassword && <Link className="form-label-forgot" href="/forgotpassword">Forgot password?</Link>}
                 </div>
                 
                 <input
-                    forgotpassword
                     placeholder={props.placeholder}
                     value={props.value}
                     onFocus={props.onFocus}

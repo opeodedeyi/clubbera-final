@@ -27,6 +27,10 @@
         height: 60px;
     }
 
+    .no-border-bottom {
+        border-bottom: none;
+    }
+
     .header-buttons {
         gap: 16px;
     }

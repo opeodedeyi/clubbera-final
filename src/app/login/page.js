@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Fragment } from "react";
 import Header from "../../components/header/header";
+import Logo from "../../components/utility/logo";
 import MainInput from "../../components/forminput/maininput";
 import MainPasswordInput from "../../components/forminput/passwordinput";
 import CustomButton from "../../components/utility/custombutton";
@@ -35,9 +36,7 @@ export default function Login() {
             <div className="auth-container">
                 <form className="auth-container-main">
                     <div className="auth-form-content">
-                        <div className="auth-form-content-Logo">
-                            LOGO
-                        </div>
+                        <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
                         <div className="auth-form-content-main">
                             <div className="auth-form-content-intro">
                                 <h3>Welcome back</h3>

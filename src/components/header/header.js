@@ -1,6 +1,5 @@
 'use client';
 
-import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import "./header.css";
 
@@ -16,7 +15,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="header-main">
+            <header className={`header-main ${pathName==='/login' || pathName==='/signup' || pathName==='/forgotpassword' ? 'no-border-bottom' : ''}`}>
                 {pathName==='/login' || pathName==='/signup' || pathName==='/forgotpassword' ?  
                     <CustomButton link destination="/" coloring="form-header-coloring" size="form-header-size"><img src="/back_direction.svg" alt="<" /><span>Back to home page</span></CustomButton>
                 : 

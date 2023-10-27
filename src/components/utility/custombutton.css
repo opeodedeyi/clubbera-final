@@ -140,4 +140,11 @@
         line-height: 135%;
         padding: 9px 28px;
     }
+
+    .form-header-size {
+        padding: 10px 20px;
+        font-size: .875rem;
+        line-height: 135%;
+        letter-spacing: -0.42px;
+    }
 }
