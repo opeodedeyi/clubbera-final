@@ -1,95 +1,130 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
 
-export default function Home() {
+import { Fragment } from "react";
+import Header from "../components/header/header";
+import CustomButton from "../components/utility/custombutton";
+import "./style/homepage.css"
+
+import { useState } from 'react';
+
+function WorkCard({ title, text, workimage }) {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
+    <div className="homepage-work-card">
+      <img className="homepage-work-card-img" src={workimage} alt="" />
+      <p className="homepage-work-card-title">
+        {title.split('&').map((part, index) => (
+          <span key={index}>
+            {part}
+            {index !== title.split('&').length - 1 && (
+              <span className="spicy-normal-text">&</span>
+            )}
+          </span>
+        ))}
+      </p>
+      <div className="homepage-work-card-body">
+        <p className="homepage-work-card-title">
+          {title.split('&').map((part, index) => (
+            <span key={index}>
+              {part}
+              {index !== title.split('&').length - 1 && (
+                <span className="spicy-normal-text">&</span>
+              )}
+            </span>
+          ))}
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+        <p className="homepage-work-card-text">{text}</p>
+      </div>
+    </div>
+  );
+}
+
+const NotLoggedIn = () => {
+  const worksCards = [
+    {
+      image: '/explore_main.png',
+      title: 'Explore & Discover',
+      subtext: 'Discover engaging social experiences on Clubbera. Sign up to explore diverse non-profit clubs matching your interests, find activities and hobbies you love, and foster a vibrant community spirit.',
+    },
+    {
+      image: '/connect_main.png',
+      title: 'Connect & Engage',
+      subtext: 'Connect with like-minded individuals by joining resonating clubs. Share experiences, ideas, and passions in a user-friendly space. Engage in meaningful conversations, collaborate, and build genuine connections based on shared interests.'
+    },
+    {
+      image: '/customize_main.png',
+      title: 'Customize & Grow',
+      subtext: "Bring your vision to life as a club creator on Clubbera. Customize your club's dynamics, add moderators, and shape the environment to match your vision. Foster ownership and enhance user satisfaction as your community grows and thrives."
+    }
+  ];
+  return (
+    <>
+      <div className="homepage-hero">
+        <div className="homepage-hero-cont">
+          <p className="homepage-hero-hype">Your number one community 🥇</p>
+          <h1 className="homepage-hero-tagline">Discover, Connect <br className="desk"/>and Thrive <span className="spicy-text">with</span> <br className="desk"/><span className="colored-text">Clubbera</span></h1>
+          <p className="homepage-hero-subtag">We connect individuals with local comunities and clubs</p>
+          <div className="flex-c homepage-hero-buttons">
+            <CustomButton link destination="/login" size="normal-size">Create group</CustomButton>
+            <CustomButton link destination="/signup" size="normal-size" coloring="inverse-coloring">Join Clubbera</CustomButton>
+          </div>
+        </div>
+
+        {/* Hero section glow design */}
+        <div className="homepage-hero-glow hero-pos-one"></div>
+        <div className="homepage-hero-glow hero-pos-two"></div>
+        <div className="homepage-hero-glow hero-pos-three"></div>
+
+        {/* Hero section images */}
+        <div className="homepage-hero-image hero-pos-four"></div>
+        <div className="homepage-hero-image hero-pos-five"></div>
+        <div className="homepage-hero-image hero-pos-six"></div>
+        <div className="homepage-hero-image hero-pos-seven"></div>
+      </div>
+
+      <div className="homepage-works">
+        <div className="homepage-works-content">
+          <h2 className="homepage-works-title">How Clubbera <span className="spicy-text">works</span></h2>
+          <p className="homepage-works-text">Form new connections with individuals who have common interests through a wide range of physical events. Joining our platform and creating an account is absolutely free.</p>
+        </div>
+
+        <div className="homepage-works-cards">
+          {worksCards.map((card, index) => (
+            <WorkCard key={index} title={card.title} text={card.subtext} workimage={card.image} />
+          ))}
         </div>
       </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="homepage-groups">
+        <div className="homepage-groups-content">
+          <h2 className="homepage-groups-title">Create a <span className="spicy-text">group</span></h2>
+          <p className="homepage-groups-text">Start today by creating your dynamic and perfect group.</p>
+          <CustomButton link destination="/login" size="normal-size">Create group</CustomButton>
+        </div>
       </div>
+    </>
+  );
+}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+const LoggedIn = () => {
+  return (
+    <>
+      
+    </>
+  );
+}
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+export default function Home() {
+  const [user, setUser] = useState(false);
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+  return (
+    <Fragment>
+      <Header />
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {user ?
+        <LoggedIn />
+      :
+        <NotLoggedIn />
+      }
+    </Fragment>
   )
 }

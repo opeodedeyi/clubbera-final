@@ -1,0 +1,99 @@
+.main-input-text,
+.main-input-password {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.form-label-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.main-input-text label,
+.main-input-password label {
+    color: #625F5F;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.form-label-forgot {
+    text-decoration: none;
+    color: var(--main-color);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.main-input-text input {
+    width: 100%;
+    color: var(--color-text-input);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-white-two);
+    height: 45px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+
+.main-input-password .form-input-password {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.main-input-password .form-input-password input {
+    width: 100%;
+    color: var(--color-text-input);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-white-two);
+    height: 100%;
+    padding: 8px 36px 8px 16px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+
+.main-input-text input::placeholder,
+.main-input-password .form-input-password input::placeholder {
+    color:  #A19F9F;
+}
+
+.main-input-text input:focus,
+.main-input-text input:focus-visible,
+.main-input-password .form-input-password input:focus,
+.main-input-password .form-input-password input:focus-visible {
+    outline: none;
+    border-color: var(--color-white-three);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 16px;
+}

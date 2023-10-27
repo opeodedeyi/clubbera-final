@@ -1,0 +1,57 @@
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.default-logo-size .logo-container-text {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.48px;
+}
+
+.default-logo-size .logo-container-image {
+    height: 14px;
+}
+
+.header-logo-size .logo-container-text {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%;
+    letter-spacing: -0.6px;
+}
+
+.header-logo-size .logo-container-image {
+    height: 18px;
+}
+
+.default-logo-coloring .logo-container-text {
+    color: var(--main-color);
+}
+
+.white-logo-coloring {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; /* 17.6px */
+    letter-spacing: -0.48px;
+}
+
+
+@media screen and  (max-width: 768px) {
+    .header-logo-size .logo-container-text {
+        font-size: 1rem;
+        letter-spacing: -0.48px;
+    }
+
+    .header-logo-size .logo-container-image {
+        height: 14px;
+    }
+}
+  
