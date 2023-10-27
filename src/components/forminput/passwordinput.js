@@ -4,7 +4,7 @@ import { useState } from 'react';
 import "./forminput.css";
 import Link from "next/link";
 
-const mainPasswordInput = ( props ) => {
+const MainPasswordInput = ( props ) => {
     const [type, setType] = useState('password');
 
     const changeView = () => {
@@ -36,4 +36,4 @@ const mainPasswordInput = ( props ) => {
     );
 }
 
-export default mainPasswordInput
+export default MainPasswordInput
