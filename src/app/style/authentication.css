@@ -131,7 +131,7 @@
     color: var(--color-dark);
 }
 
-@media screen and  (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .auth-container {
         padding: 87px 24px 0;
     }
