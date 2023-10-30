@@ -518,9 +518,23 @@
     
     .homepage-type-group-card {
         padding: 16px;
-        width: 230px;
+        width: 215px;
         height: 250px;
     }
+
+    /* card and card container */
+    .homepage-work-card-title {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.32px;
+    }
+
+    .homepage-work-card-text {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.28px;
+    }
+    /* card and card container end */
 }
 
 @keyframes scrolling {
