@@ -39,6 +39,15 @@ function WorkCard({ title, text, workimage }) {
   );
 }
 
+function GroupTypeCard({ title, grpimage }) {
+  return (
+    <div className="homepage-type-group-card">
+      <Image className="homepage-group-card-img" src={grpimage} alt={title} width="400" height="400" />
+      <p className="homepage-work-card-title">{title}</p>
+    </div>
+);
+}
+
 const NotLoggedIn = () => {
   const worksCards = [
     {
@@ -57,6 +66,30 @@ const NotLoggedIn = () => {
       subtext: "Bring your vision to life as a club creator on Clubbera. Customize your club's dynamics, add moderators, and shape the environment to match your vision. Foster ownership and enhance user satisfaction as your community grows and thrives."
     }
   ];
+
+  const groupTypes = [
+    {
+      image: '/dance_com.png',
+      title: 'Dance community',
+    },
+    {
+      image: '/game_com.png',
+      title: 'Game community',
+    },
+    {
+      image: '/gym_com.png',
+      title: 'Gym community',
+    },
+    {
+      image: '/cooking_com.png',
+      title: 'Cooking community',
+    },
+    {
+      image: '/sport_com.png',
+      title: 'Sport community',
+    }
+  ];
+
   return (
     <>
       <div className="homepage-hero">
@@ -100,6 +133,17 @@ const NotLoggedIn = () => {
           <h2 className="homepage-groups-title">Create a <span className="spicy-text">group</span></h2>
           <p className="homepage-groups-text">Start today by creating your dynamic and perfect group.</p>
           <CustomButton link destination="/login" size="normal-size">Create group</CustomButton>
+        </div>
+        <div className="homepage-groups-main">
+          <div className="homepage-groups-main-cards">
+            {groupTypes.map((card, index) => (
+              <GroupTypeCard key={index} title={card.title} grpimage={card.image} />
+            ))}
+            {/* duplicate */}
+            {groupTypes.map((card, index) => (
+              <GroupTypeCard key={index+100} title={card.title} grpimage={card.image} />
+            ))}
+          </div>
         </div>
       </div>
     </>
