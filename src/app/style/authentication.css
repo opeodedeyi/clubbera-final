@@ -27,6 +27,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.auth-form-content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 24px;
     align-self: stretch;
 }
@@ -49,8 +58,17 @@
     align-self: stretch;
 }
 
+.auth-form-content-center .auth-form-content-intro {
+    align-items: center;
+}
+
 .auth-form-content-intro-text {
     font-size: 1rem;
+}
+
+.auth-form-content-center .auth-form-content-intro-text,
+.auth-form-content-center h3 {
+    text-align: center;
 }
 
 .auth-or-horizontal-line {
@@ -130,6 +148,15 @@
 
 .auth-form-actions-cta a:hover {
     color: var(--main-color-hover);
+}
+
+.auth-form-success-image {
+    width: 100%;
+    max-width: 240px;
+    min-height: 200px;
+    background-image: url('/email_sent.png');
+    background-size: cover;
+    background-position: 50%;
 }
 
 .auth-dark-link {

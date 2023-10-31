@@ -43,7 +43,7 @@ function GroupTypeCard({ title, grpimage }) {
   return (
     <div className="homepage-type-group-card">
       <Image className="homepage-group-card-img" src={grpimage} alt={title} width="400" height="400" />
-      <p className="homepage-work-card-title">{title}</p>
+      <p className="homepage-group-card-title">{title}</p>
     </div>
 );
 }

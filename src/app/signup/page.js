@@ -13,7 +13,7 @@ import "../style/authentication.css";
 import { useState } from 'react';
 
 
-const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPassword }) => {
+const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPassword, isDisabled }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -54,7 +54,7 @@ const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPa
                 </div>
             </div>
             <div className="auth-form-actions">
-                <CustomButton size="fullwidth-size">Continue</CustomButton>
+                <CustomButton size="fullwidth-size" disabled={isDisabled}>Continue</CustomButton>
                 <p className="auth-form-actions-cta">Already a member? <Link href="/login" className="">Log in</Link></p>
             </div>
         </>
@@ -81,10 +81,11 @@ const SignupStepTwo = () => {
 }
 
 export default function Signup() {
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(2);
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
+    const [ageConsent, setAgeConsent] = useState(false);
 
     const isEmailValid = (email) => {
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -96,6 +97,8 @@ export default function Signup() {
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
         return passwordRegex.test(password);
     };
+
+    const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password);
   
     return (
         <Fragment>
@@ -110,7 +113,8 @@ export default function Signup() {
                             fullName={fullName} 
                             setFullName={setFullName} 
                             password={password} 
-                            setPassword={setPassword}/>
+                            setPassword={setPassword}
+                            isDisabled={isDisabled}/>
                     :
                         <SignupStepTwo />
                     }

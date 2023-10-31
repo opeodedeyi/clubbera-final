@@ -67,7 +67,7 @@ export default function Login() {
                         </div>
                     </div>
                     <div className="auth-form-actions">
-                        <CustomButton size="fullwidth-size">Login</CustomButton>
+                        <CustomButton size="fullwidth-size" disabled={isDisabled}>Login</CustomButton>
                         <p className="auth-form-actions-cta">Not a member yet? <Link href="/signup" className="">Sign up now</Link></p>
                     </div>
                 </form>

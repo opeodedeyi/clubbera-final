@@ -105,16 +105,11 @@
     background: #FDFDFD;
 }
 
-.disabled-coloring {
+.custom-button:disabled {
     border: none;
     background-color: var(--color-white-two);
     color: var(--color-dark-one);
-}
-
-.disabled-coloring:hover {
-    border: none;
-    background-color: var(--main-color-hover);
-    color: var(--color-white-one);
+    cursor:  not-allowed;
 }
 
 .form-header-coloring {
