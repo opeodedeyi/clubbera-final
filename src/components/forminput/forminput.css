@@ -8,6 +8,15 @@
     align-self: stretch;
 }
 
+.checkbox-input-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
 .form-label-container {
     width: 100%;
     display: flex;
@@ -17,7 +26,8 @@
 }
 
 .main-input-text label,
-.main-input-password label {
+.main-input-password label,
+.checkbox-label-container label {
     color: #625F5F;
     font-size: 0.875rem;
     font-style: normal;
@@ -96,4 +106,56 @@
 .eye-icon {
     position: absolute;
     right: 16px;
+}
+
+.checkbox-main-container {
+    display: flex;
+    align-items: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkbox-main-container p {
+    color: #A19F9F;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.checkbox-main-container:hover p {
+    color: var(--color-text-input);
+}
+
+.checkbox-main-container:hover span {
+    border-color: var(--color-text-input);
+}
+
+.checkbox-main-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-main-container span {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #A19F9F;
+    border-radius: 3px;
+}
+
+.checkbox-main-container input[type="checkbox"]:checked + span {
+    background: url('/check.svg') no-repeat center center;
+    background-size: 10px 10px;
+    border: 2px solid var(--color-text-input);
+}
+
+.checkbox-main-container input[type="checkbox"]:checked + span + .checkbox-text {
+    color: var(--color-text-input);
+}
+
+@media screen and (max-width: 768px) {
+    .checkbox-main-container p {
+        font-size: 0.875rem;
+        letter-spacing: -0.28px;
+    }
 }

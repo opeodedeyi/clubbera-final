@@ -4,7 +4,8 @@ import Link from "next/link";
 import { Fragment } from "react";
 import Logo from "../../components/utility/logo";
 import Header from "../../components/header/header";
-import MainInput from "@/components/forminput/maininput";
+import MainInput from "../../components/forminput/maininput";
+import CheckboxInput from "../../components/forminput/checkboxinput";
 import MainPasswordInput from "../../components/forminput/passwordinput";
 import CustomButton from "../../components/utility/custombutton";
 import SocialLoginButton from "../../components/utility/socialbutton";
@@ -13,7 +14,7 @@ import "../style/authentication.css";
 import { useState } from 'react';
 
 
-const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPassword, isDisabled }) => {
+const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPassword, isDisabled, buttonClicked }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -54,14 +55,14 @@ const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPa
                 </div>
             </div>
             <div className="auth-form-actions">
-                <CustomButton size="fullwidth-size" disabled={isDisabled}>Continue</CustomButton>
+                <CustomButton size="fullwidth-size" disabled={isDisabled} onClick={buttonClicked}>Continue</CustomButton>
                 <p className="auth-form-actions-cta">Already a member? <Link href="/login" className="">Log in</Link></p>
             </div>
         </>
     );
 }
 
-const SignupStepTwo = () => {
+const SignupStepTwo = ({ ageConsent, setAgeConsent,buttonClicked }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -72,8 +73,17 @@ const SignupStepTwo = () => {
                     </div>
                 </div>
             </div>
+            <div className="auth-form-inputs">
+                {/* location goes here */}
+                <CheckboxInput
+                    label="Age"
+                    checked={ageConsent} 
+                    onChange={() => setAgeConsent(prev => !prev)}>
+                    I confirm I am 18 years of age or older
+                </CheckboxInput>
+            </div>
             <div className="auth-form-actions">
-                <CustomButton size="fullwidth-size">Get started</CustomButton>
+                <CustomButton size="fullwidth-size" disabled={!ageConsent} onClick={buttonClicked}>Get started</CustomButton>
                 <p className="auth-form-actions-policy">By signing up, you agree to <Link href="/termsofservice" className="auth-dark-link">Terms of Service</Link>, <Link href="/privacypolicy" className="auth-dark-link">Privacy Policy</Link>, and <Link href="/cookiepolicy" className="auth-dark-link">Cookie Policy</Link>.</p>
             </div>
         </>
@@ -81,7 +91,7 @@ const SignupStepTwo = () => {
 }
 
 export default function Signup() {
-    const [step, setStep] = useState(2);
+    const [step, setStep] = useState(1);
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
@@ -96,6 +106,10 @@ export default function Signup() {
         // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters
         const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
         return passwordRegex.test(password);
+    };
+
+    const buttonClicked = () => {
+        setStep(prevStep => prevStep + 1);
     };
 
     const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password);
@@ -114,9 +128,13 @@ export default function Signup() {
                             setFullName={setFullName} 
                             password={password} 
                             setPassword={setPassword}
-                            isDisabled={isDisabled}/>
+                            isDisabled={isDisabled}
+                            buttonClicked={buttonClicked}/>
                     :
-                        <SignupStepTwo />
+                        <SignupStepTwo
+                            ageConsent={ageConsent} 
+                            setAgeConsent={setAgeConsent}
+                            buttonClicked={buttonClicked}/>
                     }
                     
                 </form>

@@ -1,7 +1,6 @@
 'use client';
 
 import "./forminput.css";
-import Link from "next/link";
 
 const MainInput = ( props ) => {
     if (props.type==='textarea') {
@@ -17,6 +16,7 @@ const MainInput = ( props ) => {
                 </div>
                 
                 <input
+                    name={props.type}
                     placeholder={props.placeholder}
                     value={props.value}
                     onFocus={props.onFocus}
