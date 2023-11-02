@@ -81,7 +81,7 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
                         <p className="auth-form-content-intro-text">Choose a name that will give people a clear idea of what the group is about. You can edit this later if you change your mind.</p>
                     </div>
                 </div>
-                <MainTip theme="default-theme">We value human connection and review groups to ensure they meet our guidelines. Consider your group's goal, audience, and event activities.</MainTip>
+                <MainTip theme="default-theme">We value human connection and review groups to ensure they meet our guidelines. Consider your group&apos;s goal, audience, and event activities.</MainTip>
                 <div className="auth-form-inputs">
                     <MainInput
                         type="text"
