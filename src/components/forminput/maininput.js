@@ -6,6 +6,17 @@ const MainInput = ( props ) => {
     if (props.type==='textarea') {
         return (
             <div className="form-input-textarea">
+                <div className="form-label-textarea">
+                    <label className="form-label" htmlFor={props.input}>{ props.input }</label>
+                </div>
+
+                <textarea
+                    name={props.type}
+                    placeholder={props.placeholder}
+                    value={props.value}
+                    onFocus={props.onFocus}
+                    onChange={props.onChange}>
+                </textarea>
             </div>
         )
     } else {

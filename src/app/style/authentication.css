@@ -7,6 +7,10 @@
     align-items: center;
 }
 
+.create-group-container {
+    padding-top: 190px;
+}
+
 .auth-container-main {
     width: 100%;
     max-width: 504px;
@@ -168,9 +172,22 @@
     color: var(--color-dark);
 }
 
+.auth-form-tags {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
 @media screen and (max-width: 768px) {
     .auth-container {
         padding: 87px 24px 78px;
+    }
+    .create-group-container {
+        padding-top: 152px;
     }
 
     .auth-container-main {

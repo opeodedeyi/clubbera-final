@@ -113,7 +113,7 @@
 }
 
 .form-header-coloring {
-    border: 1.2px solid rgba(240, 243, 245, 0.80);
+    border: 1px solid rgba(240, 243, 245, 0.80);
     background: rgba(220, 249, 220, 0.03);
     color: #625F5F;
 }

@@ -1,5 +1,6 @@
 .main-input-text,
-.main-input-password {
+.main-input-password,
+.form-input-textarea {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -17,7 +18,8 @@
     align-self: stretch;
 }
 
-.form-label-container {
+.form-label-container,
+.form-label-textarea {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -27,7 +29,8 @@
 
 .main-input-text label,
 .main-input-password label,
-.checkbox-label-container label {
+.checkbox-label-container label,
+.form-input-textarea label {
     color: #625F5F;
     font-size: 0.875rem;
     font-style: normal;
@@ -44,6 +47,24 @@
     font-weight: 500;
     line-height: normal;
     letter-spacing: -0.28px;
+}
+
+.form-input-textarea textarea {
+    width: 100%;
+    color: var(--color-text-input);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--color-white-two);
+    height: 135px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    resize: none;
 }
 
 .main-input-text input {
@@ -88,11 +109,13 @@
     align-self: stretch;
 }
 
+.form-input-textarea textarea::placeholder,
 .main-input-text input::placeholder,
 .main-input-password .form-input-password input::placeholder {
     color:  #A19F9F;
 }
 
+.form-input-textarea textarea:focus,
 .main-input-text input:focus,
 .main-input-text input:focus-visible,
 .main-input-password .form-input-password input:focus,
@@ -152,6 +175,42 @@
 .checkbox-main-container input[type="checkbox"]:checked + span + .checkbox-text {
     color: var(--color-text-input);
 }
+
+/* tags beginning */
+.custom-tag {
+    display: flex;
+    height: 32px;
+    padding: 7px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 100px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.42px;
+}
+
+.is-selected {
+    border: none;
+    background-color: var(--main-color-tip);
+    color: var(--main-color-card);
+}
+
+.is-not-selected:hover {
+    border: 1.2px solid var(--color-white-two);
+    background-color: var(--color-white-two);
+    color: var(--color-dark-one);
+}
+
+.is-not-selected {
+    border: 1.2px solid var(--color-white-two);
+    background-color: transparent;
+    color: var(--color-dark-one);
+}
+/* tags ending */
 
 @media screen and (max-width: 768px) {
     .checkbox-main-container p {

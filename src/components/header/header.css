@@ -22,6 +22,10 @@
     background-color: var(--color-white-two);
 }
 
+.header-alt-arrow {
+    display: none;
+}
+
 @media screen and  (max-width: 768px) {
     .header-main {
         height: 60px;
@@ -33,6 +37,14 @@
 
     .header-buttons {
         gap: 16px;
+    }
+
+    .header-alt-arrow {
+        display: block;
+    }
+
+    .header-alt-text {
+        display: none;
     }
 }
   

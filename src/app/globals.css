@@ -6,6 +6,7 @@
   --main-color-hover: #196B18;
   --main-color-dark: #034703;
   --main-color-glow: #A5E2AB;
+  --main-color-tip: #EEFAEE;
   --color-white: #FFFFFF;
   --color-white-one: #F0F3F5;
   --color-white-two: #F4F4F4;
@@ -14,6 +15,8 @@
   --color-dark-one: #4D4A4A;
   --color-text: #8C8A8A;
   --color-text-input: #393535;
+  --main-color-card-danger: #839194;
+  --main-color-tip-danger: #DADFE2;
 }
 
 @font-face {
