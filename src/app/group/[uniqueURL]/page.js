@@ -3,10 +3,38 @@
 import Header from "../../../components/header/header";
 import CustomButton from "../../../components/utility/custombutton";
 import GroupTag from "../../../components/utility/grouptag";
-import '../../style/groupdetails.css'
+import '../../style/groupdetails.css';
 
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
+
+
+const AboutSection = () => (
+    <div id="about">About Content</div>
+);
+  
+const EventsSection = () => (
+    <div id="events">Events Content</div>
+);
 
 const GroupDetails = ({ params }) => {
+    const router = useRouter();
+    const [activeTab, setActiveTab] = useState('');
+
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash)  {
+            setActiveTab(hash);
+        } else {
+            setActiveTab('about');
+        }
+    }, []);
+
+    const handleTabClick = (tabName) => {
+        setActiveTab(tabName);
+        router.push(`#${tabName}`, undefined, { shallow: true });
+    };
+
     return (
         <>
             <Header />
@@ -45,13 +73,16 @@ const GroupDetails = ({ params }) => {
                 </div>
                 <div className="group-details-navigation">
                     <ul>
-                        <li className={`group-details-navigation-item active-navigation-item`}>About</li>
-                        <li className={`group-details-navigation-item`}>Events</li>
-                        <li className={`group-details-navigation-item`}>Discussions</li>
-                        <li className={`group-details-navigation-item`}>Members</li>
-                        <li className={`group-details-navigation-item`}>Photos</li>
+                        <li onClick={() => handleTabClick('about')} className={`group-details-navigation-item ${activeTab === 'about' ? 'active-navigation-item' : ''}`}>About</li>
+                        <li onClick={() => handleTabClick('events')} className={`group-details-navigation-item ${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
+                        <li onClick={() => handleTabClick('discussions')} className={`group-details-navigation-item ${activeTab === 'discussions' ? 'active-navigation-item' : ''}`}>Discussions</li>
+                        <li onClick={() => handleTabClick('members')} className={`group-details-navigation-item ${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
+                        <li onClick={() => handleTabClick('photos')} className={`group-details-navigation-item ${activeTab === 'photos' ? 'active-navigation-item' : ''}`}>Photos</li>
                     </ul>
                 </div>
+
+                {activeTab === 'about' && <AboutSection/>}
+                {activeTab === 'events' && <EventsSection/>}
             </div>
         </>
     );

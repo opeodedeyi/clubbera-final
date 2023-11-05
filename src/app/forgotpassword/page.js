@@ -5,9 +5,7 @@ import { useState, Fragment } from "react";
 import Logo from "../../components/utility/logo";
 import Header from "../../components/header/header";
 import MainInput from "../../components/forminput/maininput";
-import MainPasswordInput from "../../components/forminput/passwordinput";
 import CustomButton from "../../components/utility/custombutton";
-import SocialLoginButton from "../../components/utility/socialbutton";
 import "../style/authentication.css";
 
 const MainForm = ({ email, setEmail, isDisabled }) => {
