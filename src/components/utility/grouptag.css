@@ -1,0 +1,44 @@
+.group-keydetails-permission {
+    display: flex;
+    width: 80px;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: -0.16px;
+}
+
+.public-coloring {
+    color: var(--main-color-card-danger);
+    background-color: var(--main-color-tip-danger);
+}
+
+.private-coloring {
+    color: var(--main-color-card-calm);
+    background-color: var(--main-color-tip-calm);
+}
+
+.mobile-only-show {
+    display: none;
+}
+
+@media screen and  (max-width: 768px) {
+    .group-keydetails-permission {
+        width: 53px;
+        padding: 4px 10px;
+        font-size: 0.75rem;
+        letter-spacing: -0.12px;
+    }
+
+    .desktop-only-show {
+        display: none;
+    }
+
+    .mobile-only-show {
+        display: flex;
+    }
+}

@@ -36,17 +36,32 @@
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 18px */
+    line-height: 100%;
     letter-spacing: -0.18px;
     padding: 15px 44px;
     border-radius: 100px;
+}
+
+.normal-button-size {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.16px;
+    padding: 7px 24px;
+    border-radius: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
 }
 
 .fullwidth-size {
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 100%; /* 18px */
+    line-height: 100%;
     letter-spacing: -0.18px;
     padding: 15px 44px;
     border-radius: 100px;
@@ -137,9 +152,17 @@
     }
 
     .form-header-size {
-        padding: 10px 20px;
+        padding: 10px 16px;
         font-size: .875rem;
         line-height: 135%;
         letter-spacing: -0.42px;
+    }
+
+    .normal-button-size {
+        font-size: 0.875rem;
+        letter-spacing: -0.14px;
+        padding: 7px 18px;
+        border-radius: 100px;
+        height: 32px;
     }
 }

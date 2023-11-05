@@ -11,12 +11,15 @@
   --color-white-one: #F0F3F5;
   --color-white-two: #F4F4F4;
   --color-white-three: #DFDFDF;
+  --color-white-four: #FDFDFD;
   --color-dark: #241F1F;
   --color-dark-one: #4D4A4A;
   --color-text: #8C8A8A;
   --color-text-input: #393535;
-  --main-color-card-danger: #839194;
-  --main-color-tip-danger: #DADFE2;
+  --main-color-card-danger: #773800;
+  --main-color-tip-danger: #FFF6EE;
+  --main-color-card-calm: #003581;
+  --main-color-tip-calm: #EEF5FF;
 }
 
 @font-face {
@@ -103,6 +106,20 @@ h3 {
   letter-spacing: -0.48px;
 }
 
+h4 {
+  color: #393535;
+  /* text-align: center; */
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.64px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 p {
   color: var(--color-text);
   font-size: 1.25rem;
@@ -143,6 +160,10 @@ body {
   margin-top: 72px;
 }
 
+.mobile-only-show {
+  display: none;
+}
+
 @media screen and  (max-width: 900px) {
   :root {
     --border-radius: 12px;
@@ -167,9 +188,27 @@ body {
     line-height: 135%;
     letter-spacing: -0.48px;
   }
+
+  h4 {
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.44px;
+  }
   
   p {
     font-size: 0.875rem;
     letter-spacing: -0.28px;
+  }
+}
+
+@media screen and  (max-width: 768px) {
+  .desktop-only-show {
+    display: none;
+  }
+
+  .mobile-only-show {
+    display: flex;
   }
 }
