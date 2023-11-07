@@ -10,11 +10,28 @@ import { useState, useEffect } from 'react';
 
 
 const AboutSection = () => (
-    <div id="about">About Content</div>
+    <div id="about" className="group-other">
+        <div className="group-about-description">
+            <h5 className="group-about-title">Group description</h5>
+            <p className="group-about-content">
+                Picture this: A vibrant community nestled in the heart of the United Kingdom, uniting individuals who are passionate about spreading the contagious spirit of positivity. Here, we are not just enthusiasts; we are advocates, champions, and connoisseurs of all things uplifting.
+                In the Positivity Lovers Club, we have created a haven for those who believe that positivity is not just a mindset; it is a way of life. We are the ones who look for silver linings on even the cloudiest of days, and we ave turned "glass half full" into an art form.
+                So, if you are a lover of sunny dispositions, a connoisseur of good vibes, and a collector of heartwarming stories, the Positivity Lovers Club in the UK is the perfect place for you. Join us in our quest to connect, inspire, and uplift, because we know that together, we can make the world a brighter, more cheerful place. 🌟💖
+            </p>
+        </div>
+        <div className="group-meeting-time">
+            <div className="group-meeting-time-container">
+                <h5 className="group-about-title">Meeting times</h5>
+                <div className="group-meeting-items">
+
+                </div>
+            </div>
+        </div>
+    </div>
 );
   
 const EventsSection = () => (
-    <div id="events">Events Content</div>
+    <div id="events" className="group-event">Events Content</div>
 );
 
 const GroupDetails = ({ params }) => {
