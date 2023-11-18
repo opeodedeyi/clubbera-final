@@ -6,6 +6,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Clubbera',
   description: 'Connecting people with local communities',
+  icons: {
+    icon: '/LogoClubbera.svg',
+    apple: 'LogoClubbera.svg',
+  }
 }
 
 export default function RootLayout({ children }) {

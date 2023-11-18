@@ -170,6 +170,12 @@ export default function Home() {
       :
         <NotLoggedIn />
       }
+
+      <footer className="main-footer">
+        <div className="main-footer-top"></div>
+        <div className="main-footer-midline"></div>
+        <div className="main-footer-bottom"></div>
+      </footer>
     </Fragment>
   )
 }

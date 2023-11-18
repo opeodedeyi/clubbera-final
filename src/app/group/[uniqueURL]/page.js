@@ -3,21 +3,18 @@
 import Header from "../../../components/header/header";
 import CustomButton from "../../../components/utility/custombutton";
 import GroupTag from "../../../components/utility/grouptag";
+import DiscussionCard from "../../../components/cards/discussioncard";
 import '../../style/groupdetails.css';
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 
-const AboutSection = () => (
+const AboutSection = ({description, location, date, time}) => (
     <div id="about" className="group-other">
         <div className="group-about-description">
             <h5 className="group-about-title">Group description</h5>
-            <p className="group-about-content">
-                Picture this: A vibrant community nestled in the heart of the United Kingdom, uniting individuals who are passionate about spreading the contagious spirit of positivity. Here, we are not just enthusiasts; we are advocates, champions, and connoisseurs of all things uplifting.
-                In the Positivity Lovers Club, we have created a haven for those who believe that positivity is not just a mindset; it is a way of life. We are the ones who look for silver linings on even the cloudiest of days, and we ave turned glass half full into an art form.
-                So, if you are a lover of sunny dispositions, a connoisseur of good vibes, and a collector of heartwarming stories, the Positivity Lovers Club in the UK is the perfect place for you. Join us in our quest to connect, inspire, and uplift, because we know that together, we can make the world a brighter, more cheerful place. 🌟💖
-            </p>
+            <p className="group-about-content">{description}</p>
         </div>
         <div className="group-meeting-time">
             <div className="group-meeting-time-container">
@@ -32,7 +29,7 @@ const AboutSection = () => (
                         </div>
                         <div className="meeting-time-item-text">
                             <p className="meeting-time-item-title">Location</p>
-                            <p className="meeting-time-item-content">The Man Behind The Curtain, Vicar Lane, Leeds, United Kingdom</p>
+                            <p className="meeting-time-item-content">{location}</p>
                         </div>
                     </div>
                     <div className="meeting-time-item">
@@ -52,7 +49,7 @@ const AboutSection = () => (
                         </div>
                         <div className="meeting-time-item-text">
                             <p className="meeting-time-item-title">Date</p>
-                            <p className="meeting-time-item-content">24 Sep, 2023</p>
+                            <p className="meeting-time-item-content">{date}</p>
                         </div>
                     </div>
                     <div className="meeting-time-item">
@@ -64,7 +61,7 @@ const AboutSection = () => (
                         </div>
                         <div className="meeting-time-item-text">
                             <p className="meeting-time-item-title">Time</p>
-                            <p className="meeting-time-item-content">3:00 PM</p>
+                            <p className="meeting-time-item-content">{time}</p>
                         </div>
                     </div>
                 </div>
@@ -81,40 +78,20 @@ const EventsSection = () => (
     </div>
 );
 
-const DiscussionSection = () => {
-    function truncateTextWithDot(text, maxLength) {
-        return text.length > maxLength ? text.substring(0, maxLength) + '.' : text;
-    }
-
+const DiscussionSection = ({discussions}) => {
     return (
         <div id="discussions" className="group-discussion">
-            <p className="group-event-title-text">Discussions (2)</p>
+            <p className="group-event-title-text">Discussions { `(${discussions.length})` }</p>
             <div className="group-discussion-container">
-                <div className="discussion-card">
-                    <div className="discussion-card-top">
-                        <div className="discussion-card-info">
-                            <div className="discussion-card-info-left">
-                                <div className="discussion-card-info-image">
-                                    <img src="/profile_image.png" alt="" />
-                                </div>
-                                <p className="discussion-card-username">{truncateTextWithDot(`Opeyemi Odedeyi`, 9)}</p>
-                                <div className="discussion-card-point"></div>
-                                <p className="discussion-card-time">2 hours ago</p>
-                            </div>
-                            {/* <div className="discussion-card-info-report"></div> Report button goes here */}
-                        </div>
-                        <div className="discussion-card-line"></div>
-                        <p className="discussion-card-comment">Hey there, fellow positivity lovers! 😄 I hope this message finds you all in high spirits. As we have grown as a community, I have been thinking a lot about how we can take our passion for positivity beyond our clubs virtual walls and make a more significant impact in the UK. So, I would love to hear your thoughts on how we can spread the positivity bug even further. Do you have any ideas, big or small, for projects, initiatives, or collaborations that could make a difference in our local communities or across the nation?</p>
-                    </div>
-                    <div className="discussion-card-bottom">
-                        <div className="discussion-card-bottom-left">
-                            <p className="discussion-card-smltxt">2 likes</p>
-                            <div className="discussion-card-point"></div>
-                            <p className="discussion-card-smltxt">0 reply</p>
-                        </div>
-                        <div className="discussion-card-bottom-right"></div>
-                    </div>
-                </div>
+                {discussions.map((discussion, index) => (
+                    <DiscussionCard 
+                        key={index}
+                        name={discussion.owner.fullName}
+                        comment={discussion.comment}
+                        likeCount={discussion.likeCount}
+                        replyCount={discussion.replyCount}
+                        timeSince={discussion.timeSince}/>
+                ))}
             </div>
         </div>
     );
@@ -123,6 +100,30 @@ const DiscussionSection = () => {
 const GroupDetails = ({ params }) => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('');
+    const [description, setDescription] = useState('Picture this: A vibrant community nestled in the heart of the United Kingdom, uniting individuals who are passionate about spreading the contagious spirit of positivity. Here, we are not just enthusiasts; we are advocates, champions, and connoisseurs of all things uplifting. In the Positivity Lovers Club, we have created a haven for those who believe that positivity is not just a mindset; it is a way of life. We are the ones who look for silver linings on even the cloudiest of days, and we ave turned glass half full into an art form. So, if you are a lover of sunny dispositions, a connoisseur of good vibes, and a collector of heartwarming stories, the Positivity Lovers Club in the UK is the perfect place for you. Join us in our quest to connect, inspire, and uplift, because we know that together, we can make the world a brighter, more cheerful place. 🌟💖');
+    const [location, setLocation] = useState('The Man Behind The Curtain, Vicar Lane, Leeds, United Kingdom');
+    const [date, setDate] = useState('24 Sep, 2023');
+    const [time, setTime] = useState('3:00 PM')
+    const [discussions, setDiscussions] = useState([{
+        'owner': {
+            "fullName": "David Odedeyi",
+            "profilePhoto": ""
+        },
+        "comment": "Hey there, fellow positivity lovers! 😄 I hope this message finds you all in high spirits.",
+        "likeCount": 2,
+        "replyCount": 1,
+        "timeSince": "2 hours ago"
+    },
+    {
+        'owner': {
+            "fullName": "sandra Mitome",
+            "profilePhoto": ""
+        },
+        "comment": "Glad to be part of this new community",
+        "likeCount": 20,
+        "replyCount": 0,
+        "timeSince": "10 minutes ago"
+    }])
 
     useEffect(() => {
         const hash = window.location.hash.replace('#', '');
@@ -180,13 +181,13 @@ const GroupDetails = ({ params }) => {
                         <li onClick={() => handleTabClick('events')} className={`group-details-navigation-item ${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
                         <li onClick={() => handleTabClick('discussions')} className={`group-details-navigation-item ${activeTab === 'discussions' ? 'active-navigation-item' : ''}`}>Discussions</li>
                         <li onClick={() => handleTabClick('members')} className={`group-details-navigation-item ${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
-                        <li onClick={() => handleTabClick('photos')} className={`group-details-navigation-item ${activeTab === 'photos' ? 'active-navigation-item' : ''}`}>Photos</li>
+                        {/* <li onClick={() => handleTabClick('photos')} className={`group-details-navigation-item ${activeTab === 'photos' ? 'active-navigation-item' : ''}`}>Photos</li> */}
                     </ul>
                 </div>
 
-                {activeTab === 'about' && <AboutSection/>}
+                {activeTab === 'about' && <AboutSection description={description} location={location} date={date} time={time}/>}
                 {activeTab === 'events' && <EventsSection/>}
-                {activeTab === 'discussions' && <DiscussionSection/>}
+                {activeTab === 'discussions' && <DiscussionSection discussions={discussions}/>}
             </div>
         </>
     );
