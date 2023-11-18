@@ -1,6 +1,7 @@
 'use client';
 
 import Header from "../../../components/header/header";
+import MainFooter from "../../../components/footer/mainfooter";
 import CustomButton from "../../../components/utility/custombutton";
 import GroupTag from "../../../components/utility/grouptag";
 import DiscussionCard from "../../../components/cards/discussioncard";
@@ -189,6 +190,8 @@ const GroupDetails = ({ params }) => {
                 {activeTab === 'events' && <EventsSection/>}
                 {activeTab === 'discussions' && <DiscussionSection discussions={discussions}/>}
             </div>
+
+            <MainFooter/>
         </>
     );
 }

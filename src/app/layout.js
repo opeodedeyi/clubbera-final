@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Connecting people with local communities',
   icons: {
     icon: '/LogoClubbera.svg',
-    apple: 'LogoClubbera.svg',
+    apple: '/LogoClubbera.svg',
   }
 }
 

@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import Header from "../components/header/header";
+import MainFooter from "../components/footer/mainfooter";
 import CustomButton from "../components/utility/custombutton";
 import Image from 'next/image'
 import "./style/homepage.css"
@@ -171,11 +172,7 @@ export default function Home() {
         <NotLoggedIn />
       }
 
-      <footer className="main-footer">
-        <div className="main-footer-top"></div>
-        <div className="main-footer-midline"></div>
-        <div className="main-footer-bottom"></div>
-      </footer>
+      <MainFooter/>
     </Fragment>
   )
 }
