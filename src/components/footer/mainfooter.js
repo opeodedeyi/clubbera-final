@@ -16,8 +16,8 @@ export default function MainFooter() {
                 <div className="main-footer-top-right">
                     <ul>
                         <li><p className="main-footer-link-header">Your Account</p></li>
-                        <li><Link href="#" className="main-footer-link">Sign up</Link></li>
-                        <li><Link href="#" className="main-footer-link">Login</Link></li>
+                        <li><Link href="/signup" className="main-footer-link">Sign up</Link></li>
+                        <li><Link href="/login" className="main-footer-link">Login</Link></li>
                         <li><Link href="#" className="main-footer-link">Help</Link></li>
                     </ul>
                     <ul>

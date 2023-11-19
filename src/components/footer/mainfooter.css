@@ -130,7 +130,7 @@
 
 @media screen and  (max-width: 768px) {
     .main-footer {
-        padding: 40px var(--container-padding);
+        padding: 40px 32px;
     }
 
     .main-footer-top-right {

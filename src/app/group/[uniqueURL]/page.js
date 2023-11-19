@@ -5,6 +5,7 @@ import MainFooter from "../../../components/footer/mainfooter";
 import CustomButton from "../../../components/utility/custombutton";
 import GroupTag from "../../../components/utility/grouptag";
 import DiscussionCard from "../../../components/cards/discussioncard";
+import SmallMemberCard from "../../../components/cards/smallmembercard";
 import '../../style/groupdetails.css';
 
 import { useRouter } from 'next/navigation';
@@ -98,6 +99,38 @@ const DiscussionSection = ({discussions}) => {
     );
 };
 
+const MemberSection = ({organizers, members}) => {
+    return (
+        <div id="members" className="group-members">
+            <div className="group-members-container">
+                <p className="group-members-title-text">ORGANIZERS</p>
+                <div className="group-members-cards-container">
+                    {organizers.map((person, index) => (
+                        <SmallMemberCard
+                            key={index}
+                            name={person.name} 
+                            role={person.role} 
+                            date={person.date}/>
+                    ))}
+                </div>
+            </div>
+
+            <div className="group-members-container">
+                <p className="group-members-title-text">OTHER MEMBERS</p>
+                <div className="group-members-cards-container">
+                    {members.map((person, index) => (
+                        <SmallMemberCard 
+                            key={index+100}
+                            name={person.name} 
+                            role={person.role} 
+                            date={person.date}/>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const GroupDetails = ({ params }) => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('');
@@ -124,6 +157,28 @@ const GroupDetails = ({ params }) => {
         "likeCount": 20,
         "replyCount": 0,
         "timeSince": "10 minutes ago"
+    }])
+
+    const [organizers, setOrganizers] = useState([{
+        'name': "Daniel Roberts",
+        'role': "Co-organizer",
+        'date': "Jun 2023"
+    },
+    {
+        'name': "Sandra Benson",
+        'role': "Co-organizer",
+        'date': "May 2023"
+    }])
+
+    const [members, setMembers] = useState([{
+        'name': "Modupe Odedeyi",
+        'role': "Member",
+        'date': "Nov 2023"
+    },
+    {
+        'name': "Boluwatife Faith Oluwaseun",
+        'role': "Member",
+        'date': "Dec 2023"
     }])
 
     useEffect(() => {
@@ -189,6 +244,7 @@ const GroupDetails = ({ params }) => {
                 {activeTab === 'about' && <AboutSection description={description} location={location} date={date} time={time}/>}
                 {activeTab === 'events' && <EventsSection/>}
                 {activeTab === 'discussions' && <DiscussionSection discussions={discussions}/>}
+                {activeTab === 'members' && <MemberSection members={members} organizers={organizers}/>}
             </div>
 
             <MainFooter/>

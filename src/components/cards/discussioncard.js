@@ -1,13 +1,10 @@
 'use client';
 
+import { truncateTextWithDot } from '@/utils/textUtils';
 import './discussioncard.css';
 
 
 const DiscussionCard = ({ name, comment, timeSince, likeCount, replyCount }) => {
-    function truncateTextWithDot(text, maxLength) {
-        return text.length > maxLength ? text.substring(0, maxLength) + '.' : text;
-    }
-
     return (
         <div className="discussion-card">
             <div className="discussion-card-top">
