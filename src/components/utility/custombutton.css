@@ -42,7 +42,8 @@
     border-radius: 100px;
 }
 
-.normal-button-size {
+.normal-button-size,
+.default-button-size {
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -56,6 +57,7 @@
     align-items: center;
     gap: 4px;
 }
+
 
 .fullwidth-size {
     font-size: 1.125rem;
@@ -164,5 +166,13 @@
         padding: 7px 18px;
         border-radius: 100px;
         height: 32px;
+    }
+
+    .default-button-size {
+        font-size: 1rem;
+        letter-spacing: -0.16px;
+        padding: 7px 24px;
+        border-radius: 100px;
+        height: 40px;
     }
 }

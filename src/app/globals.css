@@ -18,6 +18,7 @@
   --color-dark-one: #4D4A4A;
   --color-text: #8C8A8A;
   --color-gray: #777474;
+  --color-gray-two: #A19F9F;
   --color-gray-dot: #B9B9B9;
   --color-text-input: #393535;
   --main-color-card-danger: #773800;
@@ -102,7 +103,6 @@ h2 {
 
 h3 {
   color: #393535;
-  /* text-align: center; */
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
@@ -112,13 +112,11 @@ h3 {
 
 h4 {
   color: #393535;
-  /* text-align: center; */
   font-size: 2rem;
   font-style: normal;
   font-weight: 500;
   line-height: 100%;
   letter-spacing: -0.64px;
-
   display: flex;
   align-items: center;
   gap: 8px;

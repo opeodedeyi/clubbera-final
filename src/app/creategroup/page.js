@@ -85,8 +85,8 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
                 <div className="auth-form-inputs">
                     <MainInput
                         type="text"
-                        placeholder="Enter title" 
-                        input="Full name"
+                        placeholder="Enter name" 
+                        input="Group name"
                         value={groupTitle}
                         onChange={(e) => setGroupTitle(e.target.value)}/>
 
@@ -138,9 +138,19 @@ export default function CreateGroup() {
                 <form className="auth-container-main">
                     
                     {/* {step === 0 && <StepPre />} */}
-                    {step === 1 && <CreateGroupStepOne fullName={fullName} setFullName={setFullName} />}
-                    {step === 2 && <CreateGroupStepTwo presetTopics={presetTopics} setPresetTopics={setPresetTopics} selectedTopics={selectedTopics} setSelectedTopics={setSelectedTopics} />}
-                    {step === 3 && <CreateGroupStepThree groupTitle={groupTitle} setGroupTitle={setGroupTitle} groupDescription={groupDescription} setGroupDescription={setGroupDescription} />}
+                    {step === 1 && <CreateGroupStepOne 
+                                        fullName={fullName} 
+                                        setFullName={setFullName} />}
+                    {step === 2 && <CreateGroupStepTwo 
+                                        presetTopics={presetTopics} 
+                                        setPresetTopics={setPresetTopics} 
+                                        selectedTopics={selectedTopics} 
+                                        setSelectedTopics={setSelectedTopics} />}
+                    {step === 3 && <CreateGroupStepThree 
+                                        groupTitle={groupTitle} 
+                                        setGroupTitle={setGroupTitle} 
+                                        groupDescription={groupDescription} 
+                                        setGroupDescription={setGroupDescription} />}
                     {/* {step === 4 && <StepFour />}
                     {step === 5 && <StepPost uniqueURL={uniqueURL} />} */}
 
