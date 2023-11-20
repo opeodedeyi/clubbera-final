@@ -92,7 +92,7 @@ const EditGroup = ({ params }) => {
 
                 {activeTab === 'details' && <EditDetailsSection/>}
                 {activeTab === 'events' && <EventsSection/>}
-                {activeTab === 'discussions' && <DiscussionSection/>}
+                {/* {activeTab === 'discussions' && <DiscussionSection/>} */}
                 {activeTab === 'members' && <MemberSection/>}
             </div>
 
