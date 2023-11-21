@@ -21,7 +21,7 @@ const IntroStep = ({ onClick }) => {
                 <div className="auth-form-content-main">
                     <div className="auth-form-content-intro">
                         <h3>Welcome to Clubbera! Create your community now.</h3>
-                        <p className="auth-form-content-intro-text">Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you're done!</p>
+                        <p className="auth-form-content-intro-text">Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you&apos;re done!</p>
                     </div>
                 </div>
 
