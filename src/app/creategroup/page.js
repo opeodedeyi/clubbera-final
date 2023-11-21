@@ -15,7 +15,8 @@ const IntroStep = ({ onClick }) => {
     return (
         <>
             <div className="auth-form-content-center">
-                <div className="auth-create-community-image">
+                <div className="auth-community-created-image">
+                    <img src="/create_community.svg" alt="community created" />
                 </div>
                 
                 <div className="auth-form-content-main">
@@ -25,7 +26,10 @@ const IntroStep = ({ onClick }) => {
                     </div>
                 </div>
 
-                <CustomButton size="fullwidth-size" onClick={onClick}>Create now</CustomButton>
+                <div className="auth-form-content-column">
+                    <CustomButton size="fullwidth-size" onClick={onClick}>Create now</CustomButton>
+                    <CustomButton link destination='/' coloring="button-nobutton-coloring" size="button-nobutton-size">Skip</CustomButton>
+                </div>
             </div>
         </>
     );
@@ -135,9 +139,10 @@ const FinishStep = ({groupTitle}) => {
                 </div>
 
                 <div className="auth-community-created-image">
+                    <img src="/community_created.svg" alt="community created" />
                 </div>
                 
-                <CustomButton link destination="/" size="normal-size">Go to Dashboard</CustomButton>
+                <CustomButton link destination="/" size="fullwidth-size">Go to Dashboard</CustomButton>
             </div>
         </>
     );
