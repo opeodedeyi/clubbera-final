@@ -154,13 +154,25 @@
     color: var(--main-color-hover);
 }
 
-.auth-form-success-image {
+.auth-form-success-image,
+.auth-community-created-image,
+.auth-create-community-image {
     width: 100%;
     max-width: 240px;
     min-height: 200px;
-    background-image: url('/email_sent.png');
     background-size: cover;
     background-position: 50%;
+}
+
+.auth-form-success-image {
+    background-image: url('/email_sent.png');
+}
+
+.auth-community-created-image {
+    background-image: url('/community_created.png');
+}
+.auth-create-community-image {
+    background-image: url('/create_community.png');
 }
 
 .auth-dark-link {

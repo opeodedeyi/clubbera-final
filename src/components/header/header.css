@@ -1,8 +1,31 @@
 .header-main {
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
     position: fixed;
+    width: 100%;
+    z-index: 10;
+    height: 72px;
+    padding: 0 var(--container-padding);
+    background-color: var(--color-white);
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-white-two);
+}
+
+.header-create {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color: var(--color-white);
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-white-two);
+}
+
+.header-alt {
+    display: flex;
+    align-items: center;
     width: 100%;
     z-index: 10;
     height: 72px;
@@ -26,8 +49,93 @@
     display: none;
 }
 
+/* header create group */
+.header-creategroup {
+    display: flex;
+    padding: 0 var(--container-padding);
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid rgba(244, 244, 244, 0.20);
+}
+
+.header-createheader-desktop {
+    width: 100%;
+    height: 100%;
+    max-width: 566px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    flex-shrink: 0;
+}
+
+.header-createheader-mobile {
+    display: none;
+}
+
+/* desktop tag */
+.header-createheader-desktop-tag {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding-right: 2px;
+}
+
+.header-createheader-desktop-tag svg {
+    width: 18px;
+    height: 18px;
+}
+
+.header-createheader-desktop-tag svg path {
+    stroke: var(--color-gray-two);
+}
+
+.header-createheader-desktop-tag p {
+    color: var(--color-gray-two);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+}
+
+.header-createheader-desktop-tag .horizon-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    border-radius: 100px;
+    z-index: 11;
+}
+
+.createheader-desktop-tag-iscolored svg path {
+    stroke: var(--main-color);
+}
+
+.createheader-desktop-tag-iscolored p {
+    color: var(--main-color);
+    font-weight: 500;
+}
+
+.createheader-desktop-tag-iscolored .horizon-line {
+    background-color: var(--main-color);
+}
+
 @media screen and  (max-width: 768px) {
     .header-main {
+        height: 60px;
+    }
+    
+    .header-alt {
         height: 60px;
     }
 
@@ -45,6 +153,79 @@
 
     .header-alt-text {
         display: none;
+    }
+
+    /* header create group */
+    .header-creategroup {
+        height: 48px;
+    }
+
+    .header-createheader-desktop {
+        display: none;
+    }
+
+    .header-createheader-mobile {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        max-width: 504px;
+        display: flex;
+        padding: 12px 0;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+
+    /* mobile tag */
+    .header-createheader-mobile-tag {
+        display: flex;
+        width: 24px;
+        height: 24px;
+        padding: 10px;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+        border-radius: 100px;
+        background: var(--color-white-two);
+    }
+
+    .header-createheader-mobile-tag p {
+        margin: 0;
+        padding: 0;
+        color: var(--color-gray);
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 135%;
+        letter-spacing: -0.42px;
+    }
+
+    .createheader-mobile-tag-iscolored {
+        background: var(--main-color-card);
+    }
+
+    .createheader-mobile-tag-iscolored p {
+        color: var(--color-white-two);
+    }
+
+    .createheader-mobile-horline {
+        width: 100%;
+        height: 1px;
+        background: rgba(244, 244, 244, 0.60);
+    }
+
+    .createheader-mobile-horline-inner {
+        width: 100%;
+        height: 100%;
+    }
+
+    .createheader-halfbar {
+        background: linear-gradient(90deg, var(--main-color-card) 36.36%, var(--color-white-two) 63.64%);
+    }
+
+    .createheader-fullbar {
+        background: var(--main-color-card);
     }
 }
   

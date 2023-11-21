@@ -11,6 +11,26 @@ import "../style/authentication.css";
 import { useState } from 'react';
 
 
+const IntroStep = ({ onClick }) => {
+    return (
+        <>
+            <div className="auth-form-content-center">
+                <div className="auth-create-community-image">
+                </div>
+                
+                <div className="auth-form-content-main">
+                    <div className="auth-form-content-intro">
+                        <h3>Welcome to Clubbera! Create your community now.</h3>
+                        <p className="auth-form-content-intro-text">Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you're done!</p>
+                    </div>
+                </div>
+
+                <CustomButton size="fullwidth-size" onClick={onClick}>Create now</CustomButton>
+            </div>
+        </>
+    );
+}
+
 const CreateGroupStepOne = ({ fullName, setFullName }) => {
     return (
         <>
@@ -103,8 +123,28 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
     );
 }
 
+const FinishStep = ({groupTitle}) => {
+    return (
+        <>
+            <div className="auth-form-content-center">
+                <div className="auth-form-content-main">
+                    <div className="auth-form-content-intro">
+                        <h3>Your group is all set up 🎉</h3>
+                        <p className="auth-form-content-intro-text">Congratulations. You have successfully created a community group - &lsquo;{groupTitle}&rsquo;. Kindly proceed to your dashboard</p>
+                    </div>
+                </div>
+
+                <div className="auth-community-created-image">
+                </div>
+                
+                <CustomButton link destination="/" size="normal-size">Go to Dashboard</CustomButton>
+            </div>
+        </>
+    );
+}
+
 export default function CreateGroup() {
-    const [step, setStep] = useState(1);
+    const [step, setStep] = useState(0);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
     const [fullName, setFullName] = useState("");
@@ -137,7 +177,8 @@ export default function CreateGroup() {
             <div className="auth-container create-group-container">
                 <form className="auth-container-main">
                     
-                    {/* {step === 0 && <StepPre />} */}
+                    {step === 0 && <IntroStep 
+                                        onClick={handleNext}/>}
                     {step === 1 && <CreateGroupStepOne 
                                         fullName={fullName} 
                                         setFullName={setFullName} />}
@@ -151,12 +192,15 @@ export default function CreateGroup() {
                                         setGroupTitle={setGroupTitle} 
                                         groupDescription={groupDescription} 
                                         setGroupDescription={setGroupDescription} />}
-                    {/* {step === 4 && <StepFour />}
-                    {step === 5 && <StepPost uniqueURL={uniqueURL} />} */}
+                    {/* {step === 4 && <StepFour />} */}
+                    {step === 5 && <FinishStep 
+                                        groupTitle={groupTitle} />}
 
-                    <div className="auth-form-actions-two">
-                        <CustomButton size="normal-size" onClick={handleNext}>Proceed</CustomButton>
-                    </div>
+                    {step > 0 && step < 5 &&
+                        <div className="auth-form-actions-two">
+                            <CustomButton size="normal-size" onClick={handleNext}>Proceed</CustomButton>
+                        </div>
+                    }
                 </form>
             </div>
         </Fragment>
