@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import AltHeader from "../../components/header/altheader";
 import MainInput from "../../components/forminput/maininput";
+import BinaryOptionInput from "../../components/forminput/binaryoptioninput";
 import CustomTag from "../../components/forminput/customtag";
 import MainTip from "../../components/utility/maintip";
 import CustomButton from "../../components/utility/custombutton";
@@ -127,6 +128,26 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
     );
 }
 
+const CreateGroupStepFour = ({ boolValue, setBoolValue }) => {
+    return (
+        <>
+            <div className="auth-form-content">
+                <div className="auth-form-content-main">
+                    <div className="auth-form-content-intro">
+                        <h3>Complete setup</h3>
+                        <p className="auth-form-content-intro-text">Configure the privacy settings and upload an image that best describes your group.</p>
+                    </div>
+                </div>
+                <div className="auth-form-inputs">
+                    <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
+
+                    {/* image upload goes here */}
+                </div>
+            </div>
+        </>
+    );
+}
+
 const FinishStep = ({groupTitle}) => {
     return (
         <>
@@ -156,6 +177,7 @@ export default function CreateGroup() {
     const [groupTitle, setGroupTitle] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
+    const [isPrivate, setIsPrivate] = useState(null);
 
     const handleNext = (event) => {
         if (step < 5) {
@@ -181,7 +203,6 @@ export default function CreateGroup() {
 
             <div className="auth-container create-group-container">
                 <form className="auth-container-main">
-                    
                     {step === 0 && <IntroStep 
                                         onClick={handleNext}/>}
                     {step === 1 && <CreateGroupStepOne 
@@ -197,13 +218,15 @@ export default function CreateGroup() {
                                         setGroupTitle={setGroupTitle} 
                                         groupDescription={groupDescription} 
                                         setGroupDescription={setGroupDescription} />}
-                    {/* {step === 4 && <StepFour />} */}
+                    {step === 4 && <CreateGroupStepFour
+                                        boolValue={isPrivate}
+                                        setBoolValue={setIsPrivate} />}
                     {step === 5 && <FinishStep 
                                         groupTitle={groupTitle} />}
 
                     {step > 0 && step < 5 &&
                         <div className="auth-form-actions-two">
-                            <CustomButton size="normal-size" onClick={handleNext}>Proceed</CustomButton>
+                            <CustomButton size="normal-size" onClick={handleNext}>{step < 4 ? 'Proceed' : 'Complete'}</CustomButton>
                         </div>
                     }
                 </form>

@@ -212,6 +212,40 @@
 }
 /* tags ending */
 
+.binary-option-input {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-self: stretch;
+    gap: 16px;
+}
+
+.btn-option {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--color-white-two);
+    font-size: var(--color-text-input);
+    cursor: pointer;
+}
+
+.btn-option-selected,
+.btn-option:hover {
+    background: var(--main-color-tip);
+    border: none;
+    color: var(--main-color-card);
+}
+
 @media screen and (max-width: 768px) {
     .checkbox-main-container p {
         font-size: 0.875rem;
