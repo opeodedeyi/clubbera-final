@@ -1,9 +1,16 @@
 'use client';
 
 import "./forminput.css";
-import { useState, useRef } from 'react';
-import { readAndCompressImage } from 'browser-image-resizer';
+import { truncateTextWithDot } from '@/utils/textUtils';
+import { useState, useRef, useEffect } from 'react';
+// import { readAndCompressImage } from 'browser-image-resizer';
+import dynamic from 'next/dynamic';
 
+
+let readAndCompressImage;
+if (typeof window !== 'undefined') {
+    readAndCompressImage = require('browser-image-resizer').readAndCompressImage;
+}
 
 const SingleImageUploadInput = ({ children }) => {
     const [isDragOver, setIsDragOver] = useState(false);
@@ -105,7 +112,7 @@ const SingleImageUploadInput = ({ children }) => {
                     <div className='single-image-result'>
                         <div className='single-image-result-content'>
                             <div className='single-image-result-content-left'>
-                                <div className='single-image-result-content-left-name'>{imageName}</div>
+                                <div className='single-image-result-content-left-name'>{truncateTextWithDot(imageName, 30)}</div>
                                 <div className='single-image-result-content-left-size'>{imageSize}</div>
                             </div>
                             <div onClick={handleImageDelete} className='single-image-result-content-delete'>
