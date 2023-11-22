@@ -142,7 +142,7 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue }) => {
                 <div className="auth-form-inputs">
                     <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
 
-                    <SingleImageUploadInput>Upload image</SingleImageUploadInput>
+                    {/* <SingleImageUploadInput>Upload image</SingleImageUploadInput> */}
                 </div>
             </div>
         </>
