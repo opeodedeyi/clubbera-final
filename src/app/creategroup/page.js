@@ -171,7 +171,7 @@ const FinishStep = ({groupTitle}) => {
 }
 
 export default function CreateGroup() {
-    const [step, setStep] = useState(4);
+    const [step, setStep] = useState(0);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
     const [fullName, setFullName] = useState("");
