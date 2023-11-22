@@ -4,7 +4,7 @@ import { Fragment } from "react";
 import AltHeader from "../../components/header/altheader";
 import MainInput from "../../components/forminput/maininput";
 import BinaryOptionInput from "../../components/forminput/binaryoptioninput";
-import SingleImageUploadInput from "../../components/forminput/singleimageuploadinput";
+// import SingleImageUploadInput from "../../components/forminput/singleimageuploadinput";
 import CustomTag from "../../components/forminput/customtag";
 import MainTip from "../../components/utility/maintip";
 import CustomButton from "../../components/utility/custombutton";
