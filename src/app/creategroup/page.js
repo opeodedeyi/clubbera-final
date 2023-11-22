@@ -4,6 +4,7 @@ import { Fragment } from "react";
 import AltHeader from "../../components/header/altheader";
 import MainInput from "../../components/forminput/maininput";
 import BinaryOptionInput from "../../components/forminput/binaryoptioninput";
+import SingleImageUploadInput from "../../components/forminput/singleimageuploadinput";
 import CustomTag from "../../components/forminput/customtag";
 import MainTip from "../../components/utility/maintip";
 import CustomButton from "../../components/utility/custombutton";
@@ -141,7 +142,7 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue }) => {
                 <div className="auth-form-inputs">
                     <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
 
-                    {/* image upload goes here */}
+                    <SingleImageUploadInput>Upload image</SingleImageUploadInput>
                 </div>
             </div>
         </>
@@ -170,7 +171,7 @@ const FinishStep = ({groupTitle}) => {
 }
 
 export default function CreateGroup() {
-    const [step, setStep] = useState(0);
+    const [step, setStep] = useState(4);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
     const [fullName, setFullName] = useState("");
