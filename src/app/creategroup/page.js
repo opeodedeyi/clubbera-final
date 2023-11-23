@@ -171,7 +171,7 @@ const FinishStep = ({groupTitle}) => {
 }
 
 export default function CreateGroup() {
-    const [step, setStep] = useState(4);
+    const [step, setStep] = useState(0);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
     const [fullName, setFullName] = useState("");
@@ -185,6 +185,21 @@ export default function CreateGroup() {
             setStep(step + 1)
         } else {
             console.log("go to homepage or something");
+        }
+    };
+
+    const disableNextPage = () => {
+        switch (step) {
+            case 1:
+                return !fullName;
+            case 2:
+                return selectedTopics.length === 0;
+            case 3:
+                return !groupTitle || !groupDescription;
+            case 4:
+                return isPrivate === null;
+            default:
+                return false;
         }
     };
 
@@ -227,7 +242,9 @@ export default function CreateGroup() {
 
                     {step > 0 && step < 5 &&
                         <div className="auth-form-actions-two">
-                            <CustomButton size="normal-size" onClick={handleNext}>{step < 4 ? 'Proceed' : 'Complete'}</CustomButton>
+                            <CustomButton size="normal-size" onClick={handleNext} disabled={disableNextPage()}>
+                                {step < 4 ? 'Proceed' : 'Complete'}
+                            </CustomButton>
                         </div>
                     }
                 </form>
