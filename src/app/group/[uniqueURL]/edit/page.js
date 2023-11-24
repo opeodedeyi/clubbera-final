@@ -2,6 +2,7 @@
 
 import Header from "../../../../components/header/header";
 import MainInput from "../../../../components/forminput/maininput";
+import BinaryOptionInput from "../../../../components/forminput/binaryoptioninput";
 import SingleImageUploadInput from "../../../../components/forminput/singleimageuploadinput";
 import MainFooter from "../../../../components/footer/mainfooter";
 import CustomButton from "../../../../components/utility/custombutton";
@@ -11,7 +12,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 
-const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription }) => (
+const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, boolValue, setBoolValue }) => (
     <div id="details" className="edit-details-container">
         <div className="edit-details-main">
             <div className="edit-details-main-top">
@@ -48,7 +49,14 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
             </div>
 
             <div className="edit-details-main-bottom">
-
+                <div className="edit-details-privacy">
+                    <p className="edit-details-general-title">PRIVACY SETTINGS</p>
+                    <BinaryOptionInput 
+                        boolValue={boolValue} 
+                        setBoolValue={setBoolValue} 
+                        truthyPlaceholder="Private" 
+                        falseyPlaceholder="Public" />
+                </div>
             </div>
         </div>
 
@@ -88,13 +96,14 @@ const AnalyticsSection = () => (
 
 const EditGroup = ({ params }) => {
     const router = useRouter();
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState('https://beta.clubbera.com/group.png'); // Change to null
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
     const [description, setDescription] = useState("Positivity lovers club");
     const [activeTab, setActiveTab] = useState('');
     const [groupTitle, setGroupTitle] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
+    const [isPrivate, setIsPrivate] = useState(null);
 
     useEffect(() => {
         const hash = window.location.hash.replace('#', '');
@@ -150,7 +159,9 @@ const EditGroup = ({ params }) => {
                                                 groupTitle={groupTitle} 
                                                 setGroupTitle={setGroupTitle} 
                                                 groupDescription={groupDescription} 
-                                                setGroupDescription={setGroupDescription} />}
+                                                setGroupDescription={setGroupDescription}
+                                                boolValue={isPrivate}
+                                                setBoolValue={setIsPrivate} />}
                 {activeTab === 'members' && <MemberSection/>}
                 {activeTab === 'requests' && <RequestsSection/>}
                 {activeTab === 'events' && <EventsSection/>}

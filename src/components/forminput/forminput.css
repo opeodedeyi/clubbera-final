@@ -237,6 +237,7 @@
     border: 1px solid var(--color-white-two);
     font-size: var(--color-text-input);
     cursor: pointer;
+    color: var(--color-text-input);
 }
 
 .btn-option-selected,

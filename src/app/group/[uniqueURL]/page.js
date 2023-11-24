@@ -7,7 +7,7 @@ import GroupTag from "../../../components/utility/grouptag";
 import DiscussionCard from "../../../components/cards/discussioncard";
 import SmallMemberCard from "../../../components/cards/smallmembercard";
 import '../../style/groupdetails.css';
-
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -207,7 +207,11 @@ const GroupDetails = ({ params }) => {
                     <div className="group-keydetails-major">
                         {/* style from here */}
                         <div className="group-keydetails-major-image">
-                            <img src="/group.png" alt="" />
+                            <Image 
+                                fill={true}
+                                src="/group.png"
+                                alt="group of group"
+                                loading="lazy" />
                         </div>
                         <div className="group-keydetails-major-text">
                             <div className="group-keydetails-text-inner">

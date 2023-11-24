@@ -44,6 +44,7 @@
     width: 60%;
     max-width: 800px;
     height: 450px;
+    position: relative;
 }
 
 .group-keydetails-major-image img {
