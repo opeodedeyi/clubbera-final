@@ -2,6 +2,7 @@
 
 import Header from "../../../../components/header/header";
 import MainInput from "../../../../components/forminput/maininput";
+import SingleImageUploadInput from "../../../../components/forminput/singleimageuploadinput";
 import MainFooter from "../../../../components/footer/mainfooter";
 import CustomButton from "../../../../components/utility/custombutton";
 import '../../../style/editgroup.css';
@@ -10,7 +11,7 @@ import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 
-const EditDetailsSection = ({ groupTitle, setGroupTitle, groupDescription, setGroupDescription }) => (
+const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription }) => (
     <div id="details" className="edit-details-container">
         <div className="edit-details-main">
             <div className="edit-details-main-top">
@@ -35,13 +36,22 @@ const EditDetailsSection = ({ groupTitle, setGroupTitle, groupDescription, setGr
                     </div>
                 </div>
                 <div className="edit-details-picturecontainer">
-                    {/* image upload goes here */}
+                    <SingleImageUploadInput
+                        hasChange
+                        selectedImage={selectedImage}
+                        setSelectedImage={setSelectedImage}
+                        imageName={imageName}
+                        setImageName={setImageName}
+                        imageSize={imageSize}
+                        setImageSize={setImageSize}/>
                 </div>
             </div>
+
             <div className="edit-details-main-bottom">
 
             </div>
         </div>
+
         <div className="edit-details-button">
             <CustomButton size="default-button-size">Update details</CustomButton>
         </div>
@@ -78,6 +88,9 @@ const AnalyticsSection = () => (
 
 const EditGroup = ({ params }) => {
     const router = useRouter();
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageName, setImageName] = useState('');
+    const [imageSize, setImageSize] = useState('');
     const [description, setDescription] = useState("Positivity lovers club");
     const [activeTab, setActiveTab] = useState('');
     const [groupTitle, setGroupTitle] = useState("");
@@ -128,6 +141,12 @@ const EditGroup = ({ params }) => {
                 </div>
 
                 {activeTab === 'details' && <EditDetailsSection
+                                                selectedImage={selectedImage}
+                                                setSelectedImage={setSelectedImage}
+                                                imageName={imageName}
+                                                setImageName={setImageName}
+                                                imageSize={imageSize}
+                                                setImageSize={setImageSize}
                                                 groupTitle={groupTitle} 
                                                 setGroupTitle={setGroupTitle} 
                                                 groupDescription={groupDescription} 

@@ -318,6 +318,18 @@
     letter-spacing: -0.28px;
 }
 
+.single-image-result-content-change {
+    color: var(--main-color-light);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.32px;
+    text-decoration-line: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+}
+
 .single-image-result-content-delete {
     width: 32px;
     height: 32px;
@@ -393,6 +405,11 @@
     .single-image-result-content-left-size {
         font-size: 0.75rem;
         letter-spacing: -0.24px;
+    }
+
+    .single-image-result-content-change {
+        font-size: 0.875rem;
+        letter-spacing: -0.28px;
     }
 
     .single-image-result-content-delete {

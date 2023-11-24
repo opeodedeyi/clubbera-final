@@ -148,7 +148,8 @@
     gap: 40px;
 }
 
-.edit-details-main-top {
+.edit-details-main-top,
+.edit-details-main-bottom {
     width: 100%;
     display: flex;
     align-items: flex-start;
@@ -186,6 +187,7 @@
 .edit-details-picturecontainer {
     width: 100%;
     max-width: 440px;
+    padding-top: 40px;
 }
 
 @media screen and  (max-width: 768px) {

@@ -3,8 +3,6 @@
 import "./forminput.css";
 import { truncateTextWithDot } from '@/utils/textUtils';
 import { useState, useRef, useEffect } from 'react';
-// import { readAndCompressImage } from 'browser-image-resizer';
-import dynamic from 'next/dynamic';
 
 
 let readAndCompressImage;
@@ -12,11 +10,8 @@ if (typeof window !== 'undefined') {
     readAndCompressImage = require('browser-image-resizer').readAndCompressImage;
 }
 
-const SingleImageUploadInput = ({ children }) => {
+const SingleImageUploadInput = ({ children, hasChange, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize }) => {
     const [isDragOver, setIsDragOver] = useState(false);
-    const [selectedImage, setSelectedImage] = useState(false);
-    const [imageName, setImageName] = useState('');
-    const [imageSize, setImageSize] = useState('');
     const fileInputRef = useRef();
 
     function convertFileSize(size) {
@@ -32,6 +27,10 @@ const SingleImageUploadInput = ({ children }) => {
     }
 
     const handleImageUpload = (event) => {
+        if (event.target.files.length === 0) {
+            return;
+        }
+
         const file = event.target.files[0];
         setImageName(file.name)
         readImage(file).then(dataUrl => {
@@ -115,15 +114,21 @@ const SingleImageUploadInput = ({ children }) => {
                                 <div className='single-image-result-content-left-name'>{truncateTextWithDot(imageName, 30)}</div>
                                 <div className='single-image-result-content-left-size'>{imageSize}</div>
                             </div>
-                            <div onClick={handleImageDelete} className='single-image-result-content-delete'>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
-                                    <path d="M17.5 5.48332C14.725 5.20832 11.9333 5.06665 9.15 5.06665C7.5 5.06665 5.85 5.14998 4.2 5.31665L2.5 5.48332" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M7.08301 4.64163L7.26634 3.54996C7.39967 2.75829 7.49967 2.16663 8.90801 2.16663H11.0913C12.4997 2.16663 12.608 2.79163 12.733 3.55829L12.9163 4.64163" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M15.7087 8.1167L15.167 16.5084C15.0753 17.8167 15.0003 18.8334 12.6753 18.8334H7.32533C5.00033 18.8334 4.92533 17.8167 4.83366 16.5084L4.29199 8.1167" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M8.6084 14.25H11.3834" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                    <path d="M7.91699 10.9166H12.0837" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </div>
+                            {hasChange ?
+                                <p onClick={() => fileInputRef.current.click()} className='single-image-result-content-change'>
+                                    Change
+                                </p>
+                            :
+                                <div onClick={handleImageDelete} className='single-image-result-content-delete'>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
+                                        <path d="M17.5 5.48332C14.725 5.20832 11.9333 5.06665 9.15 5.06665C7.5 5.06665 5.85 5.14998 4.2 5.31665L2.5 5.48332" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M7.08301 4.64163L7.26634 3.54996C7.39967 2.75829 7.49967 2.16663 8.90801 2.16663H11.0913C12.4997 2.16663 12.608 2.79163 12.733 3.55829L12.9163 4.64163" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M15.7087 8.1167L15.167 16.5084C15.0753 17.8167 15.0003 18.8334 12.6753 18.8334H7.32533C5.00033 18.8334 4.92533 17.8167 4.83366 16.5084L4.29199 8.1167" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M8.6084 14.25H11.3834" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M7.91699 10.9166H12.0837" stroke="#FB5E5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </div>
+                            }
                         </div>
                         <img src={selectedImage} alt="Selected"/>
                     </div>
