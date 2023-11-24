@@ -210,7 +210,7 @@ const GroupDetails = ({ params }) => {
                             <Image 
                                 fill={true}
                                 priority
-                                sizes="(max-width: 440px) 95vw, (max-width: 1200px) 70vw, 90vw"
+                                sizes="(max-width: 440px) 95vw"
                                 src="/group.png"
                                 alt="picture of group" />
                         </div>
