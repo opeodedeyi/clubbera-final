@@ -209,9 +209,10 @@ const GroupDetails = ({ params }) => {
                         <div className="group-keydetails-major-image">
                             <Image 
                                 fill={true}
+                                priority
+                                sizes="(max-width: 440px) 95vw, (max-width: 1200px) 70vw, 90vw"
                                 src="/group.png"
-                                alt="group of group"
-                                loading="lazy" />
+                                alt="picture of group" />
                         </div>
                         <div className="group-keydetails-major-text">
                             <div className="group-keydetails-text-inner">
