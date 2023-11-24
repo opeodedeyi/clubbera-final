@@ -129,7 +129,7 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
     );
 }
 
-const CreateGroupStepFour = ({ boolValue, setBoolValue }) => {
+const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -142,7 +142,15 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue }) => {
                 <div className="auth-form-inputs">
                     <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
 
-                    <SingleImageUploadInput>Upload image</SingleImageUploadInput>
+                    <SingleImageUploadInput
+                        selectedImage={selectedImage}
+                        setSelectedImage={setSelectedImage}
+                        imageName={imageName}
+                        setImageName={setImageName}
+                        imageSize={imageSize}
+                        setImageSize={setImageSize}>
+                        Upload image
+                    </SingleImageUploadInput>
                 </div>
             </div>
         </>
@@ -179,6 +187,9 @@ export default function CreateGroup() {
     const [groupDescription, setGroupDescription] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
     const [isPrivate, setIsPrivate] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageName, setImageName] = useState('');
+    const [imageSize, setImageSize] = useState('');
 
     const handleNext = (event) => {
         if (step < 5) {
@@ -236,7 +247,13 @@ export default function CreateGroup() {
                                         setGroupDescription={setGroupDescription} />}
                     {step === 4 && <CreateGroupStepFour
                                         boolValue={isPrivate}
-                                        setBoolValue={setIsPrivate} />}
+                                        setBoolValue={setIsPrivate}
+                                        selectedImage={selectedImage}
+                                        setSelectedImage={setSelectedImage}
+                                        imageName={imageName}
+                                        setImageName={setImageName}
+                                        imageSize={imageSize}
+                                        setImageSize={setImageSize} />}
                     {step === 5 && <FinishStep 
                                         groupTitle={groupTitle} />}
 
