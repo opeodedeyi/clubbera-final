@@ -92,8 +92,13 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
 
 const MemberSection = ({members}) => {
     return (
-        <div id="members" className="group-members">
-
+        <div id="members" className="edit-members-container">
+            <div className="edit-members-container-main">
+                <div className="edit-members-header">
+                    <p className="edit-members-header-title">Members</p>
+                    <CustomButton size="normal-button-size">Invite user</CustomButton>
+                </div>
+            </div>
         </div>
     );
 };
