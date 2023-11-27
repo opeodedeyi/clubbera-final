@@ -8,7 +8,7 @@ import SingleImageUploadInput from "../../../../components/forminput/singleimage
 import MainFooter from "../../../../components/footer/mainfooter";
 import CustomButton from "../../../../components/utility/custombutton";
 import '../../../style/editgroup.css';
-
+import { truncateTextWithDot } from '@/utils/textUtils';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -98,6 +98,41 @@ const MemberSection = ({members}) => {
                     <p className="edit-members-header-title">Members</p>
                     <CustomButton size="normal-button-size">Invite user</CustomButton>
                 </div>
+                <div className="edit-members-table-container">
+                    <table className="edit-general-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Role</th>
+                                <th>Gender</th>
+                                <th>Birthday</th>
+                                <th>Email address</th>
+                                <th>Date joined</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="edit-general-table-name">
+                                    <div className="edit-general-table-image"><img src="/profile_image.png" alt="profile-photo"/></div>
+                                    <span>{truncateTextWithDot('Opeyemi Odedeyi', 10)}</span>
+                                </td>
+                                <td>Organizer</td>
+                                <td>Male</td>
+                                <td>10 May</td>
+                                <td>opeyemi@gmail.com</td>
+                                <td>26 Oct 2023; 9:45pm</td>
+                                <td className="edit-general-table-toolkit">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 3.25C8.41421 3.25 8.75 2.91421 8.75 2.5C8.75 2.08579 8.41421 1.75 8 1.75C7.58579 1.75 7.25 2.08579 7.25 2.5C7.25 2.91421 7.58579 3.25 8 3.25Z" stroke="#625F5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M8 8.75C8.41421 8.75 8.75 8.41421 8.75 8C8.75 7.58579 8.41421 7.25 8 7.25C7.58579 7.25 7.25 7.58579 7.25 8C7.25 8.41421 7.58579 8.75 8 8.75Z" stroke="#625F5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        <path d="M8 14.25C8.41421 14.25 8.75 13.9142 8.75 13.5C8.75 13.0858 8.41421 12.75 8 12.75C7.58579 12.75 7.25 13.0858 7.25 13.5C7.25 13.9142 7.58579 14.25 8 14.25Z" stroke="#625F5F" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
@@ -105,8 +140,42 @@ const MemberSection = ({members}) => {
 
 const RequestsSection = ({members}) => {
     return (
-        <div id="requests" className="group-members">
-
+        <div id="requests" className="edit-members-container">
+            <div className="edit-members-container-main">
+                <div className="edit-members-header">
+                    <p className="edit-members-header-title">Pending requests</p>
+                </div>
+                <div className="edit-members-table-container">
+                    <table className="edit-general-table-alt">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Email address</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td className="edit-general-table-name-alt">
+                                    <div className="edit-general-table-image-alt">
+                                        <img src="/profile_image.png" alt="profile-photo"/>
+                                    </div>
+                                    <div className="edit-general-table-name-cont">
+                                        <span>{truncateTextWithDot('Opeyemi Odedeyi', 20)}</span>
+                                        <p>United Kingdom</p>
+                                    </div>
+                                </td>
+                                <td>Male</td>
+                                <td>opeyemi@gmail.com</td>
+                                <td className="edit-general-table-buttons">
+                                    
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     );
 };
@@ -118,8 +187,80 @@ const EventsSection = () => (
 );
 
 const AnalyticsSection = () => (
-    <div id="analytics" className="group-event">
+    <div id="analytics" className="edit-analytics">
+        <div className="edit-analytics-main">
+            <div className="edit-analytics-header">
+                <p className="edit-analytics-header-title">Analytics</p>
+            </div>
+            <div className="edit-analytics-body">
 
+                <div className="edit-analytics-card">
+                    <div className="edit-analytics-card-image">
+                        {/* <img src="/analytics.svg" alt="analytics"/> */}
+                    </div>
+                    <div className="edit-analytics-card-info">
+                        <div className="edit-analytics-card-info-top">
+                            <p className="edit-analytics-card-info-title">Total members</p>
+                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        </div>
+                        <p className="edit-analytics-card-info-num">20</p>
+                    </div>
+                </div>
+
+                <div className="edit-analytics-card">
+                    <div className="edit-analytics-card-image">
+                        {/* <img src="/analytics.svg" alt="analytics"/> */}
+                    </div>
+                    <div className="edit-analytics-card-info">
+                        <div className="edit-analytics-card-info-top">
+                            <p className="edit-analytics-card-info-title">Total members</p>
+                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        </div>
+                        <p className="edit-analytics-card-info-num">20</p>
+                    </div>
+                </div>
+
+                <div className="edit-analytics-card">
+                    <div className="edit-analytics-card-image">
+                        {/* <img src="/analytics.svg" alt="analytics"/> */}
+                    </div>
+                    <div className="edit-analytics-card-info">
+                        <div className="edit-analytics-card-info-top">
+                            <p className="edit-analytics-card-info-title">Total members</p>
+                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        </div>
+                        <p className="edit-analytics-card-info-num">20</p>
+                    </div>
+                </div>
+
+                <div className="edit-analytics-card">
+                    <div className="edit-analytics-card-image">
+                        {/* <img src="/analytics.svg" alt="analytics"/> */}
+                    </div>
+                    <div className="edit-analytics-card-info">
+                        <div className="edit-analytics-card-info-top">
+                            <p className="edit-analytics-card-info-title">Total members</p>
+                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        </div>
+                        <p className="edit-analytics-card-info-num">20</p>
+                    </div>
+                </div>
+
+                <div className="edit-analytics-card">
+                    <div className="edit-analytics-card-image">
+                        {/* <img src="/analytics.svg" alt="analytics"/> */}
+                    </div>
+                    <div className="edit-analytics-card-info">
+                        <div className="edit-analytics-card-info-top">
+                            <p className="edit-analytics-card-info-title">Total members</p>
+                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        </div>
+                        <p className="edit-analytics-card-info-num">20</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 );
 
