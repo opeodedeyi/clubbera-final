@@ -150,8 +150,8 @@ const RequestsSection = ({members}) => {
                         <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Gender</th>
-                                <th>Email address</th>
+                                <th className="desktop-only-show">Gender</th>
+                                <th className="desktop-only-show">Email address</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -166,8 +166,8 @@ const RequestsSection = ({members}) => {
                                         <p>United Kingdom</p>
                                     </div>
                                 </td>
-                                <td>Male</td>
-                                <td>opeyemi@gmail.com</td>
+                                <td className="desktop-only-show">Male</td>
+                                <td className="desktop-only-show">opeyemi@gmail.com</td>
                                 <td className="edit-general-table-buttons">
                                     
                                 </td>
@@ -192,73 +192,24 @@ const AnalyticsSection = () => (
             <div className="edit-analytics-header">
                 <p className="edit-analytics-header-title">Analytics</p>
             </div>
-            <div className="edit-analytics-body">
 
-                <div className="edit-analytics-card">
-                    <div className="edit-analytics-card-image">
-                        {/* <img src="/analytics.svg" alt="analytics"/> */}
-                    </div>
-                    <div className="edit-analytics-card-info">
-                        <div className="edit-analytics-card-info-top">
-                            <p className="edit-analytics-card-info-title">Total members</p>
-                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+            <div className="edit-analytics-body-container">
+                <div className="edit-analytics-body">
+
+                    <div className="edit-analytics-card">
+                        <div className="edit-analytics-card-image">
+                            {/* <img src="/analytics.svg" alt="analytics"/> */}
                         </div>
-                        <p className="edit-analytics-card-info-num">20</p>
-                    </div>
-                </div>
-
-                <div className="edit-analytics-card">
-                    <div className="edit-analytics-card-image">
-                        {/* <img src="/analytics.svg" alt="analytics"/> */}
-                    </div>
-                    <div className="edit-analytics-card-info">
-                        <div className="edit-analytics-card-info-top">
-                            <p className="edit-analytics-card-info-title">Total members</p>
-                            <p className="edit-analytics-card-info-explain">Total number of members</p>
+                        <div className="edit-analytics-card-info">
+                            <div className="edit-analytics-card-info-top">
+                                <p className="edit-analytics-card-info-title">Total members</p>
+                                <p className="edit-analytics-card-info-explain">Total number of members</p>
+                            </div>
+                            <p className="edit-analytics-card-info-num">20</p>
                         </div>
-                        <p className="edit-analytics-card-info-num">20</p>
                     </div>
-                </div>
 
-                <div className="edit-analytics-card">
-                    <div className="edit-analytics-card-image">
-                        {/* <img src="/analytics.svg" alt="analytics"/> */}
-                    </div>
-                    <div className="edit-analytics-card-info">
-                        <div className="edit-analytics-card-info-top">
-                            <p className="edit-analytics-card-info-title">Total members</p>
-                            <p className="edit-analytics-card-info-explain">Total number of members</p>
-                        </div>
-                        <p className="edit-analytics-card-info-num">20</p>
-                    </div>
                 </div>
-
-                <div className="edit-analytics-card">
-                    <div className="edit-analytics-card-image">
-                        {/* <img src="/analytics.svg" alt="analytics"/> */}
-                    </div>
-                    <div className="edit-analytics-card-info">
-                        <div className="edit-analytics-card-info-top">
-                            <p className="edit-analytics-card-info-title">Total members</p>
-                            <p className="edit-analytics-card-info-explain">Total number of members</p>
-                        </div>
-                        <p className="edit-analytics-card-info-num">20</p>
-                    </div>
-                </div>
-
-                <div className="edit-analytics-card">
-                    <div className="edit-analytics-card-image">
-                        {/* <img src="/analytics.svg" alt="analytics"/> */}
-                    </div>
-                    <div className="edit-analytics-card-info">
-                        <div className="edit-analytics-card-info-top">
-                            <p className="edit-analytics-card-info-title">Total members</p>
-                            <p className="edit-analytics-card-info-explain">Total number of members</p>
-                        </div>
-                        <p className="edit-analytics-card-info-num">20</p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
