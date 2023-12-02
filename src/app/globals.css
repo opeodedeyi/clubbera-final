@@ -18,6 +18,7 @@
   --color-white-seven: #EAEAEA;
   --color-dark: #241F1F;
   --color-dark-one: #4D4A4A;
+  --color-dark-two: #625F5F;
   --color-text: #8C8A8A;
   --color-gray: #777474;
   --color-gray-two: #A19F9F;
@@ -28,6 +29,18 @@
   --main-color-tip-danger: #FFF6EE;
   --main-color-card-calm: #003581;
   --main-color-tip-calm: #EEF5FF;
+}
+
+@font-face {
+  font-family: 'GT Walsheim Pro';
+  src: url('GTWalsheimPro-Light.eot');
+  src: local('GT Walsheim Pro Light'), local('GTWalsheimPro-Light'),
+      url('GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
+      url('GTWalsheimPro-Light.woff2') format('woff2'),
+      url('GTWalsheimPro-Light.woff') format('woff'),
+      url('GTWalsheimPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
 }
 
 @font-face {

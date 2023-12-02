@@ -94,6 +94,21 @@
     letter-spacing: -0.48px;
 }
 
+.table-button-size {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.16px;
+    padding: 7px 24px;
+    border-radius: 100px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
 .default-coloring {
     border: none;
     background-color: var(--main-color);
@@ -197,5 +212,12 @@
         padding: 7px 24px;
         border-radius: 100px;
         height: 40px;
+    }
+
+    .table-button-size {
+        padding: 12px;
+        border-radius: 100px;
+        height: 32px;
+        width: 32px;
     }
 }
