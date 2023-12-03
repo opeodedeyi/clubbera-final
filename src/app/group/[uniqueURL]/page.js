@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react';
 
 
 const AboutSection = ({description, location, date, time}) => (
-    <div id="about" className="group-other">
+    <div className="group-other">
         <div className="group-about-description">
             <h5 className="group-about-title">Group description</h5>
             <p className="group-about-content">{description}</p>
@@ -73,7 +73,7 @@ const AboutSection = ({description, location, date, time}) => (
 );
   
 const EventsSection = () => (
-    <div id="events" className="group-event">
+    <div className="group-event">
         <div className="group-event-title">
             <p className="group-event-title-text">Upcoming events</p>
         </div>
@@ -82,7 +82,7 @@ const EventsSection = () => (
 
 const DiscussionSection = ({discussions}) => {
     return (
-        <div id="discussions" className="group-discussion">
+        <div className="group-discussion">
             <p className="group-event-title-text">Discussions { `(${discussions.length})` }</p>
             <div className="group-discussion-container">
                 {discussions.map((discussion, index) => (
@@ -101,7 +101,7 @@ const DiscussionSection = ({discussions}) => {
 
 const MemberSection = ({organizers, members}) => {
     return (
-        <div id="members" className="group-members">
+        <div className="group-members">
             <div className="group-members-container">
                 <p className="group-members-title-text">ORGANIZERS</p>
                 <div className="group-members-cards-container">
@@ -131,7 +131,7 @@ const MemberSection = ({organizers, members}) => {
     );
 };
 
-const GroupDetails = ({ params }) => {
+const GroupDetails = ({ params, searchParams }) => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('');
     const [description, setDescription] = useState('Picture this: A vibrant community nestled in the heart of the United Kingdom, uniting individuals who are passionate about spreading the contagious spirit of positivity. Here, we are not just enthusiasts; we are advocates, champions, and connoisseurs of all things uplifting. In the Positivity Lovers Club, we have created a haven for those who believe that positivity is not just a mindset; it is a way of life. We are the ones who look for silver linings on even the cloudiest of days, and we ave turned glass half full into an art form. So, if you are a lover of sunny dispositions, a connoisseur of good vibes, and a collector of heartwarming stories, the Positivity Lovers Club in the UK is the perfect place for you. Join us in our quest to connect, inspire, and uplift, because we know that together, we can make the world a brighter, more cheerful place. 🌟💖');
@@ -147,52 +147,38 @@ const GroupDetails = ({ params }) => {
         "likeCount": 2,
         "replyCount": 1,
         "timeSince": "2 hours ago"
-    },
-    {
-        'owner': {
-            "fullName": "sandra Mitome",
-            "profilePhoto": ""
-        },
-        "comment": "Glad to be part of this new community",
-        "likeCount": 20,
-        "replyCount": 0,
-        "timeSince": "10 minutes ago"
     }])
 
     const [organizers, setOrganizers] = useState([{
         'name': "Daniel Roberts",
         'role': "Co-organizer",
         'date': "Jun 2023"
-    },
-    {
-        'name': "Sandra Benson",
-        'role': "Co-organizer",
-        'date': "May 2023"
     }])
 
     const [members, setMembers] = useState([{
         'name': "Modupe Odedeyi",
         'role': "Member",
         'date': "Nov 2023"
-    },
-    {
-        'name': "Boluwatife Faith Oluwaseun",
-        'role': "Member",
-        'date': "Dec 2023"
     }])
 
-    useEffect(() => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash)  {
-            setActiveTab(hash);
+    const checkTab = () => {
+        if (searchParams.tab) {
+            setActiveTab(searchParams.tab);
         } else {
+            router.push(`?tab=${'about'}`, undefined, { shallow: true });
             setActiveTab('about');
         }
+    };
+
+    useEffect(() => {
+        checkTab();
     }, []);
 
-    const handleTabClick = (tabName) => {
+    const handleTabClick = (e, tabName) => {
+        e.preventDefault();
+        
         setActiveTab(tabName);
-        router.push(`#${tabName}`, undefined, { shallow: true });
+        router.push(`?tab=${tabName}`, undefined, { shallow: true });
     };
 
     return (
@@ -238,10 +224,10 @@ const GroupDetails = ({ params }) => {
                 </div>
                 <div className="group-details-navigation">
                     <ul>
-                        <li onClick={() => handleTabClick('about')} className={`group-details-navigation-item ${activeTab === 'about' ? 'active-navigation-item' : ''}`}>About</li>
-                        <li onClick={() => handleTabClick('events')} className={`group-details-navigation-item ${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
-                        <li onClick={() => handleTabClick('discussions')} className={`group-details-navigation-item ${activeTab === 'discussions' ? 'active-navigation-item' : ''}`}>Discussions</li>
-                        <li onClick={() => handleTabClick('members')} className={`group-details-navigation-item ${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
+                        <li onClick={(e) => handleTabClick(e, 'about')} className={`group-details-navigation-item ${activeTab === 'about' ? 'active-navigation-item' : ''}`}>About</li>
+                        <li onClick={(e) => handleTabClick(e, 'events')} className={`group-details-navigation-item ${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
+                        <li onClick={(e) => handleTabClick(e, 'discussions')} className={`group-details-navigation-item ${activeTab === 'discussions' ? 'active-navigation-item' : ''}`}>Discussions</li>
+                        <li onClick={(e) => handleTabClick(e, 'members')} className={`group-details-navigation-item ${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
                         {/* <li onClick={() => handleTabClick('photos')} className={`group-details-navigation-item ${activeTab === 'photos' ? 'active-navigation-item' : ''}`}>Photos</li> */}
                     </ul>
                 </div>
