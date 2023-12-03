@@ -316,7 +316,7 @@ const AnalyticsSection = () => (
     </div>
 );
 
-const EditGroup = ({ params }) => {
+const EditGroup = ({ params, searchParams }) => {
     const router = useRouter();
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [selectedImage, setSelectedImage] = useState('https://beta.clubbera.com/group.png'); // Change to null
@@ -329,18 +329,24 @@ const EditGroup = ({ params }) => {
     const [isPrivate, setIsPrivate] = useState(null);
     const [selectedTopics, setSelectedTopics] = useState([]);
 
-    useEffect(() => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash)  {
-            setActiveTab(hash);
+    const checkTab = () => {
+        if (searchParams.tab) {
+            setActiveTab(searchParams.tab);
         } else {
+            router.push(`?tab=${'details'}`, undefined, { shallow: true });
             setActiveTab('details');
         }
+    };
+
+    useEffect(() => {
+        checkTab();
     }, []);
 
-    const handleTabClick = (tabName) => {
+    const handleTabClick = (e, tabName) => {
+        e.preventDefault();
+        
         setActiveTab(tabName);
-        router.push(`#${tabName}`, undefined, { shallow: true });
+        router.push(`?tab=${tabName}`, undefined, { shallow: true });
     };
 
     return (
@@ -365,11 +371,11 @@ const EditGroup = ({ params }) => {
                 
                 <div className="edit-group-navigation">
                     <ul>
-                        <li onClick={() => handleTabClick('details')} className={`${activeTab === 'details' ? 'active-navigation-item' : ''}`}>Details</li>
-                        <li onClick={() => handleTabClick('members')} className={`${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
-                        <li onClick={() => handleTabClick('requests')} className={`${activeTab === 'requests' ? 'active-navigation-item' : ''}`}>Requests</li>
-                        <li onClick={() => handleTabClick('events')} className={`${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
-                        <li onClick={() => handleTabClick('analytics')} className={`${activeTab === 'analytics' ? 'active-navigation-item' : ''}`}>Analytics</li>
+                        <li onClick={(e) => handleTabClick(e, 'details')} className={`${activeTab === 'details' ? 'active-navigation-item' : ''}`}>Details</li>
+                        <li onClick={(e) => handleTabClick(e, 'members')} className={`${activeTab === 'members' ? 'active-navigation-item' : ''}`}>Members</li>
+                        <li onClick={(e) => handleTabClick(e, 'requests')} className={`${activeTab === 'requests' ? 'active-navigation-item' : ''}`}>Requests</li>
+                        <li onClick={(e) => handleTabClick(e, 'events')} className={`${activeTab === 'events' ? 'active-navigation-item' : ''}`}>Events</li>
+                        <li onClick={(e) => handleTabClick(e, 'analytics')} className={`${activeTab === 'analytics' ? 'active-navigation-item' : ''}`}>Analytics</li>
                     </ul>
                 </div>
 
