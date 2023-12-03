@@ -97,7 +97,7 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
     };
 
     return (
-        <div id="details" className="edit-details-container">
+        <div className="edit-details-container">
             <div className="edit-details-main">
                 <div className="edit-details-main-top">
                     <div className="edit-details-basicinfo">
@@ -164,7 +164,7 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
 
 const MemberSection = ({members}) => {
     return (
-        <div id="members" className="edit-members-container">
+        <div className="edit-members-container">
             <div className="edit-members-container-main">
                 <div className="edit-members-header">
                     <p className="edit-members-header-title">Members</p>
@@ -202,7 +202,7 @@ const MemberSection = ({members}) => {
 
 const RequestsSection = ({members}) => {
     return (
-        <div id="requests" className="edit-members-container">
+        <div className="edit-members-container">
             <div className="edit-members-container-main">
                 <div className="edit-members-header">
                     <p className="edit-members-header-title">Pending requests</p>
@@ -233,13 +233,13 @@ const RequestsSection = ({members}) => {
 };
 
 const EventsSection = () => (
-    <div id="events" className="group-event">
+    <div className="group-event">
 
     </div>
 );
 
 const AnalyticsSection = () => (
-    <div id="analytics" className="edit-analytics">
+    <div className="edit-analytics">
         <div className="edit-analytics-main">
             <div className="edit-analytics-header">
                 <p className="edit-analytics-header-title">Analytics</p>
