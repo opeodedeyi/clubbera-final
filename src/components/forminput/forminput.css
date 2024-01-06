@@ -144,6 +144,7 @@
 
 .form-input-textarea textarea::placeholder,
 .main-input-text input::placeholder,
+.main-input-search input::placeholder,
 .main-input-password .form-input-password input::placeholder {
     color:  #A19F9F;
 }
