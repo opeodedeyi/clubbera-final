@@ -69,7 +69,7 @@ const SingleImageUploadInput = ({ children, hasChange, selectedImage, setSelecte
             quality: 0.7,
             maxWidth: 1920,
             maxHeight: 1080,
-            mimeType: 'image/webp',
+            mimeType: 'image/jpeg',
             debug: true,
         };
         

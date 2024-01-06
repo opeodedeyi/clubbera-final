@@ -2,6 +2,7 @@
 
 import Header from "../../../../components/header/header";
 import MainInput from "../../../../components/forminput/maininput";
+import CityInput from "../../../../components/forminput/cityinput";
 import BinaryOptionInput from "../../../../components/forminput/binaryoptioninput";
 import CustomTag from "../../../../components/forminput/customtag";
 import SingleImageUploadInput from "../../../../components/forminput/singleimageuploadinput";
@@ -71,7 +72,6 @@ const AnalyticsCard = ({ img, title, explain, value }) => {
     return (
         <div className="edit-analytics-card">
             <div className="edit-analytics-card-image">
-                {/* <img src="/analytics.svg" alt="analytics"/> */}
                 {img}
             </div>
             <div className="edit-analytics-card-info">
@@ -85,7 +85,7 @@ const AnalyticsCard = ({ img, title, explain, value }) => {
     );
 };
 
-const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics }) => {
+const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, setLatLocation, setLngLocation }) => {
     const handleTopicClick = (topic) => {
         return () => {
             if (selectedTopics.includes(topic)) {
@@ -110,7 +110,13 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
                                 value={groupTitle}
                                 onChange={(e) => setGroupTitle(e.target.value)}/>
 
-                            {/* location goes here */}
+                            <CityInput 
+                                label="Location" 
+                                placeholder="Enter city" 
+                                cityLocation={cityLocation} 
+                                setCityLocation={setCityLocation} 
+                                setLatLocation={setLatLocation}
+                                setLngLocation={setLngLocation}/>
 
                             <MainInput
                                 type="textarea"
@@ -327,6 +333,9 @@ const EditGroup = ({ params, searchParams }) => {
     const [groupTitle, setGroupTitle] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
     const [isPrivate, setIsPrivate] = useState(null);
+    const [cityLocation, setCityLocation] = useState("");
+    const [latLocation, setLatLocation] = useState("");
+    const [lngLocation, setLngLocation] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
 
     const checkTab = () => {
@@ -340,7 +349,7 @@ const EditGroup = ({ params, searchParams }) => {
 
     useEffect(() => {
         checkTab();
-    }, []);
+    }, [searchParams]);
 
     const handleTabClick = (e, tabName) => {
         e.preventDefault();
@@ -394,6 +403,10 @@ const EditGroup = ({ params, searchParams }) => {
                                                 setBoolValue={setIsPrivate}
                                                 presetTopics={presetTopics}
                                                 selectedTopics={selectedTopics}
+                                                cityLocation={cityLocation}
+                                                setCityLocation={setCityLocation} 
+                                                setLatLocation={setLatLocation}
+                                                setLngLocation={setLngLocation}
                                                 setSelectedTopics={setSelectedTopics} />}
                 {activeTab === 'members' && <MemberSection/>}
                 {activeTab === 'requests' && <RequestsSection/>}

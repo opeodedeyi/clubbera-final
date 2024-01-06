@@ -172,7 +172,7 @@ const GroupDetails = ({ params, searchParams }) => {
 
     useEffect(() => {
         checkTab();
-    }, []);
+    }, [searchParams]);
 
     const handleTabClick = (e, tabName) => {
         e.preventDefault();

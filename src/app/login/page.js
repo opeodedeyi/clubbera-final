@@ -23,7 +23,7 @@ export default function Login() {
 
     const isPasswordValid = (password) => {
         // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        const passwordRegex = /^.{8,}$/;
         return passwordRegex.test(password);
     };
 

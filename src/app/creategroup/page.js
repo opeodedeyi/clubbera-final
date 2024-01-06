@@ -2,6 +2,7 @@
 
 import { Fragment } from "react";
 import AltHeader from "../../components/header/altheader";
+import CityInput from "../../components/forminput/cityinput";
 import MainInput from "../../components/forminput/maininput";
 import BinaryOptionInput from "../../components/forminput/binaryoptioninput";
 import SingleImageUploadInput from "../../components/forminput/singleimageuploadinput";
@@ -37,7 +38,7 @@ const IntroStep = ({ onClick }) => {
     );
 }
 
-const CreateGroupStepOne = ({ fullName, setFullName }) => {
+const CreateGroupStepOne = ({ cityLocation, setCityLocation, setLatLocation, setLngLocation }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -48,13 +49,13 @@ const CreateGroupStepOne = ({ fullName, setFullName }) => {
                     </div>
                 </div>
                 <div className="auth-form-inputs">
-                    <MainInput
-                        type="text"
-                        placeholder="Enter full name" 
-                        input="Full name"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}/>
-                    
+                    <CityInput 
+                        label="Location" 
+                        placeholder="Enter city" 
+                        cityLocation={cityLocation} 
+                        setCityLocation={setCityLocation} 
+                        setLatLocation={setLatLocation}
+                        setLngLocation={setLngLocation}/>
                 </div>
             </div>
         </>
@@ -182,7 +183,9 @@ export default function CreateGroup() {
     const [step, setStep] = useState(0);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
-    const [fullName, setFullName] = useState("");
+    const [cityLocation, setCityLocation] = useState("");
+    const [latLocation, setLatLocation] = useState("");
+    const [lngLocation, setLngLocation] = useState("");
     const [groupTitle, setGroupTitle] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
@@ -202,7 +205,7 @@ export default function CreateGroup() {
     const disableNextPage = () => {
         switch (step) {
             case 1:
-                return !fullName;
+                return !cityLocation || !latLocation || !lngLocation;
             case 2:
                 return selectedTopics.length === 0;
             case 3:
@@ -215,7 +218,7 @@ export default function CreateGroup() {
     };
 
     const backButtonClicked = () => {
-        if (step === 1) {
+        if (step < 2) {
             console.log("go back to previous page");
         } else if (step === 5) {
             console.log("go back to home page");
@@ -233,8 +236,10 @@ export default function CreateGroup() {
                     {step === 0 && <IntroStep 
                                         onClick={handleNext}/>}
                     {step === 1 && <CreateGroupStepOne 
-                                        fullName={fullName} 
-                                        setFullName={setFullName} />}
+                                        cityLocation={cityLocation}
+                                        setCityLocation={setCityLocation} 
+                                        setLatLocation={setLatLocation}
+                                        setLngLocation={setLngLocation} />}
                     {step === 2 && <CreateGroupStepTwo 
                                         presetTopics={presetTopics} 
                                         setPresetTopics={setPresetTopics} 

@@ -5,6 +5,7 @@ import { Fragment } from "react";
 import Logo from "../../components/utility/logo";
 import Header from "../../components/header/header";
 import MainInput from "../../components/forminput/maininput";
+import CityInput from "../../components/forminput/cityinput";
 import CheckboxInput from "../../components/forminput/checkboxinput";
 import MainPasswordInput from "../../components/forminput/passwordinput";
 import CustomButton from "../../components/utility/custombutton";
@@ -62,7 +63,7 @@ const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPa
     );
 }
 
-const SignupStepTwo = ({ ageConsent, setAgeConsent,buttonClicked }) => {
+const SignupStepTwo = ({ ageConsent, setAgeConsent, cityLocation, setCityLocation, setLatLocation, setLngLocation, buttonClicked }) => {
     return (
         <>
             <div className="auth-form-content">
@@ -74,7 +75,13 @@ const SignupStepTwo = ({ ageConsent, setAgeConsent,buttonClicked }) => {
                 </div>
             </div>
             <div className="auth-form-inputs">
-                {/* location goes here */}
+                <CityInput 
+                    label="Location" 
+                    placeholder="Enter city" 
+                    cityLocation={cityLocation} 
+                    setCityLocation={setCityLocation} 
+                    setLatLocation={setLatLocation}
+                    setLngLocation={setLngLocation}/>
                 <CheckboxInput
                     label="Age"
                     checked={ageConsent} 
@@ -95,6 +102,9 @@ export default function Signup() {
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
+    const [cityLocation, setCityLocation] = useState("");
+    const [latLocation, setLatLocation] = useState("");
+    const [lngLocation, setLngLocation] = useState("");
     const [ageConsent, setAgeConsent] = useState(false);
 
     const isEmailValid = (email) => {
@@ -104,12 +114,24 @@ export default function Signup() {
 
     const isPasswordValid = (password) => {
         // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters
-        const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
+        const passwordRegex = /^.{8,}$/;
         return passwordRegex.test(password);
     };
 
     const buttonClicked = () => {
-        setStep(prevStep => prevStep + 1);
+        if (step === 1) {
+            setStep(prevStep => prevStep + 1);
+        } else {
+            console.log({
+                email,
+                fullName,
+                password,
+                cityLocation,
+                latLocation,
+                lngLocation,
+                ageConsent
+            });
+        }
     };
 
     const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password);
@@ -134,7 +156,11 @@ export default function Signup() {
                         <SignupStepTwo
                             ageConsent={ageConsent} 
                             setAgeConsent={setAgeConsent}
-                            buttonClicked={buttonClicked}/>
+                            buttonClicked={buttonClicked}
+                            cityLocation={cityLocation}
+                            setCityLocation={setCityLocation} 
+                            setLatLocation={setLatLocation}
+                            setLngLocation={setLngLocation}/>
                     }
                     
                 </form>
