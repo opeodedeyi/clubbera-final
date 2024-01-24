@@ -1,11 +1,14 @@
 'use client';
 
 import Link from "next/link";
-import Logo from "../utility/logo";
-import "./mainfooter.css"
+import Logo from "@/components/utility/logo";
+import { useUser } from "@/context/UserContext";
+import "@/components/footer/mainfooter.css"
 
 
 export default function MainFooter() {
+    const { user } = useUser();
+
     return (
         <footer className="main-footer">
             <div className="main-footer-top">
@@ -16,15 +19,15 @@ export default function MainFooter() {
                 <div className="main-footer-top-right">
                     <ul>
                         <li><p className="main-footer-link-header">Your Account</p></li>
-                        <li><Link href="/signup" className="main-footer-link">Sign up</Link></li>
-                        <li><Link href="/login" className="main-footer-link">Login</Link></li>
-                        <li><Link href="#" className="main-footer-link">Help</Link></li>
-                    </ul>
-                    <ul>
-                        <li><p className="main-footer-link-header">Discover</p></li>
-                        <li><Link href="#" className="main-footer-link">Groups</Link></li>
-                        <li><Link href="#" className="main-footer-link">Cities</Link></li>
-                        <li><Link href="#" className="main-footer-link">Events</Link></li>
+                        { user ?
+                            <>
+                                <li><Link href="#" className="main-footer-link">Profile</Link></li>
+                                <li><Link href="#" className="main-footer-link">Logout</Link></li>
+                            </> : 
+                            <>
+                                <li><Link href="/signup" className="main-footer-link">Sign up</Link></li>
+                                <li><Link href="/login" className="main-footer-link">Login</Link></li>
+                            </> }
                     </ul>
                     <ul>
                         <li><p className="main-footer-link-header">Company</p></li>

@@ -1,9 +1,8 @@
 'use client';
 
 import { useRouter, usePathname } from "next/navigation";
-import "./header.css";
-
-import CustomButton from "../utility/custombutton";
+import CustomButton from "@/components/utility/custombutton";
+import "@/components/header/header.css";
 
 
 const DesktopTag = ({ children, isColored }) => {

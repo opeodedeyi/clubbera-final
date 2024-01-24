@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import "./logo.css";
+import "@/components/utility/logo.css";
 
 const Logo = ({ size="default-logo-size", coloring="default-logo-coloring" }) => {
     return (

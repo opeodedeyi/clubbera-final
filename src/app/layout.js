@@ -1,7 +1,9 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
+import axios from 'axios';
+import { cookies } from 'next/headers';
+import { UserProvider } from '@/context/UserContext';
 
-const inter = Inter({ subsets: ['latin'] })
+import './globals.css';
+
 
 export const metadata = {
   title: 'Clubbera',
@@ -12,10 +14,34 @@ export const metadata = {
   }
 }
 
-export default function RootLayout({ children }) {
+
+async function getData() {
+  const nextCookies = cookies();
+  const token = nextCookies.get('auth_token')?.value;
+
+  if (token) {
+    try {
+      const response = await axios.get(`${process.env.API_URL}/me`, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      return response.data;
+    } catch (error) {
+      nextCookies.delete('auth_token');
+    }
+  }
+}
+
+
+export default async function RootLayout({ children }) {
+  const user = await getData() || null;
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <UserProvider initialUser={user}>
+          {children}
+        </UserProvider>
+      </body>
     </html>
   )
 }

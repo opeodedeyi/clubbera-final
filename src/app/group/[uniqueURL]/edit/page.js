@@ -1,17 +1,17 @@
 'use client';
 
-import Header from "../../../../components/header/header";
-import MainInput from "../../../../components/forminput/maininput";
-import CityInput from "../../../../components/forminput/cityinput";
-import BinaryOptionInput from "../../../../components/forminput/binaryoptioninput";
-import CustomTag from "../../../../components/forminput/customtag";
-import SingleImageUploadInput from "../../../../components/forminput/singleimageuploadinput";
-import MainFooter from "../../../../components/footer/mainfooter";
-import CustomButton from "../../../../components/utility/custombutton";
-import '../../../style/editgroup.css';
+import { useState, useEffect } from 'react';
+import Header from "@/components/header/header";
+import MainInput from "@/components/forminput/maininput";
+import CityInput from "@/components/forminput/cityinput";
+import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
+import CustomTag from "@/components/forminput/customtag";
+import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
+import MainFooter from "@/components/footer/mainfooter";
+import CustomButton from "@/components/utility/custombutton";
 import { truncateTextWithDot } from '@/utils/textUtils';
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import '@/app/style/editgroup.css';
 
 
 const RequestTableRow = ({ name, location, time, gender, email }) => {
@@ -85,7 +85,7 @@ const AnalyticsCard = ({ img, title, explain, value }) => {
     );
 };
 
-const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, setLatLocation, setLngLocation }) => {
+const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, groupTagline, setGroupTagline, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, setLatLocation, setLngLocation }) => {
     const handleTopicClick = (topic) => {
         return () => {
             if (selectedTopics.includes(topic)) {
@@ -109,6 +109,13 @@ const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setIma
                                 input="Group name"
                                 value={groupTitle}
                                 onChange={(e) => setGroupTitle(e.target.value)}/>
+
+                            <MainInput
+                                type="text"
+                                placeholder="Enter tagline" 
+                                input="Group tagline"
+                                value={groupTagline}
+                                onChange={(e) => setGroupTagline(e.target.value)}/>
 
                             <CityInput 
                                 label="Location" 
@@ -332,6 +339,7 @@ const EditGroup = ({ params, searchParams }) => {
     const [activeTab, setActiveTab] = useState('');
     const [groupTitle, setGroupTitle] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
+    const [groupTagline, setGroupTagline] = useState("");
     const [isPrivate, setIsPrivate] = useState(null);
     const [cityLocation, setCityLocation] = useState("");
     const [latLocation, setLatLocation] = useState("");
@@ -399,6 +407,8 @@ const EditGroup = ({ params, searchParams }) => {
                                                 setGroupTitle={setGroupTitle} 
                                                 groupDescription={groupDescription} 
                                                 setGroupDescription={setGroupDescription}
+                                                groupTagline={groupTagline} 
+                                                setGroupTagline={setGroupTagline}
                                                 boolValue={isPrivate}
                                                 setBoolValue={setIsPrivate}
                                                 presetTopics={presetTopics}

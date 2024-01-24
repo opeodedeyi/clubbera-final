@@ -33,11 +33,8 @@
 
 @font-face {
   font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Light.eot');
+  src: url('GTWalsheimPro-Light.ttf');
   src: local('GT Walsheim Pro Light'), local('GTWalsheimPro-Light'),
-      url('GTWalsheimPro-Light.eot?#iefix') format('embedded-opentype'),
-      url('GTWalsheimPro-Light.woff2') format('woff2'),
-      url('GTWalsheimPro-Light.woff') format('woff'),
       url('GTWalsheimPro-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
@@ -45,11 +42,8 @@
 
 @font-face {
   font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Regular.eot');
+  src: url('GTWalsheimPro-Regular.ttf');
   src: local('GT Walsheim Pro Regular'), local('GTWalsheimPro-Regular'),
-      url('GTWalsheimPro-Regular.eot?#iefix') format('embedded-opentype'),
-      url('GTWalsheimPro-Regular.woff2') format('woff2'),
-      url('GTWalsheimPro-Regular.woff') format('woff'),
       url('GTWalsheimPro-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -57,11 +51,8 @@
 
 @font-face {
   font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Medium.eot');
+  src: url('GTWalsheimPro-Medium.ttf');
   src: local('GT Walsheim Pro Medium'), local('GTWalsheimPro-Medium'),
-      url('GTWalsheimPro-Medium.eot?#iefix') format('embedded-opentype'),
-      url('GTWalsheimPro-Medium.woff2') format('woff2'),
-      url('GTWalsheimPro-Medium.woff') format('woff'),
       url('GTWalsheimPro-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
@@ -69,11 +60,8 @@
 
 @font-face {
   font-family: 'Nantes';
-  src: url('Nantes-Regular.eot');
+  src: url('Nantes-Regular.ttf');
   src: local('Nantes Regular'), local('Nantes-Regular'),
-      url('Nantes-Regular.eot?#iefix') format('embedded-opentype'),
-      url('Nantes-Regular.woff2') format('woff2'),
-      url('Nantes-Regular.woff') format('woff'),
       url('Nantes-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
@@ -81,11 +69,8 @@
 
 @font-face {
   font-family: 'Nantes';
-  src: url('Nantes-BoldItalic.eot');
+  src: url('Nantes-BoldItalic.ttf');
   src: local('Nantes Bold Italic'), local('Nantes-BoldItalic'),
-      url('Nantes-BoldItalic.eot?#iefix') format('embedded-opentype'),
-      url('Nantes-BoldItalic.woff2') format('woff2'),
-      url('Nantes-BoldItalic.woff') format('woff'),
       url('Nantes-BoldItalic.ttf') format('truetype');
   font-weight: bold;
   font-style: italic;

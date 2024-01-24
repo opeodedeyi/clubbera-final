@@ -1,18 +1,18 @@
 'use client';
 
 import Link from "next/link";
-import { Fragment } from "react";
-import Logo from "../../components/utility/logo";
-import Header from "../../components/header/header";
-import MainInput from "../../components/forminput/maininput";
-import CityInput from "../../components/forminput/cityinput";
-import CheckboxInput from "../../components/forminput/checkboxinput";
-import MainPasswordInput from "../../components/forminput/passwordinput";
-import CustomButton from "../../components/utility/custombutton";
-import SocialLoginButton from "../../components/utility/socialbutton";
-import "../style/authentication.css";
-
-import { useState } from 'react';
+import { Fragment, useState } from "react";
+import { useUser } from '@/context/UserContext';
+import { signupUser } from "@/service/authServices";
+import Logo from "@/components/utility/logo";
+import Header from "@/components/header/header";
+import MainInput from "@/components/forminput/maininput";
+import CityInput from "@/components/forminput/cityinput";
+import CheckboxInput from "@/components/forminput/checkboxinput";
+import MainPasswordInput from "@/components/forminput/passwordinput";
+import CustomButton from "@/components/utility/custombutton";
+import SocialLoginButton from "@/components/utility/socialbutton";
+import "@/app/style/authentication.css";
 
 
 const SignupStepOne = ({ email, setEmail, fullName, setFullName, password, setPassword, isDisabled, buttonClicked }) => {
@@ -98,13 +98,15 @@ const SignupStepTwo = ({ ageConsent, setAgeConsent, cityLocation, setCityLocatio
 }
 
 export default function Signup() {
+    const { setUser } = useUser();
+    const [loading, setLoading] = useState(false);
     const [step, setStep] = useState(1);
     const [email, setEmail] = useState('');
     const [fullName, setFullName] = useState('');
     const [password, setPassword] = useState('');
-    const [cityLocation, setCityLocation] = useState("");
-    const [latLocation, setLatLocation] = useState("");
-    const [lngLocation, setLngLocation] = useState("");
+    const [cityLocation, setCityLocation] = useState(null);
+    const [latLocation, setLatLocation] = useState(null);
+    const [lngLocation, setLngLocation] = useState(null);
     const [ageConsent, setAgeConsent] = useState(false);
 
     const isEmailValid = (email) => {
@@ -113,24 +115,27 @@ export default function Signup() {
     };
 
     const isPasswordValid = (password) => {
-        // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters
+        // A total of at least 8 characters
         const passwordRegex = /^.{8,}$/;
         return passwordRegex.test(password);
     };
 
-    const buttonClicked = () => {
+    async function buttonClicked(event) {
+        event.preventDefault();
+
         if (step === 1) {
             setStep(prevStep => prevStep + 1);
         } else {
-            console.log({
-                email,
-                fullName,
-                password,
-                cityLocation,
-                latLocation,
-                lngLocation,
-                ageConsent
-            });
+            setLoading(true);
+            const result = await signupUser(email, fullName, password, cityLocation, latLocation, lngLocation);
+            
+            if (result.error) {
+                console.log(`error - ${result}`);
+                setLoading(false);
+            } else {
+                setUser(result.user);
+                setLoading(false);
+            }
         }
     };
 
@@ -156,11 +161,11 @@ export default function Signup() {
                         <SignupStepTwo
                             ageConsent={ageConsent} 
                             setAgeConsent={setAgeConsent}
-                            buttonClicked={buttonClicked}
                             cityLocation={cityLocation}
                             setCityLocation={setCityLocation} 
                             setLatLocation={setLatLocation}
-                            setLngLocation={setLngLocation}/>
+                            setLngLocation={setLngLocation}
+                            buttonClicked={buttonClicked}/>
                     }
                     
                 </form>
