@@ -22,7 +22,7 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 - [git add .](#gitadd)
 - [git commit -m "any comment"](#Initialcommit)
-- [git push -u origin master](#gitpush)
+- [git push -u origin main](#gitpush)
 
 ## Installation
 

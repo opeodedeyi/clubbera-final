@@ -22,11 +22,6 @@ export default function Login({ searchParams }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const isEmailValid = (email) => {
-        const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
-        return emailRegex.test(email);
-    };
-
     const nextPage = () => {
         if (destination) {
             return `/${destination}`
@@ -34,6 +29,11 @@ export default function Login({ searchParams }) {
             return '/'
         }
     }
+
+    const isEmailValid = (email) => {
+        const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+        return emailRegex.test(email);
+    };
 
     const isPasswordValid = (password) => {
         // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters

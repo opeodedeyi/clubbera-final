@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Fragment, useState } from "react";
+import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/UserContext';
 import { signupUser } from "@/service/authServices";
 import Logo from "@/components/utility/logo";
@@ -97,7 +98,9 @@ const SignupStepTwo = ({ ageConsent, setAgeConsent, cityLocation, setCityLocatio
     );
 }
 
-export default function Signup() {
+export default function Signup({ searchParams }) {
+    const router = useRouter();
+    const { destination } = searchParams;
     const { setUser } = useUser();
     const [loading, setLoading] = useState(false);
     const [step, setStep] = useState(1);
@@ -108,6 +111,14 @@ export default function Signup() {
     const [latLocation, setLatLocation] = useState(null);
     const [lngLocation, setLngLocation] = useState(null);
     const [ageConsent, setAgeConsent] = useState(false);
+
+    const nextPage = () => {
+        if (destination) {
+            return `/${destination}`
+        } else {
+            return '/'
+        }
+    }
 
     const isEmailValid = (email) => {
         const emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
@@ -134,12 +145,13 @@ export default function Signup() {
                 setLoading(false);
             } else {
                 setUser(result.user);
+                router.push(nextPage())
                 setLoading(false);
             }
         }
     };
 
-    const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password);
+    const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password) || loading;
   
     return (
         <Fragment>
