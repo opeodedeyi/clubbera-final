@@ -36,12 +36,11 @@ async function apiRequest(url, options) {
 }
 
 async function saveCookie(token) {
-    console.log(token);
     Cookies.set('auth_token', token, {
         httpOnly: process.env.NODE_ENV !== 'development',
         expires: 60,
         secure: process.env.NODE_ENV !== 'development',
-        sameSite: 'strict'
+        sameSite: 'lax'
     });
 }
 
