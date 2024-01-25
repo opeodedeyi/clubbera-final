@@ -37,10 +37,10 @@ async function apiRequest(url, options) {
 
 async function saveCookie(token) {
     Cookies.set('auth_token', token, {
-        httpOnly: process.env.NODE_ENV !== 'development',
+        domain: 'clubbera.com',
         expires: 60,
         secure: process.env.NODE_ENV !== 'development',
-        sameSite: 'lax',
+        sameSite: 'None',
         path: '/',
     });
 }

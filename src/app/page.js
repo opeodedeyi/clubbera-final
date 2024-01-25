@@ -201,7 +201,7 @@ const LoggedIn = ({ user, searchParams }) => {
       <div className="homepage-login-navigation">
         <ul>
           <li onClick={(e) => handleTabClick(e, 'mygroups')} className={`${activeTab === 'mygroups' ? 'active-navigation-item' : ''}`}>My groups</li>
-          <li onClick={(e) => handleTabClick(e, 'myevents')} className={`${activeTab === 'myevents' ? 'active-navigation-item' : ''}`}>Upcoming events</li>
+          <li onClick={(e) => handleTabClick(e, 'upcomingevents')} className={`${activeTab === 'upcomingevents' ? 'active-navigation-item' : ''}`}>Upcoming events</li>
         </ul>
       </div>
     </>
