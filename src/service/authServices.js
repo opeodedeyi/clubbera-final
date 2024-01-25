@@ -40,7 +40,8 @@ async function saveCookie(token) {
         httpOnly: process.env.NODE_ENV !== 'development',
         expires: 60,
         secure: process.env.NODE_ENV !== 'development',
-        sameSite: 'lax'
+        sameSite: 'lax',
+        path: '/',
     });
 }
 
