@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie';
 
-
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 
 if (!API_URL) {
     console.error('API URL is not defined in environment variables');
@@ -36,7 +36,6 @@ async function apiRequest(url, options) {
 }
 
 async function saveCookie(token) {
-    console.log(process.env.NODE_ENV)
     Cookies.set('auth_token', token, {
         httpOnly: process.env.NODE_ENV !== 'development',
         expires: 60,
