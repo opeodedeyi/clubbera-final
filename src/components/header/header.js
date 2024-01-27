@@ -17,7 +17,7 @@ function ProfileCard({ user }) {
             <div className="header-profile-photo-img">
                 <img src={user?.profilePhoto?.location ? user.profilePhoto.location : "https://yt3.ggpht.com/yti/AGOGRCo4KyryhszgHM4dX6QPAicJQcQscLVfa-FK2upiDw=s88-c-k-c0x00ffffff-no-rj"}/>
             </div>
-            <p className="header-profile-photo-text">{capitalizeAndTruncateTextWithDot(user?.fullName, 9)}</p>
+            <p className="header-profile-photo-text">{capitalizeAndTruncateTextWithDot(user?.fullName, 6)}</p>
         </div>
     );
 }

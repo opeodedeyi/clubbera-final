@@ -143,9 +143,9 @@
     cursor: pointer;
 }
 
-.header-profile-photo-card:hover {
+/* .header-profile-photo-card:hover {
     background-color: var(--color-white-six);
-}
+} */
 
 .header-profile-photo-img {
     height: 36px;

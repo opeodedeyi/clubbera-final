@@ -181,7 +181,7 @@ const LoggedIn = ({ user, searchParams }) => {
     <>
       <div className="homepage-login-hero">
         <div className="homepage-login-hero-cont">
-          <p className="homepage-login-hero-name">Hi {capitalizeAndTruncateTextWithDot(user?.fullName, 15)},</p>
+          <p className="homepage-login-hero-name">Hi {capitalizeAndTruncateTextWithDot(user?.fullName, 9)},</p>
           <p className="homepage-login-hero-speech">Get started today with Clubbera</p>
         </div>
         <CustomButton link destination="/creategroup" size="default-size">
