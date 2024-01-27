@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import "./forminput.css";
+import "@/components/forminput/forminput.css";
 import Link from "next/link";
 
 const MainPasswordInput = ( props ) => {

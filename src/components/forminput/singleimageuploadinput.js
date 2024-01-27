@@ -1,6 +1,6 @@
 'use client';
 
-import "./forminput.css";
+import "@/components/forminput/forminput.css";
 import { truncateTextWithDot } from '@/utils/textUtils';
 import { useState, useRef, useEffect } from 'react';
 

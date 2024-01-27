@@ -1,6 +1,6 @@
 'use client';
 
-import "./forminput.css";
+import "@/components/forminput/forminput.css";
 
 
 const CustomTag = ({ selected="not-selected", onClick, children }) => {

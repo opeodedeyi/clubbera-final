@@ -1,6 +1,6 @@
 'use client';
 
-import "./forminput.css";
+import "@/components/forminput/forminput.css";
 
 const CheckboxInput = ({ label, children, checked, onChange }) => {
     return (

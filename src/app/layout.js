@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { cookies } from 'next/headers';
 import { UserProvider } from '@/context/UserContext';
-
+import { deleteCookie } from '@/service/cookieManager';
 import './globals.css';
 
 
@@ -26,7 +26,9 @@ async function getData() {
       });
       return response.data;
     } catch (error) {
-      nextCookies.delete('auth_token');
+      // nextCookies.delete('auth_token');
+      console.log('delete cookie')
+      // deleteCookie();
     }
   }
 }

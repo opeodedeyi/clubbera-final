@@ -48,7 +48,7 @@ function GroupTypeCard({ title, grpimage }) {
       <Image className="homepage-group-card-img" src={grpimage} alt={title} width="400" height="400" />
       <p className="homepage-group-card-title">{title}</p>
     </div>
-);
+  );
 }
 
 const NotLoggedIn = () => {

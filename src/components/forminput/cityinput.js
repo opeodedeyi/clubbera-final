@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import useOnclickOutside from "react-cool-onclickoutside";
 import usePlacesAutocomplete, { getGeocode, getLatLng } from 'use-places-autocomplete';
 import { useLoadScript } from '@react-google-maps/api';
-import "./forminput.css";
+import "@/components/forminput/forminput.css";
 
 
 export default function CityInput({label, placeholder, cityLocation, setCityLocation, setLatLocation, setLngLocation}) {

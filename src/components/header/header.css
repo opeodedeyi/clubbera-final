@@ -39,6 +39,10 @@
     gap: 24px;
 }
 
+.header-buttons-alt {
+    gap: 24px;
+}
+
 .header-verti-line {
     width: 1px;
     height: 16px;
@@ -117,6 +121,60 @@
     z-index: 11;
 }
 
+
+/* signed in header styling */
+.header-toggle-bar {
+    background-color: transparent;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+
+.header-profile-photo-card {
+    padding: 5px;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.header-profile-photo-card:hover {
+    background-color: var(--color-white-six);
+}
+
+.header-profile-photo-img {
+    height: 36px;
+    width: 36px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.header-profile-photo-card img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.header-profile-photo-text {
+    color: var(--color-dark-two);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+}
+
+.header-verti-line {
+    width: 1px;
+    height: 16px;
+    background-color: var(--color-white-two);
+}
+/* signed in header styling ending */
+
 .createheader-desktop-tag-iscolored svg path {
     stroke: var(--main-color);
 }
@@ -154,6 +212,22 @@
     .header-alt-text {
         display: none;
     }
+
+    /* signed in header styling */
+    .header-profile-photo-card {
+        height: 32px;
+        padding: 0px;
+    }
+
+    .header-profile-photo-img {
+        height: 32px;
+        width: 32px;
+    }
+
+    .header-profile-photo-text {
+        display: none;
+    }
+    /* signed in header styling ending */
 
     /* header create group */
     .header-creategroup {
