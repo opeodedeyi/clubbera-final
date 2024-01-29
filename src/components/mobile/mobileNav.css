@@ -1,0 +1,140 @@
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    padding: 12px 0;
+    padding: 16px 24px;
+    gap: 24px;
+    flex-shrink: 0;
+    background-color: var(--color-white);
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+}
+
+.mobile-nav-open {
+    left: 0%;
+}
+
+.mobile-nav-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: 1.2px solid var(--color-white-one);
+    border-radius: 8px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.mobile-nav-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    width: 100%;
+}
+
+.mobile-nav-body-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.mobile-nav-img {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.mobile-nav-img img {
+    object-fit: cover;
+}
+
+.mobile-nav-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-nav-fullname {
+    color: var(--color-text-input);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+}
+
+.mobile-nav-profile-link {
+    color: var(--main-color-card);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    text-decoration-line: underline;
+    text-underline-offset: 3px;
+}
+
+.mobile-nav-body-bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 24px;
+    list-style: none;
+}
+
+.mobile-nav-body-bottom li {
+    width: 100%;
+}
+
+.nav-link-item {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 36px;
+    text-decoration: none;
+}
+
+.nav-link-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link-main-text {
+    color: var(--color-dark-two);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.42px;
+}
