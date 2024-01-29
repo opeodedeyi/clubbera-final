@@ -123,14 +123,18 @@
 
 
 /* signed in header styling */
-.header-toggle-bar {
+.header-toggle-bar,
+.header-toggle-bar-alt {
     background-color: transparent;
-    display: flex;
     flex-direction: row;
     justify-self: center;
     align-items: center;
     border: none;
     cursor: pointer;
+}
+
+.header-toggle-bar-alt {
+    display: flex;
 }
 
 .header-profile-photo-card {
