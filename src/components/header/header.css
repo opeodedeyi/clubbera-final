@@ -125,6 +125,7 @@
 /* signed in header styling */
 .header-toggle-bar {
     background-color: transparent;
+    display: flex;
     flex-direction: row;
     justify-self: center;
     align-items: center;
