@@ -36,16 +36,12 @@ async function apiRequest(url, options) {
 }
 
 async function saveCookie(token) {
-    // Cookies.set('auth_token', token, {
-    //     domain: 'clubbera.com',
-    //     expires: 60,
-    //     secure: process.env.NODE_ENV !== 'development',
-    //     sameSite: 'None',
-    //     path: '/',
-    // });
     Cookies.set('auth_token', token, {
-        expires: 60, 
-        httpOnly: process.env.NODE_ENV !== 'development'
+        domain: 'clubbera.com',
+        expires: 60,
+        secure: process.env.NODE_ENV !== 'development',
+        sameSite: 'None',
+        path: '/',
     });
 }
 
