@@ -2,6 +2,7 @@ import axios from 'axios';
 import { cookies } from 'next/headers';
 import { UserProvider } from '@/context/UserContext';
 import { deleteCookie } from '@/service/cookieManager';
+import { redirect } from 'next/navigation';
 import './globals.css';
 
 
@@ -24,12 +25,12 @@ async function getData() {
       const response = await axios.get(`${process.env.API_URL}/me`, {
         headers: { Authorization: `Bearer ${token}` }
       });
+      
       return response.data;
     } catch (error) {
-      // nextCookies.delete('auth_token');
-      console.log('delete cookie')
-      // deleteCookie();
+      console.log('will delete cookie')
     }
+
   }
 }
 
