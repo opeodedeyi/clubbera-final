@@ -9,7 +9,6 @@ import { getGroupDetails } from "@/service/group/getGroupService";
 
 const GroupDetails = async ({ params, searchParams }) => {
     const result = await getGroupDetails(params.uniqueURL);
-    console.log(result);
 
     if (result.success) {
         return (
