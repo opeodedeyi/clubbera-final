@@ -26,7 +26,9 @@ export async function POST(request) {
 
         if (data.success) {
             const cookieStore = cookies()
-            cookieStore.set(A_COOKIE_NAME, data.token, {
+            cookieStore.set({ 
+                name: A_COOKIE_NAME, 
+                value: data.token, 
                 path: '/',
                 maxAge: 60 * 60 * 24 * 60,
                 sameSite: 'lax',
