@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/UserContext';
-import { signupUser } from "@/service/authServices";
 import Logo from "@/components/utility/logo";
 import Header from "@/components/header/header";
 import MainInput from "@/components/forminput/maininput";
@@ -138,15 +137,28 @@ export default function Signup({ searchParams }) {
             setStep(prevStep => prevStep + 1);
         } else {
             setLoading(true);
-            const result = await signupUser(email, fullName, password, cityLocation, latLocation, lngLocation);
-            
-            if (result.error) {
-                console.log(`error - ${result}`);
-                setLoading(false);
-            } else {
-                setUser(result.user);
-                router.push(nextPage())
-                setLoading(false);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/signup`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email,
+                    fullName,
+                    password,
+                    cityLocation,
+                    latLocation,
+                    lngLocation
+                })
+            })
+
+            if (response) {
+                const data = await response.json();
+                if (data.data.success) {
+                    setUser(data.data.user);
+                    router.push(nextPage());
+                } else {
+                    console.log('error', data.data.message);
+                    setLoading(false);
+                }
             }
         }
     };

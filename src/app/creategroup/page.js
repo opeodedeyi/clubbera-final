@@ -1,15 +1,16 @@
 'use client';
 
 import { Fragment } from "react";
-import AltHeader from "../../components/header/altheader";
-import CityInput from "../../components/forminput/cityinput";
-import MainInput from "../../components/forminput/maininput";
-import BinaryOptionInput from "../../components/forminput/binaryoptioninput";
-import SingleImageUploadInput from "../../components/forminput/singleimageuploadinput";
-import CustomTag from "../../components/forminput/customtag";
-import MainTip from "../../components/utility/maintip";
-import CustomButton from "../../components/utility/custombutton";
-import "../style/authentication.css";
+import { createGroupService } from "@/service/group/createGroupService";
+import AltHeader from "@/components/header/altheader";
+import CityInput from "@/components/forminput/cityinput";
+import MainInput from "@/components/forminput/maininput";
+import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
+import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
+import CustomTag from "@/components/forminput/customtag";
+import MainTip from "@/components/utility/maintip";
+import CustomButton from "@/components/utility/custombutton";
+import "@/app/style/authentication.css";
 
 import { useState } from 'react';
 
@@ -158,7 +159,7 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelect
     );
 }
 
-const FinishStep = ({groupTitle}) => {
+const FinishStep = ({ groupTitle, groupLink }) => {
     return (
         <>
             <div className="auth-form-content-center">
@@ -173,7 +174,7 @@ const FinishStep = ({groupTitle}) => {
                     <img src="/community_created.svg" alt="community created" />
                 </div>
                 
-                <CustomButton link destination="/" size="fullwidth-size">Go to Dashboard</CustomButton>
+                <CustomButton link destination={`/group/${groupLink}/edit`} size="fullwidth-size">See my Group</CustomButton>
             </div>
         </>
     );
@@ -187,6 +188,7 @@ export default function CreateGroup() {
     const [latLocation, setLatLocation] = useState("");
     const [lngLocation, setLngLocation] = useState("");
     const [groupTitle, setGroupTitle] = useState("");
+    const [groupLink, setGroupLink] = useState("");
     const [groupDescription, setGroupDescription] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
     const [isPrivate, setIsPrivate] = useState(null);
@@ -194,9 +196,32 @@ export default function CreateGroup() {
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
 
-    const handleNext = (event) => {
-        if (step < 5) {
+    const handleSubmit = async (event) => {
+        const response = await createGroupService(
+            cityLocation, 
+            latLocation, 
+            lngLocation, 
+            groupTitle, 
+            groupDescription, 
+            selectedTopics, 
+            isPrivate, 
+            selectedImage
+        );
+        
+        if (response.error) {
+            console.log(response.error);
+        } else {
+            console.log(response);
+            setGroupLink(response.group.unique_url);
+            setStep(step + 1);
+        }
+    }
+
+    const handleNext = async (event) => {
+        if (step < 4) {
             setStep(step + 1)
+        } else if (step === 4) {
+            await handleSubmit();
         } else {
             console.log("go to homepage or something");
         }
@@ -260,7 +285,8 @@ export default function CreateGroup() {
                                         imageSize={imageSize}
                                         setImageSize={setImageSize} />}
                     {step === 5 && <FinishStep 
-                                        groupTitle={groupTitle} />}
+                                        groupTitle={groupTitle}
+                                        groupLink={groupLink} />}
 
                     {step > 0 && step < 5 &&
                         <div className="auth-form-actions-two">

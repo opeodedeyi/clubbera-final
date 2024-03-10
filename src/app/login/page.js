@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/UserContext';
-import { loginUser } from "@/service/authServices";
 import Header from "@/components/header/header";
 import Logo from "@/components/utility/logo";
 import MainInput from "@/components/forminput/maininput";
@@ -36,7 +35,7 @@ export default function Login({ searchParams }) {
     };
 
     const isPasswordValid = (password) => {
-        // At least one, At least one lowercase, At least one uppercase, At least one special, A total of at least 8 characters
+        // At least one character, A total of at least 8 characters
         const passwordRegex = /^.{8,}$/;
         return passwordRegex.test(password);
     };
@@ -46,15 +45,25 @@ export default function Login({ searchParams }) {
     const buttonClicked = async (event) => {
         event.preventDefault();
         setLoading(true);
-        const result = await loginUser(email, password)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/login`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email,
+                password
+            })
+        })
 
-        if (result.error) {
-            console.log(`error - ${result}`);
-            setLoading(false);
-        } else {
-            setUser(result.user);
-            router.push(nextPage())
-            setLoading(false);
+        if (response) {
+            const data = await response.json();
+            
+            if (data.error) {
+                console.log(data.error);
+                setLoading(false);
+            } else {
+                setUser(data.data.user);
+                router.push(nextPage());
+            }
         }
     };
   

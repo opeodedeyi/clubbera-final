@@ -21,6 +21,10 @@ export function middleware(request) {
         }
         return NextResponse.redirect(loginUrl)
     }
+
+    // if (!isPublicPath && token) {
+    //     return NextResponse.next()
+    // }
 }
  
 export const config = {
