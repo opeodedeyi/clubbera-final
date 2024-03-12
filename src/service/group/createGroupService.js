@@ -10,6 +10,9 @@ export async function createGroupService (city, lat, lng, title, description, to
     const token = cookieStore.get(A_COOKIE_NAME)?.value;
     const API_URL = process.env.API_URL
 
+    console.log('token', token);
+    console.log('API_URL', API_URL);
+
     try {
         const response = await fetchWithTimeout(`${API_URL}/group/create`, {
             method: 'POST',
@@ -23,6 +26,8 @@ export async function createGroupService (city, lat, lng, title, description, to
         }, 5000); // 5 seconds timeout
     
         const data = await response.json();
+
+        console.log('data', data);
         
         if (data.success) {
             return data;

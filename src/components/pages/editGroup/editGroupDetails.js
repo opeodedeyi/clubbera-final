@@ -85,7 +85,7 @@ const AnalyticsCard = ({ img, title, explain, value }) => {
     );
 };
 
-const EditDetailsSection = ({ selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, groupTagline, setGroupTagline, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, setLatLocation, setLngLocation, isDisabled }) => {
+const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, groupTagline, setGroupTagline, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, setLatLocation, setLngLocation, isDisabled }) => {
     const handleTopicClick = (topic) => {
         return () => {
             if (selectedTopics.includes(topic)) {
@@ -411,6 +411,7 @@ const MainEditGroup = ({ params, searchParams, group }) => {
                 </div>
 
                 {activeTab === 'details' && <EditDetailsSection
+                                                params={params}
                                                 selectedImage={selectedImage}
                                                 setSelectedImage={setSelectedImage}
                                                 imageName={imageName}
