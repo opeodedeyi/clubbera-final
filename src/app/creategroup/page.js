@@ -192,7 +192,7 @@ export default function CreateGroup() {
     const [groupDescription, setGroupDescription] = useState("");
     const [selectedTopics, setSelectedTopics] = useState([]);
     const [isPrivate, setIsPrivate] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState('');
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
 
