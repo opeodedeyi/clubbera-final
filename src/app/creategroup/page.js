@@ -208,8 +208,13 @@ export default function CreateGroup() {
             selectedImage
         );
         
-        if (response.error) {
+        if (!response || typeof response.error === 'undefined') {
+            console.log('Unexpected response structure:', response);
+            // Handle unexpected response structure
+            // e.g., show a notification to the user
+        } else if (response.error) {
             console.log(response.error);
+            // Handle the error case
         } else {
             console.log(response);
             setGroupLink(response.group.unique_url);
