@@ -197,6 +197,19 @@ export default function CreateGroup() {
     const [imageSize, setImageSize] = useState('');
 
     const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        log({
+            cityLocation, 
+            latLocation, 
+            lngLocation, 
+            groupTitle, 
+            groupDescription, 
+            selectedTopics, 
+            isPrivate, 
+            selectedImage
+        });
+        
         const response = await createGroupService(
             cityLocation, 
             latLocation, 
