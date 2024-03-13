@@ -196,50 +196,51 @@ export default function CreateGroup() {
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
 
-        console.log({
-            cityLocation, 
-            latLocation, 
-            lngLocation, 
-            groupTitle, 
-            groupDescription, 
-            selectedTopics, 
-            isPrivate, 
-            selectedImage
-        });
+    //     console.log({
+    //         cityLocation, 
+    //         latLocation, 
+    //         lngLocation, 
+    //         groupTitle, 
+    //         groupDescription, 
+    //         selectedTopics, 
+    //         isPrivate, 
+    //         selectedImage
+    //     });
 
-        const response = await createGroupService(
-            cityLocation, 
-            latLocation, 
-            lngLocation, 
-            groupTitle, 
-            groupDescription, 
-            selectedTopics, 
-            isPrivate, 
-            selectedImage
-        );
+    //     const response = await createGroupService(
+    //         cityLocation, 
+    //         latLocation, 
+    //         lngLocation, 
+    //         groupTitle, 
+    //         groupDescription, 
+    //         selectedTopics, 
+    //         isPrivate, 
+    //         selectedImage
+    //     );
         
-        if (!response || typeof response.error === 'undefined') {
-            console.log('Unexpected response structure:', response);
-            // Handle unexpected response structure
-            // e.g., show a notification to the user
-        } else if (response.error) {
-            console.log(response.error);
-            // Handle the error case
-        } else {
-            console.log(response);
-            setGroupLink(response.group.unique_url);
-            setStep(step + 1);
-        }
-    }
+    //     if (!response || typeof response.error === 'undefined') {
+    //         console.log('Unexpected response structure:', response);
+    //         // Handle unexpected response structure
+    //         // e.g., show a notification to the user
+    //     } else if (response.error) {
+    //         console.log(response.error);
+    //         // Handle the error case
+    //     } else {
+    //         console.log(response);
+    //         setGroupLink(response.group.unique_url);
+    //         setStep(step + 1);
+    //     }
+    // }
 
     const handleNext = async (event) => {
         if (step < 4) {
             setStep(step + 1)
         } else if (step === 4) {
-            await handleSubmit();
+            const response = await createGroupService( cityLocation, latLocation, lngLocation, groupTitle, groupDescription, selectedTopics, isPrivate, selectedImage)
+            console.log(response);
         } else {
             console.log("go to homepage or something");
         }
