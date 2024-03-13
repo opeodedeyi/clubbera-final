@@ -199,7 +199,7 @@ export default function CreateGroup() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        log({
+        console.log({
             cityLocation, 
             latLocation, 
             lngLocation, 
@@ -209,7 +209,7 @@ export default function CreateGroup() {
             isPrivate, 
             selectedImage
         });
-        
+
         const response = await createGroupService(
             cityLocation, 
             latLocation, 
