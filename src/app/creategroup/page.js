@@ -239,8 +239,32 @@ export default function CreateGroup() {
         if (step < 4) {
             setStep(step + 1)
         } else if (step === 4) {
-            const response = await createGroupService( cityLocation, latLocation, lngLocation, groupTitle, groupDescription, selectedTopics, isPrivate, selectedImage)
-            console.log(response);
+            // const response = await createGroupService( cityLocation, latLocation, lngLocation, groupTitle, groupDescription, selectedTopics, isPrivate, selectedImage)
+            const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/group/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    cityLocation,
+                    latLocation,
+                    lngLocation,
+                    groupTitle,
+                    groupDescription,
+                    selectedTopics,
+                    isPrivate,
+                    selectedImage
+                })
+            })
+            
+            if (response) {
+                const data = await response.json();
+                
+                if (data.error) {
+                    console.log(data.error);
+                    // setLoading(false);
+                } else {
+                    console.log(data);
+                }
+            }
         } else {
             console.log("go to homepage or something");
         }
