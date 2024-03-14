@@ -1,7 +1,6 @@
 'use client';
 
 import { Fragment } from "react";
-import { createGroupService } from "@/service/group/createGroupService";
 import AltHeader from "@/components/header/altheader";
 import CityInput from "@/components/forminput/cityinput";
 import MainInput from "@/components/forminput/maininput";
@@ -182,6 +181,7 @@ const FinishStep = ({ groupTitle, groupLink }) => {
 
 export default function CreateGroup() {
     const [step, setStep] = useState(0);
+    const [loading, setLoading] = useState(false);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
     const [topicSearch, setTopicSearch] = useState("");
     const [cityLocation, setCityLocation] = useState("");
@@ -196,50 +196,11 @@ export default function CreateGroup() {
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-
-    //     console.log({
-    //         cityLocation, 
-    //         latLocation, 
-    //         lngLocation, 
-    //         groupTitle, 
-    //         groupDescription, 
-    //         selectedTopics, 
-    //         isPrivate, 
-    //         selectedImage
-    //     });
-
-    //     const response = await createGroupService(
-    //         cityLocation, 
-    //         latLocation, 
-    //         lngLocation, 
-    //         groupTitle, 
-    //         groupDescription, 
-    //         selectedTopics, 
-    //         isPrivate, 
-    //         selectedImage
-    //     );
-        
-    //     if (!response || typeof response.error === 'undefined') {
-    //         console.log('Unexpected response structure:', response);
-    //         // Handle unexpected response structure
-    //         // e.g., show a notification to the user
-    //     } else if (response.error) {
-    //         console.log(response.error);
-    //         // Handle the error case
-    //     } else {
-    //         console.log(response);
-    //         setGroupLink(response.group.unique_url);
-    //         setStep(step + 1);
-    //     }
-    // }
-
     const handleNext = async (event) => {
         if (step < 4) {
             setStep(step + 1)
         } else if (step === 4) {
-            // const response = await createGroupService( cityLocation, latLocation, lngLocation, groupTitle, groupDescription, selectedTopics, isPrivate, selectedImage)
+            setLoading(true);
             const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/group/create`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -260,9 +221,10 @@ export default function CreateGroup() {
                 
                 if (data.error) {
                     console.log(data.error);
-                    // setLoading(false);
+                    setLoading(false);
                 } else {
-                    console.log(data);
+                    setGroupLink(data.data.group.unique_url);
+                    setStep(step + 1);
                 }
             }
         } else {
