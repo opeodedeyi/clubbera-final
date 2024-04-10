@@ -104,8 +104,6 @@ export default function Header() {
         fetchUser();
     }, []);
 
-    console.log('header user - ',user);
-
     function closeNav() {
         toggleShowNav(false);
     }
