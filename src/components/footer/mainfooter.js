@@ -2,12 +2,22 @@
 
 import Link from "next/link";
 import Logo from "@/components/utility/logo";
-import { useUser } from "@/context/UserContext";
+import { Fragment, useState, useEffect } from "react";
+import { getUserSession } from "@/lib";
 import "@/components/footer/mainfooter.css"
 
 
 export default function MainFooter() {
-    const { user } = useUser();
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await getUserSession();
+            setUser(user);
+        };
+
+        fetchUser();
+    }, []);
 
     return (
         <footer className="main-footer">
@@ -19,15 +29,17 @@ export default function MainFooter() {
                 <div className="main-footer-top-right">
                     <ul>
                         <li><p className="main-footer-link-header">Your Account</p></li>
-                        { user ?
-                            <>
-                                <li><Link href="#" className="main-footer-link">Profile</Link></li>
-                                <li><Link href="#" className="main-footer-link">Logout</Link></li>
-                            </> : 
-                            <>
-                                <li><Link href="/signup" className="main-footer-link">Sign up</Link></li>
-                                <li><Link href="/login" className="main-footer-link">Login</Link></li>
-                            </> }
+                        { 
+                            user?.isLoggedIn ?
+                                <>
+                                    <li><Link href="#" className="main-footer-link">Profile</Link></li>
+                                    <li><Link href="#" className="main-footer-link">Logout</Link></li>
+                                </> :
+                                <>
+                                    <li><Link href="/signup" className="main-footer-link">Sign up</Link></li>
+                                    <li><Link href="/login" className="main-footer-link">Login</Link></li>
+                                </>
+                            }
                     </ul>
                     <ul>
                         <li><p className="main-footer-link-header">Company</p></li>

@@ -81,7 +81,7 @@ export default function Dashboard({ searchParams }) {
     return (
         <Fragment>
             <Header />
-            <LoggedIn user={user.user} searchParams={searchParams} />
+            <LoggedIn user={user?.user} searchParams={searchParams} />
             <MainFooter/>
         </Fragment>
     )
