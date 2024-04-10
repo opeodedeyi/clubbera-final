@@ -3,7 +3,7 @@
 
 import Header from "@/components/header/header";
 import MainFooter from "@/components/footer/mainfooter";
-import MainEditGroup from "@/components/pages/editGroup/editGroupDetails";
+import MainEditGroup from "@/components/pages/editGroup/MainEditGroup";
 import { getGroupEditDetails } from "@/service/group/editGroupService";
 
 const EditGroup = async ({ params, searchParams }) => {

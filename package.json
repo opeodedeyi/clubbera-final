@@ -14,6 +14,7 @@
     "axios": "^1.6.5",
     "browser-image-resizer": "^2.4.1",
     "cookie": "^0.6.0",
+    "jose": "^5.2.3",
     "js-cookie": "^3.0.5",
     "next": "13.5.4",
     "react": "^18",

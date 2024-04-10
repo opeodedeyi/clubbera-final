@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { useState, Fragment } from "react";
-import Logo from "../../components/utility/logo";
-import Header from "../../components/header/header";
-import MainInput from "../../components/forminput/maininput";
-import CustomButton from "../../components/utility/custombutton";
-import "../style/authentication.css";
+import Logo from "@/components/utility/logo";
+import MainInput from "@/components/forminput/maininput";
+import CustomButton from "@/components/utility/custombutton";
+import "@/app/style/authentication.css";
 
 const MainForm = ({ email, setEmail, isDisabled }) => {
     return (
@@ -69,8 +68,6 @@ export default function ForgotPassword() {
   
     return (
         <Fragment>
-            <Header />
-
             <div className="auth-container">
                 <form className="auth-container-main">
                     {step===1 ?

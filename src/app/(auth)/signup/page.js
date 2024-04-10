@@ -5,7 +5,6 @@ import { Fragment, useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/UserContext';
 import Logo from "@/components/utility/logo";
-import Header from "@/components/header/header";
 import MainInput from "@/components/forminput/maininput";
 import CityInput from "@/components/forminput/cityinput";
 import CheckboxInput from "@/components/forminput/checkboxinput";
@@ -167,8 +166,6 @@ export default function Signup({ searchParams }) {
   
     return (
         <Fragment>
-            <Header />
-
             <div className="auth-container">
                 <form className="auth-container-main">
                     {step===1 ?

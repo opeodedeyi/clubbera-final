@@ -5,33 +5,31 @@ import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 
 export async function POST(request) {
     const passedData = await request.json();
+    const cookieStore = cookies();
+    const token = cookieStore.get(A_COOKIE_NAME)?.value;
 
     try {
-        const response = await fetchWithTimeout(`${process.env.API_URL}/user/login`, {
+        const response = await fetchWithTimeout(`${process.env.API_URL}/group/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': token
             },
             body: JSON.stringify({
-                email: passedData.email,
-                password: passedData.password,
+                city: passedData.cityLocation,
+                lat: passedData.latLocation,
+                lng: passedData.lngLocation,
+                title: passedData.groupTitle,
+                description: passedData.groupDescription,
+                topics: passedData.selectedTopics,
+                is_private: passedData.isPrivate,
+                banner: passedData.selectedImage,
             }),
-        }, 3000);
+        }, 5000); // 5 seconds timeout
     
         const data = await response.json();
     
         if (data.success) {
-            const cookieStore = cookies()
-            cookieStore.set({ 
-                name: A_COOKIE_NAME, 
-                value: data.token, 
-                path: '/',
-                maxAge: 60 * 60 * 24 * 60,
-                sameSite: 'lax',
-                secure: true,
-                httpOnly: true,
-            });
-
             return NextResponse.json({ data });
         }
         

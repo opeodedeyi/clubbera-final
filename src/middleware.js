@@ -1,34 +1,60 @@
-import { NextResponse } from 'next/server'
+import { NextResponse } from 'next/server';
+import { verifyUser } from '@/lib';
+import { A_COOKIE_NAME, B_COOKIE_NAME } from "@/constants";
  
 
-export function middleware(request) {
+export async function middleware(request) {
+    const data = await verifyUser(request);
+
+    let response = NextResponse.next();
     const { pathname, searchParams } = request.nextUrl
     const previousPageURL = pathname.startsWith('/') ? pathname.slice(1) : null;
-    const nextPageURL = searchParams.get('destination') || '/';
+    const nextPageURL = searchParams.get('destination') || '/dashboard';
+    const isPublicPath = pathname === '/' || pathname === '/login' || pathname === '/signup' || pathname === '/forgotpassword';
+    const isPrivatePath = pathname === '/dashboard' || pathname === '/creategroup' || pathname === '/group/:uniqueURL/edit';
+    const token = request.cookies.get(A_COOKIE_NAME)?.value || '';
+    let redirectUrl;
 
-    const isPublicPath = pathname === '/login'  || pathname === '/signup' || pathname === '/forgotpassword'
-
-    const token = request.cookies.get('auth_token')?.value || ''
-
-    if (isPublicPath && token) {
-        return NextResponse.redirect( new URL(nextPageURL, request.nextUrl) )
+    if (token && !data.success) {
+        request.cookies.delete(A_COOKIE_NAME);
+        response.cookies.delete(A_COOKIE_NAME);
+        response.cookies.delete(B_COOKIE_NAME);
     }
 
-    if (!isPublicPath && !token) {
-        const loginUrl = new URL('/login', request.nextUrl);
+    if (data.success) {
+        response.cookies.set(B_COOKIE_NAME, data.user);
+    }
+
+    const isAuth = request.cookies.has(A_COOKIE_NAME);
+
+    if (isPublicPath && isAuth) {
+        redirectUrl = new URL(nextPageURL, request.nextUrl);
+        response = NextResponse.redirect(redirectUrl);
+        response.cookies.set(B_COOKIE_NAME, data.user);
+        return response;
+    }
+
+    if (isPrivatePath && !isAuth) {
+        redirectUrl = new URL('/login', request.nextUrl);
         if (previousPageURL) {
-            loginUrl.searchParams.set('destination', previousPageURL);
+            redirectUrl.searchParams.set('destination', previousPageURL);
         }
-        return NextResponse.redirect(loginUrl)
     }
 
-    // if (!isPublicPath && token) {
-    //     return NextResponse.next()
-    // }
+    if (redirectUrl) {
+        response = NextResponse.redirect(redirectUrl);
+        response.cookies.delete(A_COOKIE_NAME);
+        response.cookies.delete(B_COOKIE_NAME);
+        return response;
+    }
+
+    return response;
 }
  
 export const config = {
     matcher: [
+        '/',
+        '/dashboard',
         '/login',
         '/signup',
         '/forgotpassword',

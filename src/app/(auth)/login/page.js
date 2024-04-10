@@ -4,7 +4,6 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/context/UserContext';
-import Header from "@/components/header/header";
 import Logo from "@/components/utility/logo";
 import MainInput from "@/components/forminput/maininput";
 import MainPasswordInput from "@/components/forminput/passwordinput";
@@ -61,16 +60,15 @@ export default function Login({ searchParams }) {
                 console.log(data.error);
                 setLoading(false);
             } else {
-                setUser(data.data.user);
+                setUser(data?.data?.user);
                 router.push(nextPage());
             }
         }
     };
+
   
     return (
         <Fragment>
-            <Header />
-
             <div className="auth-container">
                 <form className="auth-container-main">
                     <div className="auth-form-content">

@@ -11,11 +11,12 @@ export const metadata = {
   }
 }
 
+
 export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <UserProvider /*initialUser={user}*/>
+        <UserProvider>
           {children}
         </UserProvider>
       </body>
