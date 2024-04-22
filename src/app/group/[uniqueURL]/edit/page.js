@@ -8,7 +8,6 @@ import { getGroupEditDetails } from "@/service/group/editGroupService";
 
 const EditGroup = async ({ params, searchParams }) => {
     const result = await getGroupEditDetails(params.uniqueURL);
-    console.log(result);
 
     if (result.success) {
         return (

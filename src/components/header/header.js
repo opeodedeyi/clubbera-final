@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect, Suspense } from "react";
+import { useState, useEffect } from "react";
+import { usePathname } from 'next/navigation'
 import CustomButton from "@/components/utility/custombutton";
 import Logo from "@/components/utility/logo";
 import SearchBar from "@/components/forminput/searchBar";
@@ -11,7 +12,6 @@ import "@/components/header/header.css";
 
 
 function ProfileCard({ user }) {
-    console.log('to be printed - ', user);
     return (
         <div className="header-profile-photo-card">
             <div className="header-profile-photo-img">
@@ -84,6 +84,7 @@ function LoggedInHeader({ user, navBtnClicked}) {
 }
 
 export default function Header() {
+    const pathname = usePathname()
     const [user, setUser] = useState(null);
     const [showNav, toggleShowNav] = useState(false);
 
@@ -98,7 +99,7 @@ export default function Header() {
         };
 
         fetchUser();
-    }, []);
+    }, [pathname]);
 
     function closeNav() {
         toggleShowNav(false);

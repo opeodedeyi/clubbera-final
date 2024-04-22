@@ -45,7 +45,10 @@ export async function getUserSession() {
         }
     }
 
-    return null;
+    return {
+        user: null,
+        isLoggedIn: false
+    }
 }
 
 export async function verifyUser(request) {

@@ -1,5 +1,7 @@
 'use client';
 
+
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import CustomButton from "@/components/utility/custombutton";
 import MainInput from "@/components/forminput/maininput";
 import CityInput from "@/components/forminput/cityinput";
@@ -19,18 +21,31 @@ const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName
         }
     };
 
-    const handleSubmitClick = () => {
-        console.log({
-            groupTitle,
-            groupDescription,
-            groupTagline,
-            boolValue,
-            selectedTopics,
-            cityLocation,
-            latLocation,
-            lngLocation,
-            selectedImage
-        });
+    const handleSubmitClick = async () => {
+        const response = await fetchWithTimeout(`${process.env.NEXT_PUBLIC_HOST}/api/group/update/${params.uniqueURL}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                groupTitle,
+                groupDescription,
+                groupTagline,
+                boolValue,
+                selectedTopics,
+                cityLocation,
+                latLocation,
+                lngLocation
+            })
+        })
+
+        if (response) {
+            const data = await response.json();
+            
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                console.log(data.data.group);
+            }
+        }
     }
 
     return (

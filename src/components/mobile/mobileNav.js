@@ -1,4 +1,7 @@
-import { useUser } from "@/context/UserContext";
+'use client';
+
+import { useState, useEffect } from "react";
+import { getUserSession } from "@/lib";
 import '@/components/mobile/mobileNav.css';
 import Link from "next/link";
 import Image from 'next/image';
@@ -25,7 +28,7 @@ function NavLink({text, link, svg}) {
 }
 
 export default function MobileNav({ isOpen, closeNav }) {
-    const { user } = useUser();
+    const [user, setUser] = useState(null);
     const links = [
         {
             "text": "Profile",
@@ -36,6 +39,15 @@ export default function MobileNav({ isOpen, closeNav }) {
                     </svg>
         },
     ]
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const user = await getUserSession();
+            setUser(user);
+        };
+
+        fetchUser();
+    }, []);
 
     return (
         <>
@@ -56,15 +68,17 @@ export default function MobileNav({ isOpen, closeNav }) {
                                 alt="user profile picture" />
                         </div>
                         <div className="mobile-nav-text">
-                            <p className="mobile-nav-fullname">{user?.fullName}</p>
+                            <p className="mobile-nav-fullname">{user?.user?.full_name}</p>
                             <Link href="/profile" className="mobile-nav-profile-link">Update profile &gt;</Link>
                         </div>
                     </div>
 
                     <ul className="mobile-nav-body-bottom">
-                        { links.map((item, index) => 
-                            <NavLink key={index} text={item.text} link={item.link} svg={item.svg}/>
-                        )}
+                        { 
+                            links.map((item, index) => 
+                                <NavLink key={index} text={item.text} link={item.link} svg={item.svg}/>
+                            )
+                        }
                     </ul>
                 </div>
             </nav>

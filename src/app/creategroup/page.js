@@ -1,6 +1,7 @@
 'use client';
 
-import { Fragment } from "react";
+import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
+import { Fragment, useState } from "react";
 import AltHeader from "@/components/header/altheader";
 import CityInput from "@/components/forminput/cityinput";
 import MainInput from "@/components/forminput/maininput";
@@ -9,9 +10,8 @@ import SingleImageUploadInput from "@/components/forminput/singleimageuploadinpu
 import CustomTag from "@/components/forminput/customtag";
 import MainTip from "@/components/utility/maintip";
 import CustomButton from "@/components/utility/custombutton";
+import { useRouter } from 'next/navigation'
 import "@/app/style/authentication.css";
-
-import { useState } from 'react';
 
 
 const IntroStep = ({ onClick }) => {
@@ -180,6 +180,7 @@ const FinishStep = ({ groupTitle, groupLink }) => {
 }
 
 export default function CreateGroup() {
+    const router = useRouter();
     const [step, setStep] = useState(0);
     const [loading, setLoading] = useState(false);
     const [presetTopics, setPresetTopics] = useState(["writing", "singing", "guitar lessons", "playstation", "chess", "architecture", "dancing", "new to town", "graphics design"]);
@@ -201,7 +202,7 @@ export default function CreateGroup() {
             setStep(step + 1)
         } else if (step === 4) {
             setLoading(true);
-            const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/group/create`, {
+            const response = await fetchWithTimeout(`${process.env.NEXT_PUBLIC_HOST}/api/group/create`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -228,7 +229,7 @@ export default function CreateGroup() {
                 }
             }
         } else {
-            console.log("go to homepage or something");
+            router.push('/');
         }
     };
 
@@ -249,9 +250,9 @@ export default function CreateGroup() {
 
     const backButtonClicked = () => {
         if (step < 2) {
-            console.log("go back to previous page");
+            router.back();
         } else if (step === 5) {
-            console.log("go back to home page");
+            router.push('/');
         } else {
             setStep(prevStep => prevStep - 1);
         }
