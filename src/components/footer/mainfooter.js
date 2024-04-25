@@ -2,23 +2,10 @@
 
 import Link from "next/link";
 import Logo from "@/components/utility/logo";
-import { Fragment, useState, useEffect } from "react";
-import { getUserSession } from "@/lib";
 import "@/components/footer/mainfooter.css"
 
 
-export default function MainFooter() {
-    const [user, setUser] = useState(null);
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getUserSession();
-            setUser(user);
-        };
-
-        fetchUser();
-    }, []);
-
+export default function MainFooter({ user }) {
     return (
         <footer className="main-footer">
             <div className="main-footer-top">

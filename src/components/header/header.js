@@ -1,12 +1,10 @@
 'use client';
 
-import { useState, useEffect } from "react";
-import { usePathname } from 'next/navigation'
+import { useState } from "react";
 import CustomButton from "@/components/utility/custombutton";
 import Logo from "@/components/utility/logo";
 import SearchBar from "@/components/forminput/searchBar";
 import MobileNav from "@/components/mobile/mobileNav";
-import { getUserSession } from "@/lib";
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
 import "@/components/header/header.css";
 
@@ -83,23 +81,12 @@ function LoggedInHeader({ user, navBtnClicked}) {
     );
 }
 
-export default function Header() {
-    const pathname = usePathname()
-    const [user, setUser] = useState(null);
+export default function Header({ user }) {
     const [showNav, toggleShowNav] = useState(false);
 
     function openNav() {
         toggleShowNav(true);
     }
-
-    useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getUserSession();
-            setUser(user);
-        };
-
-        fetchUser();
-    }, [pathname]);
 
     function closeNav() {
         toggleShowNav(false);

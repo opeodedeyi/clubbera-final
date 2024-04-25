@@ -1,4 +1,4 @@
-import { UserProvider } from '@/context/UserContext';
+import { ThemeProvider } from 'next-themes'
 import './globals.css';
 
 
@@ -14,11 +14,14 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      {/* <head>
+        <script src="http://accounts.google.com/gsi/client" async defer></script>
+      </head> */}
       <body>
-        <UserProvider>
+        <ThemeProvider>
           {children}
-        </UserProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

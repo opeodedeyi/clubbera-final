@@ -1,39 +1,13 @@
 'use client';
 
-import { Fragment, useState, useEffect } from "react";
-import { useRouter } from 'next/navigation';
-import Header from "@/components/header/header";
-import MainFooter from "@/components/footer/mainfooter";
 import CustomButton from "@/components/utility/custombutton";
-import { getUserSession } from "@/lib";
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
-import Image from 'next/image'
+import { useTabManager } from "@/hooks/useTabManager";
 import "@/app/style/homepage.css"
 
-const LoggedIn = ({ user, searchParams }) => {
-    const router = useRouter();
-    const [activeTab, setActiveTab] = useState('');
-  
-  
-    const checkTab = () => {
-        if (searchParams.tab) {
-            setActiveTab(searchParams.tab);
-        } else {
-            router.push(`?tab=${'mygroups'}`, undefined, { shallow: true });
-            setActiveTab('mygroups');
-        }
-    };
-  
-    useEffect(() => {
-        checkTab();
-    }, [searchParams]);
-  
-    const handleTabClick = (e, tabName) => {
-        e.preventDefault();
-        
-        setActiveTab(tabName);
-        router.push(`?tab=${tabName}`, undefined, { shallow: true });
-    };
+
+const DashboardContent = ({ user, searchParams }) => {
+    const { activeTab, handleTabClick } = useTabManager('mygroups', searchParams);
   
     return (
         <>
@@ -65,24 +39,5 @@ const LoggedIn = ({ user, searchParams }) => {
         </>
     );
 }
-  
-export default function Dashboard({ searchParams }) {
-    const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        const fetchUser = async () => {
-            const user = await getUserSession();
-            setUser(user);
-        };
-
-        fetchUser();
-    }, []);
-
-    return (
-        <Fragment>
-            <Header />
-            <LoggedIn user={user?.user} searchParams={searchParams} />
-            <MainFooter/>
-        </Fragment>
-    )
-}
+export default DashboardContent;
