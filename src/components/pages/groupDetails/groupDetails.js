@@ -138,7 +138,6 @@ const MemberSection = ({ params }) => {
     );
 };
 
-
 const MainGroupDetails = ({ params, searchParams, group }) => {
     const router = useRouter();
     const [activeTab, setActiveTab] = useState('');
