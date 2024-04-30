@@ -1,14 +1,15 @@
 'use client';
 
+import React from 'react';
 import CustomButton from "@/components/utility/custombutton";
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
 import { useTabManager } from "@/hooks/useTabManager";
 import "@/app/style/homepage.css"
 
 
-const DashboardContent = ({ user, searchParams }) => {
+const DashboardContent = React.memo(({ user, searchParams }) => {
     const { activeTab, handleTabClick } = useTabManager('mygroups', searchParams);
-  
+
     return (
         <>
             <div className="homepage-login-hero">
@@ -38,6 +39,6 @@ const DashboardContent = ({ user, searchParams }) => {
             </div>
         </>
     );
-}
+});
 
 export default DashboardContent;

@@ -15,9 +15,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* <head>
-        <script src="http://accounts.google.com/gsi/client" async defer></script>
-      </head> */}
       <body>
         <ThemeProvider>
           {children}

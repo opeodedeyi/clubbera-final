@@ -8,28 +8,11 @@ import MainPasswordInput from "@/components/forminput/passwordinput";
 import CustomButton from "@/components/utility/custombutton";
 import SocialLoginButton from "@/components/utility/socialbutton";
 import "@/app/style/authentication.css";
-import { useEffect } from "react";
 
 
 export default function Login({ searchParams }) {
     const { destination } = searchParams
     const { email, setEmail, password, setPassword, submitLogin, isDisabled } = useLoginForm(destination);
-
-    // useEffect(() => {
-    //     google.accounts.id.initialize({
-    //         client_id: "YOUR_GOOGLE",
-    //         callback: handleCredentialResponse,
-    //         auto_select: false
-    //     })
-    // }, [])
-
-    // const handleGoogleLogin = () => {
-    //     google.accounts.id.prompt()
-    // }
-
-    // const handleCredentialResponse = (response) => {
-    //     console.log("Encoded JWT ID token: " + response.credential);
-    // };
 
     return (
         <>

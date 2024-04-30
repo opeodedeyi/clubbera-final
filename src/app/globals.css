@@ -1,6 +1,19 @@
 :root {
   --border-radius: 12px;
   --container-padding: 80px;
+
+  /* background color */
+  --background-color: #FFFFFF;
+
+  /* text */
+  --color-text-main: #777474;
+  --color-text-secondary: #241F1F; /* header */
+  --color-text-alternate: #8C8A8A;
+
+  /* text on brand color or overlay */
+  --color-text-on-brand: #F0F3F5;
+
+  /* button */
   --main-color: #228B22;
   --main-color-card: #1E7B1D;
   --main-color-hover: #196B18;
@@ -34,6 +47,20 @@
 [data-theme="dark"] {
   --border-radius: 12px;
   --container-padding: 80px;
+
+  /* background color */
+  --background-color: #020900;
+
+
+  /* text */
+  --color-text-main: #B4C2B7;
+  --color-text-secondary: #DEF3E2; /* header */
+  --color-text-alternate: #BECCC1;
+
+  /* text on brand color or overlay */
+  --color-text-on-brand: #F0F3F5;
+
+  /*  */
   --main-color: #228B22;
   --main-color-card: #1E7B1D;
   --main-color-hover: #196B18;
@@ -119,10 +146,11 @@
 
 body {
   background-color: var(--color-white);
+  /* background-color: var(--background-color); */
 }
 
-input {
-  background-color: var(--color-white);
+input, textarea {
+  background-color: transparent;
 }
 
 h1 {
@@ -235,7 +263,6 @@ body {
   }
   
   h3 {
-    color: #393535;
     font-size: 1.5rem;
     font-style: normal;
     font-weight: 500;

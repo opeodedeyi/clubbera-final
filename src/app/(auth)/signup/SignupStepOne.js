@@ -21,7 +21,7 @@ export default function SignupStepOne ({ email, setEmail, fullName, setFullName,
                         <p className="auth-form-content-intro-text">Sign up to connect with like-minded individuals and embark on exciting journeys together.</p>
                     </div>
                 </div>
-                <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring">Login with Google</SocialLoginButton>
+                <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring" socialType="google">Login with Google</SocialLoginButton>
                 <div className="auth-or-horizontal-line">
                     <div className="horizontal-line-half"></div>
                     <p className="horizontal-line-text">or</p>

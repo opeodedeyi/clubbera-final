@@ -1,37 +1,35 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useSocialLogin } from "@/hooks/useSocialLogin";
+import { useRouter } from "next/navigation";
 import "./custombutton.css";
 
-const SocialLoginButton = ( props ) => {
-    const { imgSrc, coloring, onClick, disabled, children, socialType} = props;
 
-    useEffect(() => {
-        if (socialType === "google") {
-            // Load the Google Identity SDK
-            const script = document.createElement('script');
-            script.src = 'https://accounts.google.com/gsi/client';
-            script.async = true;
-            script.defer = true;
-            script.onload = initializeGoogleSignIn;
-            document.body.appendChild(script);
-        }
-    }, [])
-
-    const initializeGoogleSignIn = () => {
-        window.google.accounts.id.initialize({
-            client_id: 'YOUR_CLIENT_ID', // Replace 'YOUR_CLIENT_ID' with your actual client ID
-            callback: handleGoogleCredentialResponse
+const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType }) => {
+    const router = useRouter();
+    const handleGoogleCredentialResponse = async (res) => {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/google`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ idToken: res.credential }),
         });
+
+        if (response.ok) {
+            const data = await response.json();
+            
+            if (data?.data?.error) {
+                console.log(data.error);
+            } else {
+                router.push('/');
+            }
+        }
     };
 
-    const handleGoogleCredentialResponse = (response) => {
-        console.log('Encoded JWT ID token: ' + response.credential);
-    };
+    useSocialLogin(socialType, handleGoogleCredentialResponse);
 
     const handleLogin = () => {
         if (socialType === "google") {
-            window.google.accounts.id.prompt(); // This function triggers the Google login prompt
+            window.google.accounts.id.prompt();
         }
     };
 
