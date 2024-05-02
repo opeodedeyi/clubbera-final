@@ -1,4 +1,4 @@
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 
 
@@ -10,7 +10,6 @@ export const metadata = {
     apple: '/LogoClubbera.svg',
   }
 }
-
 
 export default async function RootLayout({ children }) {
   return (

@@ -1,0 +1,16 @@
+.loadingContainer {
+    position: fixed;
+    height: 3px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: 10000;
+}
+
+.loadingBar {
+    height: 100%;
+    background-color: var(--main-color);
+    width: 0;
+    transition: width 0.3s ease-in-out;
+}

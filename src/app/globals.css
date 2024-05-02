@@ -9,9 +9,16 @@
   --color-text-main: #777474;
   --color-text-secondary: #241F1F; /* header */
   --color-text-alternate: #8C8A8A;
+  --color-text-sub: #4D4A4A;
 
   /* text on brand color or overlay */
-  --color-text-on-brand: #F0F3F5;
+  --color-on-brand: #F0F3F5;
+
+  /* svg */
+  --svg-default-color: ;
+  --svg-inverse-color: ;
+  --svg-alternate-color: ;
+  --svg-sub-color: #4D4A4A;
 
   /* button */
   --main-color: #228B22;
@@ -58,7 +65,13 @@
   --color-text-alternate: #BECCC1;
 
   /* text on brand color or overlay */
-  --color-text-on-brand: #F0F3F5;
+  --color-on-brand: #F0F3F5;
+
+  /* svg */
+  --svg-default-color: ;
+  --svg-inverse-color: ;
+  --svg-alternate-color: ;
+  --svg-sub-color: #4D4A4A;
 
   /*  */
   --main-color: #228B22;
