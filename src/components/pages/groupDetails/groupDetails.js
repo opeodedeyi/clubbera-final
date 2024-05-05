@@ -2,7 +2,7 @@
 
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTabManager } from "@/hooks/useTabManager";
 import AboutSection from "@/components/pages/groupDetails/AboutSection";
 import EventSection from "@/components/pages/groupDetails/EventSection";
@@ -19,11 +19,26 @@ import '@/app/style/groupdetails.css';
 
 const MainGroupDetails = ({ params, searchParams, group }) => {
     const router = useRouter();
+    const [ctaText, setCtaText] = useState('Join Group');
     const [location, setLocation] = useState('The Man Behind The Curtain, Vicar Lane, Leeds, United Kingdom');
     const [date, setDate] = useState('24 Sep, 2023');
     const [time, setTime] = useState('3:00 PM')
 
     const { activeTab, handleTabClick } = useTabManager('about', searchParams);
+
+    useEffect(() => {
+        if (group.isMember === 'owner') {
+            setCtaText('Owner');
+        } else if (group.isMember === 'pending') {
+            setCtaText('Pending');
+        } else if (group.isMember === 'member') {
+            setCtaText('Leave Group');
+        } else {
+            setCtaText('Join Group');
+        }
+    }, [group.isMember]);
+
+    console.log('params: ', params, 'searchParams: ', searchParams);
 
     return (
         <>
@@ -59,7 +74,12 @@ const MainGroupDetails = ({ params, searchParams, group }) => {
                                     </div>
                                 </div>
                                 <div className="group-keydetails-text-buttons">
-                                    <CustomButton coloring="default-coloring" size="normal-button-size">Join Group</CustomButton>
+                                    <CustomButton 
+                                        coloring="default-coloring" 
+                                        size="normal-button-size" 
+                                        disabled={group.isMember === ('owner' || 'pending') ? true : false}>
+                                        {ctaText}
+                                    </CustomButton>
                                     <CustomButton coloring="inverse-coloring" size="normal-button-size">
                                         <span>Share</span><DownArrowIcon/>
                                     </CustomButton>

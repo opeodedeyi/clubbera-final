@@ -1,41 +1,28 @@
 'use client';
 
 import "@/components/forminput/forminput.css";
+import { useDragAndDrop } from "@/hooks/useDragAndDrop";
 import { truncateTextWithDot } from '@/utils/textUtils';
-import { useState, useRef, useEffect } from 'react';
+import { processImage, convertFileSize } from "@/utils/imageUtils";
+import { useRef } from 'react';
 
 
-let readAndCompressImage;
-if (typeof window !== 'undefined') {
-    readAndCompressImage = require('browser-image-resizer').readAndCompressImage;
-}
-
-const SingleImageUploadInput = ({ children, hasChange, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize }) => {
-    const [isDragOver, setIsDragOver] = useState(false);
+const SingleImageUploadInput = ({ children, hasChange, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, externalUploadFunction }) => {
+    const { isDragOver, handleDragOver, handleDragLeave, setIsDragOver } = useDragAndDrop();
     const fileInputRef = useRef();
 
-    function convertFileSize(size) {
-        if (size < 1024) {
-            return size + ' B';
-        } else if (size < 1024 * 1024) {
-            const kbSize = (size / 1024).toFixed(2);
-            return kbSize + ' KB';
-        } else {
-            const mbSize = (size / (1024 * 1024)).toFixed(2);
-            return mbSize + ' MB';
-        }
-    }
-
-    const handleImageUpload = (event) => {
-        if (event.target.files.length === 0) {
-            return;
-        }
-
+    const handleImageUpload = async (event) => {
         const file = event.target.files[0];
+        if (!file) return;
+
+        const { dataUrl, size } = await processImage(file);
         setImageName(file.name)
-        readImage(file).then(dataUrl => {
-            setSelectedImage(dataUrl);
-        });
+        setImageSize(convertFileSize(size));
+        setSelectedImage(dataUrl);
+        
+        if (externalUploadFunction) {
+            externalUploadFunction(file, dataUrl);
+        }
     };
 
     const handleImageDelete = () => {
@@ -44,51 +31,11 @@ const SingleImageUploadInput = ({ children, hasChange, selectedImage, setSelecte
         fileInputRef.current.value = null;
     };
 
-    const handleDragOver = (event) => {
-        event.preventDefault();
-        setIsDragOver(true);
-    };
-
-    const handleDragLeave = (event) => {
+    const handleDrop = async (event) => {
         event.preventDefault();
         setIsDragOver(false);
-    };
-
-    const handleDrop = (event) => {
-        event.preventDefault();
         const file = event.dataTransfer.files[0];
-        setImageName(file.name)
-        readImage(file).then(dataUrl => {
-            setSelectedImage(dataUrl);
-        });
-        setIsDragOver(false);
-    };
-
-    const readImage = async (file) => {
-        const config = {
-            quality: 0.7,
-            maxWidth: 1920,
-            maxHeight: 1080,
-            mimeType: 'image/jpeg',
-            debug: true,
-        };
-        
-        try {
-            const resizedImageFile = await readAndCompressImage(file, config);
-            const reader = new FileReader();
-            
-            return new Promise((resolve, reject) => {
-                reader.onloadend = () => {
-                    resolve(reader.result);
-                };
-                reader.onerror = reject;
-                reader.readAsDataURL(resizedImageFile);
-                let resizedImgSize = resizedImageFile.size;
-                setImageSize(convertFileSize(resizedImgSize));
-            });
-        } catch (error) {
-            console.log('Failed to resize the image:', error);
-        }
+        handleImageUpload({ target: { files: [file] } });
     };
 
     return (
