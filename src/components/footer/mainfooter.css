@@ -5,7 +5,7 @@
     padding: 80px 189px;
     justify-content: center;
     align-items: center;
-    background-color: var(--main-color-dark);
+    background-color: var(--reactive-brand-color);
 }
 
 .main-footer-top {
@@ -43,7 +43,7 @@
 }
 
 .main-footer-link-header {
-    color: var(--color-white-two);
+    color: var(--bright-color-text-secondary);
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 500;
@@ -52,7 +52,7 @@
 }
 
 .main-footer-link {
-    color: var(--color-white-three);
+    color: var(--bright-color-text);
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -61,7 +61,7 @@
 }
 
 .main-footer-tagline {
-    color: var(--color-white-five);
+    color: var(--bright-color-text);
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -72,7 +72,7 @@
 .main-footer-midline {
     width: 100%;
     height: 1px;
-    background-color: rgba(202, 201, 201, 0.10);
+    background-color: var(--border-color-bright);
     margin-top: 48px;
     margin-bottom: 24px;
 }
@@ -86,7 +86,7 @@
 }
 
 .main-footer-bottom-text {
-    color: var(--color-white-two);
+    color: var(--bright-color-text);
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;

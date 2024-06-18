@@ -9,7 +9,7 @@ import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
 import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
 import CustomTag from "@/components/forminput/customtag";
 import MainTip from "@/components/utility/maintip";
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import { useRouter } from 'next/navigation'
 import "@/app/style/authentication.css";
 

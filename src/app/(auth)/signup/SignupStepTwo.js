@@ -1,24 +1,22 @@
-'use client';
-
 import Link from "next/link";
 import CityInput from "@/components/forminput/cityinput";
 import CheckboxInput from "@/components/forminput/checkboxinput";
-import CustomButton from "@/components/utility/custombutton";
-import "@/app/style/authentication.css";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import style from "../Auth.module.css";
 
 
 export default function SignupStepTwo ({ ageConsent, setAgeConsent, cityLocation, setCityLocation, setLatLocation, setLngLocation, buttonClicked }) {
     return (
         <>
-            <div className="auth-form-content">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContent}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Finish signing up</h3>
-                        <p className="auth-form-content-intro-text">We just need a few information from you and your account will be all set up.</p>
+                        <p className={style.authFormContentIntroText}>We just need a few information from you and your account will be all set up.</p>
                     </div>
                 </div>
             </div>
-            <div className="auth-form-inputs">
+            <div className={style.authFormInputs}>
                 <CityInput 
                     label="Location" 
                     placeholder="Enter city" 
@@ -33,9 +31,9 @@ export default function SignupStepTwo ({ ageConsent, setAgeConsent, cityLocation
                     I confirm I am 18 years of age or older
                 </CheckboxInput>
             </div>
-            <div className="auth-form-actions">
+            <div className={style.authFormActions}>
                 <CustomButton size="fullwidth-size" disabled={!ageConsent} onClick={buttonClicked}>Get started</CustomButton>
-                <p className="auth-form-actions-policy">By signing up, you agree to <Link href="/termsofservice" className="auth-dark-link">Terms of Service</Link>, <Link href="/privacypolicy" className="auth-dark-link">Privacy Policy</Link>, and <Link href="/cookiepolicy" className="auth-dark-link">Cookie Policy</Link>.</p>
+                <p className={style.authFormActionsPolicy}>By signing up, you agree to <Link href="/termsofservice" className="auth-dark-link">Terms of Service</Link>, <Link href="/privacypolicy" className="auth-dark-link">Privacy Policy</Link>, and <Link href="/cookiepolicy" className="auth-dark-link">Cookie Policy</Link>.</p>
             </div>
         </>
     );

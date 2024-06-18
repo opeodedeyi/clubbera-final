@@ -1,7 +1,7 @@
 'use client';
 
 import { truncateTextWithDot } from '@/utils/textUtils';
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 
 const RequestTableRow = ({ name, location, time, gender, email }) => {
     return (

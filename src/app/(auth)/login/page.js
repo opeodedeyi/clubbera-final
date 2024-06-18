@@ -5,9 +5,9 @@ import useLoginForm from '@/hooks/useLoginForm';
 import Logo from "@/components/utility/logo";
 import MainInput from "@/components/forminput/maininput";
 import MainPasswordInput from "@/components/forminput/passwordinput";
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import SocialLoginButton from "@/components/utility/socialbutton";
-import "@/app/style/authentication.css";
+import style from "../Auth.module.css";
 
 
 export default function Login({ searchParams }) {
@@ -16,23 +16,23 @@ export default function Login({ searchParams }) {
 
     return (
         <>
-            <div className="auth-container">
-                <form className="auth-container-main" onSubmit={(e) => { e.preventDefault(); submitLogin(); }}>
-                    <div className="auth-form-content">
+            <div className={style.authContainer}>
+                <form className={style.authContainerMain} onSubmit={(e) => { e.preventDefault(); submitLogin(); }}>
+                    <div className={style.authFormContent}>
                         <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
-                        <div className="auth-form-content-main">
-                            <div className="auth-form-content-intro">
+                        <div className={style.authFormContentMain}>
+                            <div className={style.authFormContentIntro}>
                                 <h3>Welcome back</h3>
-                                <p className="auth-form-content-intro-text">Ready to reconnect with friends? Login to resume discovery of new experiences together.</p>
+                                <p className={style.authFormContentIntroText}>Ready to reconnect with friends? Login to resume discovery of new experiences together.</p>
                             </div>
                         </div>
                         <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring" socialType="google">Login with Google</SocialLoginButton>
-                        <div className="auth-or-horizontal-line">
-                            <div className="horizontal-line-half"></div>
-                            <p className="horizontal-line-text">or</p>
-                            <div className="horizontal-line-half"></div>
+                        <div className={style.authOrHorizontalLine}>
+                            <div className={style.horizontalLineHalf}></div>
+                            <p className={style.horizontalLineText}>or</p>
+                            <div className={style.horizontalLineHalf}></div>
                         </div>
-                        <div className="auth-form-inputs">
+                        <div className={style.authFormInputs}>
                             <MainInput
                                 type="email"
                                 placeholder="Enter email address" 
@@ -49,9 +49,9 @@ export default function Login({ searchParams }) {
                                 onChange={(e) => setPassword(e.target.value)}/>
                         </div>
                     </div>
-                    <div className="auth-form-actions">
+                    <div className={style.authFormActions}>
                         <CustomButton size="fullwidth-size" disabled={isDisabled} type="submit">Login</CustomButton>
-                        <p className="auth-form-actions-cta">Not a member yet? <Link href="/signup" className="">Sign up now</Link></p>
+                        <p className={style.authFormActionsCta}>Not a member yet? <Link href="/signup" className="">Sign up now</Link></p>
                     </div>
                 </form>
             </div>

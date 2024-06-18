@@ -2,7 +2,7 @@
 
 
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import MainInput from "@/components/forminput/maininput";
 import CityInput from "@/components/forminput/cityinput";
 import BinaryOptionInput from "@/components/forminput/binaryoptioninput";

@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, Fragment } from "react";
 import Logo from "@/components/utility/logo";
 import MainInput from "@/components/forminput/maininput";
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import "@/app/style/authentication.css";
 
 const MainForm = ({ email, setEmail, isDisabled }) => {

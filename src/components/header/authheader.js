@@ -1,6 +1,6 @@
 'use client';
 
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import "@/components/header/header.css";
 
 

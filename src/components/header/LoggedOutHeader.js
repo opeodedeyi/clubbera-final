@@ -1,7 +1,7 @@
 'use client';
 
 import Logo from "@/components/utility/logo";
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 
 
 function LoggedOutHeader() {

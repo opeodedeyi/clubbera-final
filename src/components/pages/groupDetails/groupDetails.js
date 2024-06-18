@@ -1,6 +1,5 @@
 'use client';
 
-
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { useTabManager } from "@/hooks/useTabManager";
@@ -8,8 +7,8 @@ import AboutSection from "@/components/pages/groupDetails/AboutSection";
 import EventSection from "@/components/pages/groupDetails/EventSection";
 import DiscussionSection from "@/components/pages/groupDetails/DiscussionSection";
 import MemberSection from "@/components/pages/groupDetails/MemberSection";
-import CustomButton from "@/components/utility/custombutton";
-import GroupTag from "@/components/utility/grouptag";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import GroupTag from "@/components/utility/GroupTag/GroupTag";
 import Image from 'next/image';
 import LocationMarkerIcon from '@/svg/LocationMarkerIcon';
 import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
@@ -38,7 +37,13 @@ const MainGroupDetails = ({ params, searchParams, group }) => {
         }
     }, [group.isMember]);
 
-    console.log('params: ', params, 'searchParams: ', searchParams);
+    const joinOrLeaveGroup = () => {
+        if (ctaText === 'Join Group') {
+            // join group
+        } else if (ctaText === 'Leave Group') {
+            // leave group
+        }
+    }
 
     return (
         <>
@@ -77,7 +82,8 @@ const MainGroupDetails = ({ params, searchParams, group }) => {
                                     <CustomButton 
                                         coloring="default-coloring" 
                                         size="normal-button-size" 
-                                        disabled={group.isMember === ('owner' || 'pending') ? true : false}>
+                                        disabled={ctaText === ('owner' || 'pending') ? true : false}
+                                        onClick={() => joinOrLeaveGroup}>
                                         {ctaText}
                                     </CustomButton>
                                     <CustomButton coloring="inverse-coloring" size="normal-button-size">

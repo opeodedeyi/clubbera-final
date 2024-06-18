@@ -1,15 +1,22 @@
 :root {
   --border-radius: 12px;
   --container-padding: 80px;
-
   /* background color */
   --background-color: #FFFFFF;
-
-  /* text */
+  /* boeder color */
+  --border-color: #F4F4F4;
+  --border-color-bright: rgba(202, 201, 201, 0.10);
+  --border-shadow: rgba(235, 235, 235, 0.25);
+  /* text color */
   --color-text-main: #777474;
   --color-text-secondary: #241F1F; /* header */
   --color-text-alternate: #8C8A8A;
   --color-text-sub: #4D4A4A;
+  /* bright color on two shades of beand color */
+  --bright-color-text: #DEDEDE;
+  --bright-color-text-secondary: #F4F4F4;
+  /* brand color which changes in dark mode */
+  --reactive-brand-color: #228B22;
 
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
@@ -54,29 +61,33 @@
 [data-theme="dark"] {
   --border-radius: 12px;
   --container-padding: 80px;
-
   /* background color */
   --background-color: #020900;
-
-
-  /* text */
+  /* boeder color */
+  --border-color: #212923;
+  --border-color-bright: rgba(202, 201, 201, 0.05);
+  --border-shadow: rgba(17, 1, 1, 0.25);
+  /* text color */
   --color-text-main: #B4C2B7;
-  --color-text-secondary: #DEF3E2; /* header */
+  --color-text-secondary: #DEF3E2;
   --color-text-alternate: #BECCC1;
-
+  --color-text-sub: #4D4A4A;
+  /* bright color on two shades of beand color */
+  --bright-color-text: #B4C2B7;
+  --bright-color-text-secondary: #DEF3E2;
+  /* brand color which changes in dark mode */
+  --reactive-brand-color: #030B01;
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
-
   /* svg */
   --svg-default-color: ;
   --svg-inverse-color: ;
   --svg-alternate-color: ;
   --svg-sub-color: #4D4A4A;
-
   /*  */
-  --main-color: #228B22;
+  --main-color: #196B18;
   --main-color-card: #1E7B1D;
-  --main-color-hover: #196B18;
+  --main-color-hover: #228B22;
   --main-color-dark: #034703;
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
@@ -158,8 +169,7 @@
 }
 
 body {
-  background-color: var(--color-white);
-  /* background-color: var(--background-color); */
+  background-color: var(--background-color);
 }
 
 input, textarea {
@@ -167,7 +177,7 @@ input, textarea {
 }
 
 h1 {
-  color: var(--color-dark);
+  color: var(--color-text-secondary);
   font-size: 65px;
   font-style: normal;
   font-weight: 500;
@@ -176,7 +186,7 @@ h1 {
 }
 
 h2 {
-  color: var(--color-dark);
+  color: var(--color-text-secondary);
   font-size: 56px;
   font-style: normal;
   font-weight: 500;
@@ -185,7 +195,7 @@ h2 {
 }
 
 h3 {
-  color: #393535;
+  color: var(--color-text-main);
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 500;
@@ -194,7 +204,7 @@ h3 {
 }
 
 h4 {
-  color: #393535;
+  color: var(--color-text-main);
   font-size: 2rem;
   font-style: normal;
   font-weight: 500;
@@ -206,7 +216,7 @@ h4 {
 }
 
 h5 {
-  color: var(--color-text);
+  color: var(--color-text-main);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -216,7 +226,7 @@ h5 {
 }
 
 p {
-  color: var(--color-text);
+  color: var(--color-text-main);
   font-size: 1.25rem;
   font-style: normal;
   font-weight: 400;

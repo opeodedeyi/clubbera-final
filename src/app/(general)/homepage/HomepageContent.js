@@ -1,9 +1,6 @@
-'use client';
-
 import HeroSection from "@/app/(general)/homepage/HomepageHero";
 import WorksSection from "@/app/(general)/homepage/HomepageWorks";
 import GroupsSection from "@/app/(general)/homepage/HomepageGroup";
-import "@/app/style/homepage.css";
 
 
 const worksCards = [

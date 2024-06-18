@@ -1,0 +1,186 @@
+.homepageWorks {
+    padding: 110px var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.homepageWorksContent,
+.homepageGroupsContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homepageWorksTitle {
+    margin-bottom: 16px;
+}
+
+.homepageWorksText {
+    text-align: center;
+    max-width: 665px;
+}
+
+.homepageWorksCards {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    position: relative;
+}
+
+.homepageWorkCard {
+    border-radius: 2px;
+    height: 250px;
+    max-width: 420px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    background: linear-gradient(89deg, rgba(0, 0, 0, 0.40) 52.15%, rgba(0, 0, 0, 0.00) 103.64%);
+}
+
+.homepageWorkCard img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.homepageWorkCard:hover .homepageWorkCardBody {
+    top: 0;
+}
+
+.homepageWorkCardBody {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    right: 0;
+    background-color: var(--main-color-card);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-shrink: 0;
+    gap: 8px;
+    transition: top 0.1s;
+}
+
+.homepageWorkCardTitle,
+.homepageWorkCardText {
+    color: var(--color-white-one);
+    font-style: normal;
+    line-height: 135%;
+}
+
+.homepageWorkCardTitle {
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: -0.44px;
+}
+
+.homepageWorkCardText {
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.32px;
+}
+
+@media screen and (max-width: 1050px) {
+    .homepageWorksCards {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+
+    .homepageWorkCard {
+        border-radius: 2px;
+        height: 250px;
+        width: 100%;
+        max-width: 420px;
+        flex: auto;
+        background: linear-gradient(89deg, rgba(0, 0, 0, 0.40) 52.15%, rgba(0, 0, 0, 0.00) 103.64%);
+    }
+
+    .homepageWorkCard img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    .homepageWorkCard:hover .homepageWorkCardBody {
+        top: 0;
+    }
+
+    .homepageWorkCardBody {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: -100%;
+        right: 0;
+        background-color: var(--main-color-card);
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-shrink: 0;
+        gap: 8px;
+        transition: top 0.1s;
+    }
+
+    .homepageWorkCardTitle,
+    .homepageWorkCardText {
+        color: var(--color-white-one);
+        font-style: normal;
+        line-height: 135%;
+    }
+
+    .homepageWorkCardTitle {
+        font-size: 22px;
+        font-weight: 500;
+        letter-spacing: -0.44px;
+    }
+
+    .homepageWorkCardText {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: -0.32px;
+    }
+}
+
+@media screen and  (max-width: 768px) {
+    .homepageWorks {
+        padding: 60px var(--container-padding);
+        gap: 40px;
+    }
+
+    .homepageWorksTitle {
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .homepageWorkCardTitle {
+        font-size: 16px;
+        font-weight: 500;
+        letter-spacing: -0.32px;
+    }
+
+    .homepageWorkCardText {
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -0.28px;
+    }
+}

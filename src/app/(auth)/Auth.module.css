@@ -1,0 +1,147 @@
+.authContainer {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.authContainerMain {
+    width: 100%;
+    max-width: 504px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    box-shadow: -4px 4px 4px 0px var(--border-shadow);
+}
+
+.authFormContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.authFormContentMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormContentIntro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    /* align-items: center; */
+}
+
+.authFormContentIntroText {
+    font-size: 1rem;
+}
+
+.authOrHorizontalLine {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.horizontalLineHalf {
+    opacity: 0.5;
+    background: var(--border-color);
+    height: 1px;
+    max-width: 180.5px;
+    width: 50%;
+}
+
+.horizontalLineText {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.authFormInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormActions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.authFormActionsCta {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    text-align: center;
+}
+
+.authFormActionsPolicy {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.28px;
+    text-align: center;
+}
+
+.authFormActionsCta a {
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.authFormActionsCta a:hover {
+    color: var(--main-color-hover);
+}
+
+.authFormSuccessImage {
+    width: 100%;
+    max-width: 240px;
+    min-height: 200px;
+    background-size: cover;
+    background-position: 50%;
+}
+
+.authFormSuccessImage {
+    background-image: url('/email_sent.png');
+}
+
+@media screen and (max-width: 768px) {
+    .authContainer {
+        padding: 87px 24px 78px;
+    }
+
+    .authContainerMain {
+        padding: 32px 24px;
+        border-radius: 8px;
+    }
+}

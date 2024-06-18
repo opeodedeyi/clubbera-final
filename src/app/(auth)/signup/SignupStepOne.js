@@ -1,33 +1,30 @@
-'use client';
-
-
 import Link from "next/link";
 import Logo from "@/components/utility/logo";
 import MainInput from "@/components/forminput/maininput";
 import MainPasswordInput from "@/components/forminput/passwordinput";
 import SocialLoginButton from "@/components/utility/socialbutton";
-import CustomButton from "@/components/utility/custombutton";
-import "@/app/style/authentication.css";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import style from "../Auth.module.css";
 
 
 export default function SignupStepOne ({ email, setEmail, fullName, setFullName, password, setPassword, isDisabled, buttonClicked }) {
     return (
         <>
-            <div className="auth-form-content">
+            <div className={style.authFormContent}>
                 <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Join the adventure</h3>
-                        <p className="auth-form-content-intro-text">Sign up to connect with like-minded individuals and embark on exciting journeys together.</p>
+                        <p className={style.authFormContentIntroText}>Sign up to connect with like-minded individuals and embark on exciting journeys together.</p>
                     </div>
                 </div>
                 <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring" socialType="google">Login with Google</SocialLoginButton>
-                <div className="auth-or-horizontal-line">
-                    <div className="horizontal-line-half"></div>
-                    <p className="horizontal-line-text">or</p>
-                    <div className="horizontal-line-half"></div>
+                <div className={style.authOrHorizontalLine}>
+                    <div className={style.horizontalLineHalf}></div>
+                    <p className={style.horizontalLineText}>or</p>
+                    <div className={style.horizontalLineHalf}></div>
                 </div>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     <MainInput
                         type="text"
                         placeholder="Enter full name" 
@@ -50,9 +47,9 @@ export default function SignupStepOne ({ email, setEmail, fullName, setFullName,
                         onChange={(e) => setPassword(e.target.value)}/>
                 </div>
             </div>
-            <div className="auth-form-actions">
+            <div className={style.authFormActions}>
                 <CustomButton size="fullwidth-size" disabled={isDisabled} onClick={buttonClicked}>Continue</CustomButton>
-                <p className="auth-form-actions-cta">Already a member? <Link href="/login" className="">Log in</Link></p>
+                <p className={style.authFormActionsCta}>Already a member? <Link href="/login" className="">Log in</Link></p>
             </div>
         </>
     );

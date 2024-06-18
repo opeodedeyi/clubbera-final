@@ -1,4 +1,4 @@
-.group-keydetails-permission {
+.groupKeydetailsPermission {
     display: flex;
     width: 80px;
     padding: 6px 12px;
@@ -12,12 +12,12 @@
     letter-spacing: -0.16px;
 }
 
-.public-coloring {
+.publicColoring {
     color: var(--main-color-card-danger);
     background-color: var(--main-color-tip-danger);
 }
 
-.private-coloring {
+.privateColoring {
     color: var(--main-color-card-calm);
     background-color: var(--main-color-tip-calm);
 }
@@ -27,7 +27,7 @@
 }
 
 @media screen and  (max-width: 768px) {
-    .group-keydetails-permission {
+    .groupKeydetailsPermission {
         width: 53px;
         padding: 4px 10px;
         font-size: 0.75rem;

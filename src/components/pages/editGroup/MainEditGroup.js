@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import EditDetailsSection from "@/components/pages/editGroup/GroupDetails";
 import MemberSection from "@/components/pages/editGroup/GroupMembers";
 import RequestsSection from "@/components/pages/editGroup/GroupRequests";

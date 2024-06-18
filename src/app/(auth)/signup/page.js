@@ -3,7 +3,7 @@
 import SignupStepOne from "@/app/(auth)/signup/SignupStepOne";
 import SignupStepTwo from "@/app/(auth)/signup/SignupStepTwo";
 import useSignupForm from "@/hooks/useSignupForm";
-import "@/app/style/authentication.css";
+import style from "../Auth.module.css";
 
 
 export default function Signup({ searchParams }) {
@@ -29,8 +29,8 @@ export default function Signup({ searchParams }) {
 
     return (
         <>
-            <div className="auth-container">
-                <form className="auth-container-main">
+            <div className={style.authContainer}>
+                <form className={style.authContainerMain}>
                     {step===1 ?
                         <SignupStepOne
                             email={email} 

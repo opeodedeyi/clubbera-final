@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import CustomButton from "@/components/utility/custombutton";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
 import { useTabManager } from "@/hooks/useTabManager";

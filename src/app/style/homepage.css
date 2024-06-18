@@ -54,7 +54,7 @@
 }
 
 .homepage-hero-hype {
-    color: #625F5F;
+    color: var(--color-text-alternate);
     padding: 10px 20px;
     margin-bottom: 18px;
     font-size: 1rem;
@@ -63,8 +63,8 @@
     line-height: 135%; /* 21.6px */
     letter-spacing: -0.48px;
     border-radius: 4px;
-    border: 1px solid rgba(240, 243, 245, 0.80);
-    background: rgba(34, 139, 34, 0.03);
+    border: 1px solid var(--border-color);
+    background: transparent;
     box-shadow: 0px 4px 60px 0px rgba(3, 28, 3, 0.06);
 }
 

@@ -1,7 +1,5 @@
-'use client';
-
 import Link from "next/link";
-import "@/components/utility/custombutton.css";
+import "./CustomButton.css";
 
 const CustomButton = ({ type="button", size='default-size', coloring='default-coloring', link=false, destination, onClick, disabled, children }) => {
     return (
