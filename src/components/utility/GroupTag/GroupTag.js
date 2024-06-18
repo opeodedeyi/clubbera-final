@@ -1,4 +1,4 @@
-import style from "./grouptag.module.css";
+import style from "./GroupTag.module.css";
 
 const GroupTag = ({ privategroup=false, viewtype="desktop-only-show" }) => {
     return (
