@@ -2,7 +2,7 @@
 
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import { Fragment, useState } from "react";
-import AltHeader from "@/components/header/altheader";
+import CreateGroupHeader from "@/components/header/CreateGroupHeader/CreateGroupHeader";
 import CityInput from "@/components/forminput/cityinput";
 import MainInput from "@/components/forminput/maininput";
 import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
@@ -11,25 +11,25 @@ import CustomTag from "@/components/forminput/customtag";
 import MainTip from "@/components/utility/maintip";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import { useRouter } from 'next/navigation'
-import "@/app/style/authentication.css";
+import style from "./CreateGroup.module.css";
 
 
 const IntroStep = ({ onClick }) => {
     return (
         <>
-            <div className="auth-form-content-center">
-                <div className="auth-community-created-image">
+            <div className={style.authFormContentCenter}>
+                <div className={style.authCommunityCreatedImage}>
                     <img src="/create_community.svg" alt="community created" />
                 </div>
                 
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Welcome to Clubbera! Create your community now.</h3>
-                        <p className="auth-form-content-intro-text">Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you&apos;re done!</p>
+                        <p className={style.authFormContentIntroText}>Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you&apos;re done!</p>
                     </div>
                 </div>
 
-                <div className="auth-form-content-column">
+                <div className={style.authFormContentColumn}>
                     <CustomButton size="fullwidth-size" onClick={onClick}>Create now</CustomButton>
                     <CustomButton link destination='/' coloring="button-nobutton-coloring" size="button-nobutton-size">Skip</CustomButton>
                 </div>
@@ -41,14 +41,14 @@ const IntroStep = ({ onClick }) => {
 const CreateGroupStepOne = ({ cityLocation, setCityLocation, setLatLocation, setLngLocation }) => {
     return (
         <>
-            <div className="auth-form-content">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContent}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>First, set your location for your group</h3>
-                        <p className="auth-form-content-intro-text">Begin with setting your location to help us connect with people in your area.</p>
+                        <p className={style.authFormContentIntroText}>Begin with setting your location to help us connect with people in your area.</p>
                     </div>
                 </div>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     <CityInput 
                         label="Location" 
                         placeholder="Enter city" 
@@ -75,17 +75,17 @@ const CreateGroupStepTwo = ({ presetTopics, selectedTopics, setSelectedTopics })
 
     return (
         <>
-            <div className="auth-form-content">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContent}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Choose topics for your group</h3>
-                        <p className="auth-form-content-intro-text">Set the topics for your group, select at least 3 topics before moving onto the next step.</p>
+                        <p className={style.authFormContentIntroText}>Set the topics for your group, select at least 3 topics before moving onto the next step.</p>
                     </div>
                 </div>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     {/* searchbar */}
                     
-                    <div className="auth-form-tags">
+                    <div className={style.authFormTags}>
                         {presetTopics.map((topic, index) => (
                             <CustomTag key={index} selected={selectedTopics.includes(topic) ? 'is-selected' : 'is-not-selected'} onClick={handleTopicClick(topic)}>
                                 {topic}
@@ -101,15 +101,15 @@ const CreateGroupStepTwo = ({ presetTopics, selectedTopics, setSelectedTopics })
 const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, setGroupDescription }) => {
     return (
         <>
-            <div className="auth-form-content">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContent}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Describe group</h3>
-                        <p className="auth-form-content-intro-text">Choose a name that will give people a clear idea of what the group is about. You can edit this later if you change your mind.</p>
+                        <p className={style.authFormContentIntroText}>Choose a name that will give people a clear idea of what the group is about. You can edit this later if you change your mind.</p>
                     </div>
                 </div>
                 <MainTip theme="default-theme">We value human connection and review groups to ensure they meet our guidelines. Consider your group&apos;s goal, audience, and event activities.</MainTip>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     <MainInput
                         type="text"
                         placeholder="Enter name" 
@@ -133,14 +133,14 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
 const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize }) => {
     return (
         <>
-            <div className="auth-form-content">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContent}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Complete setup</h3>
-                        <p className="auth-form-content-intro-text">Configure the privacy settings and upload an image that best describes your group.</p>
+                        <p className={style.authFormContentIntroText}>Configure the privacy settings and upload an image that best describes your group.</p>
                     </div>
                 </div>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
 
                     <SingleImageUploadInput
@@ -161,15 +161,15 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelect
 const FinishStep = ({ groupTitle, groupLink }) => {
     return (
         <>
-            <div className="auth-form-content-center">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContentCenter}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Your group is all set up 🎉</h3>
-                        <p className="auth-form-content-intro-text">Congratulations. You have successfully created a community group - &lsquo;{groupTitle}&rsquo;. Kindly proceed to your dashboard</p>
+                        <p className={style.authFormContentIntroText}>Congratulations. You have successfully created a community group - &lsquo;{groupTitle}&rsquo;. Kindly proceed to your dashboard</p>
                     </div>
                 </div>
 
-                <div className="auth-community-created-image">
+                <div className={style.authCommunityCreatedImage}>
                     <img src="/community_created.svg" alt="community created" />
                 </div>
                 
@@ -260,10 +260,10 @@ export default function CreateGroup() {
   
     return (
         <Fragment>
-            <AltHeader progress={step} backButtonClicked={backButtonClicked}>Back</AltHeader>
+            <CreateGroupHeader progress={step} backButtonClicked={backButtonClicked}>Back</CreateGroupHeader>
 
-            <div className="auth-container create-group-container">
-                <form className="auth-container-main">
+            <div className={`${style.authContainer} ${style.createGroupContainer}`}>
+                <form className={style.authContainerMain}>
                     {step === 0 && <IntroStep 
                                         onClick={handleNext}/>}
                     {step === 1 && <CreateGroupStepOne 
@@ -295,7 +295,7 @@ export default function CreateGroup() {
                                         groupLink={groupLink} />}
 
                     {step > 0 && step < 5 &&
-                        <div className="auth-form-actions-two">
+                        <div className={style.authFormActionsTwo}>
                             <CustomButton size="normal-size" onClick={handleNext} disabled={disableNextPage()}>
                                 {step < 4 ? 'Proceed' : 'Complete'}
                             </CustomButton>

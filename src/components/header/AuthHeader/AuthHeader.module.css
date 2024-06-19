@@ -1,0 +1,22 @@
+.headerMain {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    height: 72px;
+    padding: 0 var(--container-padding);
+    background-color: var(--background-color);
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+
+@media screen and  (max-width: 768px) {
+    .headerMain {
+        height: 60px;
+    }
+
+    .noBorderBottom {
+        border-bottom: none;
+    }
+}

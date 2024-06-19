@@ -1,0 +1,137 @@
+.authContainer {
+    padding-top: 130px;
+    padding-bottom: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.createGroupContainer {
+    padding-top: 190px;
+}
+
+.authContainerMain {
+    width: 100%;
+    max-width: 504px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    background: var(--background-color);
+    box-shadow: -4px 4px 4px 0px var(--border-shadow);
+}
+
+.authFormContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
+}
+
+.authFormContentCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormContentMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormContentIntro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.authFormContentCenter .authFormContentIntro {
+    align-items: center;
+}
+
+.authFormContentIntroText {
+    font-size: 1rem;
+}
+
+.authFormContentCenter .authFormContentIntroText,
+.authFormContentCenter h3 {
+    text-align: center;
+}
+
+.authFormContentColumn {
+    width: 100%;
+    display: flex;
+    margin-top: 14px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.authFormInputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormActionsTwo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.authCommunityCreatedImage {
+    height: 200px;
+    max-width: 100%;
+}
+
+.authCommunityCreatedImage img {
+    height: 100%;
+}
+
+.authFormTags {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    align-self: stretch;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 768px) {
+    .authContainer {
+        padding: 87px 24px 78px;
+    }
+    .createGroupContainer {
+        padding-top: 152px;
+    }
+
+    .authContainerMain {
+        padding: 32px 24px;
+        border-radius: 8px;
+    }
+}

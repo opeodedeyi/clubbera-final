@@ -1,38 +1,40 @@
-'use client';
-
-import React from 'react';
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
-import { useTabManager } from "@/hooks/useTabManager";
-import "@/app/style/homepage.css"
+import CTABanner from "@/components/utility/CTABanner/CTABanner";
+import style from "./Dashboard.module.css";
 
 
-const DashboardContent = React.memo(({ user, searchParams }) => {
-    const { activeTab, handleTabClick } = useTabManager('mygroups', searchParams);
-
+const DashboardContent = ({ user }) => {
     return (
         <>
-            <div className="homepage-login-hero">
-                <div className="homepage-login-hero-cont">
-                    <p className="homepage-login-hero-name">Hi {capitalizeAndTruncateTextWithDot(user?.full_name, 9)},</p>
-                    <p className="homepage-login-hero-speech">Get started today with Clubbera</p>
+            <div className={style.homepageProfileHero}>
+                <div className={style.homepageProfileHeroCont}>
+                    <p className={style.homepageProfileHeroName}>Hi {capitalizeAndTruncateTextWithDot(user?.full_name, 20)},</p>
+                    <p className={style.homepageProfileHeroSpeech}>Get started today with Clubbera</p>
                 </div>
                 <CustomButton link destination="/creategroup" size="default-size">
-                    <div className="homepage-login-hero-innbtn">
+                    <div className={style.homepageProfileHeroInnbtn}>
                     <GroupPeopleIcon className='mobile-only-show' color='--color-on-brand'/>
                     Create <span className="desktop-only-show">new</span>
                     </div>
                 </CustomButton>
             </div>
-            <div className="homepage-login-navigation">
-                <ul>
-                    <li onClick={(e) => handleTabClick(e, 'mygroups')} className={`${activeTab === 'mygroups' ? 'active-navigation-item' : ''}`}>My groups</li>
-                    <li onClick={(e) => handleTabClick(e, 'upcomingevents')} className={`${activeTab === 'upcomingevents' ? 'active-navigation-item' : ''}`}>Upcoming events</li>
-                </ul>
-            </div>
+            <CTABanner 
+                title="Create your first community"
+                description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
+                buttonText="Create new commuity"
+                destination="/creategroup"/>
+
+            {/* more to go here */}
+
+            <CTABanner 
+                title="Offer your support"
+                description="Help communities get the items they require to thrive" 
+                buttonText="Sponsor a community"
+                destination="/sponsor"/>
         </>
     );
-});
+};
 
 export default DashboardContent;

@@ -12,22 +12,21 @@
   --color-text-secondary: #241F1F; /* header */
   --color-text-alternate: #8C8A8A;
   --color-text-sub: #4D4A4A;
-  /* bright color on two shades of beand color */
+  /* bright color on two shades of brand color */
+  --bright-color-background: #F4F4F4;
   --bright-color-text: #DEDEDE;
   --bright-color-text-secondary: #F4F4F4;
+  --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #228B22;
-
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
-
   /* svg */
   --svg-default-color: ;
   --svg-inverse-color: ;
   --svg-alternate-color: ;
   --svg-sub-color: #4D4A4A;
-
-  /* button */
+  /* brand colors */
   --main-color: #228B22;
   --main-color-card: #1E7B1D;
   --main-color-hover: #196B18;
@@ -35,6 +34,7 @@
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
+
   --color-white: #FFFFFF;
   --color-white-one: #F0F3F5;
   --color-white-two: #F4F4F4;
@@ -73,8 +73,10 @@
   --color-text-alternate: #BECCC1;
   --color-text-sub: #4D4A4A;
   /* bright color on two shades of beand color */
+  --bright-color-background: #F4F4F4;
   --bright-color-text: #B4C2B7;
   --bright-color-text-secondary: #DEF3E2;
+  --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #030B01;
   /* text on brand color or overlay */
@@ -84,7 +86,7 @@
   --svg-inverse-color: ;
   --svg-alternate-color: ;
   --svg-sub-color: #4D4A4A;
-  /*  */
+  /* brand colors */
   --main-color: #196B18;
   --main-color-card: #1E7B1D;
   --main-color-hover: #228B22;
@@ -92,6 +94,7 @@
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
+  
   --color-white: #FFFFFF;
   --color-white-one: #F0F3F5;
   --color-white-two: #F4F4F4;
@@ -104,7 +107,6 @@
   --color-dark-one: #4D4A4A;
   --color-dark-two: #625F5F;
   --color-text: #8C8A8A;
-  --color-gray: #777474;
   --color-gray-two: #A19F9F;
   --color-gray-three: #CAC9C9;
   --color-gray-dot: #B9B9B9;
