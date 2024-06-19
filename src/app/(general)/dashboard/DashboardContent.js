@@ -1,7 +1,6 @@
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
-import CTABanner from "@/components/utility/CTABanner/CTABanner";
 import style from "./Dashboard.module.css";
 
 
@@ -20,19 +19,6 @@ const DashboardContent = ({ user }) => {
                     </div>
                 </CustomButton>
             </div>
-            <CTABanner 
-                title="Create your first community"
-                description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
-                buttonText="Create new commuity"
-                destination="/creategroup"/>
-
-            {/* more to go here */}
-
-            <CTABanner 
-                title="Offer your support"
-                description="Help communities get the items they require to thrive" 
-                buttonText="Sponsor a community"
-                destination="/sponsor"/>
         </>
     );
 };
