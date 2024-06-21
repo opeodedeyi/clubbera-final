@@ -1,8 +1,6 @@
-'use client';
-
 import { useSocialLogin } from "@/hooks/useSocialLogin";
 import { useRouter } from "next/navigation";
-import "./custombutton.css";
+import style from "./SocialButton.module.css";
 
 
 const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType }) => {
@@ -34,7 +32,7 @@ const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType })
     };
 
     return (
-        <button type="button" className={`social-login-button ${coloring}`} onClick={handleLogin} disabled={disabled}>
+        <button type="button" className={`${style.socialLoginButton} ${style[coloring]}`} onClick={handleLogin} disabled={disabled}>
             <img src={imgSrc} alt="google" className="google-icon"/>
             <span>{ children }</span>
         </button>

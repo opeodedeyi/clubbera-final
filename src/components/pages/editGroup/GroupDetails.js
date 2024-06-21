@@ -3,8 +3,8 @@
 
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
-import MainInput from "@/components/forminput/maininput";
-import CityInput from "@/components/forminput/cityinput";
+import MainInput from "@/components/forminput/MainInput/MainInput";
+import CityInput from "@/components/forminput/LocationInput/CityInput";
 import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
 import CustomTag from "@/components/forminput/customtag";
 import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";

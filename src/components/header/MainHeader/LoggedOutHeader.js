@@ -2,6 +2,7 @@
 
 import Logo from "@/components/utility/logo";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import style from "./MainHeader.module.css";
 
 
 function LoggedOutHeader() {
@@ -9,7 +10,7 @@ function LoggedOutHeader() {
         <>
             <Logo coloring="default-logo-coloring" size="header-logo-size"></Logo>
 
-            <div className="flex-c header-buttons">
+            <div className={`${style.flexC} ${style.headerButtons}`}>
                 <CustomButton link destination="/login" coloring="inverse-coloring">Log in</CustomButton>
                 <CustomButton link destination="/signup">Sign up</CustomButton>
             </div>

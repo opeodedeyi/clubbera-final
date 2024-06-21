@@ -1,13 +1,11 @@
-'use client';
-
-import "@/components/forminput/forminput.css";
+import style from "./MainInput.module.css";
 
 const MainInput = ( props ) => {
     if (props.type==='textarea') {
         return (
-            <div className="form-input-textarea">
-                <div className="form-label-textarea">
-                    <label className="form-label" htmlFor={props.input}>{ props.input }</label>
+            <div className={style.formInputTextarea}>
+                <div className={style.formLabelTextarea}>
+                    <label className={style.formLabel} htmlFor={props.input}>{ props.input }</label>
                 </div>
 
                 <textarea
@@ -21,9 +19,9 @@ const MainInput = ( props ) => {
         )
     } else {
         return (
-            <div className="main-input-text">
-                <div className="form-label-container">
-                    <label className="form-label" htmlFor={props.input}>{ props.input }</label>
+            <div className={style.mainInputText}>
+                <div className={style.formLabelContainer}>
+                    <label className={style.formLabel} htmlFor={props.input}>{ props.input }</label>
                 </div>
                 
                 <input

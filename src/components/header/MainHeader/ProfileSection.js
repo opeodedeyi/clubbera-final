@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import "@/components/header/header.css";
+import style from "./MainHeader.module.css";
 
 
 const ProfileSection = React.memo(({ user }) => {
     return (
-        <div className="header-profile-photo-card">
-            <img src={user?.avatar || "/profile.png"} className="header-profile-photo-img" />
+        <div className={style.headerProfilePhotoCard}>
+            <img src={user?.avatar || "/profile.png"} className={style.headerProfilePhotoImg} />
             {/* add down arrow */}
         </div>
     );

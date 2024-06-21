@@ -3,8 +3,8 @@
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import { Fragment, useState } from "react";
 import CreateGroupHeader from "@/components/header/CreateGroupHeader/CreateGroupHeader";
-import CityInput from "@/components/forminput/cityinput";
-import MainInput from "@/components/forminput/maininput";
+import CityInput from "@/components/forminput/LocationInput/CityInput";
+import MainInput from "@/components/forminput/MainInput/MainInput";
 import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
 import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
 import CustomTag from "@/components/forminput/customtag";

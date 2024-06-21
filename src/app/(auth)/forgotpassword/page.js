@@ -3,22 +3,22 @@
 import Link from "next/link";
 import { useState, Fragment } from "react";
 import Logo from "@/components/utility/logo";
-import MainInput from "@/components/forminput/maininput";
+import MainInput from "@/components/forminput/MainInput/MainInput";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
-import "@/app/style/authentication.css";
+import style from "../Auth.module.css";
 
 const MainForm = ({ email, setEmail, isDisabled }) => {
     return (
         <>
-            <div className="auth-form-content">
+            <div className={style.authFormContent}>
                 <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Forgot password ?</h3>
-                        <p className="auth-form-content-intro-text">We will send you a mail to reset your password</p>
+                        <p className={style.authFormContentIntroText}>We will send you a mail to reset your password</p>
                     </div>
                 </div>
-                <div className="auth-form-inputs">
+                <div className={style.authFormInputs}>
                     <MainInput
                         type="email"
                         placeholder="Enter email address" 
@@ -27,9 +27,9 @@ const MainForm = ({ email, setEmail, isDisabled }) => {
                         onChange={(e) => setEmail(e.target.value)}/>
                 </div>
             </div>
-            <div className="auth-form-actions">
+            <div className={style.authFormActions}>
                 <CustomButton size="fullwidth-size" disabled={isDisabled}>Send Email</CustomButton>
-                <p className="auth-form-actions-cta">Didn&apos;t forget password? <Link href="/login" className="">Login</Link></p>
+                <p className={style.authFormActionsCta}>Didn&apos;t forget password? <Link href="/login" className="">Login</Link></p>
             </div>
         </>
     );
@@ -38,15 +38,15 @@ const MainForm = ({ email, setEmail, isDisabled }) => {
 const EmailSent = () => {
     return (
         <>
-            <div className="auth-form-content-center">
-                <div className="auth-form-content-main">
-                    <div className="auth-form-content-intro">
+            <div className={style.authFormContentCenter}>
+                <div className={style.authFormContentMain}>
+                    <div className={style.authFormContentIntro}>
                         <h3>Email sent!</h3>
-                        <p className="auth-form-content-intro-text">We sent an email to your email address. Follow the steps provided in your email to update your password.</p>
+                        <p className={style.authFormContentIntroText}>We sent an email to your email address. Follow the steps provided in your email to update your password.</p>
                     </div>
                 </div>
 
-                <div className="auth-form-success-image">
+                <div className={style.authFormSuccessImage}>
                 </div>
                 
                 <CustomButton link destination="/login" size="normal-size">Check Email</CustomButton>
@@ -68,8 +68,8 @@ export default function ForgotPassword() {
   
     return (
         <Fragment>
-            <div className="auth-container">
-                <form className="auth-container-main">
+            <div className={style.authContainer}>
+                <form className={style.authContainerMain}>
                     {step===1 ?
                         <MainForm email={email} setEmail={setEmail} isDisabled={isDisabled} />
                     :

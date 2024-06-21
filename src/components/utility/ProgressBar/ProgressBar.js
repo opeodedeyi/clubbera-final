@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import styles from './ProgressBar.module.css';
-import '@/app/style/groupdetails.css';
 
 
 const ProgressBar = () => {

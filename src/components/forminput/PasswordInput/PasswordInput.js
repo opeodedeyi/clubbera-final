@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import "@/components/forminput/forminput.css";
 import Link from "next/link";
+import style from "./PasswordInput.module.css";
+
 
 const MainPasswordInput = ( props ) => {
     const [type, setType] = useState('password');
@@ -16,12 +17,12 @@ const MainPasswordInput = ( props ) => {
     };
 
     return (
-        <div className="main-input-password">
-            <div className="form-label-container">
-                <label className="form-label">{ props.input }</label>
-                {props.forgotpasswordinput && <Link className="form-label-forgot" href="/forgotpassword">Forgot password?</Link>}
+        <div className={style.mainInputPassword}>
+            <div className={style.formLabelContainer}>
+                <label>{ props.input }</label>
+                {props.forgotpasswordinput && <Link className={style.formLabelForgot} href="/forgotpassword">Forgot password?</Link>}
             </div>
-            <div className="form-input-password">
+            <div className={style.formInputPassword}>
                 <input
                     name="Password"
                     type={type}
@@ -30,7 +31,7 @@ const MainPasswordInput = ( props ) => {
                     onChange={props.onChange}
                 />
                 
-                <img src="/eye.svg" alt="eyeOpen" className="eye-icon" onClick={changeView}/>
+                <img src="/eye.svg" alt="eyeOpen" className={style.eyeIcon} onClick={changeView}/>
             </div>
         </div>
     );

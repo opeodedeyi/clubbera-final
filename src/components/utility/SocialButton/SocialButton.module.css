@@ -1,0 +1,31 @@
+.socialLoginButton {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    height: 45px;
+    width: 100%;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.googleColoring {
+    border-radius: 8px;
+    color: var(--color-text-main);
+    border: 1.2px solid var(--border-google);
+    background: var(--background-google-trans);
+    box-shadow: 0px 4px 40px 0px rgba(137, 130, 130, 0.04);
+}
+
+.googleColoring:hover {
+    border: 1.2px solid var(--border-google);
+    background: var(--google-hover);
+}

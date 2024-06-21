@@ -1,21 +1,27 @@
-'use client';
-
-import { useUserSession } from "@/hooks/useUserSession";
 import CTABanner from "@/components/utility/CTABanner/CTABanner";
-import DashboardContent from "@/app/(general)/dashboard/DashboardContent";
+import CTASideBanner from "@/components/utility/CTASideBanner/CTASideBanner";
+import ProfileTopCard from "@/components/utility/ProfileTopCard/ProfileTopCard";
 
 
-export default function Dashboard({ searchParams }) {
-    const user = useUserSession();
-
+export default function Dashboard() {
     return (
         <>
-            {user && <DashboardContent user={user} searchParams={searchParams} />}
+            <ProfileTopCard/>
+            
             <CTABanner 
                 title="Create your first community"
                 description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
                 buttonText="Create new commuity"
                 destination="/creategroup"/>
+
+            {/* more to go here */}
+
+            <CTASideBanner
+                title="Community-building is your most valuable asset"
+                description="Begin your asset-building today by creating communities" 
+                buttonText="Begin building"
+                destination="/creategroup"
+                reverse={false}/>
 
             {/* more to go here */}
 

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import CityInput from "@/components/forminput/cityinput";
+import CityInput from "@/components/forminput/LocationInput/CityInput";
 import CheckboxInput from "@/components/forminput/checkboxinput";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "../Auth.module.css";

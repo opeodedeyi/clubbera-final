@@ -40,6 +40,24 @@
     align-self: stretch;
 }
 
+.authFormContentCenter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.authFormContentCenter .authFormContentIntro {
+    align-items: center;
+}
+
+.authFormContentCenter .authFormContentIntroText,
+.authFormContentCenter h3 {
+    text-align: center;
+}
+
 .authFormContentIntro {
     display: flex;
     flex-direction: column;

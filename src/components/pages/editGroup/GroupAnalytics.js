@@ -1,6 +1,3 @@
-'use client';
-
-
 const AnalyticsCard = ({ img, title, explain, value }) => {
     return (
         <div className="edit-analytics-card">

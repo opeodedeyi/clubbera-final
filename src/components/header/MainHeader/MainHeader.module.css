@@ -1,4 +1,4 @@
-.header-main {
+.headerMain {
     display: flex;
     align-items: center;
     position: fixed;
@@ -11,39 +11,22 @@
     border-bottom: 1px solid var(--border-color);
 }
 
-.header-alt {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    z-index: 10;
-    height: 72px;
-    padding: 0 var(--container-padding);
-    background-color: var(--color-white);
-    justify-content: space-between;
-    border-bottom: 1px solid var(--color-white-two);
-}
-
-.header-buttons {
+.headerButtons {
     gap: 24px;
 }
 
-.header-buttons-alt {
+.headerButtonsAlt {
     gap: 24px;
 }
 
-.header-verti-line {
+.headerVertiLine {
     width: 1px;
     height: 16px;
     background-color: var(--border-color);
 }
 
-.header-alt-arrow {
-    display: none;
-}
-
-/* signed in header styling */
-.header-toggle-bar,
-.header-toggle-bar-alt {
+.headerToggleBar,
+.headerToggleBarAlt {
     background-color: transparent;
     flex-direction: row;
     justify-self: center;
@@ -52,11 +35,11 @@
     cursor: pointer;
 }
 
-.header-toggle-bar-alt {
+.headerToggleBarAlt {
     display: flex;
 }
 
-.header-profile-photo-card {
+.headerProfilePhotoCard {
     padding: 5px;
     border-radius: 100px;
     display: flex;
@@ -67,67 +50,59 @@
     cursor: pointer;
 }
 
-.header-profile-photo-img {
+.headerProfilePhotoImg {
     height: 36px;
     width: 36px;
     border-radius: 100px;
     overflow: hidden;
 }
 
-.header-profile-photo-card img {
+.headerProfilePhotoCard img {
     width: 100%;
     object-fit: cover;
 }
 
-.header-profile-photo-text {
-    color: var(--color-dark-two);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
-    letter-spacing: -0.48px;
-}
-
-.header-verti-line {
+.headerVertiLine {
     width: 1px;
     height: 16px;
     background-color: var(--border-color);
 }
 
+.flexC {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.mobileOnlyShow {
+    display: none;
+}
+
 @media screen and  (max-width: 768px) {
-    .header-main {
-        height: 60px;
-    }
-    
-    .header-alt {
+    .headerMain {
         height: 60px;
     }
 
-    .header-buttons {
+    .headerButtons {
         gap: 16px;
     }
 
-    .header-alt-arrow {
-        display: block;
-    }
-
-    .header-alt-text {
-        display: none;
-    }
-
-    /* signed in header styling */
-    .header-profile-photo-card {
+    .headerProfilePhotoCard {
         height: 32px;
         padding: 0px;
     }
 
-    .header-profile-photo-img {
+    .headerProfilePhotoImg {
         height: 32px;
         width: 32px;
     }
 
-    .header-profile-photo-text {
+    .desktopOnlyShow {
         display: none;
     }
-    /* signed in header styling ending */
+    
+    .mobileOnlyShow {
+        display: flex;
+    }
 }

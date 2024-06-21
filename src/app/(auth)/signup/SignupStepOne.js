@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Logo from "@/components/utility/logo";
-import MainInput from "@/components/forminput/maininput";
-import MainPasswordInput from "@/components/forminput/passwordinput";
-import SocialLoginButton from "@/components/utility/socialbutton";
+import MainInput from "@/components/forminput/MainInput/MainInput";
+import MainPasswordInput from "@/components/forminput/PasswordInput/PasswordInput";
+import SocialLoginButton from "@/components/utility/SocialButton/SocialButton";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "../Auth.module.css";
 
@@ -18,7 +18,7 @@ export default function SignupStepOne ({ email, setEmail, fullName, setFullName,
                         <p className={style.authFormContentIntroText}>Sign up to connect with like-minded individuals and embark on exciting journeys together.</p>
                     </div>
                 </div>
-                <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring" socialType="google">Login with Google</SocialLoginButton>
+                <SocialLoginButton imgSrc="/google_icon.svg" coloring="googleColoring" socialType="google">Login with Google</SocialLoginButton>
                 <div className={style.authOrHorizontalLine}>
                     <div className={style.horizontalLineHalf}></div>
                     <p className={style.horizontalLineText}>or</p>

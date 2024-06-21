@@ -1,0 +1,78 @@
+.mainInputText,
+.formInputTextarea {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.formLabelContainer,
+.formLabelTextarea {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.mainInputText label,
+.formInputTextarea label {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.formInputTextarea textarea {
+    width: 100%;
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 135px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    resize: none;
+}
+
+.mainInputText input {
+    width: 100%;
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 45px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+}
+
+.formInputTextarea textarea::placeholder,
+.mainInputText input::placeholder {
+    color:  var(--color-placeholder);
+    font-weight: 300;
+}
+
+.formInputTextarea textarea:focus,
+.mainInputText input:focus,
+.mainInputText input:focus-visible {
+    outline: none;
+    border-color: var(--border-color-bright); /* might be changed later */
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}

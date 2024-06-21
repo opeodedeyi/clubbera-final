@@ -1,5 +1,5 @@
-import Header from "@/components/header/header";
-import MainFooter from "@/components/footer/mainfooter";
+import MainHeader from "@/components/header/MainHeader/MainHeader";
+import MainFooter from "@/components/footer/MainFooter/MainFooter";
 import { getUserSession } from "@/lib";
 
 const fetchUser = async () => {
@@ -11,7 +11,7 @@ export default async function GeneralLayout ({ children }) {
 
     return (
         <>
-            <Header user={user}/>
+            <MainHeader user={user}/>
             {children}
             <MainFooter user={user}/>
         </>

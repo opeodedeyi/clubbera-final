@@ -3,10 +3,10 @@
 import Link from "next/link";
 import useLoginForm from '@/hooks/useLoginForm';
 import Logo from "@/components/utility/logo";
-import MainInput from "@/components/forminput/maininput";
-import MainPasswordInput from "@/components/forminput/passwordinput";
+import MainInput from "@/components/forminput/MainInput/MainInput";
+import MainPasswordInput from "@/components/forminput/PasswordInput/PasswordInput";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
-import SocialLoginButton from "@/components/utility/socialbutton";
+import SocialLoginButton from "@/components/utility/SocialButton/SocialButton";
 import style from "../Auth.module.css";
 
 
@@ -26,7 +26,7 @@ export default function Login({ searchParams }) {
                                 <p className={style.authFormContentIntroText}>Ready to reconnect with friends? Login to resume discovery of new experiences together.</p>
                             </div>
                         </div>
-                        <SocialLoginButton imgSrc="/google_icon.svg" coloring="google-coloring" socialType="google">Login with Google</SocialLoginButton>
+                        <SocialLoginButton imgSrc="/google_icon.svg" coloring="googleColoring" socialType="google">Login with Google</SocialLoginButton>
                         <div className={style.authOrHorizontalLine}>
                             <div className={style.horizontalLineHalf}></div>
                             <p className={style.horizontalLineText}>or</p>

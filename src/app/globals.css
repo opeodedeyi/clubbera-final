@@ -3,8 +3,12 @@
   --container-padding: 80px;
   /* background color */
   --background-color: #FFFFFF;
+  --background-color-hover: #F4F4F4;
+  --background-google-trans: #F4F4F4;
+  --google-hover: #FDFDFD;
   /* boeder color */
   --border-color: #F4F4F4;
+  --border-google: #F4F4F4;
   --border-color-bright: rgba(202, 201, 201, 0.10);
   --border-shadow: rgba(235, 235, 235, 0.25);
   /* text color */
@@ -12,6 +16,8 @@
   --color-text-secondary: #241F1F; /* header */
   --color-text-alternate: #8C8A8A;
   --color-text-sub: #4D4A4A;
+  /* input */
+  --color-placeholder:#A19F9F;
   /* bright color on two shades of brand color */
   --bright-color-background: #F4F4F4;
   --bright-color-text: #DEDEDE;
@@ -63,8 +69,12 @@
   --container-padding: 80px;
   /* background color */
   --background-color: #020900;
+  --background-color-hover: #030D00;
+  --background-google-trans: transparent;
+  --google-hover: #212923;
   /* boeder color */
   --border-color: #212923;
+  --border-google: #212923;
   --border-color-bright: rgba(202, 201, 201, 0.05);
   --border-shadow: rgba(17, 1, 1, 0.25);
   /* text color */
@@ -72,6 +82,8 @@
   --color-text-secondary: #DEF3E2;
   --color-text-alternate: #BECCC1;
   --color-text-sub: #4D4A4A;
+  /* input */
+  --color-placeholder:#9EAEA2;
   /* bright color on two shades of beand color */
   --bright-color-background: #F4F4F4;
   --bright-color-text: #B4C2B7;

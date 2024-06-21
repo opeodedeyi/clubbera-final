@@ -1,4 +1,4 @@
-.homepageProfileHero {
+.profileHero {
     width: 100%;
     padding: 112px var(--container-padding) 32px;
     display: flex;
@@ -7,14 +7,14 @@
     justify-content: space-between;
 }
 
-.homepageProfileHeroCont {
+.profileHeroCont {
     display: inline-flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
 }
 
-.homepageProfileHeroName {
+.profileHeroName {
     font-size: 24px;
     font-weight: 500;
     line-height: 135%;
@@ -22,7 +22,15 @@
     color: var(--color-text-secondary);
 }
 
-.homepageProfileHeroSpeech {
+.profileHeroNameLoading {
+    width: 100%;
+    max-width: 240px;
+    height: 24px;
+    background-color: var(--color-text-main);
+    border-radius: 4px;
+}
+
+.profileHeroSpeech {
     font-size: 16px;
     font-weight: 400;
     line-height: 120%;
@@ -30,47 +38,34 @@
     color: var(--color-text-main);
 }
 
-.homepageProfileHeroInnbtn {
+.profileHeroInnbtn {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 4px;
 }
 
-.homepageFirstCommuityCreate {
-    width: 100%;
-    padding: 10px var(--container-padding) 60px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
 @media screen and  (max-width: 768px) {
-    .homepageProfileHero {
+    .profileHero {
         padding: 92px var(--container-padding) 32px;
     }
 
-    .homepageProfileHeroCont {
+    .profileHeroCont {
         gap: 2px;
     }
     
-    .homepageProfileHeroName {
+    .profileHeroName {
         font-size: 16px;
         letter-spacing: -0.32px;
     }
+
+    .profileHeroNameLoading {
+        max-width: 160px;
+        height: 20px;
+    }
     
-    .homepageProfileHeroSpeech {
+    .profileHeroSpeech {
         font-size: 14px;
         letter-spacing: -0.28px;
-    }
-
-    .homepageFirstCommuityCreate {
-        width: 100%;
-        padding: 10px var(--container-padding) 20px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
     }
 }

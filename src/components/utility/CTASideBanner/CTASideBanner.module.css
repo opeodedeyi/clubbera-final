@@ -1,61 +1,60 @@
-.CTACont {
+.CTASide {
     width: 100%;
-    padding: 40px var(--container-padding);
+    padding: 60px var(--container-padding);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.CTAContainer {
+.CTASideContainer {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     gap: 28px;
-    padding: 60px 20px;
     background-color: var(--main-color-light);
     border-radius: 4px;
 }
 
-.CTAContainerTop {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-}
-
-.CTAContainerBottom {
-    width: 100%;
+.normalFacing {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
+.reverseFacing {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.CTASideContainerMain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 60px;
+    gap: 28px;
+}
+
 .CTAContainerText {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 4px;
 }
 
 .CTAContainerTextTitle {
     color: var(--main-color);
-    text-align: center;
-    font-size: 48px;
+    font-size: 45px;
     font-style: normal;
     font-weight: 500;
     line-height: 105%;
-    letter-spacing: -0.96px;
+    letter-spacing: -1.35px;
 }
 
 .CTAContainerTextDescription {
     color: var(--main-color-hover);
-    text-align: center;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -64,26 +63,46 @@
 }
 
 @media screen and  (max-width: 768px) {
-    .CTACont {
-        padding: 10px var(--container-padding) 20px;
+    .CTASide {
+        padding: 24px var(--container-padding);
     }
 
-    .CTAContainer {
+    .CTASideContainer {
         padding: 24px 24px;
         gap: 16px;
     }
 
-    .CTAContainerTop {
-        gap: 4px;
+    .normalFacing {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .reverseFacing {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .CTASideContainerMain {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 32px;
+        gap: 16px;
     }
 
     .CTAContainerTextTitle {
         font-size: 18px;
         letter-spacing: -0.36px;
+        text-align: center;
     }
     
     .CTAContainerTextDescription {
         font-size: 12px;
         letter-spacing: -0.36px;
+        text-align: center;
     }
 }

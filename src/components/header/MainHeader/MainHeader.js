@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useCallback } from "react";
-import LoggedInHeader from "@/components/header/LoggedInHeader";
-import LoggedOutHeader from "@/components/header/LoggedOutHeader";
-import MobileNav from "@/components/mobile/mobileNav";
-import "@/components/header/header.css";
+import LoggedInHeader from "./LoggedInHeader";
+import LoggedOutHeader from "./LoggedOutHeader";
+import MobileNav from "@/components/mobile/MobileNav/MobileNav";
+import style from "./MainHeader.module.css";
 
 
-export default function Header({ user }) {
+export default function MainHeader({ user }) {
     const [showNav, toggleShowNav] = useState(false);
 
     const openNav = useCallback(() => {
@@ -20,7 +20,7 @@ export default function Header({ user }) {
 
     return (
         <>
-            <header className={'header-main'}>
+            <header className={style.headerMain}>
                 {
                     user ? (
                         user.isLoggedIn ? 

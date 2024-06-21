@@ -2,20 +2,20 @@
 
 import { useState, useEffect } from "react";
 import { getUserSession } from "@/lib";
-import '@/components/mobile/mobileNav.css';
 import Link from "next/link";
 import Image from 'next/image';
+import style from './mobileNav.module.css';
 
 
 function NavLink({text, link, svg}) {
     return (
-        <li className="mobile-nav-link">
-            <Link href={link} className="nav-link-item">
-                <div className="nav-link-text">
-                    <div className="nav-link-icon">
+        <li>
+            <Link href={link} className={style.navLinkItem}>
+                <div className={style.navLinkText}>
+                    <div className={style.navLinkIcon}>
                         {svg}
                     </div>
-                    <span className="nav-link-main-text">{text}</span>
+                    <span className={style.navLinkMainText}>{text}</span>
                 </div>
                 <div>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -51,29 +51,29 @@ export default function MobileNav({ isOpen, closeNav }) {
 
     return (
         <>
-            <nav className={`mobile-nav ${isOpen? "mobile-nav-open" : ""}`}>
-                <button className="mobile-nav-cancel" onClick={closeNav}>
+            <nav className={`${style.mobileNav} ${isOpen? style.mobileNavOpen : ""}`}>
+                <button className={style.mobileNavCancel} onClick={closeNav}>
                     <svg width="6" height="10" viewBox="0 0 6 10" fill="none">
                         <path d="M4.98867 9L1 5L4.98867 1" stroke="#777474" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </button>
 
-                <div className="mobile-nav-body">
-                    <div className="mobile-nav-body-top">
-                        <div className="mobile-nav-img">
+                <div className={style.mobileNavBody}>
+                    <div className={style.mobileNavBodyTop}>
+                        <div className={style.mobileNavImg}>
                             <Image 
                                 src={user?.profilePhoto?.location ? user.profilePhoto.location : "/profile.png"}
                                 fill
                                 sizes="100vw"
                                 alt="user profile picture" />
                         </div>
-                        <div className="mobile-nav-text">
-                            <p className="mobile-nav-fullname">{user?.user?.full_name}</p>
-                            <Link href="/profile" className="mobile-nav-profile-link">Update profile &gt;</Link>
+                        <div className={style.mobileNavText}>
+                            <p className={style.mobileNavFullname}>{user?.user?.full_name}</p>
+                            <Link href="/profile" className={style.mobileNavProfileLink}>Update profile &gt;</Link>
                         </div>
                     </div>
 
-                    <ul className="mobile-nav-body-bottom">
+                    <ul className={style.mobileNavBodyBottom}>
                         { 
                             links.map((item, index) => 
                                 <NavLink key={index} text={item.text} link={item.link} svg={item.svg}/>
