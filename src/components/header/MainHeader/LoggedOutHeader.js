@@ -11,7 +11,7 @@ function LoggedOutHeader() {
             <Logo coloring="default-logo-coloring" size="header-logo-size"></Logo>
 
             <div className={`${style.flexC} ${style.headerButtons}`}>
-                <CustomButton link destination="/login" coloring="inverse-coloring">Log in</CustomButton>
+                <CustomButton link destination="/login" coloring="inverseColoring">Log in</CustomButton>
                 <CustomButton link destination="/signup">Sign up</CustomButton>
             </div>
         </>

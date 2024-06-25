@@ -28,7 +28,7 @@ const MainForm = ({ email, setEmail, isDisabled }) => {
                 </div>
             </div>
             <div className={style.authFormActions}>
-                <CustomButton size="fullwidth-size" disabled={isDisabled}>Send Email</CustomButton>
+                <CustomButton size="fullwidthSize" disabled={isDisabled}>Send Email</CustomButton>
                 <p className={style.authFormActionsCta}>Didn&apos;t forget password? <Link href="/login" className="">Login</Link></p>
             </div>
         </>
@@ -49,7 +49,7 @@ const EmailSent = () => {
                 <div className={style.authFormSuccessImage}>
                 </div>
                 
-                <CustomButton link destination="/login" size="normal-size">Check Email</CustomButton>
+                <CustomButton link destination="/login" size="normalSize">Check Email</CustomButton>
             </div>
         </>
     );

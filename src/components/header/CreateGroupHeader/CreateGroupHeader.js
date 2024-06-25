@@ -46,7 +46,7 @@ export default function CreateGroupHeader({ children, backButtonClicked, progres
         <>
             <div className={style.headerCreate}>
                 <header className={style.headerAlt}>
-                    <CustomButton coloring="form-header-coloring" size="form-header-size" onClick={backButtonClicked}>
+                    <CustomButton coloring="formHeaderColoring" size="formHeaderSize" onClick={backButtonClicked}>
                         <img className={style.headerAltArrow} src="/back_direction.svg" alt="<" />
                         <span className={style.headerAltText}>{ children }</span>
                     </CustomButton>

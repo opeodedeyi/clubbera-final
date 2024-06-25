@@ -66,7 +66,7 @@ const MainEditGroup = ({ params, searchParams, group }) => {
         <>
             <div className="edit-group-main">
                 <div className="edit-group-back-header">
-                    <CustomButton coloring="form-header-coloring" size="form-header-size"><img src="/back_direction.svg" alt="<" /><span className="desktop-only-show">Back</span></CustomButton>
+                    <CustomButton coloring="formHeaderColoring" size="formHeaderSize"><img src="/back_direction.svg" alt="<" /><span className="desktop-only-show">Back</span></CustomButton>
                 </div>
 
                 <div className="edit-group-basic-details">

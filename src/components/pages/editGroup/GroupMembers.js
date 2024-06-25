@@ -32,7 +32,7 @@ const MemberSection = ({members}) => {
             <div className="edit-members-container-main">
                 <div className="edit-members-header">
                     <p className="edit-members-header-title">Members</p>
-                    <CustomButton size="normal-button-size">Invite user</CustomButton>
+                    <CustomButton size="normalButtonSize">Invite user</CustomButton>
                 </div>
                 <div className="edit-members-table-container">
                     <table className="edit-general-table">

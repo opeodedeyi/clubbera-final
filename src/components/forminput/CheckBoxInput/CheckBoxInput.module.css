@@ -1,0 +1,77 @@
+.checkboxInputText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.formLabelContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.checkboxLabelContainer label {
+    color:  var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.checkboxMainContainer {
+    display: flex;
+    align-items: flex;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.checkboxMainContainer p {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.checkboxMainContainer:hover p {
+    color: var(--color-text-secondary);
+}
+
+.checkboxMainContainer:hover span {
+    border-color: var(--color-text-secondary);
+}
+
+.checkboxMainContainer input[type="checkbox"] {
+    display: none;
+}
+
+.checkboxMainContainer span {
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--color-text-main);
+    border-radius: 3px;
+}
+
+.checkboxMainContainer input[type="checkbox"]:checked + span {
+    background: url('/check.svg') no-repeat center center;
+    background-size: 10px 10px;
+    border: 2px solid var(--color-text-main);
+}
+
+.checkboxMainContainer input[type="checkbox"]:checked + span + .checkboxText {
+    color:  var(--color-text-main);
+}
+
+@media screen and (max-width: 768px) {
+    .checkboxMainContainer p {
+        font-size: 0.875rem;
+        letter-spacing: -0.28px;
+    }
+}

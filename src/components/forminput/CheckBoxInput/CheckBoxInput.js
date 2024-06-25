@@ -1,23 +1,21 @@
-'use client';
-
-import "@/components/forminput/forminput.css";
+import style from "./CheckBoxInput.module.css";
 
 const CheckboxInput = ({ label, children, checked, onChange }) => {
     return (
-        <div className="checkbox-input-text">
+        <div className={style.checkboxInputText}>
             {label &&
-                <div className="form-label-container checkbox-label-container">
-                    <label className="form-label">{ label }</label>
+                <div className={`${style.formLabelContainer} ${style.checkboxLabelContainer}`}>
+                    <label>{ label }</label>
                 </div>
             }
             
-            <label className="checkbox-main-container">
+            <label className={style.checkboxMainContainer}>
                 <input
                     type="checkbox"
                     checked={checked} 
                     onChange={onChange} />
                 <span></span>
-                <p className="checkbox-text">{children}</p>
+                <p className={style.checkboxText}>{children}</p>
             </label>
         </div>
     );

@@ -62,7 +62,7 @@
 
 .mainFooterTagline {
     color: var(--bright-color-text);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 125%;
@@ -87,7 +87,7 @@
 
 .mainFooterBottomText {
     color: var(--bright-color-text);
-    font-size: 0.875rem;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 160%;
@@ -147,12 +147,12 @@
     }
 
     .mainFooterLinkHeader {
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
         padding-bottom: 0;
     }
     
     .mainFooterLink {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
     }
 
     .mainFooterMidline {
@@ -161,7 +161,7 @@
     }
 
     .mainFooterBottomText {
-        font-size: 0.8125rem;
+        font-size: 0.875rem;
         line-height: 135%;
         letter-spacing: -0.13px;
     }

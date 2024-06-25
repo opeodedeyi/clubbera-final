@@ -8,7 +8,7 @@ export default function AuthHeader() {
     return (
         <>
             <header className={`${style.headerMain} ${style.noBorderBottom}`}>
-                <CustomButton link destination="/" coloring="form-header-coloring" size="form-header-size"><img src="/back_direction.svg" alt="<" /><span>Back to home page</span></CustomButton>
+                <CustomButton link destination="/" coloring="formHeaderColoring" size="formHeaderSize"><img src="/back_direction.svg" alt="<" /><span>Back to home page</span></CustomButton>
             </header>
         </>
     )

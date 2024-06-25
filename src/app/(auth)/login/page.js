@@ -50,7 +50,7 @@ export default function Login({ searchParams }) {
                         </div>
                     </div>
                     <div className={style.authFormActions}>
-                        <CustomButton size="fullwidth-size" disabled={isDisabled} type="submit">Login</CustomButton>
+                        <CustomButton size="fullwidthSize" disabled={isDisabled} type="submit">Login</CustomButton>
                         <p className={style.authFormActionsCta}>Not a member yet? <Link href="/signup" className="">Sign up now</Link></p>
                     </div>
                 </form>

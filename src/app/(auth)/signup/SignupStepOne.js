@@ -48,7 +48,7 @@ export default function SignupStepOne ({ email, setEmail, fullName, setFullName,
                 </div>
             </div>
             <div className={style.authFormActions}>
-                <CustomButton size="fullwidth-size" disabled={isDisabled} onClick={buttonClicked}>Continue</CustomButton>
+                <CustomButton size="fullwidthSize" disabled={isDisabled} onClick={buttonClicked}>Continue</CustomButton>
                 <p className={style.authFormActionsCta}>Already a member? <Link href="/login" className="">Log in</Link></p>
             </div>
         </>

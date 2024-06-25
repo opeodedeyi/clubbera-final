@@ -49,7 +49,7 @@ const MainGroupDetails = ({ params, searchParams, group }) => {
         <>
             <div className="group-details-main">
                 <div className="group-details-back-header">
-                    <CustomButton coloring="form-header-coloring" size="form-header-size"><img src="/back_direction.svg" alt="<" /><span className="desktop-only-show">Back</span></CustomButton>
+                    <CustomButton coloring="formHeaderColoring" size="formHeaderSize"><img src="/back_direction.svg" alt="<" /><span className="desktop-only-show">Back</span></CustomButton>
                 </div>
                 <div className="group-details-keydetails">
                     <div className="group-keydetails-major">
@@ -80,13 +80,13 @@ const MainGroupDetails = ({ params, searchParams, group }) => {
                                 </div>
                                 <div className="group-keydetails-text-buttons">
                                     <CustomButton 
-                                        coloring="default-coloring" 
-                                        size="normal-button-size" 
+                                        coloring="defaultColoring" 
+                                        size="normalButtonSize" 
                                         disabled={ctaText === ('owner' || 'pending') ? true : false}
                                         onClick={() => joinOrLeaveGroup}>
                                         {ctaText}
                                     </CustomButton>
-                                    <CustomButton coloring="inverse-coloring" size="normal-button-size">
+                                    <CustomButton coloring="inverseColoring" size="normalButtonSize">
                                         <span>Share</span><DownArrowIcon/>
                                     </CustomButton>
                                 </div>

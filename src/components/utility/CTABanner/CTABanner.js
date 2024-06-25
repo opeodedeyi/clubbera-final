@@ -12,7 +12,7 @@ const CTABanner = ({title, description, buttonText, image, destination}) => {
                         <p className={style.CTAContainerTextDescription}>{description}</p>
                     </div>
                 </div>
-                <CustomButton link destination={`${destination}`} size="default-size">{buttonText}</CustomButton>
+                <CustomButton link destination={`${destination}`} size="defaultSize">{buttonText}</CustomButton>
             </div>
         </div>
     );

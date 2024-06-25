@@ -17,7 +17,7 @@ const GroupsSection = ({ groupTypes }) => (
         <div className={style.homepageGroupsContent}>
             <h2 className={style.homepageGroupsTitle}>Create a <span className="spicy-text">group</span></h2>
             <p className={style.homepageGroupsText}>Start today by creating your dynamic and perfect group.</p>
-            <CustomButton link destination="/creategroup" size="normal-size">Create group</CustomButton>
+            <CustomButton link destination="/creategroup" size="normalSize">Create group</CustomButton>
         </div>
         <div className={style.homepageGroupsMain}>
             <div className={style.homepageGroupsMainCards}>

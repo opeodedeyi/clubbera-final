@@ -5,9 +5,9 @@ import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import MainInput from "@/components/forminput/MainInput/MainInput";
 import CityInput from "@/components/forminput/LocationInput/CityInput";
-import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
-import CustomTag from "@/components/forminput/customtag";
-import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
+import BinaryOption from "@/components/forminput/BinaryOption/BinaryOption";
+import CustomTag from "@/components/forminput/CustomTag/CustomTag";
+import SingleImageUpload from "@/components/forminput/ImageUpload/SingleImageUpload";
 
 
 const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, groupTitle, setGroupTitle, groupDescription, setGroupDescription, groupTagline, setGroupTagline, boolValue, setBoolValue, presetTopics, selectedTopics, setSelectedTopics, cityLocation, setCityLocation, latLocation, setLatLocation, lngLocation, setLngLocation, isDisabled }) => {
@@ -86,7 +86,7 @@ const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName
                         </div>
                     </div>
                     <div className="edit-details-picturecontainer">
-                        <SingleImageUploadInput
+                        <SingleImageUpload
                             hasChange
                             selectedImage={selectedImage}
                             setSelectedImage={setSelectedImage}
@@ -102,7 +102,7 @@ const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName
                         <p className="edit-details-general-title">GROUP TOPICS</p>
                         <div className="edit-details-tags-shell">
                             {presetTopics.map((topic, index) => (
-                                <CustomTag key={index} selected={selectedTopics.includes(topic) ? 'is-selected' : 'is-not-selected'} onClick={handleTopicClick(topic)}>
+                                <CustomTag key={index} selected={selectedTopics.includes(topic) ? 'isSelected' : 'isNotSelected'} onClick={handleTopicClick(topic)}>
                                     {topic}
                                 </CustomTag>
                             ))}
@@ -111,7 +111,7 @@ const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName
                     
                     <div className="edit-details-privacy">
                         <p className="edit-details-general-title">PRIVACY SETTINGS</p>
-                        <BinaryOptionInput 
+                        <BinaryOption 
                             boolValue={boolValue} 
                             setBoolValue={setBoolValue} 
                             truthyPlaceholder="Private" 
@@ -121,7 +121,7 @@ const EditDetailsSection = ({ params, selectedImage, setSelectedImage, imageName
             </div>
 
             <div className="edit-details-button">
-                <CustomButton onClick={handleSubmitClick} size="default-button-size" disabled={isDisabled}>Update details</CustomButton>
+                <CustomButton onClick={handleSubmitClick} size="defaultButtonSize" disabled={isDisabled}>Update details</CustomButton>
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import CityInput from "@/components/forminput/LocationInput/CityInput";
-import CheckboxInput from "@/components/forminput/checkboxinput";
+import CheckboxInput from "@/components/forminput/CheckBoxInput/CheckBoxInput";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "../Auth.module.css";
 
@@ -32,7 +32,7 @@ export default function SignupStepTwo ({ ageConsent, setAgeConsent, cityLocation
                 </CheckboxInput>
             </div>
             <div className={style.authFormActions}>
-                <CustomButton size="fullwidth-size" disabled={!ageConsent} onClick={buttonClicked}>Get started</CustomButton>
+                <CustomButton size="fullwidthSize" disabled={!ageConsent} onClick={buttonClicked}>Get started</CustomButton>
                 <p className={style.authFormActionsPolicy}>By signing up, you agree to <Link href="/termsofservice" className="auth-dark-link">Terms of Service</Link>, <Link href="/privacypolicy" className="auth-dark-link">Privacy Policy</Link>, and <Link href="/cookiepolicy" className="auth-dark-link">Cookie Policy</Link>.</p>
             </div>
         </>

@@ -8,8 +8,8 @@ const HeroSection = () => (
             <h1 className={style.homepageHeroTagline}>Discover, Connect <br className="desk"/>and Thrive <span className="spicy-text">with</span> <br className="desk"/><span className="colored-text">Clubbera</span></h1>
             <p className={style.homepageHeroSubtag}>We connect individuals with local comunities and clubs</p>
             <div className={`${style.flexC} ${style.homepageHeroButtons}`}>
-                <CustomButton link destination="/creategroup" size="normal-size">Create group</CustomButton>
-                <CustomButton link destination="/signup" size="normal-size" coloring="inverse-coloring">Join Clubbera</CustomButton>
+                <CustomButton link destination="/creategroup" size="normalSize">Create group</CustomButton>
+                <CustomButton link destination="/signup" size="normalSize" coloring="inverseColoring">Join Clubbera</CustomButton>
             </div>
         </div>
 

@@ -5,9 +5,9 @@ import { Fragment, useState } from "react";
 import CreateGroupHeader from "@/components/header/CreateGroupHeader/CreateGroupHeader";
 import CityInput from "@/components/forminput/LocationInput/CityInput";
 import MainInput from "@/components/forminput/MainInput/MainInput";
-import BinaryOptionInput from "@/components/forminput/binaryoptioninput";
-import SingleImageUploadInput from "@/components/forminput/singleimageuploadinput";
-import CustomTag from "@/components/forminput/customtag";
+import BinaryOption from "@/components/forminput/BinaryOption/BinaryOption";
+import SingleImageUpload from "@/components/forminput/ImageUpload/SingleImageUpload";
+import CustomTag from "@/components/forminput/CustomTag/CustomTag";
 import MainTip from "@/components/utility/maintip";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import { useRouter } from 'next/navigation'
@@ -30,8 +30,8 @@ const IntroStep = ({ onClick }) => {
                 </div>
 
                 <div className={style.authFormContentColumn}>
-                    <CustomButton size="fullwidth-size" onClick={onClick}>Create now</CustomButton>
-                    <CustomButton link destination='/' coloring="button-nobutton-coloring" size="button-nobutton-size">Skip</CustomButton>
+                    <CustomButton size="fullwidthSize" onClick={onClick}>Create now</CustomButton>
+                    <CustomButton link destination='/' coloring="buttonNobuttonColoring" size="buttonNobuttonSize">Go back</CustomButton>
                 </div>
             </div>
         </>
@@ -87,7 +87,7 @@ const CreateGroupStepTwo = ({ presetTopics, selectedTopics, setSelectedTopics })
                     
                     <div className={style.authFormTags}>
                         {presetTopics.map((topic, index) => (
-                            <CustomTag key={index} selected={selectedTopics.includes(topic) ? 'is-selected' : 'is-not-selected'} onClick={handleTopicClick(topic)}>
+                            <CustomTag key={index} selected={selectedTopics.includes(topic) ? 'isSelected' : 'isNotSelected'} onClick={handleTopicClick(topic)}>
                                 {topic}
                             </CustomTag>
                         ))}
@@ -141,9 +141,9 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelect
                     </div>
                 </div>
                 <div className={style.authFormInputs}>
-                    <BinaryOptionInput boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOptionInput>
+                    <BinaryOption boolValue={boolValue} setBoolValue={setBoolValue} truthyPlaceholder="Private" falseyPlaceholder="Public">Is this group a Private or Public Group?</BinaryOption>
 
-                    <SingleImageUploadInput
+                    <SingleImageUpload
                         selectedImage={selectedImage}
                         setSelectedImage={setSelectedImage}
                         imageName={imageName}
@@ -151,7 +151,7 @@ const CreateGroupStepFour = ({ boolValue, setBoolValue, selectedImage, setSelect
                         imageSize={imageSize}
                         setImageSize={setImageSize}>
                         Upload image
-                    </SingleImageUploadInput>
+                    </SingleImageUpload>
                 </div>
             </div>
         </>
@@ -173,7 +173,7 @@ const FinishStep = ({ groupTitle, groupLink }) => {
                     <img src="/community_created.svg" alt="community created" />
                 </div>
                 
-                <CustomButton link destination={`/group/${groupLink}/edit`} size="fullwidth-size">See my Group</CustomButton>
+                <CustomButton link destination={`/group/${groupLink}/edit`} size="fullwidthSize">See my Group</CustomButton>
             </div>
         </>
     );
@@ -296,7 +296,7 @@ export default function CreateGroup() {
 
                     {step > 0 && step < 5 &&
                         <div className={style.authFormActionsTwo}>
-                            <CustomButton size="normal-size" onClick={handleNext} disabled={disableNextPage()}>
+                            <CustomButton size="normalSize" onClick={handleNext} disabled={disableNextPage()}>
                                 {step < 4 ? 'Proceed' : 'Complete'}
                             </CustomButton>
                         </div>

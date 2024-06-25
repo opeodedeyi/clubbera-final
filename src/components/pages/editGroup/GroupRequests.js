@@ -26,8 +26,8 @@ const RequestTableRow = ({ name, location, time, gender, email }) => {
             <td className="desktop-only-show">{ email }</td>
             <td>
                 <div className="edit-general-table-btns">
-                    <CustomButton size="table-button-size"><img className="mobile-only-show" src="/white_tick.svg" alt=">" /><span className="desktop-only-show">Accept</span></CustomButton>
-                    <CustomButton size="table-button-size" coloring="inverse-coloring"><img className="mobile-only-show" src="/cancel.svg" alt="x" /><span className="desktop-only-show">Reject</span></CustomButton>
+                    <CustomButton size="tableButtonSize"><img className="mobile-only-show" src="/white_tick.svg" alt=">" /><span className="desktop-only-show">Accept</span></CustomButton>
+                    <CustomButton size="tableButtonSize" coloring="inverseColoring"><img className="mobile-only-show" src="/cancel.svg" alt="x" /><span className="desktop-only-show">Reject</span></CustomButton>
                 </div>
             </td>
         </tr>

@@ -11,7 +11,7 @@ const CTASideBanner = ({title, description, buttonText, image, destination, reve
                         <h1 className={style.CTAContainerTextTitle}>{title}</h1>
                         <p className={style.CTAContainerTextDescription}>{description}</p>
                     </div>
-                    { buttonText && <CustomButton link destination={`${destination}`} size="default-size">{buttonText}</CustomButton>}
+                    { buttonText && <CustomButton link destination={`${destination}`} size="defaultSize">{buttonText}</CustomButton>}
                 </div>
             </div>
         </div>

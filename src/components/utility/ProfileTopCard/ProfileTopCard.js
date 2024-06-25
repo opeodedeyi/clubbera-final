@@ -22,7 +22,7 @@ const ProfileTopCard = () => {
                     }
                     <p className={style.profileHeroSpeech}>Get started today with Clubbera</p>
                 </div>
-                <CustomButton link destination="/creategroup" size="default-size">
+                <CustomButton link destination="/creategroup" size="defaultSize">
                     <div className={style.profileHeroInnbtn}>
                     <GroupPeopleIcon className='mobile-only-show' color='--color-on-brand'/>
                     Create <span className="desktop-only-show">new</span>
