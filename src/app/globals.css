@@ -25,6 +25,7 @@
   --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #228B22;
+  --reactive-brand-alternate: #228B22;
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
   /* svg */
@@ -92,6 +93,7 @@
   --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #030B01;
+  --reactive-brand-alternate: #D1FFD9;
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
   /* svg */

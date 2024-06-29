@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Logo from "@/components/utility/logo";
 import SearchBar from "@/components/forminput/SearchBar/SearchBar";
-import ProfileSection from "./ProfileSection";
+import ProfileSection from "./ProfileSection/ProfileSection";
 import style from "./MainHeader.module.css";
 
 
