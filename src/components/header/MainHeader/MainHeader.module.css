@@ -39,29 +39,6 @@
     display: flex;
 }
 
-.headerProfilePhotoCard {
-    padding: 5px;
-    border-radius: 100px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    cursor: pointer;
-}
-
-.headerProfilePhotoImg {
-    height: 36px;
-    width: 36px;
-    border-radius: 100px;
-    overflow: hidden;
-}
-
-.headerProfilePhotoCard img {
-    width: 100%;
-    object-fit: cover;
-}
-
 .headerVertiLine {
     width: 1px;
     height: 16px;
@@ -89,11 +66,6 @@
     }
 
     .headerProfilePhotoCard {
-        height: 32px;
-        padding: 0px;
-    }
-
-    .headerProfilePhotoImg {
         height: 32px;
         width: 32px;
     }

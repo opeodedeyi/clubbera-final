@@ -14,4 +14,4 @@ const CustomButton = ({ type="button", size='defaultSize', coloring='defaultColo
     );
 };
 
-export default CustomButton
+export default CustomButton;

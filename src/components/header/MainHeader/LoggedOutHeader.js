@@ -1,5 +1,3 @@
-'use client';
-
 import Logo from "@/components/utility/logo";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "./MainHeader.module.css";

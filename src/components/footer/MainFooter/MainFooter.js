@@ -17,7 +17,7 @@ export default function MainFooter({ user }) {
                         { 
                             user?.isLoggedIn ?
                                 <>
-                                    <li><Link href="#" className={style.mainFooterLink}>Profile</Link></li>
+                                    <li><Link href="/profile" className={style.mainFooterLink}>Profile</Link></li>
                                     <li><Link href="#" className={style.mainFooterLink}>Logout</Link></li>
                                 </> :
                                 <>
