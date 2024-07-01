@@ -1,51 +1,40 @@
 import { NextResponse } from 'next/server';
-import { verifyUser } from '@/lib';
-import { A_COOKIE_NAME, B_COOKIE_NAME } from "@/constants";
+import { verifyToken } from '@/lib';
+import { A_COOKIE_NAME } from "@/constants";
  
 
 export async function middleware(request) {
-    const data = await verifyUser(request);
-
-    let response = NextResponse.next();
-    const { pathname, searchParams } = request.nextUrl
-    const previousPageURL = pathname.startsWith('/') ? pathname.slice(1) : null;
-    const nextPageURL = searchParams.get('destination') || '/dashboard';
-    const isPublicPath = pathname === '/' || pathname === '/login' || pathname === '/signup' || pathname === '/forgotpassword';
-    const isPrivatePath = pathname === '/dashboard' || pathname === '/creategroup' || pathname === '/group/:uniqueURL/edit';
+    const { pathname, searchParams } = request.nextUrl;
     const token = request.cookies.get(A_COOKIE_NAME)?.value || '';
-    let redirectUrl;
+    const isAuth = Boolean(token);
+    
+    let response = NextResponse.next();
 
-    if (token && !data.success) {
-        request.cookies.delete(A_COOKIE_NAME);
-        response.cookies.delete(A_COOKIE_NAME);
-        response.cookies.delete(B_COOKIE_NAME);
-    }
+    const publicPaths = ['/', '/login', '/signup', '/forgotpassword'];
+    const privatePaths = ['/dashboard', '/creategroup', '/group/:uniqueURL/edit'];
 
-    if (data.success) {
-        response.cookies.set(B_COOKIE_NAME, data.user);
-    }
+    const isPublicPath = publicPaths.includes(pathname);
+    const isPrivatePath = privatePaths.some(path => pathname.startsWith(path));
 
-    const isAuth = request.cookies.has(A_COOKIE_NAME);
-
-    if (isPublicPath && isAuth) {
-        redirectUrl = new URL(nextPageURL, request.nextUrl);
-        response = NextResponse.redirect(redirectUrl);
-        response.cookies.set(B_COOKIE_NAME, data.user);
-        return response;
-    }
-
-    if (isPrivatePath && !isAuth) {
-        redirectUrl = new URL('/login', request.nextUrl);
-        if (previousPageURL) {
-            redirectUrl.searchParams.set('destination', previousPageURL);
+    if (isAuth) {
+        try {
+            await verifyToken(request);
+        } catch (error) {
+            request.cookies.delete(A_COOKIE_NAME);
+            response.cookies.delete(A_COOKIE_NAME);
+            return NextResponse.redirect('/login');
         }
     }
 
-    if (redirectUrl) {
-        response = NextResponse.redirect(redirectUrl);
-        response.cookies.delete(A_COOKIE_NAME);
-        response.cookies.delete(B_COOKIE_NAME);
-        return response;
+    if (isPublicPath && isAuth) {
+        const nextPageURL = searchParams.get('destination') || '/dashboard';
+        return NextResponse.redirect(new URL(nextPageURL, request.nextUrl));
+    }
+
+    if (isPrivatePath && !isAuth) {
+        const redirectUrl = new URL('/login', request.nextUrl);
+        redirectUrl.searchParams.set('destination', pathname);
+        return NextResponse.redirect(redirectUrl);
     }
 
     return response;
