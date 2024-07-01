@@ -151,6 +151,9 @@
 .authFormSuccessImage {
     background-image: url('/email_sent.png');
 }
+.errorMessage {
+    color: red;
+}
 
 @media screen and (max-width: 768px) {
     .authContainer {
