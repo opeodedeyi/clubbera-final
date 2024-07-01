@@ -1,7 +1,10 @@
 import Link from "next/link";
 import style from "./ProfileSection.module.css";
+import { useLogout } from '@/hooks/useLogout';
 
 const ProfileSection = ({ user }) => {
+    const logout = useLogout();
+
     return (
         <div className={style.headerProfilePhotoCard}>
             <Link href="/profile" className={style.headerProfilePhotoMain}>
@@ -15,7 +18,8 @@ const ProfileSection = ({ user }) => {
             <div className={style.headerProfileDropdown}>
                 <div className={style.headerProfileDropdownSpace}></div>
                 <ul>
-                    <li><Link href="/logout" className={style.headerProfileDropdownLink}><span>Logout</span></Link></li>
+                    <li><div onClick={logout} className={style.headerProfileDropdownLink}><span>Logout</span></div></li>
+                    <li><Link href="/mygroups" className={style.headerProfileDropdownLink}><span>My groups</span></Link></li>
                 </ul>
             </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useUserSession } from "@/hooks/useUserSession";
+import { useUser } from "@/app/context/UserContext";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
 import { capitalizeAndTruncateTextWithDot } from "@/utils/textUtils";
@@ -8,18 +8,22 @@ import style from "./ProfileTopCard.module.css";
 
 
 const ProfileTopCard = () => {
-    const user = useUserSession();
+    const { user, loading } = useUser();
 
     return (
         <>
             {/* animate the loading animation */}
             <div className={style.profileHero}>
                 <div className={style.profileHeroCont}>
-                    { 
-                        user ? <p className={style.profileHeroName}>Hi {capitalizeAndTruncateTextWithDot(user?.full_name, 20)},</p>
-                        : 
+                    {loading ? (
                         <div className={style.profileHeroNameLoading}></div>
-                    }
+                    ) : user ? (
+                        <p className={style.profileHeroName}>
+                            Hi {capitalizeAndTruncateTextWithDot(user.full_name, 20)},
+                        </p>
+                    ) : (
+                        <p className={style.profileHeroName}>Welcome,</p>
+                    )}
                     <p className={style.profileHeroSpeech}>Get started today with Clubbera</p>
                 </div>
                 <CustomButton link destination="/creategroup" size="defaultSize">
