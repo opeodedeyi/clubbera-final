@@ -1,8 +1,12 @@
+'use client';
+
 import Link from "next/link";
 import style from "./ProfileSection.module.css";
+import { useUser } from '@/app/context/UserContext';
 import { useLogout } from '@/hooks/useLogout';
 
-const ProfileSection = ({ user }) => {
+const ProfileSection = () => {
+    const { user, loading, error } = useUser();
     const logout = useLogout();
 
     return (

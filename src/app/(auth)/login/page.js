@@ -9,9 +9,10 @@ import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import SocialLoginButton from "@/components/utility/SocialButton/SocialButton";
 import style from "../Auth.module.css";
 
+
 export default function Login({ searchParams }) {
   const { destination } = searchParams;
-  const { email, setEmail, password, setPassword, submitLogin, errors } =
+  const { email, setEmail, password, setPassword, submitLogin, loading, errors } =
     useLoginForm(destination);
 
   return (
@@ -81,7 +82,7 @@ export default function Login({ searchParams }) {
             </CustomButton>
             <p className={style.authFormActionsCta}>
               Not a member yet?{" "}
-              <Link href="/signup" className="">
+              <Link href="/signup">
                 Sign up now
               </Link>
             </p>

@@ -35,7 +35,7 @@ function LoggedInHeader({ user, navBtnClicked}) {
                         </svg>
                     </button>
 
-                    <ProfileSection user={user.user}/>
+                    <ProfileSection/>
                 </div>
 
                 <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.desktopOnlyShow}`}>
@@ -48,7 +48,7 @@ function LoggedInHeader({ user, navBtnClicked}) {
 
                     <div className={style.headerVertiLine}></div>
                     
-                    <ProfileSection user={user.user}/>
+                    <ProfileSection/>
                 </div>
             </div>
         </>
