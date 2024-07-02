@@ -1,5 +1,3 @@
-"use client"
-import React,{useState} from 'react'
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import LoggedInHeader from '@/components/header/MainHeader/LoggedInHeader'
 import CustomButton from '@/components/utility/CustomButton/CustomButton';
@@ -11,7 +9,7 @@ const page = ({user}) => {
     
   return (
     <div className={Style.profileContainer}>
-      <div>{/* <LoggedInHeader  /> */}</div>
+      <div><LoggedInHeader/></div>
       <div className={Style.profileHeader}>
         <div className={Style.profileNameContainer}>
           <div className={Style.profileNameInitals}>
