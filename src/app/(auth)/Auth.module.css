@@ -152,7 +152,13 @@
     background-image: url('/email_sent.png');
 }
 .errorMessage {
-    color: red;
+    margin-top: -15px;
+    color: var(--main-color-card-danger);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,9 +1,21 @@
-/** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
-        domains: ['yt3.ggpht.com', 'clubbera.s3.eu-west-2.amazonaws.com'],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'yt3.ggpht.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'clubbera.s3.eu-west-2.amazonaws.com',
+            },
+            {
+                protocol: 'https',
+                hostname: 'lh3.googleusercontent.com',
+            },
+        ],
     },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

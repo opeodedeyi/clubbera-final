@@ -8,12 +8,10 @@ import style from "../Auth.module.css";
 
 export default function SignupStepOne({
   email,
-  setEmail,
   fullName,
-  setFullName,
   password,
-  setPassword,
   errors,
+  handleInputChange,
   moveToNextStep,
 }) {
   return (
@@ -44,10 +42,11 @@ export default function SignupStepOne({
         <div className={style.authFormInputs}>
           <MainInput
             type="text"
+            name="fullName"
             placeholder="Enter full name"
             input="Full name"
             value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
+            onChange={handleInputChange}
           />
           {errors.fullName && (
             <span className={style.errorMessage}>{errors.fullName}</span>
@@ -55,10 +54,11 @@ export default function SignupStepOne({
 
           <MainInput
             type="email"
+            name="email"
             placeholder="Enter email address"
             input="Email address"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleInputChange}
           />
           {errors.email && (
             <span className={style.errorMessage}>{errors.email}</span>
@@ -66,10 +66,11 @@ export default function SignupStepOne({
 
           <MainPasswordInput
             type="password"
+            name="password"
             placeholder="Enter password"
             input="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={handleInputChange}
           />
           {errors.password && (
             <span className={style.errorMessage}>{errors.password}</span>
@@ -77,14 +78,10 @@ export default function SignupStepOne({
         </div>
       </div>
       <div className={style.authFormActions}>
-        <CustomButton size="fullwidthSize" onClick={moveToNextStep}>
-          Continue
-        </CustomButton>
+        <CustomButton size="fullwidthSize" onClick={moveToNextStep}>Continue</CustomButton>
         <p className={style.authFormActionsCta}>
           Already a member?{" "}
-          <Link href="/login" className="">
-            Log in
-          </Link>
+          <Link href="/login" className="">Log information</Link>
         </p>
       </div>
     </>

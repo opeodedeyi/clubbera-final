@@ -2,9 +2,11 @@
 
 import { A_COOKIE_NAME } from "@/constants";
 import { cookies } from 'next/headers';
-import { getRedisClient } from '@/utils/redis';
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
+import NodeCache from 'node-cache';
 
+
+const cache = new NodeCache({ stdTTL: 60 * 30, checkperiod: 60 * 10 });
 
 async function fetchUserFromAPI(token) {
     try {
@@ -30,21 +32,17 @@ export async function getUserData() {
     if (!token) return null;
 
     try {
-        const client = await getRedisClient();
-
-        const cachedUser = await client.get(token);
+        const cachedUser = cache.get(token);
 
         if (cachedUser) {
-            await client.quit();
-            return JSON.parse(cachedUser);
+            return cachedUser;
         }
 
         const user = await fetchUserFromAPI(token);
         if (user) {
-            await client.set(token, JSON.stringify(user), { EX: 3600 });
+            cache.set(token, user);
         }
 
-        await client.quit();
         return user;
     } catch (error) {
         console.error('Error in getUserData:', error);

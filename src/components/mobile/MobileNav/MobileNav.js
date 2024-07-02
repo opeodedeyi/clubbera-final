@@ -38,7 +38,7 @@ const links = [
 ];
 
 export default function MobileNav({ isOpen, closeNav }) {
-    const { user, loading } = useUser();
+    const { user, loading, error } = useUser();
 
     if (loading) {
         return <div>Loading...</div>; // or some loading spinner
@@ -56,7 +56,7 @@ export default function MobileNav({ isOpen, closeNav }) {
                 <div className={style.mobileNavBodyTop}>
                     <div className={style.mobileNavImg}>
                         <Image 
-                            src={user?.profilePhoto?.location || "/profile.png"}
+                            src={user?.avatar || "/profile.png"}
                             fill
                             sizes="100vw"
                             alt="user profile picture" />

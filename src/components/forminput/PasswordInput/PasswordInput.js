@@ -24,7 +24,7 @@ const MainPasswordInput = ( props ) => {
             </div>
             <div className={style.formInputPassword}>
                 <input
-                    name="Password"
+                    name={props.name}
                     type={type}
                     placeholder={props.placeholder}
                     value={props.value}

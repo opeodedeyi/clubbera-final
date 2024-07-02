@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useUser } from '@/app/context/UserContext';
 
 
-const publicRoutes = ['/login', '/register', '/forgot-password', '/'];
+const acceeptedRoutes = ['/login', '/register', '/forgot-password', '/', '/group/:uniqueURL'];
 
 export function useLogout() {
     const router = useRouter();
@@ -17,8 +17,8 @@ export function useLogout() {
         setUser(null);
         router.refresh();
 
-        if (!publicRoutes.includes(pathname)) {
-            router.push('/login');
+        if (!acceeptedRoutes.includes(pathname)) {
+            router.push('/');
         }
     }
 

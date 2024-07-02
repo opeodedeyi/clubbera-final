@@ -1,9 +1,16 @@
+'use client';
+
 import Link from "next/link";
 import Logo from "@/components/utility/logo";
-import style from "./MainFooter.module.css"
+import style from "./MainFooter.module.css";
+import { useLogout } from '@/hooks/useLogout';
+import { useUser } from '@/app/context/UserContext';
 
 
-export default function MainFooter({ user }) {
+export default function MainFooter() {
+    const { user, loading, error } = useUser();
+    const logout = useLogout();
+
     return (
         <footer className={style.mainFooter}>
             <div className={style.mainFooterTop}>
@@ -14,17 +21,15 @@ export default function MainFooter({ user }) {
                 <div className={style.mainFooterTopRight}>
                     <ul>
                         <li><p className={style.mainFooterLinkHeader}>Your Account</p></li>
-                        { 
-                            user?.isLoggedIn ?
-                                <>
-                                    <li><Link href="/profile" className={style.mainFooterLink}>Profile</Link></li>
-                                    <li><Link href="#" className={style.mainFooterLink}>Logout</Link></li>
-                                </> :
-                                <>
-                                    <li><Link href="/signup" className={style.mainFooterLink}>Sign up</Link></li>
-                                    <li><Link href="/login" className={style.mainFooterLink}>Login</Link></li>
-                                </>
-                            }
+                        {user ? (
+                            <>
+                                <li><Link href="/profile" className={style.mainFooterLink}>Profile</Link></li>
+                                <li><Link href="#" onClick={logout} className={style.mainFooterLink}>Logout</Link></li>
+                            </> ) : (
+                            <>
+                                <li><Link href="/signup" className={style.mainFooterLink}>Sign up</Link></li>
+                                <li><Link href="/login" className={style.mainFooterLink}>Login</Link></li>
+                            </> )}
                     </ul>
                     <ul>
                         <li><p className={style.mainFooterLinkHeader}>Company</p></li>
