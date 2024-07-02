@@ -1,22 +1,18 @@
 .container {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   margin-top: 2rem;
   width: 100%;
 }
-
 .tabs {
   display: flex;
-  gap: 1rem; /* Adjust gap for large screens as needed */
+  gap: 1rem;
   margin-bottom: 1.5rem;
-  /* border: 1px solid hsla(0, 0%, 99%, 1); */
   width: 100%;
- padding: 0.6rem ;
+  padding: 0.6rem;
   background-color: hsla(0, 0%, 99%, 1);
   overflow: hidden;
 }
-
 .tabButton {
   position: relative;
   font-weight: 500;
@@ -27,21 +23,22 @@
   cursor: pointer;
   padding-bottom: 8px;
   transition: color 0.3s ease-in-out;
-   font-family: 'GT Walsheim Pro', sans-serif;
-   
+  font-family: "GT Walsheim Pro", sans-serif;
 }
-
-
 .tabButton.active {
-  color: var(--main-color-hover); /* Replace with your desired active color */
+  color: var(--main-color-hover);
 }
-
 .underline {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--main-color-hover); /* Replace with your desired border color */
+  background-color: var(--main-color-hover);
   transform: translateY(2px);
+}
+@media screen and (max-width: 768px) {
+  .container {
+    display: none;
+  }
 }

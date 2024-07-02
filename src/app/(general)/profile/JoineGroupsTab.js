@@ -9,28 +9,23 @@ const JoineGroupsTab = () => {
         {joinedGroups.map((group, index) => (
           <div key={index} className={Style.groupCard}>
             <div className={Style.groupDate}>
-              {" "}
               <h5>{group.date}</h5>
-              <button>{group.menuIcon}</button>{" "}
+              <button>{group.menuIcon}</button>
             </div>
             <h4 className={Style.groupTitle}>{group.title}</h4>
             <div className={Style.groupLocation}>
-              {" "}
               <p className={Style.locationIcon}>{group.locationIcon}</p>
-              <p>{group.location}</p>{" "}
+              <p>{group.location}</p>
             </div>
-
             <p className={Style.groupDescription}>{group.description}</p>
-
             <div className={Style.groupTag}>
-              {" "}
               <p
                 className={`${Style.tag} ${
                   group.tag === "Public" ? Style.tagPublic : Style.tagPrivate
                 }`}
               >
                 {group.tag}
-              </p>{" "}
+              </p>
             </div>
           </div>
         ))}

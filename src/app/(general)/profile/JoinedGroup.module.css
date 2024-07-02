@@ -50,7 +50,6 @@
 .groupTag {
   margin-top: 1rem;
 }
-
 .tag {
   display: inline-block;
   padding: 0.3em 0.6em;
@@ -58,12 +57,10 @@
   font-weight: 400;
   color: hsla(28, 100%, 23%, 1);
 }
-
 .tagPublic {
   background-color: hsla(28, 100%, 97%, 1);
   color: var(--main-color-card-danger);
 }
-
 .tagPrivate {
   background-color: hsla(216, 100%, 97%, 1);
   color: var(--main-color-card-calm);

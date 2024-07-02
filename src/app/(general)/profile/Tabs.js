@@ -1,14 +1,14 @@
-import React,{useState} from 'react'
-import style from './Tabs.module.css'
-import FormedGroupsTab from './FormedGroupsTab';
-import JoineGroupsTab from './JoineGroupsTab';
+"use client";
+import React, { useState } from "react";
+import style from "./Tabs.module.css";
+import FormedGroupsTab from "./FormedGroupsTab";
+import JoineGroupsTab from "./JoineGroupsTab";
 
 const Tabs = () => {
-      const [activeTab, setActiveTab] = useState(1);
-
-      const handleTabClick = (tabIndex) => {
-        setActiveTab(tabIndex);
-      };
+  const [activeTab, setActiveTab] = useState(1);
+  const handleTabClick = (tabIndex) => {
+    setActiveTab(tabIndex);
+  };
   return (
     <div>
       <div className={style.container}>
@@ -32,7 +32,7 @@ const Tabs = () => {
             {activeTab === 2 && <div className={style.underline}></div>}
           </button>
         </div>
-        <div >
+        <div>
           {activeTab === 1 && (
             <div>
               <JoineGroupsTab />
@@ -47,6 +47,6 @@ const Tabs = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Tabs
+export default Tabs;

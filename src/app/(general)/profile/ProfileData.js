@@ -75,3 +75,13 @@ export const formedGroups = [
     tag: "Private",
   },
 ];
+export const memberInformation = [
+  [
+    { label: "Full Name", value: "Opeyemi A." },
+    { label: "Role", value: "Organizer" },
+    { label: "Gender", value: "Male" },
+    { label: "Birthday", value: "10th May" },
+    { label: "Email Address", value: "opeyemi@gmail.com" },
+    { label: "Location", value: "United Kingdom" },
+  ],
+];

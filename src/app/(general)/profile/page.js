@@ -1,51 +1,16 @@
-import { HiOutlineLocationMarker } from "react-icons/hi";
-import LoggedInHeader from '@/components/header/MainHeader/LoggedInHeader'
-import CustomButton from '@/components/utility/CustomButton/CustomButton';
+import Header from "./Header";
 import Style from "./Profile.module.css"
+import Sidebar from "./Sidebar";
 import Tabs from './Tabs';
 
 
-const page = ({user}) => {
+const Profile = () => {
     
   return (
     <div className={Style.profileContainer}>
-      <div><LoggedInHeader/></div>
-      <div className={Style.profileHeader}>
-        <div className={Style.profileNameContainer}>
-          <div className={Style.profileNameInitals}>
-            <p>OA</p>
-          </div>
-
-          <div className={Style.profileName}>
-            <h4>Opeyemi A.</h4>
-            <p>
-              <span className={Style.profileIcon}>
-                <HiOutlineLocationMarker />
-              </span>
-              London, United Kingdom
-            </p>
-          </div>
-        </div>
-        <div>
-          {" "}
-          <CustomButton>Create New</CustomButton>
-        </div>
-      </div>
+     <Header/>
       <div className={Style.profileDetailsContainer}>
-        <div className={Style.profileDetails}>
-          <div>
-            <h4>Full Name</h4>
-            <p>Opeyemi A.</p>
-          </div>
-          <div>
-            <h4>Email Address</h4>
-            <p>opeyemi@gmail.com</p>
-          </div>
-          <div>
-            <h4>Location</h4>
-            <p> United Kingdom</p>
-          </div>
-        </div>
+        <Sidebar/>
         <div className={Style.profileTabs}>
           <Tabs />
         </div>
@@ -54,4 +19,4 @@ const page = ({user}) => {
   );
 }
 
-export default page
+export default Profile;
