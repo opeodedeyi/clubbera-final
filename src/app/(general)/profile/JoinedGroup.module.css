@@ -1,0 +1,70 @@
+.groupWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+}
+.groupDate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.groupDate > h5 {
+  font-size: 14px;
+  font-weight: 400;
+}
+.groupDate > button {
+  background: transparent;
+  border: 2px solid var(--color-white-two);
+  padding: 2px 3px 0px 3px;
+  font-size: 1rem;
+  border-radius: 6px;
+  color: var(--color-text-main);
+}
+.groupLocation {
+  display: flex;
+  margin-top: 0.5rem;
+  font-size: 14px;
+  font-weight: 400;
+  gap: 0.5rem;
+}
+.locationIcon {
+  margin-top: 2px;
+}
+.groupTitle {
+  color: var(--color-text-input);
+  font-size: 1.4rem;
+  margin-top: 0.7rem;
+}
+.groupCard {
+  border: 1px solid hsla(0, 0%, 97%, 1);
+  width: 19rem;
+  padding: 1.5rem;
+}
+.groupDescription {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18.9px;
+  width: 14.5rem;
+  margin-top: 0.5rem;
+}
+.groupTag {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.3em 0.6em;
+  font-size: 14px;
+  font-weight: 400;
+  color: hsla(28, 100%, 23%, 1);
+}
+
+.tagPublic {
+  background-color: hsla(28, 100%, 97%, 1);
+  color: var(--main-color-card-danger);
+}
+
+.tagPrivate {
+  background-color: hsla(216, 100%, 97%, 1);
+  color: var(--main-color-card-calm);
+}
