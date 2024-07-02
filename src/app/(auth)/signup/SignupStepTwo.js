@@ -6,12 +6,9 @@ import style from "../Auth.module.css";
 
 export default function SignupStepTwo({
   ageConsent,
-  setAgeConsent,
   cityLocation,
-  setCityLocation,
-  setLatLocation,
-  setLngLocation,
   buttonClicked,
+  handleInputChange,
   errors,
 }) {
   return (
@@ -32,9 +29,9 @@ export default function SignupStepTwo({
           label="Location"
           placeholder="Enter city"
           cityLocation={cityLocation}
-          setCityLocation={setCityLocation}
-          setLatLocation={setLatLocation}
-          setLngLocation={setLngLocation}
+          setCityLocation={(value) => handleInputChange({ target: { name: 'cityLocation', value } })}
+          setLatLocation={(value) => handleInputChange({ target: { name: 'latLocation', value } })}
+          setLngLocation={(value) => handleInputChange({ target: { name: 'lngLocation', value } })}
         />
         {errors.location && (
           <span className={style.errorMessage}>{errors.location}</span>
@@ -42,32 +39,19 @@ export default function SignupStepTwo({
         <CheckboxInput
           label="Age"
           checked={ageConsent}
-          onChange={() => setAgeConsent((prev) => !prev)}
-        >
-          I confirm I am 18 years of age or older
-        </CheckboxInput>
+          onChange={(e) => handleInputChange({ target: { name: 'ageConsent', type: 'checkbox', checked: e.target.checked } })}>
+          I confirm I am 18 years of age or older</CheckboxInput>
         {errors.ageConsent && (
           <span className={style.errorMessage}>{errors.ageConsent}</span>
         )}
       </div>
       <div className={style.authFormActions}>
-        <CustomButton size="fullwidthSize" onClick={buttonClicked}>
-          Get started
-        </CustomButton>
+        <CustomButton size="fullwidthSize" onClick={buttonClicked}>Get started</CustomButton>
         <p className={style.authFormActionsPolicy}>
           By signing up, you agree to{" "}
-          <Link href="/termsofservice" className="auth-dark-link">
-            Terms of Service
-          </Link>
-          ,{" "}
-          <Link href="/privacypolicy" className="auth-dark-link">
-            Privacy Policy
-          </Link>
-          , and{" "}
-          <Link href="/cookiepolicy" className="auth-dark-link">
-            Cookie Policy
-          </Link>
-          .
+          <Link href="/termsofservice" className="auth-dark-link">Terms of Service</Link>,{" "} 
+          <Link href="/privacypolicy" className="auth-dark-link">Privacy Policy</Link>, and{" "}
+          <Link href="/cookiepolicy" className="auth-dark-link">Cookie Policy</Link>.
         </p>
       </div>
     </>

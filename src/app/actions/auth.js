@@ -2,8 +2,10 @@
 
 import { A_COOKIE_NAME } from "@/constants";
 import { cookies } from 'next/headers';
-import { getRedisClient } from '@/utils/redis';
+import NodeCache from 'node-cache';
 
+
+const cache = new NodeCache({ stdTTL: 60 * 30, checkperiod: 60 * 10 });
 
 export async function logout() {
     const token = cookies().get(A_COOKIE_NAME)?.value;
@@ -12,10 +14,7 @@ export async function logout() {
 
     if (token) {
         try {
-            const client = await getRedisClient();
-        
-            await client.del(token);
-            await client.quit();
+            cache.del(token);
         } catch (error) {
             console.error('Error clearing Redis cache:', error);
         }

@@ -1,41 +1,37 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import SignupStepOne from "@/app/(auth)/signup/SignupStepOne";
 import SignupStepTwo from "@/app/(auth)/signup/SignupStepTwo";
-import useSignupForm from "@/hooks/useSignupForm";
+import { useSignupForm } from "@/hooks/useSignupForm";
 import style from "../Auth.module.css";
 
+
 export default function Signup({ searchParams }) {
-  const { destination } = searchParams;
+  const { destination, step = 'userDetails' } = searchParams;
+  const router = useRouter();
   const {
-    step,
-    setStep,
-    email,
-    setEmail,
-    fullName,
-    setFullName,
-    password,
-    setPassword,
-    cityLocation,
-    setCityLocation,
-    setLatLocation,
-    setLngLocation,
-    ageConsent,
-    setAgeConsent,
+    formData,
+    handleInputChange,
     isDisabled,
     handleSignup,
+    loading,
     errors,
     validateStepOne,
   } = useSignupForm(destination);
 
   const moveToNextStep = () => {
-    if (step === 1) {
+    if (step === 'userDetails') {
       const isValidStepOne = validateStepOne();
       if (isValidStepOne) {
-        setStep(2);
+        router.push(`/signup?step=locationDetails${destination ? `&destination=${destination}` : ''}`);
       }
-    } else {
-      setStep(2);
+    }
+  };
+
+  const moveToPreviousStep = () => {
+    if (step === 'locationDetails') {
+      router.push(`/signup?step=userDetails${destination ? `&destination=${destination}` : ''}`);
     }
   };
   
@@ -44,29 +40,25 @@ export default function Signup({ searchParams }) {
     <>
       <div className={style.authContainer}>
         <form className={style.authContainerMain}>
-          {step === 1 ? (
+          {step === 'userDetails' ? (
             <SignupStepOne
-              email={email}
-              setEmail={setEmail}
-              fullName={fullName}
-              setFullName={setFullName}
-              password={password}
-              setPassword={setPassword}
+              email={formData.email}
+              fullName={formData.fullName}
+              password={formData.password}
               errors={errors}
               isDisabled={isDisabled}
-              buttonClicked={() => setStep(2)}
+              handleInputChange={handleInputChange}
               moveToNextStep={moveToNextStep}
             />
           ) : (
             <SignupStepTwo
-              ageConsent={ageConsent}
-              setAgeConsent={setAgeConsent}
-              cityLocation={cityLocation}
-              setCityLocation={setCityLocation}
-              setLatLocation={setLatLocation}
-              setLngLocation={setLngLocation}
+              ageConsent={formData.ageConsent}
+              cityLocation={formData.cityLocation}
+              handleInputChange={handleInputChange}
               buttonClicked={handleSignup}
               errors={errors}
+              loading={loading}
+              moveToPreviousStep={moveToPreviousStep}
             />
           )}
         </form>
