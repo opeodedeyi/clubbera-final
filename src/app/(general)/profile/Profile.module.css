@@ -1,5 +1,7 @@
 .profileContainer {
   padding: 8rem 5rem;
+  overflow: hidden;
+  width: 100%;
 }
 .profileHeader {
   display: flex;
@@ -58,7 +60,7 @@
 .memberWrapper {
   display: none;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 700px) {
   .profileContainer {
     padding: 2rem 1rem;
     width: 100%;
@@ -80,7 +82,7 @@
   .profileName > h4 {
     text-align: center;
     margin-top: 1rem;
-    width: 60%;
+    width: 65%;
     margin: auto;
   }
   .profileName > p {
@@ -116,7 +118,6 @@
     width: 100%;
   }
   .infoBox {
-    background-color: hsla(0, 0%, 99%, 1);
     padding: 0.75rem;
     width: 100%;
     display: flex;
@@ -129,5 +130,15 @@
     color: var(--color-text-input);
     font-weight: 500;
     font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profileContainer {
+    padding: 6rem 2rem;
+    width: 100%;
+  }
+  .profileDetailsContainer {
+    gap: 1.5rem;
   }
 }

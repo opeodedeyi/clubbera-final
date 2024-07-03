@@ -10,7 +10,7 @@ const Header = () => {
         </div>
         <div className={Style.profileName}>
           <h4>Opeyemi A.</h4>
-          <p>
+          <p className={Style.profileLocation}>
             <span className={Style.profileIcon}>
               <HiOutlineLocationMarker />
             </span>

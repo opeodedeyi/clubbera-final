@@ -65,3 +65,21 @@
   background-color: hsla(216, 100%, 97%, 1);
   color: var(--main-color-card-calm);
 }
+@media screen and (max-width: 900px) {
+  .groupWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .groupCard {
+    width: 18rem;
+  }
+}
+@media screen and (width: 768px) {
+  .groupCard {
+    width: 16.5rem;
+  }
+  .groupDescription {
+    width: 14rem;
+  }
+}
