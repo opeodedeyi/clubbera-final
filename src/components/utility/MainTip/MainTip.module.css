@@ -1,21 +1,20 @@
-.tip-container {
+.tipContainer {
     width: 100%;
     display: flex;
     padding: 16px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     gap: 8px;
     align-self: stretch;
     border-radius: 8px;
-    background: #EEFAEE;
 }
 
-.tip-container svg {
+.tipContainer svg {
     width: 16px;
     height: 16px;
 }
 
-.tip-container p {
+.tipContainer p {
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -23,42 +22,42 @@
     letter-spacing: -0.42px;
 }
 
-.default-theme {
+.defaultTheme {
     background-color: var(--main-color-tip); 
 }
 
-.default-theme p {
+.defaultTheme p {
     color: var(--main-color-card);
 }
 
-.default-theme .tip-svg path {
+.defaultTheme .tip-svg path {
     color: var(--main-color-card);
 }
 
-.danger-theme {
+.dangerTheme {
     background-color: var(--main-color-tip-danger); 
 }
 
-.danger-theme p {
+.dangerTheme p {
     color: var(--main-color-card-danger);
 }
 
-.danger-theme .tip-svg path {
+.dangerTheme .tip-svg path {
     stroke: var(--main-color-card-danger);
 }
 
 @media screen and (max-width: 768px) {
-    .tip-container {
+    .tipContainer {
         padding: 12px;
     }
 
-    .tip-container svg {
+    .tipContainer svg {
         width: 14px;
         height: 14px;
     }
 
-    .tip-container p {
-        font-size: 0.75rem;
+    .tipContainer p {
+        font-size: 0.875rem;
         letter-spacing: -0.36px;
     }
 }

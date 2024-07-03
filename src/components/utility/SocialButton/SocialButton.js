@@ -1,13 +1,13 @@
 'use client'
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { googleLogin } from '@/app/actions/googleLogin';
+import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner";
 import style from './SocialButton.module.css';
 
 
-const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType }) => {
-    const router = useRouter()
+const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) => {
+    const [isSdkLoaded, setIsSdkLoaded] = useState(false);
 
     useEffect(() => {
         if (socialType === 'google') {
@@ -20,7 +20,10 @@ const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType })
         script.src = 'https://accounts.google.com/gsi/client'
         script.async = true
         script.defer = true
-        script.onload = initializeGoogleSignIn
+        script.onload = () => {
+            initializeGoogleSignIn();
+            setIsSdkLoaded(true);
+        }
         document.body.appendChild(script)
     }
 
@@ -40,7 +43,7 @@ const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType })
     }
 
     const handleLogin = () => {
-        if (socialType === 'google') {
+        if (socialType === 'google' && isSdkLoaded) {
             window.google.accounts.id.prompt()
         }
     }
@@ -50,10 +53,11 @@ const SocialLoginButton = ({ imgSrc, coloring, disabled, children, socialType })
             type="button"
             className={`${style.socialLoginButton} ${style[coloring]}`}
             onClick={handleLogin}
-            disabled={disabled}
+            disabled={loading || (socialType === 'google' && !isSdkLoaded)}
         >
             <img src={imgSrc} alt="google" className="google-icon" />
             <span>{children}</span>
+            { (loading || !isSdkLoaded) && <LoadingSpinner /> }
         </button>
     )
 }

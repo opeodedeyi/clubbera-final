@@ -17,6 +17,10 @@
     letter-spacing: -0.32px;
 }
 
+.socialLoginButton:disabled {
+    cursor: not-allowed;
+}
+
 .googleColoring {
     border-radius: 8px;
     color: var(--color-text-main);

@@ -41,9 +41,9 @@
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
+  --main-color-card-danger: #D03C38;
+  --main-color-tip-danger: rgba(208, 60, 56, 0.06);
   /* other */
-  --main-color-card-danger: #773800;
-  --main-color-tip-danger: #FFF6EE;
   --main-color-card-calm: #003581;
   --main-color-tip-calm: #EEF5FF;
 
@@ -109,9 +109,9 @@
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
+  --main-color-card-danger: #D03C38;
+  --main-color-tip-danger: rgba(208, 60, 56, 0.06);
   /* other */
-  --main-color-card-danger: #773800;
-  --main-color-tip-danger: #FFF6EE;
   --main-color-card-calm: #003581;
   --main-color-tip-calm: #EEF5FF;
   

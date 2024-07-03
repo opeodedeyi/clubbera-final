@@ -7,6 +7,7 @@ import { z } from 'zod';
 import { signupAction } from '@/app/actions/signupAction';
 import { validateStepOne } from '@/utils/signupUtils';
 
+
 export function useSignupForm(destination = "") {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -35,11 +36,14 @@ export function useSignupForm(destination = "") {
       signUpSchema.parse(formData);
 
       const result = await signupAction(formData);
+      console.log('API Response:', result);
 
       if (result.success) {
         router.push(destination);
       } else {
-        setErrors({ form: result.error });
+        setErrors({ general: result.error });
+        console.log('Signup Error:', result.error);
+        router.push(`/signup?step=userDetails${destination ? `&destination=${destination}` : ''}`);
       }
     } catch (error) {
       if (error instanceof z.ZodError) {

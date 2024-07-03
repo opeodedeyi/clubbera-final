@@ -7,6 +7,7 @@ import MainInput from "@/components/forminput/MainInput/MainInput";
 import MainPasswordInput from "@/components/forminput/PasswordInput/PasswordInput";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import SocialLoginButton from "@/components/utility/SocialButton/SocialButton";
+import MainTip from "@/components/utility/MainTip/MainTip";
 import style from "../Auth.module.css";
 
 
@@ -18,18 +19,14 @@ export default function Login({ searchParams }) {
   return (
     <>
       <div className={style.authContainer}>
-        <form
-          className={style.authContainerMain}
+        <form className={style.authContainerMain}
           onSubmit={(e) => {
             e.preventDefault();
             submitLogin();
           }}
         >
           <div className={style.authFormContent}>
-            <Logo
-              coloring="default-logo-coloring"
-              size="normal-logo-size"
-            ></Logo>
+            <Logo coloring="default-logo-coloring" size="normal-logo-size"></Logo>
             <div className={style.authFormContentMain}>
               <div className={style.authFormContentIntro}>
                 <h3>Welcome back</h3>
@@ -39,18 +36,18 @@ export default function Login({ searchParams }) {
                 </p>
               </div>
             </div>
-            <SocialLoginButton
-              imgSrc="/google_icon.svg"
-              coloring="googleColoring"
-              socialType="google"
-            >
+
+            <SocialLoginButton imgSrc="/google_icon.svg" loading={loading} coloring="googleColoring" socialType="google">
               Login with Google
             </SocialLoginButton>
+
             <div className={style.authOrHorizontalLine}>
               <div className={style.horizontalLineHalf}></div>
               <p className={style.horizontalLineText}>or</p>
               <div className={style.horizontalLineHalf}></div>
             </div>
+            {errors.general && ( <MainTip theme="dangerTheme">{errors.general}</MainTip> )}
+            
             <div className={style.authFormInputs}>
               <MainInput
                 type="email"
@@ -59,9 +56,7 @@ export default function Login({ searchParams }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              {errors.email && (
-                <span className={style.errorMessage}>{errors.email}</span>
-              )}
+              {errors.email && ( <span className={style.errorMessage}>{errors.email}</span> )}
 
               <MainPasswordInput
                 forgotpasswordinput
@@ -71,20 +66,16 @@ export default function Login({ searchParams }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              {errors.password && (
-                <span className={style.errorMessage}>{errors.password}</span>
-              )}
+              {errors.password && ( <span className={style.errorMessage}>{errors.password}</span> )}
             </div>
           </div>
+
           <div className={style.authFormActions}>
-            <CustomButton size="fullwidthSize" type="submit">
-              Login
-            </CustomButton>
+            <CustomButton loading={loading} loadingText="Logging in" size="fullwidthSize" type="submit">Login</CustomButton>
+            
             <p className={style.authFormActionsCta}>
               Not a member yet?{" "}
-              <Link href="/signup">
-                Sign up now
-              </Link>
+              <Link href="/signup">Sign up now</Link>
             </p>
           </div>
         </form>

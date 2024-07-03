@@ -8,7 +8,7 @@ import MainInput from "@/components/forminput/MainInput/MainInput";
 import BinaryOption from "@/components/forminput/BinaryOption/BinaryOption";
 import SingleImageUpload from "@/components/forminput/ImageUpload/SingleImageUpload";
 import CustomTag from "@/components/forminput/CustomTag/CustomTag";
-import MainTip from "@/components/utility/maintip";
+import MainTip from "@/components/utility/MainTip/MainTip";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import { useRouter } from 'next/navigation'
 import style from "./CreateGroup.module.css";
@@ -108,7 +108,7 @@ const CreateGroupStepThree = ({ groupTitle, setGroupTitle, groupDescription, set
                         <p className={style.authFormContentIntroText}>Choose a name that will give people a clear idea of what the group is about. You can edit this later if you change your mind.</p>
                     </div>
                 </div>
-                <MainTip theme="default-theme">We value human connection and review groups to ensure they meet our guidelines. Consider your group&apos;s goal, audience, and event activities.</MainTip>
+                <MainTip theme="defaultTheme">We value human connection and review groups to ensure they meet our guidelines. Consider your group&apos;s goal, audience, and event activities.</MainTip>
                 <div className={style.authFormInputs}>
                     <MainInput
                         type="text"
