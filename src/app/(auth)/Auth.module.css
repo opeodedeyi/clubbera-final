@@ -131,12 +131,14 @@
     text-align: center;
 }
 
-.authFormActionsCta a {
+.authFormActionsCta a,
+.authFormActionsPolicy a {
     color: var(--main-color);
     text-decoration: none;
 }
 
-.authFormActionsCta a:hover {
+.authFormActionsCta a:hover,
+.authFormActionsPolicy a:hover {
     color: var(--main-color-hover);
 }
 
@@ -151,6 +153,7 @@
 .authFormSuccessImage {
     background-image: url('/email_sent.png');
 }
+
 .errorMessage {
     margin-top: -15px;
     color: var(--main-color-card-danger);
