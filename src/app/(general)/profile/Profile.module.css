@@ -1,0 +1,144 @@
+.profileContainer {
+  padding: 8rem 5rem;
+  overflow: hidden;
+  width: 100%;
+}
+.profileHeader {
+  display: flex;
+  justify-content: space-between;
+}
+.profileNameContainer {
+  display: flex;
+  gap: 1rem;
+}
+.profileNameInitals {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: hsla(120, 55%, 96%, 1);
+  text-align: center;
+}
+.profileNameInitals p {
+  margin-top: 1.5rem;
+  color: var(--main-color-card);
+  font-weight: 500;
+}
+.profileName {
+  margin-top: 0.7rem;
+}
+.profileName h4 {
+  color: var(--color-text-input);
+  font-size: 20px;
+}
+.profileName p {
+  margin-top: 0.7rem;
+}
+.profileIcon {
+  margin-right: 0.5rem;
+}
+.profileDetailsContainer {
+  display: flex;
+  gap: 5rem;
+}
+.profileDetails {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.profileDetails h4 {
+  color: var(--color-text-input);
+  font-size: 18px;
+}
+.profileDetails p {
+  font-size: 16px;
+  margin-top: 0.7rem;
+}
+.profileTabs {
+  width: 100%;
+}
+.memberWrapper {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .profileContainer {
+    padding: 2rem 1rem;
+    width: 100%;
+  }
+  .profileHeader {
+    display: block;
+    margin: auto;
+    width: 50%;
+  }
+  .profileNameContainer {
+    display: block;
+  }
+  .profileNameInitals {
+    margin: auto;
+  }
+  .profileNameInitals > p {
+    margin-top: 6rem;
+  }
+  .profileName > h4 {
+    text-align: center;
+    margin-top: 1rem;
+    width: 65%;
+    margin: auto;
+  }
+  .profileName > p {
+    margin-top: 0.5rem;
+  }
+  .profileButton {
+    margin: auto;
+    width: 65%;
+    margin-top: 1rem;
+  }
+  .profileDetails {
+    display: none;
+  }
+  .profileDetailsContainer {
+    display: block;
+  }
+  .memberWrapper {
+    display: block;
+    width: 100%;
+    border: 1px solid var(--color-white-two);
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+  .memberWrapper > h4 {
+    color: var(--color-dark-two);
+    margin-bottom: 1rem;
+    font-size: 18px;
+  }
+  .memberContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .infoBox {
+    padding: 0.75rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .infoBox p {
+    margin: 0;
+  }
+  .infoValue {
+    color: var(--color-text-input);
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profileContainer {
+    padding: 6rem 2rem;
+    width: 100%;
+  }
+  .profileDetailsContainer {
+    gap: 1.5rem;
+  }
+}
