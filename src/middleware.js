@@ -22,7 +22,7 @@ export async function middleware(request) {
         } catch (error) {
             request.cookies.delete(A_COOKIE_NAME);
             response.cookies.delete(A_COOKIE_NAME);
-            return NextResponse.redirect('/login');
+            return NextResponse.redirect(new URL('/login', request.url));
         }
     }
 

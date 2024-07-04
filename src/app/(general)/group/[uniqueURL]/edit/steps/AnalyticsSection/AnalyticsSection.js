@@ -1,30 +1,17 @@
-const AnalyticsCard = ({ img, title, explain, value }) => {
-    return (
-        <div className="edit-analytics-card">
-            <div className="edit-analytics-card-image">
-                {img}
-            </div>
-            <div className="edit-analytics-card-info">
-                <div className="edit-analytics-card-info-top">
-                    <p className="edit-analytics-card-info-title">{title}</p>
-                    <p className="edit-analytics-card-info-explain">{explain}</p>
-                </div>
-                <p className="edit-analytics-card-info-num">{value}</p>
-            </div>
-        </div>
-    );
-};
+import AnalyticsCard from '../../comp/AnalyticsCard/AnalyticsCard';
+import style from './AnalyticsSection.module.css';
+
 
 const AnalyticsSection = () => {
     return (
-        <div className="edit-analytics">
-            <div className="edit-analytics-main">
-                <div className="edit-analytics-header">
-                    <p className="edit-analytics-header-title">Analytics</p>
+        <div className={style.analytics}>
+            <div className={style.analyticsMain}>
+                <div className={style.analyticsHeader}>
+                    <p className={style.analyticsHeaderTitle}>Analytics</p>
                 </div>
     
-                <div className="edit-analytics-body-container">
-                    <div className="edit-analytics-body">
+                <div className={style.analyticsBodyContainer}>
+                    <div className={style.analyticsBody}>
     
                         <AnalyticsCard
                             img={<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">

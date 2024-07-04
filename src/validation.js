@@ -1,8 +1,11 @@
 import { z } from "zod";
+
+
 export const isPasswordValid = (password) => {
   const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[A-Z]).{8,}$/;
   return passwordRegex.test(password);
 };
+
 export const signUpSchema = z.object({
   fullName: z
     .string()
