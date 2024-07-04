@@ -1,18 +1,17 @@
 import Header from "./Header";
 import Style from "./Profile.module.css"
 import Sidebar from "./Sidebar";
-import Tabs from './Tabs';
-
+import ProfileTabs from "./ProfileTabs";
 
 const Profile = () => {
     
   return (
     <div className={Style.profileContainer}>
-     <Header/>
+      <Header />
       <div className={Style.profileDetailsContainer}>
-        <Sidebar/>
+        <Sidebar />
         <div className={Style.profileTabs}>
-          <Tabs />
+          <ProfileTabs />
         </div>
       </div>
     </div>
