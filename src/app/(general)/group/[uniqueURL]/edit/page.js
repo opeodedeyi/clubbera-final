@@ -1,21 +1,15 @@
-'use server';
+import { notFound } from 'next/navigation';
+import MainEditGroup from "./MainEditGroup";
+import { getGroupDetailsEdit } from "@/app/actions/getGroupDetails";
 
-import MainEditGroup from "@/components/pages/editGroup/MainEditGroup";
-import { getGroupEditDetails } from "@/service/group/editGroupService";
+const EditGroup = async ({ params }) => {
+    const result = await getGroupDetailsEdit(params.uniqueURL);
 
-
-const EditGroup = async ({ params, searchParams }) => {
-    const result = await getGroupEditDetails(params.uniqueURL);
-
-    if (result.success) {
-        return (
-            <>
-                <MainEditGroup params={params} searchParams={searchParams} group={result.group}/>
-            </>
-        );
+    if (!result.success) {
+        notFound();
     }
 
-    throw new Error(result.error);
+    return <MainEditGroup group={result.group} />;
 }
 
 export default EditGroup;

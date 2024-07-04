@@ -1,0 +1,230 @@
+.editMembersContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px var(--container-padding) 0;
+}
+
+.editMembersContainerMain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: 1px solid var(--border-color);
+}
+
+.editMembersHeader {
+    width: 100%;
+    display: flex;
+    height: 80px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editMembersHeaderTitle {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+}
+
+.editMembersTableContainer {
+    width: 100%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.editMembersTableContainer::-webkit-scrollbar {
+    display: none; 
+} 
+
+.editGeneralTableAlt {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.editGeneralTableAlt thead tr {
+    background-color: transparent;
+    color: var(--color-text-main);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.editGeneralTableAlt th {
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+}
+
+.editGeneralTableAlt td {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    color: var(--color-text-main);
+}
+
+.editGeneralTableAlt th,
+.editGeneralTableAlt td {
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.editGeneralTableAlt th {
+    padding: 16px 40px;
+}
+
+.editGeneralTableAlt td {
+    padding: 8px 40px;
+}
+
+.tableNameAlt {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.tableImageAlt {
+    width: 60px;
+    height: 60px;
+    border-radius: 1000px;
+    overflow: hidden;
+}
+
+.tableImageAlt img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tableNameCont {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+}
+
+.tableMainName {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+}
+
+.tableLocTime {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tableLocTime svg {
+    height: 16px;
+    width: 16px;
+}
+
+.tableMiniLoc {
+    color: var(--color-text-alternate);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+}
+
+.tableMiniTime {
+    color: var(--color-text-alternate);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    padding-left: 7px;
+}
+
+.tableBtns {
+    display: inline-flex;
+    gap: 15px;
+    flex-wrap: nowrap;
+}
+
+.mobileOnlyShow {
+  display: none;
+}
+
+@media screen and  (max-width: 768px) {
+    .editMembersContainer {
+        padding: 0;
+    }
+    
+    .editMembersContainerMain {
+        border: none;
+    }
+    
+    .editMembersHeader {
+        height: 60px;
+        padding: 0 24px;
+    }
+    
+    .editMembersHeaderTitle {
+        font-size: 0.875rem;
+    }
+
+    .editGeneralTableAlt thead tr {
+        font-size: 0.875rem;
+    }
+
+    .editGeneralTableAlt th,
+    .editGeneralTableAlt td {
+        padding: 16px 24px;
+        font-size: 0.875rem;
+    }
+
+    .tableNameAlt {
+        gap: 14px;
+    }
+
+    .tableImageAlt {
+        width: 40px;
+        height: 40px;
+    }
+
+    .tableNameCont {
+        gap: 5px;
+        height: 40px;
+    }
+
+    .tableLocTime svg {
+        height: 14px;
+        width: 14px;
+    }
+    
+    .tableMiniLoc {
+        font-size: 0.875rem;
+        letter-spacing: -0.28px;
+    }
+    
+    .tableMiniTime {
+        font-size: 0.75rem;
+        letter-spacing: -0.24px;
+        padding-left: 0;
+    }
+
+    .desktopOnlyShow {
+        display: none;
+    }
+    
+    .mobileOnlyShow {
+        display: flex;
+    }
+}

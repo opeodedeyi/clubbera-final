@@ -1,0 +1,29 @@
+import style from './BasicDetailsHeader.module.css';
+
+
+export default function BasicDetailsHeader({ group }) {
+    return (
+        <div className={style.basicDetails}>
+            <div className={style.basicDetailsTop}>
+                <h4>{group.title}</h4>
+                <p className={style.basicDetailsTagline}>
+                    {group.tagline}
+                </p>
+            </div>
+            <div className={style.basicDetailsBottom}>
+                <div className={style.keyDetailItem}>
+                    <div className={style.keyDetailIconRounded}>
+                        <img src="/location.svg" alt="<"/>
+                    </div>
+                    <span className={style.keyDetailItemText}>{group.location}</span>
+                </div>
+                <div className={style.keyDetailItem}>
+                    <div className={style.keyDetailIconRounded}>
+                        <img src="/people.svg" alt="<"/>
+                    </div>
+                    <span className={style.keyDetailItemText}>{group.member_count} members</span>
+                </div>
+            </div>
+        </div>
+    );
+};

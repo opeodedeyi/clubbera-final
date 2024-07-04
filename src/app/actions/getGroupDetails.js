@@ -5,7 +5,7 @@ import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import { cookies } from "next/headers";
 
 
-export async function getGroupEditDetails (groupUniqueURL) {
+export async function getGroupDetailsEdit(groupUniqueURL) {
     const cookieStore = cookies();
     const token = cookieStore.get(A_COOKIE_NAME)?.value;
     const API_URL = process.env.API_URL
@@ -17,16 +17,20 @@ export async function getGroupEditDetails (groupUniqueURL) {
                 'Content-Type': 'application/json',
                 'Authorization': token
             },
-        }, 5000); // 5 seconds timeout
-    
+        }, 3000);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch group details');
+        }
+
         const data = await response.json();
         
         if (data.success) {
-            return data;
+            return { success: true, group: data.group };
         }
 
-        return { error: data.message };
+        return { success: false, error: data.message };
     } catch (error) {
-        return { error: error.message };
+        return { success: false, error: error.message };
     }
 }
