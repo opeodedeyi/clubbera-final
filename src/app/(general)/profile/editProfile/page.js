@@ -27,7 +27,12 @@ const EditProfile = () => {
             <p>Make changes to your profile</p>
           </div>
           <div className={style.editButton}>
-            <CustomButton>Save changes</CustomButton>
+            <div className={style.desktopButton}>
+              <CustomButton>Save changes</CustomButton>
+            </div>
+            <div className={style.mobileButton}>
+              <CustomButton>Save</CustomButton>
+            </div>
           </div>
         </div>
         <div>
