@@ -1,2 +1,1 @@
 export const A_COOKIE_NAME = 'CLUBBERA_AUTH_TOKEN';
-export const B_COOKIE_NAME = 'CLUBBERA_SESSION';

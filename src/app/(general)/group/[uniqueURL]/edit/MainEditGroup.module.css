@@ -1,0 +1,13 @@
+.editGroupMain {
+    width: 100%;
+    padding: 72px 0 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+    .editGroupMain {
+        padding: 60px 0 90px;
+    }
+}

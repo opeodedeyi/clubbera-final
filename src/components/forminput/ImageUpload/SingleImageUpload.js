@@ -4,10 +4,11 @@ import { useRef } from 'react';
 import { useDragAndDrop } from "@/hooks/useDragAndDrop";
 import { truncateTextWithDot } from '@/utils/textUtils';
 import { processImage, convertFileSize } from "@/utils/imageUtils";
+import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner";
 import style from "./ImageUpload.module.css";
 
 
-const SingleImageUpload = ({ children, hasChange, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize, externalUploadFunction }) => {
+const SingleImageUpload = ({ children, hasChange, isUploadingImage, selectedImage, setSelectedImage, imageName, setImageName, imageSize, setImageSize }) => {
     const { isDragOver, handleDragOver, handleDragLeave, setIsDragOver } = useDragAndDrop();
     const fileInputRef = useRef();
 
@@ -19,10 +20,6 @@ const SingleImageUpload = ({ children, hasChange, selectedImage, setSelectedImag
         setImageName(file.name)
         setImageSize(convertFileSize(size));
         setSelectedImage(dataUrl);
-        
-        if (externalUploadFunction) {
-            externalUploadFunction(file, dataUrl);
-        }
     };
 
     const handleImageDelete = () => {
@@ -61,10 +58,14 @@ const SingleImageUpload = ({ children, hasChange, selectedImage, setSelectedImag
                                 <div className={style.imageResultContentLeftName}>{truncateTextWithDot(imageName, 30)}</div>
                                 <div className={style.imageResultContentLeftSize}>{imageSize}</div>
                             </div>
-                            {hasChange ?
-                                <p onClick={() => fileInputRef.current.click()} className={style.imageResultContentChange}>
-                                    Change
-                                </p>
+                            {hasChange ? (
+                                isUploadingImage ? (
+                                    <LoadingSpinner />
+                                ) : (
+                                    <p onClick={() => fileInputRef.current.click()} className={style.imageResultContentChange}>
+                                        Change
+                                    </p>
+                                ))
                             :
                                 <div onClick={handleImageDelete} className={style.imageResultContentDelete}>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="21" viewBox="0 0 20 21" fill="none">
