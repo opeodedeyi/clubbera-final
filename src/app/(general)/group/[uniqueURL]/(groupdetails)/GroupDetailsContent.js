@@ -5,12 +5,9 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import SecHeaderBack from '@/components/header/SecHeaderBack/SecHeaderBack';
 import GroupKeyDetails from './comp/GroupKeyDetails/GroupKeyDetails';
 import GroupNavigation from './comp/GroupNavigation/GroupNavigation';
+import GroupPages from './GroupPages';
 import { useGroupMembership } from '@/hooks/useGroupMembership';
-import AboutSection from "@/components/pages/groupDetails/AboutSection";
-import EventSection from "@/components/pages/groupDetails/EventSection";
-import DiscussionSection from "@/components/pages/groupDetails/DiscussionSection";
-import MemberSection from "@/components/pages/groupDetails/MemberSection";
-import '@/app/style/groupdetails.css';
+import style from './GroupDetails.module.css';
 
 
 export default function GroupDetailsContent ({ group }) {
@@ -26,7 +23,7 @@ export default function GroupDetailsContent ({ group }) {
 
     return (
         <>
-            <div className="group-details-main">
+            <div className={style.groupDetailsMain}>
                 <SecHeaderBack />
                 <GroupKeyDetails 
                     group={group} 
@@ -37,10 +34,7 @@ export default function GroupDetailsContent ({ group }) {
                     activeTab={activeTab} 
                     handleTabClick={handleTabClick} />
 
-                {activeTab === 'about' && <AboutSection group={group}/>}
-                {activeTab === 'events' && <EventSection/>}
-                {activeTab === 'discussions' && <DiscussionSection/>}
-                {activeTab === 'members' && <MemberSection/>}
+                <GroupPages group={group} activeTab={activeTab}/>
             </div>
         </>
     );

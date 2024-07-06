@@ -33,7 +33,7 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                                 </div><span>{group.location}</span></div>
                                 <div className={style.grpKeydetLocItem}><div className={style.grpKeydetIconRounded}>
                                     <GroupPeopleIcon color="--main-color-card"/>
-                                </div><span>{group.member_count} members</span></div>
+                                </div><span>{`${group.member_count} member ${(group.member_count > 1) ? 's' : ''}`}</span></div>
                             </div>
                         </div>
                         <div className={style.groupKeydetailsTextButtons}>
