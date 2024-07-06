@@ -1,35 +1,36 @@
-.navigation {
-    height: 54px;
+.groupDetailsNavigation {
+    height: 62px;
     display: flex;
     width: 100%;
     padding: 0 var(--container-padding);
     align-items: center;
     overflow: hidden;
-    border-radius: 0;
-    border: 1px solid var(--border-color);
-    border-left: none;
-    border-right: none;
-    background: transparent;
 }
 
-.navigationList {
+.groupDetailsNavigation ul {
     display: flex;
     width: 100%;
     height: 100%;
     align-items: center;
     gap: 24px;
+    border-radius: 0px 0px 8px 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
     list-style: none;
     overflow: scroll;
-    padding: 0;
+    padding: 0 16px;
+}
+
+.groupDetailsNavigation ul::-webkit-scrollbar {
+    display: none;
+}
+
+.groupDetailsNavigation ul {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 
-.navigationList::-webkit-scrollbar {
-    display: none;
-}
-
-.navigationList li {
+.groupDetailsNavigation ul li {
     color: var(--color-text-main);
     font-size: 1rem;
     font-style: normal;
@@ -40,24 +41,35 @@
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding-top: 8px;
     cursor: pointer;
 }
 
 .activeNavigationItem,
-.navigationList li:hover{
+.groupDetailsNavigation ul li:hover {
     color: var(--main-color) !important;
     font-weight: 500 !important;
     border-bottom: 2px solid var(--main-color);
     border-top: 2px solid transparent;
 }
 
-@media screen and (max-width: 768px) {
-    .navigation {
+@media screen and  (max-width: 768px) {
+    .groupDetailsNavigation {
         height: 40px;
         padding: 0;
     }
 
-    .navigationList li {
+    .groupDetailsNavigation ul {
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+    }
+
+    .groupDetailsNavigation ul li {
         font-size: 0.875rem;
         font-weight: 400;
         letter-spacing: -0.42px;
@@ -65,11 +77,11 @@
         padding-top: 0;
     }
 
-    .navigationList:first-child {
+    .groupDetailsNavigation ul li:first-child {
         margin-left: 24px;
     }
     
-    .navigationList:last-child {
+    .groupDetailsNavigation ul li:last-child {
         margin-right: 24px;
     }
 }

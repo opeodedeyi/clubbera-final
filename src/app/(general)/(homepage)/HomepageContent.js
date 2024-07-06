@@ -1,6 +1,6 @@
-import HeroSection from "@/app/(general)/homepage/HomepageHero";
-import WorksSection from "@/app/(general)/homepage/HomepageWorks";
-import GroupsSection from "@/app/(general)/homepage/HomepageGroup";
+import HeroSection from "./comp/HomepageHero/HomepageHero";
+import WorksSection from "./comp/HomepageWorks/HomepageWorks";
+import GroupsSection from "./comp/HomepageGroup/HomepageGroup";
 
 
 const worksCards = [

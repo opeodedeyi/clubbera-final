@@ -45,77 +45,29 @@
     display: none;
 }
 
-.editGeneralTable {
+.editMembersOtherCont {
     width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-.editGeneralTable thead tr {
-    background-color: transparent;
-    color: var(--color-text-main);
-    text-align: left;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.editGeneralTable th {
-    font-style: normal;
-    font-weight: 500;
-    line-height: 135%;
-}
-
-.editGeneralTable td {
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
-    color: var(--color-text-main);
-}
-
-.editGeneralTable th,
-.editGeneralTable td {
-    padding: 16px 24px;
-    font-size: 1rem;
-    white-space: nowrap;
-    max-height: 76px;
-}
-
-.editGeneralTableName {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 16px 24px;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
-    gap: 16px;
+    gap: 15px;
 }
 
-.editGeneralTableName span {
+.editMembersHeaderText {
     color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
     font-weight: 400;
-}
-
-.editGeneralTableName span {
-    color: var(--color-text-main);
-    font-weight: 400;
-}
-
-.editGeneralTableImage {
-    width: 36px;
-    height: 36px;
-    border-radius: 1000px;
-    overflow: hidden;
-}
-
-.editGeneralTableImage img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.editGeneralTableToolkit {
-    height: 16px;
-    width: 16px;
-}
-
-.editGeneralTableToolkit svg {
-    height: 100%;
+    line-height: 135%;
 }
 
 @media screen and  (max-width: 768px) {
@@ -133,20 +85,6 @@
     }
     
     .editMembersHeaderTitle {
-        font-size: 0.875rem;
-    }
-
-    .editGeneralTable thead tr {
-        font-size: 0.875rem;
-    }
-
-    .editGeneralTable th {
-        padding: 16px 24px;
-        font-size: 0.875rem;
-    }
-
-    .editGeneralTable td {
-        padding: 12px 24px;
         font-size: 0.875rem;
     }
 }

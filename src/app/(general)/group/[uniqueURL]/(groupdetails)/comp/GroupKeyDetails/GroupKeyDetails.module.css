@@ -1,0 +1,190 @@
+.groupDetailsKeydetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 8px;
+    padding: 0 var(--container-padding);
+}
+
+.groupKeydetailsMajor {
+    background: transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+    border-top: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    border-left: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.groupKeydetailsMajorImage {
+    width: 60%;
+    max-width: 800px;
+    height: 450px;
+    position: relative;
+}
+
+.groupKeydetailsMajorImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.groupKeydetailsMajorText {
+    display: flex;
+    flex-grow: 1;
+    min-height: 370px;
+    padding: 10px 60px;
+    align-items: center;
+}
+
+.groupKeydetailsTextInner {
+    display: flex;
+    flex-grow: 1;
+    min-height: 290px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.groupKeydetailsTextGen {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.groupKeydetailsTitPub {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.groupKeydetailsTitle {
+    color: var(--color-text-secondary);
+}
+
+.groupKeydetailsLocMem {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.grpKeydetLocItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.grpKeydetIconRounded {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 1000px;
+    background: var(--border-color);
+}
+
+.grpKeydetLocItem span {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.32px;
+}
+
+.groupKeydetailsTextButtons {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+@media screen and  (max-width: 1325px) {
+    .groupKeydetailsMajorImage {
+        width: 50%;
+        max-width: 661px;
+        height: 450px;
+    }
+
+    .groupKeydetailsMajorText {
+        padding: 10px 40px;
+    }
+}
+
+@media screen and  (max-width: 1080px) {
+    .groupKeydetailsMajor {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .groupKeydetailsMajorImage {
+        width: 100%;
+        max-width: 1800px;
+        height: 450px;
+    }
+
+    .groupKeydetailsMajorText {
+        padding-top: 32px;
+        min-height: 135px;
+    }
+
+    .groupKeydetailsTextInner {
+        min-height: 0px;
+        gap: 24px;
+    }
+}
+
+@media screen and  (max-width: 768px) {
+    .groupKeydetailsMajor {
+        background: transparent;
+        border-radius: 0;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+    }
+
+    .groupKeydetailsMajorImage {
+        height: 200px;
+    }
+
+    .groupKeydetailsMajorText {
+        width: 100%;
+        padding: 32px 0;
+        align-items: center;
+    }
+
+    .groupKeydetailsTextGen {
+        gap: 12px;
+    }
+
+    .groupKeydetailsTitPub {
+        gap: 10px;
+    }
+
+    .groupKeydetailsLocMem {
+        row-gap: 6px;
+        column-gap: 16px;
+    }
+
+    .grpKeydetLocItem {
+        gap: 8px;
+    }
+
+    .grpKeydetLocItem span {
+        font-size: .875rem;
+        letter-spacing: -0.28px;
+    }
+}

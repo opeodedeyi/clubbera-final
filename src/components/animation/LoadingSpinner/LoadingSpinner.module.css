@@ -17,7 +17,7 @@
 .container .line {
     width: 1.5px;
     border-radius: 1000px;
-    background-color: var(--color-on-brand);
+    /* background-color: var(--color-on-brand); */
     animation: lines 2.4s linear infinite;
 }
 

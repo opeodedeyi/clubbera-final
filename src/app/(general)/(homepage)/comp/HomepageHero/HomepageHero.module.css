@@ -62,18 +62,21 @@
     top: 0px;
     left: -160px;
     opacity: 0.02;
+    z-index: -1;
 }
 
 .heroPosTwo {
     top: 113px;
     right: -99px;
     opacity: 0.05;
+    z-index: -1;
 }
 
 .heroPosThree {
     bottom: -257px;
     left: 200px;
     opacity: 0.03;
+    z-index: -1;
 }
 
 .homepageHeroImage {

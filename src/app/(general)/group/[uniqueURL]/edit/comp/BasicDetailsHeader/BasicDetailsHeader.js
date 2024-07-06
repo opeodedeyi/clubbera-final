@@ -21,7 +21,7 @@ export default function BasicDetailsHeader({ group }) {
                     <div className={style.keyDetailIconRounded}>
                         <img src="/people.svg" alt="<"/>
                     </div>
-                    <span className={style.keyDetailItemText}>{group.member_count} members</span>
+                    <span className={style.keyDetailItemText}>{`${group.member_count} member ${(group.member_count > 1) ? 's' : ''}`}</span>
                 </div>
             </div>
         </div>

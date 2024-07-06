@@ -10,19 +10,20 @@
     font-weight: 400;
     line-height: 100%;
     letter-spacing: -0.16px;
-}
-
-.publicColoring {
-    color: var(--main-color-card-danger);
-    background-color: var(--main-color-tip-danger);
+    border-radius: 1000px;
 }
 
 .privateColoring {
+    color: var(--main-color-card-mild);
+    background-color: var(--main-color-tip-mild);
+}
+
+.publicColoring {
     color: var(--main-color-card-calm);
     background-color: var(--main-color-tip-calm);
 }
 
-.mobile-only-show {
+.mobileOnlyShow {
     display: none;
 }
 
@@ -34,11 +35,11 @@
         letter-spacing: -0.12px;
     }
 
-    .desktop-only-show {
+    .desktopOnlyShow {
         display: none;
     }
 
-    .mobile-only-show {
+    .mobileOnlyShow {
         display: flex;
     }
 }
