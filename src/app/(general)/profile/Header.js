@@ -1,7 +1,20 @@
+"use client";
 import Style from "./Profile.module.css";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import { useState } from "react";
+import Modal from "@/components/modal/Modal";
+import EditProfile from "./editProfile/page";
 const Header = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   return (
     <div className={Style.profileHeader}>
       <div className={Style.profileNameContainer}>
@@ -19,8 +32,13 @@ const Header = () => {
         </div>
       </div>
       <div className={Style.profileButton}>
-        <CustomButton>Edit profile</CustomButton>
+        <CustomButton onClick={openModal}>Edit profile</CustomButton>
       </div>
+      <Modal isOpen={isModalOpen} onClose={closeModal}>
+        <div>
+          <EditProfile />
+        </div>
+      </Modal>
     </div>
   );
 };

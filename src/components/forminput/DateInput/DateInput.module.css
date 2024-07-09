@@ -1,0 +1,31 @@
+.dateInputContainer {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.dateInputContainer label {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.dateInput {
+    width: 100%;
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 45px;
+    padding: 8px 16px;
+    align-self: stretch;
+    outline: none;
+    margin-bottom: 1.5rem;
+}

@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import style from "./Tabs.module.css";
 
 const Tabs = ({ tabs }) => {
@@ -41,15 +40,4 @@ const Tabs = ({ tabs }) => {
     </div>
   );
 };
-
-Tabs.propTypes = {
-  tabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      index: PropTypes.number.isRequired,
-      label: PropTypes.string.isRequired,
-      content: PropTypes.node.isRequired,
-    })
-  ).isRequired,
-};
-
 export default Tabs;
