@@ -28,6 +28,16 @@
     gap: 8px;
 }
 
+.CTAContainerImage {
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .CTAContainerBottom {
     width: 100%;
     display: flex;
@@ -74,7 +84,12 @@
     }
 
     .CTAContainerTop {
-        gap: 4px;
+        gap: 12px;
+    }
+    
+    .CTAContainerImage {
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .CTAContainerTextTitle {

@@ -1,21 +1,19 @@
-import Header from "./Header";
-import Style from "./Profile.module.css"
-import Sidebar from "./Sidebar";
-import ProfileTabs from "./ProfileTabs";
+import ProfileHeader from "./comp/ProfileHeader/ProfileHeader";
+import { getUserData } from "@/app/actions/getUserData";
+import ProfileDetailsBar from "./comp/ProfileDetailsBar/ProfileDetailsBar";
+import ProfileContent from "./ProfileContent";
+import Style from "./Profile.module.css";
 
-const Profile = () => {
+export default async function Profile(){
+  const user = await getUserData();
     
   return (
     <div className={Style.profileContainer}>
-      <Header />
+      <ProfileHeader user={user} />
       <div className={Style.profileDetailsContainer}>
-        <Sidebar />
-        <div className={Style.profileTabs}>
-          <ProfileTabs />
-        </div>
+        <ProfileDetailsBar user={user} />
+        <ProfileContent />
       </div>
     </div>
   );
 }
-
-export default Profile;
