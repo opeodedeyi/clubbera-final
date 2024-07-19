@@ -13,11 +13,11 @@ const AboutSection = ({ group }) => {
                     <h5 className={style.groupAboutTitle}>HOST INFORMATION</h5>
                     <div className={style.HostInfoItem}>
                         <div className={style.HostInfoItemImg}>
-                            <img src={group.hostAvatar || "/profile.png"} alt="host-photo"/>
+                            <img src={group.host_avatar || "/profile.png"} alt="host-photo"/>
                         </div>
                         <div className={style.HostInfoItemText}>
                             <p className={style.HostInfoItemTitle}>Full name</p>
-                            <p className={style.HostInfoItemContent}>{group.hostName || "loading name"}</p>
+                            <p className={style.HostInfoItemContent}>{group.host_name || "loading name"}</p>
                         </div>
                     </div>
                 </div>
