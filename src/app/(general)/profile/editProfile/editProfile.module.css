@@ -1,0 +1,44 @@
+.editHeaderContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.editProfile > h4 {
+  font-size: 24px;
+  color: hsla(0, 4%, 22%, 1);
+}
+.editProfile > p {
+  font-size: 16px;
+  color: var(--color-gray-two);
+}
+.formContainer {
+  width: 60%;
+}
+.mobileButton {
+  display: none;
+}
+@media screen and (max-width: 700px) {
+  .editHeaderContainer {
+    padding: 1rem;
+  }
+  .editProfile > h4 {
+    font-size: 20px;
+  }
+  .editProfile > p {
+    font-size: 14px;
+  }
+  .formContainer {
+    padding: 1rem;
+    width: 100%;
+  }
+  .desktopButton {
+    display: none;
+  }
+  .mobileButton {
+    display: flex;
+  }
+}
+@media screen and (max-width: 900px) {
+  .formContainer {
+    width: 100%;
+  }
+}

@@ -14,7 +14,6 @@ export default function Dashboard() {
                 description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
                 buttonText="Create new commuity"
                 destination="/creategroup"/>
-
             {/* more to go here */}
 
             <CTASideBanner
@@ -33,6 +32,7 @@ export default function Dashboard() {
                 description="Help communities get the items they require to thrive" 
                 buttonText="Sponsor a community"
                 destination="/sponsor"/>
+              
         </>
     );
 };
