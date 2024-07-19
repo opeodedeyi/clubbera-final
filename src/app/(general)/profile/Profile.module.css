@@ -1,116 +1,31 @@
 .profileContainer {
-  padding: 8rem 5rem;
-  overflow: hidden;
+  padding: 72px 0 50px;
   width: 100%;
 }
-.profileHeader {
-  display: flex;
-  justify-content: space-between;
-}
-.profileNameContainer {
-  display: flex;
-  gap: 1rem;
-}
-.profileNameInitals {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background-color: hsla(120, 55%, 96%, 1);
-  text-align: center;
-}
-.profileNameInitals p {
-  margin-top: 1.5rem;
-  color: var(--main-color-card);
-  font-weight: 500;
-}
-.profileName {
-  margin-top: 0.7rem;
-}
-.profileName h4 {
-  color: var(--color-text-input);
-  font-size: 20px;
-}
-.profileName p {
-  margin-top: 0.7rem;
-}
-.profileIcon {
-  margin-right: 0.5rem;
-}
+
 .profileDetailsContainer {
   display: flex;
-  gap: 5rem;
+  flex-direction: row;
+  padding: 0 var(--container-padding);
+  gap: 0;
 }
-.profileDetails {
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-.profileDetails h4 {
-  color: var(--color-text-input);
-  font-size: 18px;
-}
-.profileDetails p {
-  font-size: 16px;
-  margin-top: 0.7rem;
-}
+
 .profileTabs {
-  width: 100%;
+  flex-grow: 1;
 }
-.memberWrapper {
-  display: none;
-}
-@media screen and (max-width: 700px) {
+
+@media screen and (max-width: 768px) {
   .profileContainer {
-    padding: 2rem 1rem;
-    width: 100%;
+    padding: 60px 0 50px;
   }
-  .profileHeader {
-    display: block;
-    margin: auto;
-    width: 50%;
-  }
-  .profileNameContainer {
-    display: block;
-  }
-  .profileNameInitals {
-    margin: auto;
-  }
-  .profileNameInitals > p {
-    margin-top: 6rem;
-  }
-  .profileName > h4 {
-    text-align: center;
-    margin-top: 1rem;
-    width: 65%;
-    margin: auto;
-  }
-  .profileName > p {
-    margin-top: 0.5rem;
-  }
-  .profileButton {
-    margin: auto;
-    width: 65%;
-    margin-top: 1rem;
-  }
-  .profileDetails {
-    display: none;
-  }
+
   .profileDetailsContainer {
-    display: block;
+    flex-direction: column;
+    padding: 0;
+    gap: 32px;
   }
-  .memberWrapper {
-    display: block;
-    width: 100%;
-    border: 1px solid var(--color-white-two);
-    margin-top: 1.5rem;
-    padding: 1rem;
-  }
-  .memberWrapper > h4 {
-    color: var(--color-dark-two);
-    margin-bottom: 1rem;
-    font-size: 18px;
-  }
+<<<<<<< HEAD
+=======
   .memberContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -149,13 +64,9 @@
     width: 60%;
   }
 }
+>>>>>>> c529ca790a89e3e03582979ecb3c2714fc05e85d
 
-@media screen and (max-width: 900px) {
-  .profileContainer {
-    padding: 6rem 2rem;
+  .profileTabs {
     width: 100%;
-  }
-  .profileDetailsContainer {
-    gap: 1.5rem;
   }
 }

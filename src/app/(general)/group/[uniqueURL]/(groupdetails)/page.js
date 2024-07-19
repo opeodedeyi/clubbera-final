@@ -1,21 +1,16 @@
-'use server';
+import { notFound } from 'next/navigation';
+import GroupDetailsContent from "./GroupDetailsContent";
+import { getGroupDetails } from "@/app/actions/getGroupDetails";
 
-import MainGroupDetails from "@/components/pages/groupDetails/groupDetails";
-import { getGroupDetails } from "@/service/group/getGroupService";
 
-
-const GroupDetails = async ({ params, searchParams }) => {
+const GroupDetails = async ({ params }) => {
     const result = await getGroupDetails(params.uniqueURL);
 
-    if (result.success) {
-        return (
-            <>
-                <MainGroupDetails params={params} searchParams={searchParams} group={result.group} />
-            </>
-        );
+    if (!result.success) {
+        notFound();
     }
 
-    throw new Error(result.error);
+    return <GroupDetailsContent group={result.group} />
 }
 
 export default GroupDetails;

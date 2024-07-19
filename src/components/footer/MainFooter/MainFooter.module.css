@@ -102,17 +102,17 @@
 
 .mainFooterBottomIcon {
     display: flex;
-    width: 32px;
-    height: 32px;
+    width: 26px;
+    height: 26px;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    border: 1.5px solid rgba(236, 236, 236, 0.20);
+    border: 1.5px solid var(--bright-color-text);
 }
 
 .mainFooterBottomIcon svg {
-    width: 18px;
-    height: 18px;
+    width: 13px;
+    height: 13px;
 }
 
 @media screen and (max-width: 1350px) {
@@ -171,14 +171,14 @@
     }
     
     .mainFooterBottomIcon {
-        width: 18px;
-        height: 18px;
+        width: 26px;
+        height: 26px;
         padding: 0px;
     }
 
     .mainFooterBottomIcon svg {
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
     }
 }
   

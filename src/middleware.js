@@ -11,7 +11,7 @@ export async function middleware(request) {
     let response = NextResponse.next();
 
     const publicPaths = ['/', '/login', '/signup', '/forgotpassword'];
-    const privatePaths = ['/dashboard', '/creategroup', '/group/:uniqueURL/edit'];
+    const privatePaths = ['/dashboard', '/profile', '/creategroup', '/group/:uniqueURL/edit'];
 
     const isPublicPath = publicPaths.includes(pathname);
     const isPrivatePath = privatePaths.some(path => pathname.startsWith(path));
@@ -44,6 +44,7 @@ export const config = {
     matcher: [
         '/',
         '/dashboard',
+        '/profile',
         '/login',
         '/signup',
         '/forgotpassword',

@@ -43,9 +43,10 @@
     cursor: pointer;
 }
 
-.activeNavigationItem {
-    color: var(--main-color);
-    font-weight: 500;
+.activeNavigationItem,
+.navigationList li:hover{
+    color: var(--main-color) !important;
+    font-weight: 500 !important;
     border-bottom: 2px solid var(--main-color);
     border-top: 2px solid transparent;
 }
