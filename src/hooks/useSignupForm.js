@@ -1,64 +1,74 @@
+'use client';
+
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { isEmailValid, isPasswordValid } from '@/validation';
+import { signUpSchema } from '@/validation';
+import { z } from 'zod';
+import { signupAction } from '@/app/actions/signupAction';
+import { validateStepOne } from '@/utils/signupUtils';
 
-export default function useSignupForm(destination) {
-    const router = useRouter();
-    const [loading, setLoading] = useState(false);
-    const [step, setStep] = useState(1);
-    const [email, setEmail] = useState('');
-    const [fullName, setFullName] = useState('');
-    const [password, setPassword] = useState('');
-    const [cityLocation, setCityLocation] = useState(null);
-    const [latLocation, setLatLocation] = useState(null);
-    const [lngLocation, setLngLocation] = useState(null);
-    const [ageConsent, setAgeConsent] = useState(false);
 
-    const nextPage = () => {
-        return destination ? `/${destination}` : '/';
-    };
+export function useSignupForm(destination = "") {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    email: '',
+    fullName: '',
+    password: '',
+    cityLocation: null,
+    latLocation: null,
+    lngLocation: null,
+    ageConsent: false,
+  });
+  const [errors, setErrors] = useState({});
 
-    const handleSignup = async () => {
-        setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/signup`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, fullName, password, cityLocation, latLocation, lngLocation })
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target ? e.target : e;
+    setFormData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }));
+  };
+
+  const handleSignup = async () => {
+    try {
+      setLoading(true);
+      signUpSchema.parse(formData);
+
+      const result = await signupAction(formData);
+      console.log('API Response:', result);
+
+      if (result.success) {
+        router.push(destination);
+      } else {
+        setErrors({ general: result.error });
+        console.log('Signup Error:', result.error);
+        router.push(`/signup?step=userDetails${destination ? `&destination=${destination}` : ''}`);
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors = {};
+        error.errors.forEach((err) => {
+          fieldErrors[err.path[0]] = err.message;
         });
-
-        if (response.ok) {
-            const data = await response.json();
-            if (data.data.success) {
-                router.push(nextPage());
-            } else {
-                console.log('Error:', data.data.message);
-            }
-        }
-        setLoading(false);
+        setErrors(fieldErrors);
+      } else {
+        setErrors({ form: error.message });
+      }
+    } finally {
+      setLoading(false);
     }
+  };
 
-    const isDisabled = !fullName || !email || !password || !isEmailValid(email) || !isPasswordValid(password) || loading;
+  const isDisabled = !formData.fullName || !formData.email || !formData.password || loading;
 
-    return {
-        step,
-        setStep,
-        email,
-        setEmail,
-        fullName,
-        setFullName,
-        password,
-        setPassword,
-        cityLocation,
-        setCityLocation,
-        latLocation,
-        setLatLocation,
-        lngLocation,
-        setLngLocation,
-        ageConsent,
-        setAgeConsent,
-        isDisabled,
-        handleSignup,
-        loading,
-        setLoading
-    };
-};
+  return {
+    formData,
+    handleInputChange,
+    isDisabled,
+    handleSignup,
+    loading,
+    errors,
+    validateStepOne: () => validateStepOne(formData, setErrors),
+  };
+}

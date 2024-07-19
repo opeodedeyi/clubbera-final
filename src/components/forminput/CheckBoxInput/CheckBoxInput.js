@@ -1,6 +1,6 @@
 import style from "./CheckBoxInput.module.css";
 
-const CheckboxInput = ({ label, children, checked, onChange }) => {
+const CheckboxInput = ({ label, name, children, checked, onChange }) => {
     return (
         <div className={style.checkboxInputText}>
             {label &&
@@ -11,6 +11,7 @@ const CheckboxInput = ({ label, children, checked, onChange }) => {
             
             <label className={style.checkboxMainContainer}>
                 <input
+                    name={name}
                     type="checkbox"
                     checked={checked} 
                     onChange={onChange} />

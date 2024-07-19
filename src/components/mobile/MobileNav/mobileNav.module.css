@@ -28,7 +28,7 @@
     width: 36px;
     height: 36px;
     padding: 0;
-    border: 1.2px solid var(--border-color);
+    border: 1.2px solid var(--color-text-main);
     border-radius: 8px;
     background-color: transparent;
     cursor: pointer;
@@ -97,7 +97,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 24px;
+    gap: 16px;
     list-style: none;
 }
 

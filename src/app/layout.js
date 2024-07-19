@@ -1,4 +1,5 @@
 import { ThemeProvider } from 'next-themes';
+import { gtWalsheim, nantes } from '../fonts/fonts';
 import './globals.css';
 
 
@@ -14,7 +15,7 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
+      <body className={`${gtWalsheim.variable} ${nantes.variable}`} >
         <ThemeProvider>
           {children}
         </ThemeProvider>

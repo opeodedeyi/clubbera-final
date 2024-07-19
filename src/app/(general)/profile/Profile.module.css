@@ -1,0 +1,72 @@
+.profileContainer {
+  padding: 72px 0 50px;
+  width: 100%;
+}
+
+.profileDetailsContainer {
+  display: flex;
+  flex-direction: row;
+  padding: 0 var(--container-padding);
+  gap: 0;
+}
+
+.profileTabs {
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .profileContainer {
+    padding: 60px 0 50px;
+  }
+
+  .profileDetailsContainer {
+    flex-direction: column;
+    padding: 0;
+    gap: 32px;
+  }
+<<<<<<< HEAD
+=======
+  .memberContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .infoBox {
+    padding: 0.75rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .infoBox p {
+    margin: 0;
+  }
+  .infoValue {
+    color: var(--color-text-input);
+    font-weight: 500;
+    font-size: 14px;
+  }
+  @media screen and (max-width: 700px) {
+    .profileTabs {
+      display: none;
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .profileButton {
+    margin: auto;
+    width: 65%;
+    margin-top: 1rem;
+  }
+  .profileHeader {
+    display: block;
+    margin: auto;
+    width: 60%;
+  }
+}
+>>>>>>> c529ca790a89e3e03582979ecb3c2714fc05e85d
+
+  .profileTabs {
+    width: 100%;
+  }
+}

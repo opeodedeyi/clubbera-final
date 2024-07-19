@@ -1,59 +1,68 @@
-'use client';
+"use client";
 
+import { useRouter } from 'next/navigation';
 import SignupStepOne from "@/app/(auth)/signup/SignupStepOne";
 import SignupStepTwo from "@/app/(auth)/signup/SignupStepTwo";
-import useSignupForm from "@/hooks/useSignupForm";
+import { useSignupForm } from "@/hooks/useSignupForm";
 import style from "../Auth.module.css";
 
 
 export default function Signup({ searchParams }) {
-    const { destination } = searchParams
-    const {
-        step,
-        setStep,
-        email,
-        setEmail,
-        fullName,
-        setFullName,
-        password,
-        setPassword,
-        cityLocation,
-        setCityLocation,
-        setLatLocation,
-        setLngLocation,
-        ageConsent,
-        setAgeConsent,
-        isDisabled,
-        handleSignup
-    } = useSignupForm(destination);
+  const { destination, step = 'userDetails' } = searchParams;
+  const router = useRouter();
+  const {
+    formData,
+    handleInputChange,
+    isDisabled,
+    handleSignup,
+    loading,
+    errors,
+    validateStepOne,
+  } = useSignupForm(destination);
 
-    return (
-        <>
-            <div className={style.authContainer}>
-                <form className={style.authContainerMain}>
-                    {step===1 ?
-                        <SignupStepOne
-                            email={email} 
-                            setEmail={setEmail} 
-                            fullName={fullName} 
-                            setFullName={setFullName} 
-                            password={password} 
-                            setPassword={setPassword}
-                            isDisabled={isDisabled}
-                            buttonClicked={() => setStep(2)}/>
-                    :
-                        <SignupStepTwo
-                            ageConsent={ageConsent} 
-                            setAgeConsent={setAgeConsent}
-                            cityLocation={cityLocation}
-                            setCityLocation={setCityLocation} 
-                            setLatLocation={setLatLocation}
-                            setLngLocation={setLngLocation}
-                            buttonClicked={handleSignup}/>
-                    }
-                </form>
-            </div>
-        </>
-    )
-}
+  const moveToNextStep = () => {
+    if (step === 'userDetails') {
+      const isValidStepOne = validateStepOne();
+      if (isValidStepOne) {
+        router.push(`/signup?step=locationDetails${destination ? `&destination=${destination}` : ''}`);
+      }
+    }
+  };
+
+  const moveToPreviousStep = () => {
+    if (step === 'locationDetails') {
+      router.push(`/signup?step=userDetails${destination ? `&destination=${destination}` : ''}`);
+    }
+  };
   
+
+  return (
+    <>
+      <div className={style.authContainer}>
+        <form className={style.authContainerMain}>
+          {step === 'userDetails' ? (
+            <SignupStepOne
+              email={formData.email}
+              fullName={formData.fullName}
+              password={formData.password}
+              errors={errors}
+              isDisabled={isDisabled}
+              handleInputChange={handleInputChange}
+              moveToNextStep={moveToNextStep}
+            />
+          ) : (
+            <SignupStepTwo
+              ageConsent={formData.ageConsent}
+              cityLocation={formData.cityLocation}
+              handleInputChange={handleInputChange}
+              buttonClicked={handleSignup}
+              errors={errors}
+              loading={loading}
+              moveToPreviousStep={moveToPreviousStep}
+            />
+          )}
+        </form>
+      </div>
+    </>
+  );
+}

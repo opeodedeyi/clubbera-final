@@ -1,3 +1,4 @@
+import Image from "next/image";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from './CTASideBanner.module.css';
 
@@ -5,11 +6,17 @@ const CTASideBanner = ({title, description, buttonText, image, destination, reve
     return (
         <div className={style.CTASide}>
             <div className={`${style.CTASideContainer} ${ reverse ? style.normalFacing : style.reverseFacing }`}>
-                {/* image goes here */}
+                <div className={style.CTASideContainerImage}>
+                    <Image 
+                        src={image} 
+                        alt={title}
+                        layout="fill"
+                        objectFit="cover" />
+                </div>
                 <div className={style.CTASideContainerMain}>
-                    <div className={style.CTAContainerText}>
-                        <h1 className={style.CTAContainerTextTitle}>{title}</h1>
-                        <p className={style.CTAContainerTextDescription}>{description}</p>
+                    <div className={style.CTASideContainerText}>
+                        <h1 className={style.CTASideContainerTextTitle}>{title}</h1>
+                        <p className={style.CTASideContainerTextDescription}>{description}</p>
                     </div>
                     { buttonText && <CustomButton link destination={`${destination}`} size="defaultSize">{buttonText}</CustomButton>}
                 </div>

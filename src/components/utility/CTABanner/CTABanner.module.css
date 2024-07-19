@@ -28,6 +28,16 @@
     gap: 8px;
 }
 
+.CTAContainerImage {
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .CTAContainerBottom {
     width: 100%;
     display: flex;
@@ -46,7 +56,7 @@
 .CTAContainerTextTitle {
     color: var(--main-color);
     text-align: center;
-    font-size: 48px;
+    font-size: 3rem;
     font-style: normal;
     font-weight: 500;
     line-height: 105%;
@@ -56,7 +66,7 @@
 .CTAContainerTextDescription {
     color: var(--main-color-hover);
     text-align: center;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
     line-height: 115%;
@@ -65,7 +75,7 @@
 
 @media screen and  (max-width: 768px) {
     .CTACont {
-        padding: 10px var(--container-padding) 20px;
+        padding: 24px var(--container-padding);
     }
 
     .CTAContainer {
@@ -74,16 +84,21 @@
     }
 
     .CTAContainerTop {
-        gap: 4px;
+        gap: 12px;
+    }
+    
+    .CTAContainerImage {
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .CTAContainerTextTitle {
-        font-size: 18px;
+        font-size: 1.125rem;
         letter-spacing: -0.36px;
     }
     
     .CTAContainerTextDescription {
-        font-size: 12px;
+        font-size: 0.875rem;
         letter-spacing: -0.36px;
     }
 }

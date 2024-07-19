@@ -1,37 +1,59 @@
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { isEmailValid, isPasswordValid } from '@/validation';
+'use client';
 
-export default function useLoginForm(destination) {
-    const [loading, setLoading] = useState(false);
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const router = useRouter();
+import { z } from "zod";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { loginSchema } from "@/validation";
+import { loginAction } from "@/app/actions/loginAction";
 
-    const nextPage = () => {
-        return destination ? `/${destination}` : '/';
-    };
 
-    const submitLogin = async () => {
-        setLoading(true);
-        const response = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/auth/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+export default function useLoginForm(destination = "") {
+  const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+  const router = useRouter();
+
+  const submitLogin = async () => {
+    try {
+      const data = { email, password };
+      loginSchema.parse(data);
+
+      setLoading(true);
+      const result = await loginAction(email, password);
+
+      if (result.success) {
+        router.push(destination || "/");
+      } else {
+        setErrors({ general: result.error });
+      }
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors = {};
+        error.errors.forEach((err) => {
+          fieldErrors[err.path[0]] = err.message;
         });
+        setErrors(fieldErrors);
+      } else {
+        setErrors({
+          general: "An unexpected error occurred. Please try again.",
+        });
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
-        if (response.ok) {
-            const data = await response.json();
-            if (data.error) {
-                console.log(data.error);
-            } else {
-                router.push(nextPage());
-            }
-        }
-        setLoading(false);
-    };
+  const isDisabled = !email || !password || loading;
 
-    const isDisabled = !email || !password || !isEmailValid(email) || !isPasswordValid(password) || loading;
-
-    return { email, setEmail, password, setPassword, submitLogin, isDisabled, loading };
+  return {
+    email,
+    setEmail,
+    password,
+    setPassword,
+    submitLogin,
+    isDisabled,
+    loading,
+    errors,
+  };
 }

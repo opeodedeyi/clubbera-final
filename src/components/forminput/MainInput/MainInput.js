@@ -9,7 +9,7 @@ const MainInput = ( props ) => {
                 </div>
 
                 <textarea
-                    name={props.type}
+                    name={props.name}
                     placeholder={props.placeholder}
                     value={props.value}
                     onFocus={props.onFocus}
@@ -25,7 +25,7 @@ const MainInput = ( props ) => {
                 </div>
                 
                 <input
-                    name={props.type}
+                    name={props.name}
                     placeholder={props.placeholder}
                     value={props.value}
                     onFocus={props.onFocus}

@@ -1,4 +1,6 @@
 :root {
+  --font-gt-walsheim: var(--font-gt-walsheim);
+  --font-nantes: var(--font-nantes);
   --border-radius: 12px;
   --container-padding: 80px;
   /* background color */
@@ -25,6 +27,7 @@
   --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #228B22;
+  --reactive-brand-alternate: #228B22;
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
   /* svg */
@@ -41,8 +44,10 @@
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
   /* other */
-  --main-color-card-danger: #773800;
-  --main-color-tip-danger: #FFF6EE;
+  --main-color-card-danger: #D03C38;
+  --main-color-tip-danger: rgba(208, 60, 56, 0.06);
+  --main-color-card-mild: #773800;
+  --main-color-tip-mild: #FFF6EE;
   --main-color-card-calm: #003581;
   --main-color-tip-calm: #EEF5FF;
 
@@ -66,6 +71,8 @@
 }
 
 [data-theme="dark"] {
+  --font-gt-walsheim: var(--font-gt-walsheim);
+  --font-nantes: var(--font-nantes);
   --border-radius: 12px;
   --container-padding: 80px;
   /* background color */
@@ -92,6 +99,7 @@
   --color-gray: #777474;
   /* brand color which changes in dark mode */
   --reactive-brand-color: #030B01;
+  --reactive-brand-alternate: #D1FFD9;
   /* text on brand color or overlay */
   --color-on-brand: #F0F3F5;
   /* svg */
@@ -107,9 +115,9 @@
   --main-color-glow: #A5E2AB;
   --main-color-light: #D1FFD9;
   --main-color-tip: #EEFAEE;
+  --main-color-card-danger: #D03C38;
+  --main-color-tip-danger: rgba(208, 60, 56, 0.06);
   /* other */
-  --main-color-card-danger: #773800;
-  --main-color-tip-danger: #FFF6EE;
   --main-color-card-calm: #003581;
   --main-color-tip-calm: #EEF5FF;
   
@@ -131,54 +139,8 @@
   --color-text-input: #393535;
 }
 
-@font-face {
-  font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Light.ttf');
-  src: local('GT Walsheim Pro Light'), local('GTWalsheimPro-Light'),
-      url('GTWalsheimPro-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Regular.ttf');
-  src: local('GT Walsheim Pro Regular'), local('GTWalsheimPro-Regular'),
-      url('GTWalsheimPro-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'GT Walsheim Pro';
-  src: url('GTWalsheimPro-Medium.ttf');
-  src: local('GT Walsheim Pro Medium'), local('GTWalsheimPro-Medium'),
-      url('GTWalsheimPro-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nantes';
-  src: url('Nantes-Regular.ttf');
-  src: local('Nantes Regular'), local('Nantes-Regular'),
-      url('Nantes-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Nantes';
-  src: url('Nantes-BoldItalic.ttf');
-  src: local('Nantes Bold Italic'), local('Nantes-BoldItalic'),
-      url('Nantes-BoldItalic.ttf') format('truetype');
-  font-weight: bold;
-  font-style: italic;
-}
-
-
 * {
-  font-family: 'GT Walsheim Pro';
+  font-family: var(--font-gt-walsheim);
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -232,7 +194,7 @@ h4 {
 }
 
 h5 {
-  color: var(--color-text-main);
+  color: var(--color-text-secondary);
   font-size: 1rem;
   font-style: normal;
   font-weight: 500;
@@ -248,16 +210,16 @@ p {
   font-weight: 400;
   line-height: 135%;
   letter-spacing: -0.4px;
-}
+} 
 
 .spicy-text {
-  font-family: "Nantes";
+  font-family: var(--font-nantes);
   font-style: italic;
   font-weight: 700;
 }
 
 .spicy-normal-text {
-  font-family: "Nantes";
+  font-family: var(--font-nantes);
   font-style: normal;
   font-weight: 400;
 }
@@ -268,17 +230,6 @@ p {
 
 body {
   font-size: 16px;
-}
-
-.flex-c {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-}
-
-.header-margin-allowance {
-  margin-top: 72px;
 }
 
 .mobile-only-show {
@@ -318,7 +269,7 @@ body {
   }
 
   h5 {
-    font-size: 0.875rem;
+    font-size: 1rem;
     letter-spacing: -0.28px;
   }
   

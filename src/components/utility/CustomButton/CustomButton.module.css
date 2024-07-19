@@ -93,13 +93,13 @@
 .defaultColoring {
     border: none;
     background-color: var(--main-color);
-    color: var(--color-white-one);
+    color: var(--color-on-brand);
 }
 
 .defaultColoring:hover {
     border: none;
     background-color: var(--main-color-hover);
-    color: var(--color-white-one);
+    color: var(--color-on-brand);
 }
 
 .inverseColoring {
@@ -109,36 +109,41 @@
 }
 
 .inverseColoring:hover {
-    border: 1.2px solid var(--color-white-two);
-    background-color: var(--color-white-two);
+    border: 1.2px solid var(--border-color);
+    background-color: var(--border-color-bright);
     color: var(--color-text-main);
 }
 
 .customButton:disabled {
     border: none;
-    background-color: transparent;
-    color: var(--color-dark-one);
+    background-color: var(--main-color);
+    color: var(--color-on-brand);
     cursor:  not-allowed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 .formHeaderColoring {
-    border: 1px solid rgba(240, 243, 245, 0.80);
-    background: rgba(220, 249, 220, 0.03);
-    color: #625F5F;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--color-text-main);
 }
 
 .formHeaderColoring:hover {
-    border: 1.2px solid var(--color-white-two);
-    background-color: var(--color-white-two);
-    color: var(--color-dark-one);
+    border: 1.2px solid var(--border-color);
+    background-color: var(--border-color-bright);
+    color: var(--color-text-main);
 }
 
 .buttonNobuttonColoring {
-    color: var(--color-gray-two)
+    color: var(--color-text-alternate);
 }
 
 .buttonNobuttonColoring:hover {
-    color: var(--color-dark-one)
+    color: var(--color-text-secondary);
 }
 
 @media screen and  (max-width: 768px) {
@@ -184,7 +189,7 @@
     .tableButtonSize {
         padding: 12px;
         border-radius: 100px;
-        height: 32px;
-        width: 32px;
+        height: 40px;
+        width: 40px;
     }
 }
