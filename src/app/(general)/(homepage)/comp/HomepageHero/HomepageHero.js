@@ -1,22 +1,8 @@
-"use client";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "./HomepageHero.module.css";
-import Modal from "@/components/modal/Modal";
-import ShareButtons from "@/app/(general)/shareButtons/page";
-import { useState } from "react";
+
 
 const HeroSection = () => {
-     const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-  const shareUrl = "https://your-website.com/your-page";
-  const title = "Check out this awesome content!";
   return (
     <>
       <div className={style.homepageHero}>
@@ -43,7 +29,6 @@ const HeroSection = () => {
             >
               Join Clubbera
             </CustomButton>
-            <CustomButton onClick={openModal}>Share</CustomButton>
           </div>
         </div>
 
@@ -66,11 +51,6 @@ const HeroSection = () => {
           className={`${style.homepageHeroImage} ${style.heroPosSeven}`}
         ></div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} width="30%">
-        <div>
-          <ShareButtons url={shareUrl} title={title} />
-        </div>
-      </Modal>
     </>
   );
 };
