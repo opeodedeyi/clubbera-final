@@ -22,20 +22,18 @@ export default function GroupDetailsContent ({ group }) {
     };
 
     return (
-        <>
-            <div className={style.groupDetailsMain}>
-                <SecHeaderBack />
-                <GroupKeyDetails 
-                    group={group} 
-                    ctaText={ctaText}
-                    isLoading={isLoading}
-                    onJoinLeave={handleMembershipAction} />
-                <GroupNavigation
-                    activeTab={activeTab} 
-                    handleTabClick={handleTabClick} />
+        <div className={style.groupDetailsMain}>
+            <SecHeaderBack />
+            <GroupKeyDetails 
+                group={group} 
+                ctaText={ctaText}
+                isLoading={isLoading}
+                onJoinLeave={handleMembershipAction} />
+            <GroupNavigation
+                activeTab={activeTab} 
+                handleTabClick={handleTabClick} />
 
-                <GroupPages group={group} activeTab={activeTab}/>
-            </div>
-        </>
+            <GroupPages group={group} activeTab={activeTab}/>
+        </div>
     );
 };
