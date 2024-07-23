@@ -12,7 +12,7 @@ export default async function Profile(){
       <ProfileHeader user={user} />
       <div className={Style.profileDetailsContainer}>
         <ProfileDetailsBar user={user} />
-        <ProfileContent />
+        <ProfileContent user={user} />
       </div>
     </div>
   );
