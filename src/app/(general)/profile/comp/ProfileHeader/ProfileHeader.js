@@ -1,8 +1,6 @@
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import Style from "./ProfileHeader.module.css";
-
-
 export default function ProfileHeader({user}){
   return (
     <div className={Style.profileHeader}>

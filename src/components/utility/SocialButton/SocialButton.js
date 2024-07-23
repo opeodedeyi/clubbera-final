@@ -6,7 +6,7 @@ import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner
 import style from './SocialButton.module.css';
 
 
-const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) => {
+const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id }) => {
     const [isSdkLoaded, setIsSdkLoaded] = useState(false);
     const buttonRef = useRef(null);
 
@@ -32,7 +32,6 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) 
         window.google.accounts.id.initialize({
             client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
             callback: handleGoogleCredentialResponse,
-            cancel_on_tap_outside: false,
         })
     }
 
@@ -82,7 +81,6 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) 
 
     return (
         <button
-            ref={buttonRef}
             type="button"
             className={`${style.socialLoginButton} ${style[coloring]}`}
             onClick={handleLogin}
@@ -96,3 +94,6 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) 
 }
 
 export default SocialLoginButton
+
+
+
