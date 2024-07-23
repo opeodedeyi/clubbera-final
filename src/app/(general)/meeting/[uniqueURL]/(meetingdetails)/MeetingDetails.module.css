@@ -1,0 +1,15 @@
+.meetingDetailsContainer {
+    width: 100%;
+    padding: 72px 0 90px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and  (max-width: 768px) {
+    .meetingDetailsContainer {
+        padding: 60px 0 90px;
+    }
+}

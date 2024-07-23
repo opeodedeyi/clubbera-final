@@ -2,7 +2,6 @@
 
 import { A_COOKIE_NAME } from "@/constants";
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
-import { redirect } from 'next/navigation';
 import { cookies } from "next/headers";
 
 const API_URL = process.env.API_URL;
@@ -21,31 +20,24 @@ async function fetchGroupData(endpoint, timeout) {
             },
         }, timeout);
 
-        console.log(response.status);
-
-        
-        // if (response.status == 401) {
-        //     return redirect('/login')
-        // }
-
         if (!response.ok) {
-            throw new Error('Failed to fetch group details');
+            throw new Error('Failed to fetch group list');
         }
 
         const data = await response.json();
         
         return data.success 
-            ? { success: true, group: data.group }
-            : { success: false, error: data.message };
+            ? { success: true, groups: data.data, pagination: data.pagination }
+            : { success: false, error: "Failed to fetch group list" };
     } catch (error) {
         return { success: false, error: error.message };
     }
 }
 
-export async function getGroupDetailsEdit(groupUniqueURL) {
-    return fetchGroupData(`/group/${groupUniqueURL}/edit`, 5000);
+export async function getUserCreatedGroups(userUniqueURL) {
+    return fetchGroupData(`/user/${userUniqueURL}/createdgroups`, 3000);
 }
 
-export async function getGroupDetails(groupUniqueURL) {
-    return fetchGroupData(`/group/${groupUniqueURL}`, 5000);
+export async function getUserJoinedGroups(userUniqueURL) {
+    return fetchGroupData(`/user/${userUniqueURL}/joinedgroups`, 3000);
 }

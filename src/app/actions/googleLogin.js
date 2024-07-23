@@ -1,8 +1,8 @@
 'use server'
 
 import { setAuthCookie } from "@/app/actions/setAuthCookie";
-import { redirect } from 'next/navigation'
-import { fetchWithTimeout } from '@/utils/fetchWithTimeout'
+import { redirect } from 'next/navigation';
+import { fetchWithTimeout } from '@/utils/fetchWithTimeout';
 
 export async function googleLogin(idToken) {
     try {
@@ -11,7 +11,9 @@ export async function googleLogin(idToken) {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ code: idToken }),
+            body: JSON.stringify({ 
+                code: idToken 
+            }),
         }, 3000)
 
         const data = await response.json()
