@@ -6,7 +6,7 @@ import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner
 import style from './SocialButton.module.css';
 
 
-const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) => {
+const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id }) => {
     const [isSdkLoaded, setIsSdkLoaded] = useState(false);
 
     useEffect(() => {
@@ -29,8 +29,8 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) 
 
     const initializeGoogleSignIn = () => {
         window.google.accounts.id.initialize({
-            client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-            callback: handleGoogleCredentialResponse,
+          client_id: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+          callback: handleGoogleCredentialResponse,
         })
     }
 
@@ -49,17 +49,20 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType }) 
     }
 
     return (
-        <button
-            type="button"
-            className={`${style.socialLoginButton} ${style[coloring]}`}
-            onClick={handleLogin}
-            disabled={loading || (socialType === 'google' && !isSdkLoaded)}
-        >
-            <img src={imgSrc} alt="google" className="google-icon" />
-            <span>{children}</span>
-            { (loading || !isSdkLoaded) && <LoadingSpinner /> }
-        </button>
-    )
+      <button
+        type="button"
+        className={`${style.socialLoginButton} ${style[coloring]}`}
+        onClick={handleLogin}
+        disabled={loading || (socialType === "google" && !isSdkLoaded)}
+      >
+        <img src={imgSrc} alt="google" className="google-icon" />
+        <span>{children}</span>
+        {(loading || !isSdkLoaded) && <LoadingSpinner />}
+      </button>
+    );
 }
 
 export default SocialLoginButton
+
+
+

@@ -4,7 +4,7 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import { useState } from "react";
 import Modal from "@/components/modal/Modal";
-import EditProfile from "../editProfile/page";
+import EditProfile from "../editProfile/editProfile";
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
