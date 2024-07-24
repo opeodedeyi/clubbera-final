@@ -1,0 +1,75 @@
+.navigation {
+    height: 54px;
+    display: flex;
+    width: 100%;
+    padding: 0 32px;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    border-left: none;
+    border-right: none;
+}
+
+.navigationList {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 24px;
+    list-style: none;
+    overflow: scroll;
+    padding: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.navigationList::-webkit-scrollbar {
+    display: none;
+}
+
+.navigationList li {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.activeNavigationItem,
+.navigationList li:hover{
+    color: var(--main-color) !important;
+    font-weight: 500 !important;
+    border-bottom: 2px solid var(--main-color);
+    border-top: 2px solid transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .navigation {
+        height: 40px;
+        padding: 0;
+    }
+
+    .navigationList li {
+        font-size: 0.875rem;
+        font-weight: 400;
+        letter-spacing: -0.42px;
+        height: 100%;
+        padding-top: 0;
+    }
+
+    .navigationList:first-child {
+        margin-left: 24px;
+    }
+    
+    .navigationList:last-child {
+        margin-right: 24px;
+    }
+}

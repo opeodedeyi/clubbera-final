@@ -1,0 +1,18 @@
+.formContainer {
+    width: 100%;
+    padding: 32px;
+}
+
+.formContainerInner {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .formContainer {
+        padding: 24px;
+    }
+}

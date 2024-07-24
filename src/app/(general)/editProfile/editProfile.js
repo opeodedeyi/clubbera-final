@@ -1,44 +1,49 @@
-import React from 'react'
-import style from "./editProfile.module.css"
+'use client';
+
+import { useEffect } from "react";
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useQueryParams } from "@/hooks/useQueryParams";
 import CustomButton from '@/components/utility/CustomButton/CustomButton'
-import Tabs from "@/components/tabs/Tabs";
-import BasicInformation from './BasicInformation';
-import ChangePassword from './ChangePassword';
+import Navigation from "./comp/Navigation/Navigation";
+import BasicInformation from './steps/BasicInformation/BasicInformation';
+import ChangePassword from './steps/ChangePassword/ChangePassword';
+import style from "./EditProfile.module.css"
+
 
 const EditProfile = () => {
-  const Grouptabs = [
-    {
-      index: 1,
-      label: "Basic Information",
-      content: <BasicInformation />,
-    },
-    {
-      index: 2,
-      label: "Change Password",
-      content: <ChangePassword />,
-    },
-  ];
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const { createQueryString, removeQueryParam } = useQueryParams();
+
+  const activeTab = searchParams.get('currentEditTab');
+
+  useEffect(() => {
+    if (!activeTab) {
+      router.push(`?${createQueryString('currentEditTab', 'basicInfo')}`, { scroll: false });
+    }
+  }, []);
+
+  const handleTabClick = (link) => {
+    router.push(`?${createQueryString('currentEditTab', link)}`, { scroll: false });
+  };
+
   return (
     <>
-      <div className={style.editContainer}>
-        <div className={style.editHeaderContainer}>
-          <div className={style.editProfile}>
-            <h4>Edit Profile</h4>
-            <p>Make changes to your profile</p>
-          </div>
-          <div className={style.editButton}>
-            <div className={style.desktopButton}>
-              <CustomButton>Save changes</CustomButton>
-            </div>
-            <div className={style.mobileButton}>
-              <CustomButton>Save</CustomButton>
-            </div>
-          </div>
+      <div className={style.editHeaderContainer}>
+        <div className={style.editProfileText}>
+          <h4>Edit Profile</h4>
+          <p>Make changes to your profile</p>
         </div>
-        <div>
-          <Tabs tabs={Grouptabs} />
-        </div>
+
+        <CustomButton size='defaultButtonSize'>
+          Save <span className={style.desktopOnlyShow}>changes</span>
+        </CustomButton>
       </div>
+
+      <Navigation activeTab={activeTab} handleTabClick={handleTabClick} />
+
+      { activeTab === "basicInfo" && <BasicInformation/> }
+      { activeTab === "changePassword" && <ChangePassword/>}
     </>
   );
 };
