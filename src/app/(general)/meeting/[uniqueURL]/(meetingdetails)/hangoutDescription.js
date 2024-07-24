@@ -1,6 +1,6 @@
 import meetingHeroImage from "../../../../../../public/meetingHeroImage.png";
 import mobileHangoutHero from "../../../../../../public/mobileHangoutHero.png";
-import bookmark from "../../../../../../public/bookmark.svg";
+import { BsBook } from "react-icons/bs";
 import Image from "next/image";
 import style from "./hangoutDescription.module.css";
 import { attendees } from "./data";
@@ -58,14 +58,13 @@ const HangoutDescription = () => {
               </div>
             </div>
             <hr className={style.horizontalLine} />
-            <div>
-              <IoShareSocialOutline />
-              <Image
-                src={bookmark}
-                alt="Bookmark"
-                height={"2rem"}
-                width={"2rem"}
-              />
+            <div className={style.share}>
+              <div className={style.iconContainer}>
+                <IoShareSocialOutline className={style.shareIcon} />
+              </div>
+              <div className={style.iconContainer}>
+                <BsBook className={style.shareIcon} />
+              </div>
             </div>
           </div>
         </div>

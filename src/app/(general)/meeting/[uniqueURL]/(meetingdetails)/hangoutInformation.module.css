@@ -82,9 +82,7 @@
 }
 .vertcalLine {
   width: 2px;
-
   background-color: yellow;
-
   height: 100%;
   display: inline-block;
 }

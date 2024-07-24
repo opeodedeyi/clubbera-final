@@ -58,6 +58,26 @@
   background: var(--bright-color-background);
   margin: 20px 0;
 }
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--bright-color-background);
+  border-radius: 50%;
+}
+
+.shareIcon {
+  font-size: 1rem;
+}
 @media screen and (max-width: 700px) {
   .heroImage {
     padding: 1.5rem;
