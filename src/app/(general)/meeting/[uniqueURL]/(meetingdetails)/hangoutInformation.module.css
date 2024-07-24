@@ -1,0 +1,160 @@
+.hangoutInformationContainer {
+  width: 100%;
+  padding: 0 90px;
+  display: flex;
+  margin-top: 1rem;
+  gap: 2rem;
+}
+.hangoutInformationWrapper {
+  width: 50%;
+}
+.hostInformationContainer {
+  border: 1px solid var(--bright-color-background);
+  padding: 1rem;
+  border-radius: 4px;
+}
+.hostInformationContainer > p {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-dark-two);
+  margin-bottom: 1rem;
+}
+.hostProfileDetails {
+  display: flex;
+  justify-content: space-between;
+}
+.hostProfile {
+  display: flex;
+  gap: 0.7rem;
+}
+.hostProfileName {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-text-input);
+  line-height: 0.7rem;
+}
+.hostProfileGmail {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-placeholder);
+}
+.hostProfileButton > button {
+  background: transparent;
+  border: 1px solid var(--bright-color-background);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  color: var(--color-text-sub);
+}
+.hangoutLocation {
+  border: 1px solid var(--bright-color-background);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hangoutTime {
+  display: flex;
+  gap: 1rem;
+}
+.Icons {
+  border: 1px solid var(--bright-color-background);
+  height: 1.8rem;
+  width: 1.8rem;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 1rem;
+}
+.mainIcons {
+  margin-top: 0.3rem;
+}
+.hangoutDateAndLocation {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-dark-two);
+}
+.hangoutDateAndAddress {
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--color-placeholder);
+}
+.vertcalLine {
+  width: 2px;
+
+  background-color: yellow;
+
+  height: 100%;
+  display: inline-block;
+}
+.announcementContainer {
+  border: 1px solid var(--bright-color-background);
+  padding: 1rem;
+  border-radius: 4px;
+  width: 35rem;
+  height: auto;
+}
+.announcementContainer > p {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-dark-two);
+}
+.announcementWrapper {
+  border: 1px solid var(--bright-color-background);
+  padding: 1rem;
+  border-radius: 4px;
+  padding: 1.5rem;
+
+  height: 10rem;
+  margin-top: 1rem;
+  text-align: center;
+  color: var(--color-placeholder);
+}
+.announcementWrapper > p {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-placeholder);
+}
+.speakerIcon {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+@media screen and (max-width: 700px) {
+  .hangoutInformationContainer {
+    width: 100%;
+    padding: 1.5rem;
+    display: block;
+    margin-top: 1rem;
+  }
+  .hangoutInformationWrapper {
+    width: 100%;
+  }
+  .hostProfileDetails {
+    display: block;
+  }
+  .hostProfileButton {
+    margin-top: 1rem;
+  }
+  .hostProfileName {
+    line-height: 1rem;
+  }
+  .hangoutLocation {
+    display: block;
+  }
+  .announcementContainer {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .hangoutInformationContainer {
+    padding: 1.5rem;
+  }
+  .hangoutInformationWrapper {
+    width: 60%;
+  }
+  .hostProfileName {
+    line-height: 1rem;
+  }
+}
