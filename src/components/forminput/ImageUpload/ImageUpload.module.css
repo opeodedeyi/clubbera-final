@@ -120,7 +120,7 @@
     cursor: pointer;
 }
 
-.imageResultContentDelete svg {
+.imageResultContentDeleteSvg {
     width: 20px;
     height: 20px;
 }
@@ -140,7 +140,7 @@
     border-width: 4px;
 }
 
-.imageBoxInner svg {
+.imageBoxInnerSvg {
     height: 20px;
 }
 
@@ -188,7 +188,7 @@
         padding: 4px;
     }
 
-    .imageResultContentDelete svg {
+    .imageResultContentDeleteSvg {
         width: 16px;
         height: 16px;
     }
@@ -197,7 +197,7 @@
         height: 56px;
     }
 
-    .imageBoxInner svg {
+    .imageBoxInnerSvg {
         height: 16px;
     }
 

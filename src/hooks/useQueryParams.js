@@ -3,6 +3,14 @@ import { useSearchParams } from 'next/navigation';
 export function useQueryParams() {
     const searchParams = useSearchParams();
 
+    const createMultipleQueryString = (newParams) => {
+        const params = new URLSearchParams(searchParams);
+        Object.entries(newParams).forEach(([name, value]) => {
+            params.set(name, value);
+        });
+        return params.toString();
+    };
+
     const createQueryString = (name, value) => {
         const params = new URLSearchParams(searchParams);
         params.set(name, value);
@@ -15,5 +23,5 @@ export function useQueryParams() {
         return params.toString();
     };
 
-    return { createQueryString, removeQueryParam };
+    return { createMultipleQueryString, createQueryString, removeQueryParam };
 }

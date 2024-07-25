@@ -1,6 +1,6 @@
 'use client';
 
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import Image from "next/image";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useQueryParams } from "@/hooks/useQueryParams";
 import Modal from "@/components/popup/Modal/Modal";
@@ -29,13 +29,12 @@ export default function ProfileHeader({user}){
       <div className={Style.profileHeader}>
         <div className={Style.profileHeaderDetails}>
           <div className={Style.profileHeaderDetailsPP}>
-            <img src={user?.avatar || "/profile.png"} />
+            <Image src={user?.avatar || "/profile.png"} width={100} height={100} />
           </div>
           <div className={Style.profileHeaderDetailsText}>
             <h4>{user?.full_name}</h4>
             <p>
-              <HiOutlineLocationMarker size="14px" color="var(--color-text-main)" />
-              {user?.location || "not set"}
+              {user?.bio || ""}
             </p>
           </div>
         </div>
@@ -44,7 +43,7 @@ export default function ProfileHeader({user}){
       </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal} maxWidth="775px" displayType="rightSide" hasBack={true}>
-        <EditProfile/>
+        <EditProfile user={user}/>
       </Modal>
     </>
   );

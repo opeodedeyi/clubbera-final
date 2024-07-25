@@ -3,17 +3,17 @@
 import { useEffect } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useQueryParams } from "@/hooks/useQueryParams";
-import CustomButton from '@/components/utility/CustomButton/CustomButton'
+import EditProfileHeader from "./comp/EditProfileHeader/EditProfileHeader";
 import Navigation from "./comp/Navigation/Navigation";
 import BasicInformation from './steps/BasicInformation/BasicInformation';
 import ChangePassword from './steps/ChangePassword/ChangePassword';
-import style from "./EditProfile.module.css"
+import { EditUserProvider } from '@/app/context/EditUserContext';
 
 
-const EditProfile = () => {
+export default function EditProfile({ user }) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { createQueryString, removeQueryParam } = useQueryParams();
+  const { createQueryString } = useQueryParams();
 
   const activeTab = searchParams.get('currentEditTab');
 
@@ -28,24 +28,11 @@ const EditProfile = () => {
   };
 
   return (
-    <>
-      <div className={style.editHeaderContainer}>
-        <div className={style.editProfileText}>
-          <h4>Edit Profile</h4>
-          <p>Make changes to your profile</p>
-        </div>
-
-        <CustomButton size='defaultButtonSize'>
-          Save <span className={style.desktopOnlyShow}>changes</span>
-        </CustomButton>
-      </div>
-
+    <EditUserProvider user={user} activeTab={activeTab}>
+      <EditProfileHeader />
       <Navigation activeTab={activeTab} handleTabClick={handleTabClick} />
-
       { activeTab === "basicInfo" && <BasicInformation/> }
       { activeTab === "changePassword" && <ChangePassword/>}
-    </>
+    </EditUserProvider>
   );
 };
-
-export default EditProfile

@@ -12,13 +12,17 @@ import Style from "./Profile.module.css";
 export default function ProfileContent({user}) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { createQueryString } = useQueryParams();
+  const { createMultipleQueryString, createQueryString } = useQueryParams();
 
   const activeTab = searchParams.get('profileTab');
 
   useEffect(() => {
     if (!activeTab) {
-      router.push(`?${createQueryString('profileTab', 'joinedGroups')}`, { scroll: false });
+      const newParams = {
+        profileTab: 'joinedGroups',
+        currentEditTab: 'basicInfo'
+      };
+      router.push(`?${createMultipleQueryString(newParams)}`, { scroll: false });
     }
   }, []);
 

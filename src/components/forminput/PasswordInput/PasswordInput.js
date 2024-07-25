@@ -2,18 +2,15 @@
 
 import { useState } from 'react';
 import Link from "next/link";
+import { HiOutlineEyeOff, HiOutlineEye } from "react-icons/hi";
 import style from "./PasswordInput.module.css";
 
 
 const MainPasswordInput = ( props ) => {
-    const [type, setType] = useState('password');
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const changeView = () => {
-        if (type=="password") {
-            setType("text");
-        } else {
-            setType("password");
-        }
+    const togglePasswordVisibility = () => {
+        setIsPasswordVisible(!isPasswordVisible);
     };
 
     return (
@@ -22,16 +19,23 @@ const MainPasswordInput = ( props ) => {
                 <label>{ props.input }</label>
                 {props.forgotpasswordinput && <Link className={style.formLabelForgot} href="/forgotpassword">Forgot password?</Link>}
             </div>
+
             <div className={style.formInputPassword}>
                 <input
                     name={props.name}
-                    type={type}
+                    type={isPasswordVisible ? "text" : "password"}
                     placeholder={props.placeholder}
                     value={props.value}
                     onChange={props.onChange}
                 />
                 
-                <img src="/eye.svg" alt="eyeOpen" className={style.eyeIcon} onClick={changeView}/>
+                <span className={style.eyeIcon} onClick={togglePasswordVisibility}>
+                    {isPasswordVisible ? (
+                        <HiOutlineEyeOff size={17} color="var(--color-placeholder)" />
+                    ) : (
+                        <HiOutlineEye size={17} color="var(--color-placeholder)" />
+                    )}
+                </span>
             </div>
         </div>
     );

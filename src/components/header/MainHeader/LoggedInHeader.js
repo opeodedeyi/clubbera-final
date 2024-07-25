@@ -26,7 +26,7 @@ function LoggedInHeader({ user, navBtnClicked}) {
             <div className={style.flexC}>
                 <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}>
                     <button className={style.headerToggleBarAlt}>
-                        <HiOutlineSearch size="20px" color="var(--color-text-main)"/>
+                        <HiOutlineSearch size="16px" color="var(--color-text-main)"/>
                     </button>
 
                     <ProfileSection/>

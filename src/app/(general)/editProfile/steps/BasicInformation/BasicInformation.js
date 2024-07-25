@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useEditUser } from '@/app/context/EditUserContext';
+import ProfilePhoto from "@/components/forminput/ProfilePhoto/ProfilePhoto";
 import MainInput from "@/components/forminput/MainInput/MainInput";
 import CityInput from "@/components/forminput/LocationInput/CityInput";
 import SelectInput from "@/components/forminput/SelectInput/SelectInput";
@@ -8,17 +10,17 @@ import DateInput from "@/components/forminput/DateInput/DateInput";
 import style from "./BasicInformation.module.css";
 
 const BasicInformation = () => {
-  const [cityLocation, setCityLocation] = useState("");
-  const [bio, setBio] = useState("");
-  const [selectedGender, setSelectedGender] = useState("");
-  const [selectedBirthday, setSelectedBirthday] = useState("");
+  const { 
+    userData,
+    updateUserData,
+    uploadUserImage,
+    isUploadingImage
+  } = useEditUser();
+  const [selectedImage, setSelectedImage] = useState(userData.banner);
 
-  const handleGenderChange = (e) => {
-    setSelectedGender(e.target.value);
-  };
-  const handleBirthdayChange = (e) => {
-    setSelectedBirthday(e.target.value);
-  };
+  useEffect(() => {
+    setSelectedImage(userData.banner);
+  }, [userData.banner]);
 
   const options = [
     { value: "", label: "Select" },
@@ -26,43 +28,54 @@ const BasicInformation = () => {
     { value: "male", label: "Male" },
   ];
 
+  const handleImageChange = (newImage) => {
+    setSelectedImage(newImage);
+    uploadUserImage(newImage);
+  };
+
   return (
     <div className={style.formContainer}>
       <form className={style.formContainerInner}>
+        <ProfilePhoto 
+          initialImage={userData.avatar}
+          isUploadingImage={isUploadingImage}
+          selectedImage={selectedImage}
+          setSelectedImage={handleImageChange} />
+
         <MainInput 
           input="Full name" 
-          placeholder="Enter full name"/>
+          placeholder="Enter full name"
+          value={userData.fullName}
+          onChange={(e) => updateUserData({ fullName: e.target.value})}/>
 
         <MainInput
           type="textarea"
           placeholder="Tell People about yourself" 
           input="Bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}/>
+          maxLength={150}
+          value={userData.bio}
+          onChange={(e) => updateUserData({ bio: e.target.value})}/>
 
         <CityInput
           label="Location"
           placeholder="Enter city"
-          cityLocation={cityLocation}
-          setCityLocation={(value) => handleInputChange({ target: { name: 'cityLocation', value } })}
-          setLatLocation={(value) => handleInputChange({ target: { name: 'latLocation', value } })}
-          setLngLocation={(value) => handleInputChange({ target: { name: 'lngLocation', value } })}
-        />
+          cityLocation={userData.city}
+          setCityLocation={(city) => updateUserData({ city: city })}
+          setLatLocation={(lat) => updateUserData({ lat: lat })}
+          setLngLocation={(lng) => updateUserData({ lng: lng })} />
 
         <SelectInput
           label="Gender"
           name="gender"
           options={options}
-          value={selectedGender}
-          onChange={handleGenderChange}
-        />
+          value={userData.gender}
+          onChange={(e) => updateUserData({ gender: e.target.value})} />
 
         <DateInput
           label="Birthday"
           name="birthday"
-          value={selectedBirthday}
-          onChange={handleBirthdayChange}
-        />
+          value={userData.birthday}
+          onChange={(e) => updateUserData({ birthday: e.target.value})} />
       </form>
     </div>
   );
