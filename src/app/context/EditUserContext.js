@@ -50,6 +50,7 @@ export const EditUserProvider = ({ children, user, activeTab }) => {
     const uploadUserImage = useCallback(async (imageData) => {
         setIsUploadingImage(true);
         try {
+            console.log('uploading image');
             // const result = await updateUserImage(user.unique_url, { avatar: imageData });
             // updateUserData({ avatar: result.banner });
             // return result;
