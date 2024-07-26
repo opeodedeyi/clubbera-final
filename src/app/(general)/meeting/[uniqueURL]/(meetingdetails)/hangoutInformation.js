@@ -1,9 +1,10 @@
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import attendee1 from "../../../../../../public/attendee1.png";
 import style from "./hangoutInformation.module.css";
-import { PiCalendarDotsThin, PiSpeakerSimpleSlashThin } from "react-icons/pi";
+import { PiCalendarDotsThin } from "react-icons/pi";
 import { CiLocationOn } from "react-icons/ci";
 import Image from "next/image";
+import AnnouncementSection from "./announcementSection";
 const HangoutInformation = () => {
   return (
     <>
@@ -47,6 +48,7 @@ const HangoutInformation = () => {
               </div>
             </div>
             <hr className={style.vertcalLine} />
+            <hr className={style.horizontalLine} />
             <div className={style.hangoutTime}>
               <div className={style.Icons}>
                 <CiLocationOn className={style.mainIcons} />
@@ -60,12 +62,8 @@ const HangoutInformation = () => {
             </div>
           </div>
         </div>
-        <div className={style.announcementContainer}>
-          <p>Announcements</p>
-          <div className={style.announcementWrapper}>
-            <PiSpeakerSimpleSlashThin className={style.speakerIcon} />
-            <p>There are no announcements for this event</p>
-          </div>
+        <div className={style.AnnouncementSection}>
+          <AnnouncementSection />
         </div>
       </div>
     </>

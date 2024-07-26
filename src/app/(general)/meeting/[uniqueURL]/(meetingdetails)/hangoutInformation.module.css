@@ -3,14 +3,15 @@
   padding: 0 90px;
   display: flex;
   margin-top: 1rem;
-  gap: 2rem;
+  gap: 2rem; 
+  overflow: hidden;
 }
 .hangoutInformationWrapper {
   width: 50%;
 }
 .hostInformationContainer {
   border: 1px solid var(--bright-color-background);
-  padding: 1rem;
+  padding: 1.9rem;
   border-radius: 4px;
 }
 .hostInformationContainer > p {
@@ -48,7 +49,7 @@
 }
 .hangoutLocation {
   border: 1px solid var(--bright-color-background);
-  padding: 1rem;
+  padding: 1.9rem;
   border-radius: 4px;
   margin-top: 2rem;
   display: flex;
@@ -81,42 +82,15 @@
   color: var(--color-placeholder);
 }
 .vertcalLine {
-  width: 2px;
-  background-color: yellow;
-  height: 100%;
-  display: inline-block;
+  width: 0.5px;
+  height: 3rem;
+  background-color: var(--bright-color-background);
 }
-.announcementContainer {
-  border: 1px solid var(--bright-color-background);
-  padding: 1rem;
-  border-radius: 4px;
-  width: 35rem;
-  height: auto;
+.horizontalLine {
+  display: none;
 }
-.announcementContainer > p {
-  font-weight: 500;
-  font-size: 16px;
-  color: var(--color-dark-two);
-}
-.announcementWrapper {
-  border: 1px solid var(--bright-color-background);
-  padding: 1rem;
-  border-radius: 4px;
-  padding: 1.5rem;
-
-  height: 10rem;
-  margin-top: 1rem;
-  text-align: center;
-  color: var(--color-placeholder);
-}
-.announcementWrapper > p {
-  font-weight: 400;
-  font-size: 16px;
-  color: var(--color-placeholder);
-}
-.speakerIcon {
-  font-size: 2rem;
-  margin-top: 2rem;
+.AnnouncementSection {
+    width: 50%;
 }
 @media screen and (max-width: 700px) {
   .hangoutInformationContainer {
@@ -140,19 +114,35 @@
   .hangoutLocation {
     display: block;
   }
-  .announcementContainer {
-    width: 100%;
-    margin-top: 2rem;
+  .vertcalLine {
+    display: none;
   }
+  .horizontalLine {
+    border: 0;
+    height: 1px;
+    background: var(--bright-color-background);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  .AnnouncementSection {
+    width: 100%;
 }
-@media screen and (max-width: 900px) {
+}
+@media screen and (min-width: 700px) and (max-width: 900px) {
   .hangoutInformationContainer {
     padding: 1.5rem;
   }
-  .hangoutInformationWrapper {
-    width: 60%;
-  }
   .hostProfileName {
     line-height: 1rem;
+  }
+  .hostInformationContainer {
+  padding: 1rem;
+}
+.hangoutLocation {
+  padding: 1rem;
+}
+ .vertcalLine {
+    display: none;
   }
 }
