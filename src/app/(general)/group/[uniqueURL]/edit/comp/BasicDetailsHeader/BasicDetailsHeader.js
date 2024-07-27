@@ -3,6 +3,7 @@
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useQueryParams } from "@/hooks/useQueryParams";
 import CreateMeeting from "@/app/(general)/createMeeting/CreateMeeting";
+import EditMeeting from "@/app/(general)/editMeeting/EditMeeting";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import Modal from "@/components/popup/Modal/Modal";
 import style from "./BasicDetailsHeader.module.css";
@@ -51,7 +52,8 @@ export default function BasicDetailsHeader({ group }) {
       </div>
 
       <Modal isOpen={isModalOpen} onClose={closeModal} maxWidth="775px" displayType="rightSide" hasBack={true}>
-        <CreateMeeting/>
+        {/* <CreateMeeting/> */}
+        <EditMeeting/>
       </Modal>
     </>
   );

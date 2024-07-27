@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+
+.column {
+    flex: 1;
+    box-sizing: border-box;
+}
+  
+@media (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+    
+    .column {
+        flex: none;
+        width: 100%;
+    }
+}
