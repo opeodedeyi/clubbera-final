@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    display: flex;
+    gap: 24px;
+}
+
+.column {
+    flex: 1;
+    box-sizing: border-box;
+}
+  
+@media (max-width: 500px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .alwaysSplit {
+        flex-direction: row;
+    }
+    
+    .column {
+        flex: none;
+        width: 100%;
+    }
+    
+    .alwaysSplit .column {
+        flex: 1;
+    }
+}

@@ -2,6 +2,7 @@
 
 import { A_COOKIE_NAME } from "@/constants";
 import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
+import { redirect } from 'next/navigation';
 import { cookies } from "next/headers";
 
 const API_URL = process.env.API_URL;
@@ -20,6 +21,13 @@ async function fetchGroupData(endpoint, timeout) {
             },
         }, timeout);
 
+        console.log(response.status);
+
+        
+        // if (response.status == 401) {
+        //     return redirect('/login')
+        // }
+
         if (!response.ok) {
             throw new Error('Failed to fetch group details');
         }
@@ -35,7 +43,7 @@ async function fetchGroupData(endpoint, timeout) {
 }
 
 export async function getGroupDetailsEdit(groupUniqueURL) {
-    return fetchGroupData(`/group/${groupUniqueURL}/edit`, 3000);
+    return fetchGroupData(`/group/${groupUniqueURL}/edit`, 5000);
 }
 
 export async function getGroupDetails(groupUniqueURL) {

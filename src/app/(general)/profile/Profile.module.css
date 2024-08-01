@@ -22,6 +22,6 @@
   .profileDetailsContainer {
     flex-direction: column;
     padding: 0;
-    gap: 32px;
+    gap: 20px;
   }
 }

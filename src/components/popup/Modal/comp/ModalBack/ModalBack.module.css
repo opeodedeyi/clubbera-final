@@ -1,0 +1,42 @@
+.backHeader {
+    background: var(--background-color);
+    padding: 0 32px;
+    height: 72px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border-color);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 102;
+}
+
+.backHeaderButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: none;
+    color: var(--color-text-main);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .desktopOnlyShow {
+        display: none;
+    }
+
+    .backHeader {
+        padding: 0 24px;
+    }
+}

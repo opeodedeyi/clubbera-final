@@ -1,0 +1,115 @@
+.heroImage {
+  padding: 0 90px;
+  width: 100%;
+}
+.MobileheroImage {
+  display: none;
+}
+.hangoutContainer {
+  width: 100%;
+  padding: 0 90px;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: space-between;
+}
+.hangoutDetailsContainer {
+  width: 60%;
+}
+.hangoutTitle {
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--color-text-input);
+}
+.attendeeImages {
+  display: flex;
+  gap: 4px;
+  margin-top: 0.5rem;
+}
+.totalAttendees {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 0.3rem;
+  letter-spacing: -1%;
+}
+.hangoutDescription {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+.rsvpContainer {
+  border: 1px solid var(--bright-color-background);
+  text-align: center;
+  padding: 0.7rem 0;
+  width: 15.7rem;
+}
+.rsvpContainer p {
+  margin-bottom: 0.5rem;
+  font-size: 13px;
+  font-weight: 400;
+}
+.rsvpButton button {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+}
+.horizontalLine {
+  border: 0;
+  height: 1px;
+  background: var(--bright-color-background);
+  margin: 20px 0;
+}
+.share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--bright-color-background);
+  border-radius: 50%;
+}
+.shareIcon {
+  font-size: 1rem;
+}
+@media screen and (max-width: 700px) {
+  .heroImage {
+    padding: 1.5rem;
+    width: 100%;
+    display: none;
+  }
+  .MobileheroImage {
+    padding: 1.5rem;
+    width: 100%;
+    display: block;
+  }
+  .hangoutContainer {
+    width: 100%;
+    padding: 1.5rem;
+    flex-direction: column;
+    margin-top: 0rem;
+  }
+  .hangoutDetailsContainer {
+    width: 100%;
+  }
+  .rsvpContainer {
+    margin-top: 1rem;
+    padding: 0.7rem 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .heroImage {
+    padding: 1.5rem;
+  }
+  .hangoutContainer {
+    width: 100%;
+    padding: 1.5rem;
+    display: flex;
+    margin-top: 0rem;
+  }
+}

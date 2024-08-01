@@ -1,0 +1,58 @@
+.timeInputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.timeInputContainer label {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.28px;
+}
+
+.timeInputWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.timeInput {
+    width: 100%;
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.32px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    height: 45px;
+    padding: 8px 32px 8px 16px;
+    align-self: stretch;
+    outline: none;
+}
+
+.clockIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-main);
+    cursor: pointer;
+}
+
+.timeInput::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 32px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.timeInput::-ms-clear {
+    display: none;
+}

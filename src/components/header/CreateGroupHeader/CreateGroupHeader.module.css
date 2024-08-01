@@ -65,12 +65,7 @@
 }
 
 .headerCreateheaderDesktopTag svg {
-    width: 18px;
-    height: 18px;
-}
-
-.headerCreateheaderDesktopTag svg path {
-    stroke: var(--color-text-secondary);
+    color: var(--color-text-secondary);
 }
 
 .headerCreateheaderDesktopTag p {
@@ -92,8 +87,8 @@
     z-index: 11;
 }
 
-.createheaderDesktopTagIscolored svg path {
-    stroke: var(--main-color);
+.createheaderDesktopTagIscolored svg {
+    color: var(--main-color);
 }
 
 .createheaderDesktopTagIscolored p {
