@@ -1,0 +1,16 @@
+.searchContainer {
+  width: 100%;
+  padding: 80px 90px;
+  display: inline-flex;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 768px) {
+  .searchContainer {
+    padding: 60px  90px;
+  }
+}
