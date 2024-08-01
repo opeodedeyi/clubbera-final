@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useQueryParams } from "@/hooks/useQueryParams";
 import Modal from "@/components/popup/Modal/Modal";
-import EditProfile from "@/app/(general)/editProfile/EditProfile";
+import EditProfile from "@/app/(general)/editProfile/editProfile";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import Style from "./ProfileHeader.module.css";
 
