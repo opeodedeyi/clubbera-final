@@ -1,7 +1,7 @@
 .dateInputContainer {
-    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    gap: 8px;
 }
 
 .dateInputContainer label {
@@ -11,6 +11,11 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.28px;
+}
+
+.dateInputWrapper {
+    position: relative;
+    width: 100%;
 }
 
 .dateInput {
@@ -24,8 +29,35 @@
     border-radius: 8px;
     border: 1px solid var(--border-color);
     height: 45px;
-    padding: 8px 16px;
+    padding: 8px 32px 8px 16px;
     align-self: stretch;
     outline: none;
-    margin-bottom: 1.5rem;
+    /* margin-bottom: 1.5rem; */
+}
+
+.calendarIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-main);
+    cursor: pointer;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    width: 32px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+/* .dateInput {
+    -moz-appearance: textfield;
+} */
+
+.dateInput::-ms-clear {
+    display: none;
 }

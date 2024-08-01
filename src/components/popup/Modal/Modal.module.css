@@ -1,0 +1,59 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.modal {
+    background-color: var(--background-color);
+    width: 100%;
+    z-index: 101;
+    overflow-y: auto;
+}
+
+.leftSide {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+}
+
+.centerSide {
+    height: 100%;
+}
+
+.rightSide {
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: right 0.3s ease-in-out;
+}
+
+.leftSide.modalOpen {
+    left: 0;
+}
+
+.rightSide.modalOpen {
+    right: 0;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}

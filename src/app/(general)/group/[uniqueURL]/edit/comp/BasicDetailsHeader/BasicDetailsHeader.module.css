@@ -1,7 +1,16 @@
+.basicDetailsWrapper {
+    padding: 40px var(--container-padding);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
+}
+
 .basicDetails {
     display: flex;
     width: 100%;
-    padding: 40px var(--container-padding);
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
@@ -58,8 +67,14 @@
 }
 
 @media screen and (max-width: 768px) {
+    .basicDetailsWrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 40px var(--container-padding);
+        gap: 24px;
+    }
+
     .basicDetails {
-        padding: 18px var(--container-padding);
         gap: 12px;
     }
 

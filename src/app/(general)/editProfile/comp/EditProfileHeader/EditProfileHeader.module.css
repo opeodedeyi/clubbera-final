@@ -1,0 +1,55 @@
+.editHeaderContainer {
+    background-color: var(--background-color);
+    padding: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 72px;
+    z-index: 102;
+    gap: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+  
+.editProfileText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+  
+.editProfileText > h4 {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+    color: var(--color-text-secondary);
+}
+  
+.editProfileText > p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.32px;
+}
+  
+@media screen and (max-width: 768px) {
+    .editHeaderContainer {
+        padding: 24px;
+    }
+  
+    .editProfileText > h4 {
+        font-size: 20px;
+    }
+  
+    .editProfileText > p {
+        font-size: 14px;
+    }
+  
+    .desktopOnlyShow {
+        display: none;
+    }
+}
+  
