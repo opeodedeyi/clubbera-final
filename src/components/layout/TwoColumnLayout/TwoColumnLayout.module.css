@@ -13,9 +13,17 @@
     .container {
         flex-direction: column;
     }
+
+    .alwaysSplit {
+        flex-direction: row;
+    }
     
     .column {
         flex: none;
         width: 100%;
+    }
+    
+    .alwaysSplit .column {
+        flex: 1;
     }
 }

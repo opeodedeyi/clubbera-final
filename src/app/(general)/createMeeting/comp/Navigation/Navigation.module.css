@@ -1,40 +1,17 @@
-.headerCreate {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    z-index: 10;
-    background-color: var(--background-color);
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.headerAlt {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    z-index: 10;
-    height: 72px;
-    padding: 0 var(--container-padding);
-    background-color: var(--background-color);
-    justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.headerAltArrow {
-    display: none;
-}
-
 .headerCreategroup {
     display: flex;
-    padding: 0 var(--container-padding);
-    justify-content: center;
+    padding: 0 32px;
+    justify-content: flex-start;
     align-items: center;
     flex-shrink: 0;
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid var(--border-shadow);
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 102;
+    top: 72px;
+    background-color: var(--background-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .headerCreateheaderDesktop {
@@ -42,7 +19,7 @@
     height: 100%;
     max-width: 566px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 24px;
     flex-shrink: 0;
@@ -77,16 +54,6 @@
     letter-spacing: -0.48px;
 }
 
-.headerCreateheaderDesktopTag .horizonLine {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    border-radius: 100px;
-    z-index: 11;
-}
-
 .createheaderDesktopTagIscolored svg {
     color: var(--main-color);
 }
@@ -96,24 +63,9 @@
     font-weight: 500;
 }
 
-.createheaderDesktopTagIscolored .horizonLine {
-    background-color: var(--main-color);
-}
-
 @media screen and  (max-width: 768px) {
-    .headerAlt {
-        height: 60px;
-    }
-
-    .headerAltArrow {
-        display: block;
-    }
-
-    .headerAltText {
-        display: none;
-    }
-    
     .headerCreategroup {
+        padding: 0 24px;
         height: 48px;
     }
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEditMeeting } from '@/app/context/EditMeetingContext';
+import { useCreateMeeting } from '@/app/context/CreateMeetingContext';
 import TwoColumnLayout from "@/components/layout/TwoColumnLayout/TwoColumnLayout";
 import MainInput from "@/components/forminput/MainInput/MainInput";
 import AddressInput from "@/components/forminput/LocationInput/AddressInput";
@@ -13,8 +13,8 @@ import style from "./EditMeeting.module.css";
 export default function BasicDetails() {
     const { 
         meetingData,
-        updateMeetingData,
-    } = useEditMeeting();
+        createMeetingData,
+    } = useCreateMeeting();
 
     return (
         <div className={style.formContainer}>
@@ -23,42 +23,42 @@ export default function BasicDetails() {
                     input="Title" 
                     placeholder="Enter event title"
                     value={meetingData.title}
-                    onChange={(e) => updateMeetingData({ title: e.target.value})}/>
+                    onChange={(e) => createMeetingData({ title: e.target.value})}/>
 
                 <MainInput
                     type="textarea"
                     placeholder="Tell people about the event" 
                     input="Description"
                     value={meetingData.description}
-                    onChange={(e) => updateMeetingData({ description: e.target.value})}/>
+                    onChange={(e) => createMeetingData({ description: e.target.value})}/>
 
                 <AddressInput
                     label="Location"
                     placeholder="Enter Location"
                     cityLocation={meetingData.location}
-                    setCityLocation={(location) => updateMeetingData({ location: location })}
-                    setLatLocation={(lat) => updateMeetingData({ lat: lat })}
-                    setLngLocation={(lng) => updateMeetingData({ lng: lng })}/>
+                    setCityLocation={(location) => createMeetingData({ location: location })}
+                    setLatLocation={(lat) => createMeetingData({ lat: lat })}
+                    setLngLocation={(lng) => createMeetingData({ lng: lng })}/>
 
                 <TwoColumnLayout>
                     <DateInput
                         label="Date of meeting?"
                         name="date_of_meeting"
                         value={meetingData.date_of_meeting}
-                        onChange={(e) => updateMeetingData({ date_of_meeting: e.target.value})} />
+                        onChange={(e) => createMeetingData({ date_of_meeting: e.target.value})} />
 
                     <TimeInput
                         label="Time"
                         name="time_of_meeting"
                         value={meetingData.time_of_meeting}
-                        onChange={(e) => updateMeetingData({ time_of_meeting: e.target.value})} />
+                        onChange={(e) => createMeetingData({ time_of_meeting: e.target.value})} />
                 </TwoColumnLayout>
 
                 <DurationInput
                     label="How long is the meeting?"
                     name="duration"
                     value={meetingData.duration}
-                    onChange={(value) => updateMeetingData({ duration: value })} />
+                    onChange={(value) => createMeetingData({ duration: value })} />
             </div>
         </div>
     );

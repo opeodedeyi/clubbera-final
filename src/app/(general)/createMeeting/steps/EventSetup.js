@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useEffect } from 'react';
-import { useEditMeeting } from '@/app/context/EditMeetingContext';
+import { useCreateMeeting } from '@/app/context/CreateMeetingContext';
 import MainInput from "@/components/forminput/MainInput/MainInput";
 import SingleImageUpload from "@/components/forminput/ImageUpload/SingleImageUpload";
 import style from "./EditMeeting.module.css";
@@ -9,22 +9,15 @@ import style from "./EditMeeting.module.css";
 export default function EventSetup() {
     const {
         meetingData,
-        updateMeetingData,
-        uploadMeetingImage,
-        isUploadingImage,
-    } = useEditMeeting();
-    const [selectedImage, setSelectedImage] = useState(meetingData.banner);
+        createMeetingData,
+        isUploadingImage
+    } = useCreateMeeting();
     const [imageName, setImageName] = useState('');
     const [imageSize, setImageSize] = useState('');
 
-    useEffect(() => {
-        setSelectedImage(meetingData.banner);
-    }, [meetingData.banner]);
-
-    const handleImageChange = (newImage) => {
-        setSelectedImage(newImage);
-        uploadMeetingImage(newImage);
-    };
+    const handleImageUpload = useCallback((dataUrl) => {
+        createMeetingData({ banner: dataUrl });
+    }, [createMeetingData]);
 
     return (
         <div className={style.formContainer}>
@@ -32,8 +25,8 @@ export default function EventSetup() {
                 <SingleImageUpload
                     hasChange
                     isUploadingImage={isUploadingImage}
-                    selectedImage={selectedImage}
-                    setSelectedImage={handleImageChange}
+                    selectedImage={meetingData.banner}
+                    setSelectedImage={handleImageUpload}
                     imageName={imageName}
                     setImageName={setImageName}
                     imageSize={imageSize}
@@ -46,7 +39,7 @@ export default function EventSetup() {
                     input="what is the maximum number of people that can attend?"
                     name="quantity"
                     value={meetingData.capacity}
-                    onChange={(e) => updateMeetingData({ capacity: e.target.value})}
+                    onChange={(e) => createMeetingData({ capacity: e.target.value})}
                     min={0}
                     max={1000}
                     step={1} />
@@ -56,8 +49,8 @@ export default function EventSetup() {
                     placeholder="Tell people how to easily find the venue" 
                     input="How can people find the venue?"
                     maxLength={250}
-                    value={meetingData.description}
-                    onChange={(e) => updateMeetingData({ description: e.target.value})}/>
+                    value={meetingData.location_helper}
+                    onChange={(e) => createMeetingData({ location_helper: e.target.value})}/>
             </div>
         </div>
     );

@@ -33,10 +33,12 @@ export const EditMeetingProvider = ({ children, meeting }) => {
         try {
             if (currentTab === 'basicDetails') {
                 console.log('changing meeting details');
+                console.log(meetingData.duration);
                 // const result = await updateUser(user.unique_url, userData);
                 // return result;
             } else if (currentTab === 'eventSetup') {
                 console.log('changing password');
+                console.log(meetingData.duration);
                 // const result = await changePassword(user.unique_url, userData);
                 // return result;
             }
