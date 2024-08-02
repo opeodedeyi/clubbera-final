@@ -7,10 +7,13 @@
   flex-direction: column;
   overflow: hidden;
 }
-
-
+@media screen and (max-width: 900px) {
+   .searchContainer {
+    padding: 60px  2rem;
+  }
+}
 @media screen and (max-width: 768px) {
   .searchContainer {
-    padding: 60px  90px;
+    padding: 60px  1rem;
   }
 }
