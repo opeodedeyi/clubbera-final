@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { fetchUsers, acceptUser, rejectUser } from '@/app/actions/groupRequest';
 import RequestsTable from "../../comp/RequestsTable/RequestsTable";
+import Pagination from '@/components/utility/Pagination/Pagination';
 import LoadingSpinner from '@/components/animation/LoadingSpinner/LoadingSpinner';
 import style from './RequestsSection.module.css';
 
@@ -11,7 +12,7 @@ import style from './RequestsSection.module.css';
 const RequestsSection = () => {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    // const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
     const uniqueURL = params.uniqueURL;
@@ -24,14 +25,26 @@ const RequestsSection = () => {
     const loadUsers = async () => {
         setIsLoading(true);
         try {
-            const users = await fetchUsers(uniqueURL, currentPage);
-            setUsers(users);
-            // setTotalPages(totalPages);
+            const { requests, pagination } = await fetchUsers(uniqueURL, currentPage);
+            setUsers(requests);
+            setTotalPages(pagination.totalPages);
         } catch (error) {
             console.error('Error loading users:', error);
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const goToNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+    };
+
+    const goToPreviousPage = () => {
+        setCurrentPage((prev) => prev - 1);
+    };
+
+    const goToPage = (page) => {
+        setCurrentPage(page);
     };
 
     const handleAccept = async (userId) => {
@@ -75,7 +88,12 @@ const RequestsSection = () => {
                     </div>
                 )}
                 
-                {/* Pagination component goes here */}
+                <Pagination
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    goToNextPage={goToNextPage}
+                    goToPreviousPage={goToPreviousPage}
+                    goToPage={goToPage}/>
             </div>
         </div>
     );

@@ -13,6 +13,7 @@
     align-items: flex-start;
     border-radius: 8px;
     border: 1px solid var(--border-color);
+    overflow: hidden;
 }
 
 .editMembersHeader {
@@ -39,6 +40,7 @@
     overflow: scroll;
     -ms-overflow-style: none;
     scrollbar-width: none;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .editMembersTableContainer::-webkit-scrollbar {

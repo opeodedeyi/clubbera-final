@@ -7,10 +7,10 @@ import Image from 'next/image';
 import style from './mobileNav.module.css';
 
 
-function NavLink({text, link, svg}) {
+function NavLink({text, link, svg, closeNav}) {
     return (
         <li>
-            <Link href={link} className={style.navLinkItem}>
+            <Link href={link} className={style.navLinkItem} onClick={closeNav}>
                 <div className={style.navLinkText}>
                     <div className={style.navLinkIcon}>
                         {svg}
@@ -68,7 +68,12 @@ export default function MobileNav({ isOpen, closeNav }) {
 
                 <ul className={style.mobileNavBodyBottom}>
                     {links.map((item, index) => 
-                        <NavLink key={index} text={item.text} link={item.link} svg={item.svg}/>
+                        <NavLink
+                            key={index}
+                            text={item.text}
+                            link={item.link}
+                            svg={item.svg}
+                            closeNav={closeNav}/>
                     )}
                 </ul>
             </div>

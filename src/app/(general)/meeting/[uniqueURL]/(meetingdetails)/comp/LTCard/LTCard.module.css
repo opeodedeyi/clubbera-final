@@ -1,0 +1,31 @@
+.hangoutLTContainer {
+    display: flex;
+    gap: 16px;
+}
+
+.Icons {
+    border: 1px solid var(--border-color);
+    height: 30px;
+    width: 30px;
+    padding: 6px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hangoutLTText {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.hangoutLTTitle {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+.hangoutLTContent {
+    font-size: 0.875rem;
+}

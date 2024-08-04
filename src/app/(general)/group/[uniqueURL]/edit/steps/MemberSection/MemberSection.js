@@ -5,6 +5,7 @@ import { useRouter, useParams } from 'next/navigation';
 import { fetchUsers } from '@/app/actions/groupMembers';
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import MembersTable from "../../comp/MembersTable/MembersTable";
+import Pagination from '@/components/utility/Pagination/Pagination';
 import LoadingSpinner from '@/components/animation/LoadingSpinner/LoadingSpinner';
 import style from './MemberSection.module.css';
 
@@ -12,7 +13,7 @@ import style from './MemberSection.module.css';
 const MemberSection = () => {
     const [users, setUsers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    // const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
     const uniqueURL = params.uniqueURL;
@@ -25,14 +26,26 @@ const MemberSection = () => {
     const loadUsers = async () => {
         setIsLoading(true);
         try {
-            const users = await fetchUsers(uniqueURL, currentPage);
-            setUsers(users);
-            // setTotalPages(totalPages);
+            const { members, pagination } = await fetchUsers(uniqueURL, currentPage);
+            setUsers(members);
+            setTotalPages(pagination.totalPages);
         } catch (error) {
             console.error('Error loading users:', error);
         } finally {
             setIsLoading(false);
         }
+    };
+
+    const goToNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+    };
+
+    const goToPreviousPage = () => {
+        setCurrentPage((prev) => prev - 1);
+    };
+
+    const goToPage = (page) => {
+        setCurrentPage(page);
     };
 
     return (
@@ -60,7 +73,12 @@ const MemberSection = () => {
                     )}
                 </div>
 
-                {/* pagination goes here */}
+                <Pagination
+                    totalPages={totalPages}
+                    currentPage={currentPage}
+                    goToNextPage={goToNextPage}
+                    goToPreviousPage={goToPreviousPage}
+                    goToPage={goToPage}/>
             </div>
         </div>
     );
