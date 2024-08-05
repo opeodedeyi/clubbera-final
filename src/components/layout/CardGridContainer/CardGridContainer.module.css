@@ -1,0 +1,24 @@
+.CardGridContainer {
+    container-type: inline-size;
+    width: 100%;
+}
+
+.cardGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 24px;
+    padding: 40px 16px;
+}
+
+@container (max-width: 768px) {
+    .cardGrid {
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr))
+    }
+}
+
+@container (max-width: 576px) {
+    .cardGrid {
+        grid-template-columns: 1fr;
+    }
+}

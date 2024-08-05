@@ -2,13 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { getUserCreatedGroups } from '@/app/actions/getGroups';
-import Style from "./FormedGroups.module.css";
+import CardGridContainer from '@/components/layout/CardGridContainer/CardGridContainer';
+import GroupCard from '@/components/cards/GroupCard/GroupCard';
+import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
+import GroupCardSkeleton from '@/components/cards/GroupCardSkeleton/GroupCardSkeleton';
+import Pagination from '@/components/utility/Pagination/Pagination';
 
 
 export default function FormedGroups({user}) {
     const [groups, setGroups] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState();
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -27,9 +31,46 @@ export default function FormedGroups({user}) {
             setIsLoading(false);
         }
     };
+
+    const goToNextPage = () => {
+        setCurrentPage((prev) => prev + 1);
+    };
+
+    const goToPreviousPage = () => {
+        setCurrentPage((prev) => prev - 1);
+    };
+
+    const goToPage = (page) => {
+        setCurrentPage(page);
+    };
   
     return (
-        <div>
-        </div>
+        <>
+            <CardGridContainer>
+                {isLoading ? (
+                    Array(10).fill().map((_, index) => (
+                        <GroupCardSkeleton key={index} type="grid" />
+                    ))
+                ) : groups.length > 0 ? (
+                    groups.map(group => (
+                        <GroupCard
+                            key={group.id}
+                            type="grid"
+                            group={group}/>
+                    ))
+                ) : (
+                    <NoResultCard
+                        type='grid'
+                        message='Groups you create will show here'/>
+                )}
+            </CardGridContainer>
+
+            <Pagination
+                totalPages={totalPages}
+                currentPage={currentPage}
+                goToNextPage={goToNextPage}
+                goToPreviousPage={goToPreviousPage}
+                goToPage={goToPage}/>
+        </>
     )
 }

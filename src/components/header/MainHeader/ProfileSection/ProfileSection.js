@@ -23,7 +23,11 @@ const ProfileSection = () => {
         <div className={style.headerProfilePhotoCard}>
             <Link href={profileHref} className={style.headerProfilePhotoMain}>
                 <div className={style.headerProfilePhotoCardImg}>
-                    <Image src={user?.avatar || "/profile.png"} height={40} width={40} />
+                    <Image
+                        src={user?.avatar || "/profile.png"}
+                        height={40}
+                        width={40}
+                        alt="profile photo"/>
                 </div>
                 
                 <HiOutlineChevronDown color="var(--color-text-main)" size="12px" className={style.desktopOnlyShow}/>

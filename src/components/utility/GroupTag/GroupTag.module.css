@@ -1,11 +1,11 @@
 .groupKeydetailsPermission {
     display: flex;
-    width: 80px;
+    width: 70px;
     padding: 6px 12px;
     justify-content: center;
     align-items: center;
     gap: 10px;
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
     line-height: 100%;
@@ -29,10 +29,8 @@
 
 @media screen and  (max-width: 768px) {
     .groupKeydetailsPermission {
-        width: 53px;
+        width: 62px;
         padding: 4px 10px;
-        font-size: 0.75rem;
-        letter-spacing: -0.12px;
     }
 
     .desktopOnlyShow {
