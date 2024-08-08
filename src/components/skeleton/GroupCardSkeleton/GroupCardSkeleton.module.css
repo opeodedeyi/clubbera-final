@@ -1,0 +1,106 @@
+.skeletonCard {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--background-color);
+}
+
+.flexGroupCard {
+    width: 300px;
+}
+
+.cardContent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cardContentBasic {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardContentText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cardFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardFooterMembers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.avatarWrapperMain {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.avatarWrapper {
+    height: 27px;
+    width: 27px;
+    margin-left: -10px;
+    border-radius: 100px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+.cardDate {
+    height: 14px;
+    width: 120px;
+}
+
+.cardTitle {
+    height: 24px;
+    width: 80%;
+}
+
+.cardLocation {
+    height: 14px;
+    width: 60%;
+}
+
+.cardDescription {
+    height: 76px;
+}
+
+.groupTag {
+    height: 24px;
+    width: 80px;
+}
+
+.memberCount {
+    height: 24px;
+    width: 24px;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

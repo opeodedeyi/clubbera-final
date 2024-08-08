@@ -39,7 +39,7 @@ const ProfilePhoto = ({ children, isUploadingImage, selectedImage, setSelectedIm
                 />
                 {isUploadingImage ? (
                     <div className={style.spinnerOverlay}>
-                        <LoadingSpinner />
+                        <LoadingSpinner height='24px' />
                     </div>
                 ) : (
                     <div className={style.overlay}>

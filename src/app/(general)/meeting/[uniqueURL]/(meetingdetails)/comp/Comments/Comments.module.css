@@ -1,0 +1,69 @@
+.announcementContainer {
+    border: 1px solid var(--border-color);
+    padding: 28px;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.announcementDetailsScroller {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    gap: 24px;
+}
+
+.noAnnouncementWrapper {
+    border: 1px solid var(--border-color);
+    padding: 16px 24px;
+    border-radius: 8px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.speakerIcon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+}
+
+.announcementCard {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.announcementCardHeader {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.announcementCardDivider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+@media screen and (max-width: 768px) {
+    .announcementContainer {
+        padding: 24px 16px;
+    }
+}

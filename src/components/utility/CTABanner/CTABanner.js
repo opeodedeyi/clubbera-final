@@ -2,7 +2,7 @@ import Image from "next/image";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from './CTABanner.module.css';
 
-const CTABanner = ({title, description, buttonText, image, destination}) => {
+export default function CTABanner({title, description, buttonText, image, destination}) {
     return (
         <div className={style.CTACont}>
             <div className={style.CTAContainer}>
@@ -31,5 +31,3 @@ const CTABanner = ({title, description, buttonText, image, destination}) => {
         </div>
     );
 };
-
-export default CTABanner;

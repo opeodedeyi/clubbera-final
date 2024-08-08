@@ -1,0 +1,112 @@
+.CTACont {
+    width: 100%;
+    padding: 40px var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.CTAContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    padding: 60px 20px;
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.CTAContainerTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.CTAContainerImage {
+    max-width: 200px;
+    max-height: 200px;
+    width: 100%;
+    height: 200px;
+}
+
+.CTAContainerText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.CTAContainerTextTitle {
+    width: 80%;
+    height: 48px;
+    max-width: 300px;
+}
+
+.CTAContainerTextDescription {
+    width: 90%;
+    height: 20px;
+    max-width: 400px;
+}
+
+.CTAButton {
+    width: 150px;
+    height: 40px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .CTACont {
+        padding: 24px var(--container-padding);
+    }
+
+    .CTAContainer {
+        padding: 24px 24px;
+        gap: 16px;
+    }
+
+    .CTAContainerTop {
+        gap: 12px;
+    }
+    
+    .CTAContainerImage {
+        max-width: 150px;
+        max-height: 150px;
+        height: 150px;
+    }
+
+    .CTAContainerTextTitle {
+        height: 24px;
+    }
+    
+    .CTAContainerTextDescription {
+        height: 16px;
+    }
+
+    .CTAButton {
+        width: 120px;
+        height: 36px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

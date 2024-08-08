@@ -1,10 +1,9 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback, useMemo } from 'react';
 import { getUserData } from '@/app/actions/getUserData';
 
 const UserContext = createContext(null);
-
 
 export function UserProvider({ children }) {
     const [user, setUser] = useState(null);
@@ -29,13 +28,18 @@ export function UserProvider({ children }) {
         fetchUser();
     }, [fetchUser]);
 
-    const value = {
+    const updateUser = useCallback((updates) => {
+        setUser(prevUser => ({ ...prevUser, ...updates }));
+    }, []);
+
+    const value = useMemo(() => ({
         user,
         setUser,
         loading,
         error,
-        refetch: fetchUser
-    };
+        refetch: fetchUser,
+        updateUser
+    }), [user, loading, error, fetchUser, updateUser]);
 
     return (
         <UserContext.Provider value={value}>

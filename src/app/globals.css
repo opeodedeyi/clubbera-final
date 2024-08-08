@@ -1,41 +1,52 @@
 :root {
+    /* Common variables */
     --font-gt-walsheim: var(--font-gt-walsheim);
     --font-nantes: var(--font-nantes);
     --border-radius: 12px;
     --container-padding: 80px;
-    /* background color */
-    --background-color: #FFFFFF;
-    --background-color-hover: #F4F4F4;
-    --background-google-trans: #F4F4F4;
-    --google-hover: #FDFDFD;
-    /* boeder color */
-    --border-color: #F4F4F4;
-    --border-google: #F4F4F4;
+
+    /* Color palette */
+    --color-white: #FFFFFF;
+    --color-white-one: #F0F3F5;
+    --color-white-two: #F4F4F4;
+    --color-white-three: #DFDFDF;
+    --color-white-four: #FDFDFD;
+    --color-white-five: #DEDEDE;
+    --color-white-six: #F3F3F3;
+    --color-white-seven: #EAEAEA;
+    --color-dark: #241F1F;
+    --color-dark-one: #4D4A4A;
+    --color-dark-two: #625F5F;
+    --color-text: #8C8A8A;
+    --color-gray: #777474;
+    --color-gray-two: #A19F9F;
+    --color-gray-three: #CAC9C9;
+    --color-gray-dot: #B9B9B9;
+    --color-text-input: #393535;
+
+    /* Theme-specific variables */
+    --background-color: var(--color-white);
+    --background-color-hover: var(--color-white-two);
+    --background-google-trans: var(--color-white-two);
+    --google-hover: var(--color-white-four);
+    --border-color: var(--color-white-two);
+    --border-google: var(--color-white-two);
     --border-color-bright: rgba(202, 201, 201, 0.10);
     --border-shadow: rgba(235, 235, 235, 0.25);
-    /* text color */
-    --color-text-main: #777474;
-    --color-text-secondary: #241F1F; /* header */
-    --color-text-alternate: #8C8A8A;
-    --color-text-sub: #4D4A4A;
-    /* input */
-    --color-placeholder:#A19F9F;
-    /* bright color on two shades of brand color */
-    --bright-color-background: #F4F4F4;
-    --bright-color-text: #DEDEDE;
-    --bright-color-text-secondary: #F4F4F4;
-    --color-gray: #777474;
-    /* brand color which changes in dark mode */
+    --color-text-main: var(--color-gray);
+    --color-text-secondary: var(--color-dark);
+    --color-text-alternate: var(--color-text);
+    --color-text-sub: var(--color-dark-one);
+    --color-placeholder: var(--color-gray-two);
+    --bright-color-background: var(--color-white-two);
+    --bright-color-text: var(--color-white-five);
+    --bright-color-text-secondary: var(--color-white-two);
     --reactive-brand-color: #228B22;
     --reactive-brand-alternate: #228B22;
-    /* text on brand color or overlay */
-    --color-on-brand: #F0F3F5;
-    /* svg */
-    --svg-default-color: ;
-    --svg-inverse-color: ;
-    --svg-alternate-color: ;
-    --svg-sub-color: #4D4A4A;
-    /* brand colors */
+    --color-on-brand: var(--color-white-one);
+    --svg-sub-color: var(--color-dark-one);
+
+    /* Brand colors */
     --main-color: #228B22;
     --main-color-card: #1E7B1D;
     --main-color-hover: #196B18;
@@ -43,100 +54,34 @@
     --main-color-glow: #A5E2AB;
     --main-color-light: #D1FFD9;
     --main-color-tip: #EEFAEE;
-    /* other */
     --main-color-card-danger: #D03C38;
     --main-color-tip-danger: rgba(208, 60, 56, 0.06);
     --main-color-card-mild: #773800;
     --main-color-tip-mild: #FFF6EE;
     --main-color-card-calm: #003581;
     --main-color-tip-calm: #EEF5FF;
-
-    --color-white: #FFFFFF;
-    --color-white-one: #F0F3F5;
-    --color-white-two: #F4F4F4;
-    --color-white-three: #DFDFDF;
-    --color-white-four: #FDFDFD;
-    --color-white-five: #DEDEDE;
-    --color-white-six: #F3F3F3;
-    --color-white-seven: #EAEAEA;
-    --color-dark: #241F1F;
-    --color-dark-one: #4D4A4A;
-    --color-dark-two: #625F5F;
-    --color-text: #8C8A8A;
-    --color-gray: #777474;
-    --color-gray-two: #A19F9F;
-    --color-gray-three: #CAC9C9;
-    --color-gray-dot: #B9B9B9;
-    --color-text-input: #393535;
 }
 
 [data-theme="dark"] {
-    --font-gt-walsheim: var(--font-gt-walsheim);
-    --font-nantes: var(--font-nantes);
-    --border-radius: 12px;
-    --container-padding: 80px;
-    /* background color */
     --background-color: #020900;
     --background-color-hover: #030D00;
     --background-google-trans: transparent;
     --google-hover: #212923;
-    /* boeder color */
     --border-color: #212923;
     --border-google: #212923;
     --border-color-bright: rgba(202, 201, 201, 0.05);
     --border-shadow: rgba(17, 1, 1, 0.25);
-    /* text color */
     --color-text-main: #B4C2B7;
     --color-text-secondary: #DEF3E2;
     --color-text-alternate: #BECCC1;
-    --color-text-sub: #4D4A4A;
-    /* input */
-    --color-placeholder:#9EAEA2;
-    /* bright color on two shades of beand color */
-    --bright-color-background: #F4F4F4;
+    --color-placeholder: #9EAEA2;
     --bright-color-text: #B4C2B7;
     --bright-color-text-secondary: #DEF3E2;
-    --color-gray: #777474;
-    /* brand color which changes in dark mode */
     --reactive-brand-color: #030B01;
     --reactive-brand-alternate: #D1FFD9;
-    /* text on brand color or overlay */
-    --color-on-brand: #F0F3F5;
-    /* svg */
-    --svg-default-color: ;
-    --svg-inverse-color: ;
-    --svg-alternate-color: ;
-    --svg-sub-color: #4D4A4A;
-    /* brand colors */
     --main-color: #196B18;
     --main-color-card: #1E7B1D;
     --main-color-hover: #228B22;
-    --main-color-dark: #034703;
-    --main-color-glow: #A5E2AB;
-    --main-color-light: #D1FFD9;
-    --main-color-tip: #EEFAEE;
-    --main-color-card-danger: #D03C38;
-    --main-color-tip-danger: rgba(208, 60, 56, 0.06);
-    /* other */
-    --main-color-card-calm: #003581;
-    --main-color-tip-calm: #EEF5FF;
-    
-    --color-white: #FFFFFF;
-    --color-white-one: #F0F3F5;
-    --color-white-two: #F4F4F4;
-    --color-white-three: #DFDFDF;
-    --color-white-four: #FDFDFD;
-    --color-white-five: #DEDEDE;
-    --color-white-six: #F3F3F3;
-    --color-white-seven: #EAEAEA;
-    --color-dark: #241F1F;
-    --color-dark-one: #4D4A4A;
-    --color-dark-two: #625F5F;
-    --color-text: #8C8A8A;
-    --color-gray-two: #A19F9F;
-    --color-gray-three: #CAC9C9;
-    --color-gray-dot: #B9B9B9;
-    --color-text-input: #393535;
 }
 
 * {
@@ -148,34 +93,34 @@
 
 body {
     background-color: var(--background-color);
+    font-size: 16px;
 }
 
 input, textarea {
     background-color: transparent;
 }
 
-h1 {
+h1, h2, h3, h4, h5, p {
     color: var(--color-text-secondary);
-    font-size: 65px;
     font-style: normal;
-    font-weight: 500;
     line-height: 110%;
+}
+
+h1 {
+    font-size: 65px;
+    font-weight: 500;
     letter-spacing: -1.3px;
 }
 
 h2 {
-    color: var(--color-text-secondary);
     font-size: 56px;
-    font-style: normal;
     font-weight: 500;
-    line-height: 110%;
     letter-spacing: -1.12px;
 }
 
 h3 {
     color: var(--color-text-main);
     font-size: 1.5rem;
-    font-style: normal;
     font-weight: 500;
     line-height: 135%;
     letter-spacing: -0.48px;
@@ -184,7 +129,6 @@ h3 {
 h4 {
     color: var(--color-text-main);
     font-size: 2rem;
-    font-style: normal;
     font-weight: 500;
     line-height: 100%;
     letter-spacing: -0.64px;
@@ -194,9 +138,7 @@ h4 {
 }
 
 h5 {
-    color: var(--color-text-secondary);
     font-size: 1rem;
-    font-style: normal;
     font-weight: 500;
     line-height: 100%;
     letter-spacing: 0.32px;
@@ -205,12 +147,11 @@ h5 {
 
 p {
     color: var(--color-text-main);
-    font-size: 1.125rem;
-    font-style: normal;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 135%;
     letter-spacing: -0.4px;
-} 
+}
 
 .spicy-text {
     font-family: var(--font-nantes);
@@ -228,47 +169,31 @@ p {
     color: var(--main-color);
 }
 
-body {
-    font-size: 16px;
-}
-
-@media screen and  (max-width: 900px) {
+@media screen and (max-width: 900px) {
     :root {
         --border-radius: 12px;
         --container-padding: 24px;
     }
 
-    h1 {
+    h1, h2 {
         font-size: 2.5rem;
         letter-spacing: -0.8px;
     }
-    
-    h2 {
-        font-size: 2.5rem;
-        letter-spacing: -0.8px;
-    }
-    
+
     h3 {
         font-size: 1.25rem;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 135%;
-        letter-spacing: -0.48px;
     }
 
     h4 {
         font-size: 22px;
-        font-style: normal;
-        font-weight: 500;
         line-height: 135%;
         letter-spacing: -0.44px;
     }
 
     h5 {
-        font-size: 1rem;
         letter-spacing: -0.28px;
     }
-    
+
     p {
         font-size: 0.875rem;
         letter-spacing: -0.28px;

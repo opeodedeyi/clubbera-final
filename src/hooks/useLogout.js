@@ -5,7 +5,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { useUser } from '@/app/context/UserContext';
 
 
-const acceeptedRoutes = ['/login', '/register', '/forgot-password', '/', '/group/:uniqueURL'];
+const acceeptedRoutes = ['/login', '/register', '/forgot-password', '/'];
 
 export function useLogout() {
     const router = useRouter();

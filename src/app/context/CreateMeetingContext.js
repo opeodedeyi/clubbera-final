@@ -1,11 +1,15 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback } from 'react';
-// import { updateUser, changePassword, updateUserImage } from '@/app/actions/updateGroup';
+import { useQueryParams } from "@/hooks/useQueryParams";
+import { useRouter } from 'next/navigation';
+import { createMeeting } from '@/app/actions/createMeeting';
 
 const CreateMeetingContext = createContext();
 
-export const CreateMeetingProvider = ({ children, uniqueUrl }) => {
+export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
+    const router = useRouter();
+    const { removeQueryParam } = useQueryParams();
     const [meetingData, setMeetingData] = useState({
         title: '',
         description: '',
@@ -13,14 +17,18 @@ export const CreateMeetingProvider = ({ children, uniqueUrl }) => {
         time_of_meeting: null,
         duration: null,
         capacity: null,
+        banner: null,
         location: '',
         lat: null,
         lng: null,
-        banner: null,
-        location_helper: null,
+        location_details: null,
     });
     const [isCreatingMeeting, setIsCreatingMeeting] = useState(false);
     const [currentTab, setCurrentTab] = useState(1);
+
+    const closeModal = useCallback(() => {
+        router.push(`?${removeQueryParam('createMeeting')}`, { scroll: false });
+    }, [router, removeQueryParam]);
 
     const createMeetingData = useCallback((newData) => {
         setMeetingData(prevData => ({ ...prevData, ...newData }));
@@ -29,11 +37,25 @@ export const CreateMeetingProvider = ({ children, uniqueUrl }) => {
     const submitMeetingData = useCallback(async () => {
         setIsCreatingMeeting(true);
         try {
-            console.log('creating meeting details');
-            console.log(meetingData);
+            const data = await createMeeting(groupUniqueUrl, meetingData);
+            setMeetingData(prevData => ({
+                ...prevData,
+                title: '',
+                description: '',
+                date_of_meeting: null,
+                time_of_meeting: null,
+                duration: null,
+                capacity: null,
+                banner: null,
+                location: '',
+                lat: null,
+                lng: null,
+                location_details: null,
+            }));
+            closeModal();
         } catch (error) {
-            // console.error('Error saving user data:', error);
-            // throw error;
+            console.error('Error saving user data:', error);
+            throw error;
         } finally {
             setIsCreatingMeeting(false);
         }

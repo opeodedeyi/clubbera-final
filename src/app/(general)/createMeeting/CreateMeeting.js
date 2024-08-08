@@ -7,7 +7,7 @@ import CreateMeetingContent from './CreateMeetingContent';
 
 export default function CreateMeeting({uniqueUrl}) {
     return (
-        <CreateMeetingProvider uniqueUrl={uniqueUrl}>
+        <CreateMeetingProvider groupUniqueUrl={uniqueUrl}>
             <CreateMeetingHeader/>
             <CreateMeetingNavigation/>
             <CreateMeetingContent/>

@@ -34,10 +34,10 @@ async function fetchGroupData(endpoint, timeout) {
     }
 }
 
-export async function getUserCreatedGroups(userUniqueURL) {
-    return fetchGroupData(`/user/${userUniqueURL}/createdgroups`, 3000);
+export async function getUserCreatedGroups(userUniqueURL, currentPage) {
+    return fetchGroupData(`/user/${userUniqueURL}/createdgroups?page=${currentPage}`, 3000);
 }
 
-export async function getUserJoinedGroups(userUniqueURL) {
-    return fetchGroupData(`/user/${userUniqueURL}/joinedgroups`, 3000);
+export async function getUserJoinedGroups(userUniqueURL, currentPage) {
+    return fetchGroupData(`/user/${userUniqueURL}/joinedgroups?page=${currentPage}`, 3000);
 }
