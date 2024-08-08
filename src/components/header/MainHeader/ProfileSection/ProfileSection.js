@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo, useCallback, memo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -9,15 +10,22 @@ import { useLogout } from '@/hooks/useLogout';
 import style from "./ProfileSection.module.css";
 
 
-const ProfileSection = () => {
+const ProfileSection = memo(() => {
     const { user } = useUser();
     const logout = useLogout();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
-    const profileHref = pathname === '/profile' 
-        ? `/profile?${searchParams.toString()}`
-        : '/profile';
+    const profileHref = useMemo(() => {
+        return pathname === '/profile' 
+            ? `/profile?${searchParams.toString()}`
+            : '/profile?profileTab=joinedGroups&currentEditTab=basicInfo';
+    }, [pathname, searchParams]);
+
+    const handleLogout = useCallback((e) => {
+        e.preventDefault();
+        logout();
+    }, [logout]);
 
     return (
         <div className={style.headerProfilePhotoCard}>
@@ -37,7 +45,7 @@ const ProfileSection = () => {
                 <div className={style.headerProfileDropdownSpace}></div>
                 <ul>
                     <li>
-                        <div onClick={logout} className={style.headerProfileDropdownLink}>
+                        <div onClick={handleLogout} className={style.headerProfileDropdownLink}>
                             <HiOutlineLogin size={16} />
                             <span>Logout</span>
                         </div>
@@ -52,6 +60,8 @@ const ProfileSection = () => {
             </div>
         </div>
     );
-};
+});
+
+ProfileSection.displayName = 'ProfileSection';
 
 export default ProfileSection;

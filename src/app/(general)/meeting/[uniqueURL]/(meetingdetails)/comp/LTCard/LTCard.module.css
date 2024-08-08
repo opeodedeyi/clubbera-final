@@ -1,4 +1,5 @@
 .hangoutLTContainer {
+    width: 50%;
     display: flex;
     gap: 16px;
 }
@@ -28,4 +29,10 @@
 
 .hangoutLTContent {
     font-size: 0.875rem;
+}
+
+@media screen and (max-width: 992px) {
+    .hangoutLTContainer {
+        width: 100%;
+    }
 }

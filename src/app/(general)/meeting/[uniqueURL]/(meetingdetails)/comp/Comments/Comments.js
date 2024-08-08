@@ -1,4 +1,3 @@
-import { announcements } from "../../data";
 import { HiOutlineSpeakerXMark } from "react-icons/hi2";
 import style from "./Comments.module.css";
 

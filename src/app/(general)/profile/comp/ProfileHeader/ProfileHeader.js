@@ -6,7 +6,7 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import Modal from "@/components/popup/Modal/Modal";
 import EditProfile from "@/app/(general)/editProfile/editProfile";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
-import Style from "./ProfileHeader.module.css";
+import style from "./ProfileHeader.module.css";
 
 
 export default function ProfileHeader({user}){
@@ -26,9 +26,9 @@ export default function ProfileHeader({user}){
 
     return (
         <>
-            <div className={Style.profileHeader}>
-                <div className={Style.profileHeaderDetails}>
-                    <div className={Style.profileHeaderDetailsPP}>
+            <div className={style.profileHeader}>
+                <div className={style.profileHeaderDetails}>
+                    <div className={style.profileHeaderDetailsPP}>
                         <Image
                             src={user?.avatar || "/profile.png"} 
                             width={100} 
@@ -36,7 +36,7 @@ export default function ProfileHeader({user}){
                             alt="profile photo"/>
                     </div>
 
-                    <div className={Style.profileHeaderDetailsText}>
+                    <div className={style.profileHeaderDetailsText}>
                         <h4>{user?.full_name}</h4>
                         
                         <p>{user?.bio || ""}</p>

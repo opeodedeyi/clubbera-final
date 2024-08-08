@@ -31,7 +31,7 @@
     background-color: var(--border-color);
 }
   
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 992px) {
     .hostInformationContainer {
         padding: 24px 16px;
     }

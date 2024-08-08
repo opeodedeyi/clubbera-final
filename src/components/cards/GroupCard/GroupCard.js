@@ -1,12 +1,21 @@
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { formatDateLong } from '@/utils/dateUtils';
 import GroupTag from '@/components/utility/GroupTag/GroupTag';
 import style from './GroupCard.module.css';
 
 export default function GroupCard({ type, group }) {
+    const router = useRouter();
+
+    const goToGroup = () => {
+        router.push(`/group/${group.unique_url}`, { scroll: false });
+    }
+    
     return (
-        <div className={type === "grid" ? style.gridGroupCard : style.flexGroupCard}>
+        <div
+            className={type === "grid" ? style.gridGroupCard : style.flexGroupCard}
+            onClick={goToGroup}>
             <div className={style.cardContent}>
                 <div className={style.cardContentBasic}>
                     <p className={style.cardDate}>{formatDateLong(group.date_joined)}</p>

@@ -1,29 +1,33 @@
 'use client';
 
-import { useUser } from "@/app/context/UserContext";
-import { HiOutlineHome, HiMiniChevronLeft, HiMiniChevronRight, HiOutlineUser } from "react-icons/hi2";
+import { useMemo, memo } from "react";
 import Link from "next/link";
 import Image from 'next/image';
+import { useUser } from "@/app/context/UserContext";
+import { usePathname, useSearchParams } from 'next/navigation';
+import { HiOutlineHome, HiMiniChevronLeft, HiMiniChevronRight, HiOutlineUser } from "react-icons/hi2";
+import { useLogout } from '@/hooks/useLogout';
+import MobileOverlay from '@/components/mobile/MobileOverlay/MobileOverlay';
 import style from './mobileNav.module.css';
 
 
-function NavLink({text, link, svg, closeNav}) {
-    return (
-        <li>
-            <Link href={link} className={style.navLinkItem} onClick={closeNav}>
-                <div className={style.navLinkText}>
-                    <div className={style.navLinkIcon}>
-                        {svg}
-                    </div>
-                    <span className={style.navLinkMainText}>{text}</span>
+const NavLink = memo(({text, link, svg, closeNav}) => (
+    <li>
+        <Link href={link} className={style.navLinkItem} onClick={closeNav}>
+            <div className={style.navLinkText}>
+                <div className={style.navLinkIcon}>
+                    {svg}
                 </div>
-                <div>
-                    <HiMiniChevronRight size="18px" color="var(--color-text-main)"/>
-                </div>
-            </Link>
-        </li>
-    );
-}
+                <span className={style.navLinkMainText}>{text}</span>
+            </div>
+            <div>
+                <HiMiniChevronRight size="18px" color="var(--color-text-main)"/>
+            </div>
+        </Link>
+    </li>
+));
+
+NavLink.displayName = 'NavLink';
 
 const links = [
     {
@@ -33,50 +37,75 @@ const links = [
     },
     {
         "text": "Profile",
-        "link": "/profile",
+        "link": "/profile?profileTab=joinedGroups&currentEditTab=basicInfo",
         "svg": <HiOutlineUser size="16px" color="var(--color-text-main)"/>
     },
 ];
 
-export default function MobileNav({ isOpen, closeNav }) {
+const MobileNav = memo(({ isOpen, closeNav }) => {
     const { user, loading, error } = useUser();
+    const logout = useLogout();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
 
-    if (loading) {
-        return <div>Loading...</div>; // or some loading spinner
-    }
+    const profileHref = useMemo(() => {
+        return pathname === '/profile' 
+            ? `/profile?${searchParams.toString()}`
+            : '/profile?profileTab=joinedGroups&currentEditTab=basicInfo';
+    }, [pathname, searchParams]);
 
-    return (
-        <nav className={`${style.mobileNav} ${isOpen ? style.mobileNavOpen : ""}`}>
-            <button className={style.mobileNavCancel} onClick={closeNav}>
-                <HiMiniChevronLeft size="18px" color="var(--color-text-main)"/>
-            </button>
+    const navContent = useMemo(() => {
+        if (loading) {
+            return <div>Loading...</div>; // or some loading spinner
+        }
 
-            <div className={style.mobileNavBody}>
-                <div className={style.mobileNavBodyTop}>
-                    <div className={style.mobileNavImg}>
-                        <Image 
-                            src={user?.avatar || "/profile.png"}
-                            fill
-                            sizes="100vw"
-                            alt="user profile picture" />
+        return (
+            <>
+                <nav className={`${style.mobileNav} ${isOpen ? style.mobileNavOpen : ""}`}>
+                    <button className={style.mobileNavCancel} onClick={closeNav}>
+                        <HiMiniChevronLeft size="18px" color="var(--color-text-main)"/>
+                    </button>
+
+                    <div className={style.mobileNavBody}>
+                        <div className={style.mobileNavBodyTop}>
+                            <div className={style.mobileNavImg}>
+                                <Image 
+                                    src={user?.avatar || "/profile.png"}
+                                    fill
+                                    sizes="100vw"
+                                    alt="user profile picture" />
+                            </div>
+                            <div className={style.mobileNavText}>
+                                <p className={style.mobileNavFullname}>{user?.full_name}</p>
+                                <Link
+                                    href={profileHref}
+                                    className={style.mobileNavProfileLink}
+                                    onClick={closeNav}>
+                                        Update profile &gt;
+                                </Link>
+                            </div>
+                        </div>
+
+                        <ul className={style.mobileNavBodyBottom}>
+                            {links.map((item, index) => 
+                                <NavLink
+                                    key={index}
+                                    text={item.text}
+                                    link={item.link}
+                                    svg={item.svg}
+                                    closeNav={closeNav}/>
+                            )}
+                        </ul>
                     </div>
-                    <div className={style.mobileNavText}>
-                        <p className={style.mobileNavFullname}>{user?.full_name}</p>
-                        <Link href="/profile" className={style.mobileNavProfileLink}>Update profile &gt;</Link>
-                    </div>
-                </div>
+                </nav>
+                <MobileOverlay isOpen={isOpen} closeNav={closeNav}/>
+            </>
+        );
+    }, [user, loading, isOpen, closeNav]);
 
-                <ul className={style.mobileNavBodyBottom}>
-                    {links.map((item, index) => 
-                        <NavLink
-                            key={index}
-                            text={item.text}
-                            link={item.link}
-                            svg={item.svg}
-                            closeNav={closeNav}/>
-                    )}
-                </ul>
-            </div>
-        </nav>
-    );
-}
+    return navContent;
+});
+
+MobileNav.displayName = 'MobileNav';
+
+export default MobileNav;

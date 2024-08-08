@@ -1,38 +1,35 @@
 import Image from "next/image";
 import { HiOutlineBookmark, HiOutlineShare } from "react-icons/hi";
-import { attendees } from "../../data";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "./BasicDescription.module.css";
 
 
-export default function BasicDescription() {
+export default function BasicDescription({ meeting }) {
     return (
         <div className={style.hangoutContainer}>
             <div className={style.hangoutDetailsContainer}>
                 <div className={style.hangoutBasicInfo}>
-                    <p className={style.hangoutTitle}>Basketball Hangout</p>
+                    <p className={style.hangoutTitle}>{meeting?.title}</p>
                     
                     <div className={style.attendeeInfo}>
-                        <div className={style.attendeeImages}>
-                            {attendees.map((attendee, index) => (
-                                <Image
-                                    key={index}
-                                    src={attendee.attendeeImage}
-                                    alt="Attendee"
-                                    height={30}
-                                    width={30} />
-                            ))}
-                        </div>
+                        { meeting?.attending_count?.length > 0 &&
+                            <div className={style.attendeeImages}>
+                                { meeting?.attending_avatars.map((image, index) => (
+                                    <Image
+                                        key={index}
+                                        src={image}
+                                        alt="Attendee"
+                                        height={30}
+                                        width={30} />
+                                ))}
+                            </div>
+                        }
                     
-                        <p className={style.totalAttendees}>12 Attendees</p>
+                        <p className={style.totalAttendees}>{meeting?.attending_count} Attendee{ meeting?.attending_counts > 1 ? 's' : ''}</p>
                     </div>
                 </div>
 
-                <p className={style.hangoutDescription}>
-                  This is a Basketball group and a group for basketball lovers. We
-                  usually meet up at the London Basketball field, near Jameson Park,
-                  every Saturday.
-                </p>
+                <p className={style.hangoutDescription}>{meeting?.description}</p>
             </div>
 
             <div className={style.rsvpContainer}>

@@ -22,14 +22,6 @@
     color: var(--color-text-secondary);
 }
 
-.profileHeroNameLoading {
-    width: 100%;
-    max-width: 240px;
-    height: 24px;
-    background-color: var(--color-text-main);
-    border-radius: 4px;
-}
-
 .profileHeroSpeech {
     font-size: 16px;
     font-weight: 400;
@@ -57,11 +49,6 @@
     .profileHeroName {
         font-size: 16px;
         letter-spacing: -0.32px;
-    }
-
-    .profileHeroNameLoading {
-        max-width: 160px;
-        height: 20px;
     }
     
     .profileHeroSpeech {

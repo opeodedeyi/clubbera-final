@@ -5,14 +5,14 @@ import { getUserJoinedGroups } from '@/app/actions/getGroups';
 import CardGridContainer from '@/components/layout/CardGridContainer/CardGridContainer';
 import GroupCard from '@/components/cards/GroupCard/GroupCard';
 import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
-import GroupCardSkeleton from '@/components/cards/GroupCardSkeleton/GroupCardSkeleton';
+import GroupCardSkeleton from '@/components/skeleton/GroupCardSkeleton/GroupCardSkeleton';
 import Pagination from '@/components/utility/Pagination/Pagination';
 
 
 export default function JoinedGroups({user}) {
     const [groups, setGroups] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalPages, setTotalPages] = useState(1);
+    const [totalPages, setTotalPages] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {

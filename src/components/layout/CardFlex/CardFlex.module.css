@@ -1,0 +1,10 @@
+.cardFlexWrapper {
+    width: 100%;
+}
+
+.cardFlex {
+    display: flex;
+    flex-direction: row;
+    flex-direction: no-wrap;
+    gap: 24px;
+}

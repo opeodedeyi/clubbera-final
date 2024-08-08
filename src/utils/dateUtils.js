@@ -6,6 +6,14 @@ export function formatDate(dateString) {
     return `${day}/${month}/${year}`;
 }
 
+export function formatBirthday(dateString) {
+    if (!dateString) return 'not set';
+    const date = new Date(dateString);
+    const month = date.toLocaleString('default', { month: 'short' });
+    const day = date.getUTCDate();
+    return `${day} ${month}`;
+}
+
 export function formatDateLong(isoString) {
     const date = new Date(isoString);
     const options = { weekday: 'short', timeZone: 'UTC' };
@@ -22,4 +30,20 @@ export function formatDateLong(isoString) {
     hours = hours ? hours : 12; // the hour '0' should be '12'
 
     return `${dayOfWeek}, ${month.toUpperCase()} ${day}, ${year}, ${hours}:${minutes}${ampm}`;
+}
+
+export function formatDateWithoutTime(dateString) {
+    const date = new Date(dateString);
+    const options = { weekday: 'short', month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' };
+    return date.toLocaleDateString('en-US', options).toUpperCase();
+}
+
+export function extractTimeFromDate(dateString) {
+    const date = new Date(dateString);
+    let hours = date.getUTCHours();
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    return `${hours}:${minutes}${ampm}`;
 }
