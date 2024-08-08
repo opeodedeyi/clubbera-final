@@ -1,5 +1,13 @@
+import Filters from "./comp/filters"
+import SearchCard from "./comp/searchCard"
+import style from "./search.module.css"
 export default function search() {
     return (
-        <div>search page</div>
+        <>
+        <div className={style.searchContainer}>
+          <Filters/>
+          <SearchCard/>
+        </div>
+        </>
     )
 }
