@@ -1,0 +1,14 @@
+.searchContainer {
+    margin-top: 2rem;
+}
+.searchContainer > h4 {
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--color-dark-two);
+}
+.searchContainer > p {
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 0.5rem;
+    color: var(--color-placeholder);
+}
