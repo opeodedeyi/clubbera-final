@@ -23,6 +23,7 @@
     width: 60%;
     max-width: 800px;
     height: 380px;
+    border-radius: 8px 8px 0px 0px;
 }
 
 .groupKeydetailsMajorText {
@@ -63,16 +64,19 @@
 .groupTag {
     width: 80px;
     height: 24px;
+    border-radius: 1000px;
 }
 
 .groupKeydetailsTitle {
     width: 80%;
     height: 32px;
+    border-radius: 1000px;
 }
 
 .groupTagline {
     width: 90%;
     height: 20px;
+    border-radius: 1000px;
 }
 
 .groupKeydetailsLocMem {
@@ -97,6 +101,7 @@
 .locationText, .memberText {
     width: 100px;
     height: 20px;
+    border-radius: 1000px;
 }
 
 .groupKeydetailsTextButtons {
@@ -108,7 +113,7 @@
 .button {
     width: 120px;
     height: 40px;
-    border-radius: 4px;
+    border-radius: 1000px;
 }
 
 .skeleton {

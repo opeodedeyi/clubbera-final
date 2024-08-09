@@ -28,11 +28,13 @@
 .title {
     height: 32px;
     width: 70%;
+    border-radius: 1000px;
 }
 
 .tagline {
     height: 24px;
     width: 90%;
+    border-radius: 1000px;
 }
 
 .basicDetailsBottom {
@@ -56,12 +58,14 @@
 .keyDetailItemText {
     width: 100px;
     height: 20px;
+    border-radius: 1000px;
 }
 
 .button {
     width: 150px;
     height: 40px;
     border-radius: 4px;
+    border-radius: 1000px;
 }
 
 .skeleton {

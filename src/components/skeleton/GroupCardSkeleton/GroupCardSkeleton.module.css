@@ -67,30 +67,36 @@
 .cardDate {
     height: 14px;
     width: 120px;
+    border-radius: 1000px;
 }
 
 .cardTitle {
     height: 24px;
     width: 80%;
+    border-radius: 1000px;
 }
 
 .cardLocation {
     height: 14px;
     width: 60%;
+    border-radius: 1000px;
 }
 
 .cardDescription {
     height: 76px;
+    border-radius: 8px;
 }
 
 .groupTag {
     height: 24px;
     width: 80px;
+    border-radius: 1000px;
 }
 
 .memberCount {
     height: 24px;
     width: 24px;
+    border-radius: 1000px;
 }
 
 @keyframes pulse {

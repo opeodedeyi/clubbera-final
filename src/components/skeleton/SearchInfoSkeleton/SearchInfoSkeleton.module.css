@@ -8,11 +8,15 @@
 .title {
     height: 36px;
     width: 60%;
+    max-width: 350;
+    border-radius: 1000px;
 }
 
 .description {
     height: 20px;
     width: 90%;
+    max-width: 500;
+    border-radius: 1000px;
 }
 
 .skeleton {
