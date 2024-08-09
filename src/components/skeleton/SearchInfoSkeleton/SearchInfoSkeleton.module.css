@@ -1,0 +1,46 @@
+.searchInfo {
+    padding: 16px var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    height: 36px;
+    width: 60%;
+}
+
+.description {
+    height: 20px;
+    width: 90%;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .title {
+        height: 28px;
+        width: 70%;
+    }
+
+    .description {
+        height: 18px;
+        width: 95%;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

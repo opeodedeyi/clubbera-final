@@ -1,6 +1,6 @@
 .titleBar {
     width: 100%;
-    padding: 172px var(--container-padding) 100px;
+    padding: 100px var(--container-padding) 100px;
     background-color: var(--main-color-light);
     display: flex;
     flex-direction: column;
@@ -22,7 +22,7 @@
 
 @media screen and  (max-width: 768px) {
     .titleBar {
-        padding: 142px var(--container-padding) 70px;
+        padding: 70px var(--container-padding) 70px;
     }
     
     .titleBarText {

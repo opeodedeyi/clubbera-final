@@ -1,0 +1,47 @@
+.filtersContainer {
+    padding: 28px var(--container-padding);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.selectSkeleton {
+    width: 120px;
+    height: 36px;
+    border-radius: 1000px;
+}
+
+.buttonSkeleton {
+    width: 120px;
+    height: 36px;
+    border-radius: 1000px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .filtersContainer {
+        padding: 20px var(--container-padding);
+    }
+
+    .selectSkeleton,
+    .buttonSkeleton {
+        height: 32px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

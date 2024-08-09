@@ -2,7 +2,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import style from "./SelectInput.module.css";
 
 
-const SelectInput = ({ label, name, options, value, onChange }) => {
+const SelectInput = ({ label, name, options, value, onChange, borderRadius='8px', minWidth='0px'}) => {
     return (
         <div className={style.selectInputContainer}>
             {label && <label htmlFor={name}>{label}</label>}
@@ -12,7 +12,8 @@ const SelectInput = ({ label, name, options, value, onChange }) => {
                     name={name}
                     value={value}
                     onChange={onChange}
-                    className={style.select} >
+                    className={style.select}
+                    style={{ borderRadius, minWidth }} >
                         {options.map((option, index) => (
                             <option key={index} value={option.value}>
                                 {option.label}

@@ -7,7 +7,6 @@ import BasicDetailsHeader from './comp/BasicDetailsHeader/BasicDetailsHeader';
 import GroupNavigation from './comp/GroupNavigation/GroupNavigation';
 import GroupContent from './GroupContent';
 import { EditGroupProvider } from '@/app/context/EditGroupContext';
-import style from './MainEditGroup.module.css';
 
 
 const MainEditGroup = ({ group }) => {
@@ -22,15 +21,13 @@ const MainEditGroup = ({ group }) => {
 
     return (
         <EditGroupProvider group={group}>
-            <div className={style.editGroupMain}>
-                <SecHeaderBack />
-                <BasicDetailsHeader group={group} />
-                <GroupNavigation 
-                    activeTab={activeTab} 
-                    handleTabClick={handleTabClick}
-                    isPrivate={group.is_private} />
-                <GroupContent activeTab={activeTab} />
-            </div>
+            <SecHeaderBack />
+            <BasicDetailsHeader group={group} />
+            <GroupNavigation 
+                activeTab={activeTab} 
+                handleTabClick={handleTabClick}
+                isPrivate={group.is_private} />
+            <GroupContent activeTab={activeTab} />
         </EditGroupProvider>
     );
 }

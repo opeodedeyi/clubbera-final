@@ -7,7 +7,6 @@ import GroupKeyDetails from './comp/GroupKeyDetails/GroupKeyDetails';
 import GroupNavigation from './comp/GroupNavigation/GroupNavigation';
 import GroupPages from './GroupPages';
 import { useGroupMembership } from '@/hooks/useGroupMembership';
-import style from './GroupDetails.module.css';
 
 
 export default function GroupDetailsContent ({ group }) {
@@ -22,7 +21,7 @@ export default function GroupDetailsContent ({ group }) {
     };
 
     return (
-        <div className={style.groupDetailsMain}>
+        <>
             <SecHeaderBack />
             <GroupKeyDetails 
                 group={group} 
@@ -34,6 +33,6 @@ export default function GroupDetailsContent ({ group }) {
                 handleTabClick={handleTabClick} />
 
             <GroupPages group={group} activeTab={activeTab}/>
-        </div>
+        </>
     );
 };

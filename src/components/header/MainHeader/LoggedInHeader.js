@@ -7,22 +7,12 @@ import SearchBar from "@/components/forminput/SearchBar/SearchBar";
 import ProfileSection from "./ProfileSection/ProfileSection";
 import style from "./MainHeader.module.css";
 
-const LoggedInHeader = memo(({ navBtnClicked }) => {
-    const [showMobileSearch, setShowMobileSearch] = useState(false);
-    const [searchText, setSearchText] = useState('');
 
-    const toggleMobileSearch = useCallback(() => {
-        setShowMobileSearch(prev => !prev);
-    }, []);
-
-    const handleSearchChange = useCallback((e) => {
-        setSearchText(e.target.value);
-    }, []);
-
+const LoggedInHeader = memo(({ navBtnClicked, toggleMobileSearch, searchText, handleSearchChange, onSubmit }) => {
     const mobileButtons = useMemo(() => (
         <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}>
             <button className={style.headerToggleBarAlt} onClick={toggleMobileSearch}>
-                <HiOutlineSearch size="16px" color="var(--color-text-main)"/>
+                <HiOutlineSearch size="18px" color="var(--color-text-main)"/>
             </button>
             <ProfileSection/>
         </div>
@@ -35,7 +25,8 @@ const LoggedInHeader = memo(({ navBtnClicked }) => {
                 placeholder="Search communities, locations" 
                 value={searchText}
                 onChange={handleSearchChange}
-            />
+                width="325px"
+                onSubmit={onSubmit} />
             <div className={style.headerVertiLine}></div>
             <ProfileSection/>
         </div>
@@ -56,17 +47,6 @@ const LoggedInHeader = memo(({ navBtnClicked }) => {
                 {mobileButtons}
                 {desktopButtons}
             </div>
-
-            {showMobileSearch && (
-                <div className={style.mobileOnlyShow}>
-                    <SearchBar 
-                        type="search" 
-                        placeholder="Search communities, locations" 
-                        value={searchText}
-                        onChange={handleSearchChange}
-                    />
-                </div>
-            )}
         </>
     );
 });

@@ -1,10 +1,10 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './ProgressBar.module.css';
 
 
-const ProgressBar = () => {
+export default function ProgressBar() {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -31,6 +31,4 @@ const ProgressBar = () => {
             </div>
         </div>
     );
-}
-
-export default ProgressBar;
+};
