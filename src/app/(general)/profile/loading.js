@@ -7,7 +7,7 @@ import style from "./Profile.module.css";
 
 export default function ProfileLoading(){
     return (
-        <div className={style.profileContainer}>
+        <>
             <ProfileHeaderSke />
             <div className={style.profileDetailsContainer}>
                 <ProfileDBSke />
@@ -22,6 +22,6 @@ export default function ProfileLoading(){
                     </CardGridContainer>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

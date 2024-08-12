@@ -29,7 +29,6 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.32px;
-    border-radius: 8px;
     border: 1px solid var(--border-color);
     background: transparent;
     height: 45px;
@@ -71,4 +70,10 @@
 .select option:hover,
 .select option:focus {
     background-color: var(--background-color-hover);
+}
+
+@media screen and (max-width: 768px) {
+    .select {
+        font-size: 0.925rem;
+    }
 }

@@ -15,7 +15,7 @@ const ProfileTopCard = () => {
         <div className={style.profileHero}>
             <div className={style.profileHeroCont}>
                     <p className={style.profileHeroName}>
-                        Hi {truncateTextWithDot(user.full_name, 24)},
+                        Hi {truncateTextWithDot(user?.full_name, 24)},
                     </p>
                     <p className={style.profileHeroSpeech}>
                         Get started today with Clubbera

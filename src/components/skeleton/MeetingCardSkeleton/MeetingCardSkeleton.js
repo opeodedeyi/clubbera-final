@@ -22,9 +22,6 @@ export default function MeetingCardSkeleton({ type = "grid" }) {
                     <div className={`${style.memberCount} ${style.skeleton}`}></div>
                 </div>
             </div>
-            <div className={style.cardFooter}>
-                <div className={`${style.button} ${style.skeleton}`}></div>
-            </div>
         </div>
     );
 };

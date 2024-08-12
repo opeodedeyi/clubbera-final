@@ -1,6 +1,6 @@
 .profileHero {
     width: 100%;
-    padding: 112px var(--container-padding) 32px;
+    padding: 32px var(--container-padding) 32px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,7 +39,7 @@
 
 @media screen and  (max-width: 768px) {
     .profileHero {
-        padding: 92px var(--container-padding) 32px;
+        padding: 32px var(--container-padding) 32px;
     }
 
     .profileHeroCont {

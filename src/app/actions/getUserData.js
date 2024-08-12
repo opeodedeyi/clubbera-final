@@ -42,10 +42,6 @@ export async function getUserData() {
         // if (user) {
         //     cache.set(token, user);
         // }
-
-        console.log(user);
-        
-
         return user;
     } catch (error) {
         console.error('Error in getUserData:', error);

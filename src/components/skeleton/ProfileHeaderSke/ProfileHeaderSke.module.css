@@ -30,20 +30,24 @@
 .nameSkeletonDesktop {
     height: 24px;
     width: 150px;
+    border-radius: 1000px;
 }
 
 .nameSkeletonMobile {
     display: none;
+    border-radius: 1000px;
 }
 
 .bioSkeleton {
     height: 18px;
     width: 200px;
+    border-radius: 1000px;
 }
 
 .buttonSkeleton {
     height: 36px;
     width: 100px;
+    border-radius: 1000px;
 }
 
 .skeleton {

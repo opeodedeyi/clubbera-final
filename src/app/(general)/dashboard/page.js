@@ -1,6 +1,8 @@
 import CTABanner from "@/components/utility/CTABanner/CTABanner";
 import CTASideBanner from "@/components/utility/CTASideBanner/CTASideBanner";
 import ProfileTopCard from "@/components/utility/ProfileTopCard/ProfileTopCard";
+import CardFlex from "@/components/layout/CardFlex/CardFlex";
+import GroupCardSkeleton from "@/components/skeleton/GroupCardSkeleton/GroupCardSkeleton";
 
 
 export default function Dashboard() {
@@ -14,7 +16,16 @@ export default function Dashboard() {
                 description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
                 buttonText="Create new commuity"
                 destination="/creategroup"/>
-            {/* more to go here */}
+            
+            
+            <CardFlex>
+                <GroupCardSkeleton type='flex'/>
+                <GroupCardSkeleton type='flex'/>
+                <GroupCardSkeleton type='flex'/>
+                <GroupCardSkeleton type='flex'/>
+                <GroupCardSkeleton type='flex'/>
+                <GroupCardSkeleton type='flex'/>
+            </CardFlex>
 
             <CTASideBanner
                 title="Community-building is your most valuable asset"

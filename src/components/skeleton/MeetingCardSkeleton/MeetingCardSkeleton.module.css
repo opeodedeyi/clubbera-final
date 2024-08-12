@@ -41,20 +41,24 @@
 .cardDate {
     height: 14px;
     width: 120px;
+    border-radius: 1000px;
 }
 
 .cardTitle {
     height: 24px;
     width: 80%;
+    border-radius: 1000px;
 }
 
 .cardLocation {
     height: 14px;
     width: 60%;
+    border-radius: 1000px;
 }
 
 .cardDescription {
     height: 76px;
+    border-radius: 8px;
 }
 
 .cardFooter {
@@ -87,6 +91,7 @@
 .memberCount {
     height: 14px;
     width: 60px;
+    border-radius: 1000px;
 }
 
 .button {

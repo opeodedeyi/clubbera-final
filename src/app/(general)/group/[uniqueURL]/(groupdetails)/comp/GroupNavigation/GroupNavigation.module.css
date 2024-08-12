@@ -3,8 +3,15 @@
     display: flex;
     width: 100%;
     padding: 0 var(--container-padding);
+    border: 1px solid var(--border-color); /* remove to revert */
+    border-left: none; /* remove to revert */
+    border-right: none; /* remove to revert */
     align-items: center;
     overflow: hidden;
+    position: sticky; /* remove to revert */
+    top: 72px; /* remove to revert */
+    z-index: 9; /* remove to revert */
+    background: var(--background-color); /* remove to revert */
 }
 
 .groupDetailsNavigation ul {
@@ -13,12 +20,12 @@
     height: 100%;
     align-items: center;
     gap: 24px;
-    border-radius: 0px 0px 8px 8px;
-    border: 1px solid var(--border-color);
+    /* border-radius: 0px 0px 8px 8px; */
+    /* border: 1px solid var(--border-color); */
     background: transparent;
     list-style: none;
     overflow: scroll;
-    padding: 0 16px;
+    /* padding: 0 16px; */
 }
 
 .groupDetailsNavigation ul::-webkit-scrollbar {
@@ -57,6 +64,7 @@
     .groupDetailsNavigation {
         height: 40px;
         padding: 0;
+        top: 60px; /* remove to revert */
     }
 
     .groupDetailsNavigation ul {
