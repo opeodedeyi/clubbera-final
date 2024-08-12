@@ -1,22 +1,39 @@
-import { HiOutlineSearch } from "react-icons/hi";
+import { HiOutlineArrowRight, HiOutlineSearch } from "react-icons/hi";
 import style from "./SearchBar.module.css";
 
 
-const SearchBar = ({ type, placeholder, value, onChange }) => {
+export default function SearchBar({ type, placeholder, value, onChange, onSubmit, width }) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (value.trim()) {
+            onSubmit();
+        }
+    };
+
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            if (value.trim()) {
+                onSubmit();
+            }
+        }
+    };
+
     return (
-        <div className={style.mainSearchBar}>
+        <form onSubmit={handleSubmit} className={style.mainSearchBar} style={{ width }}>
             <HiOutlineSearch 
                 size="16px" 
                 color="var(--color-text-main)"
                 className={style.mainSearchBarIcon}/>
             <input
                 name={type}
+                type="search"
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
+                onKeyDown={handleKeyDown}
                 autoComplete="off"/>
-        </div>
+            <button type="submit" style={{ display: 'none' }}><HiOutlineArrowRight /></button>
+        </form>
     );
 }
-
-export default SearchBar

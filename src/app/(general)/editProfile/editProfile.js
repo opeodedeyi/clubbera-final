@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from "react";
+import { useEffect, useCallback, memo } from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useQueryParams } from "@/hooks/useQueryParams";
 import EditProfileHeader from "./comp/EditProfileHeader/EditProfileHeader";
@@ -10,29 +10,33 @@ import ChangePassword from './steps/ChangePassword/ChangePassword';
 import { EditUserProvider } from '@/app/context/EditUserContext';
 
 
-export default function EditProfile({ user }) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const { createQueryString } = useQueryParams();
+const EditProfile = memo(({ user }) => {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const { createQueryString } = useQueryParams();
 
-  const activeTab = searchParams.get('currentEditTab');
+    const activeTab = searchParams.get('currentEditTab');
 
-  useEffect(() => {
-    if (!activeTab) {
-      router.push(`?${createQueryString('currentEditTab', 'basicInfo')}`, { scroll: false });
-    }
-  }, []);
+    useEffect(() => {
+        if (!activeTab) {
+            router.push(`?${createQueryString('currentEditTab', 'basicInfo')}`, { scroll: false });
+        }
+    }, []);
 
-  const handleTabClick = (link) => {
-    router.push(`?${createQueryString('currentEditTab', link)}`, { scroll: false });
-  };
+    const handleTabClick = (link) => {
+        router.push(`?${createQueryString('currentEditTab', link)}`, { scroll: false });
+    };
 
-  return (
-    <EditUserProvider user={user} activeTab={activeTab}>
-      <EditProfileHeader />
-      <Navigation activeTab={activeTab} handleTabClick={handleTabClick} />
-      { activeTab === "basicInfo" && <BasicInformation/> }
-      { activeTab === "changePassword" && <ChangePassword/>}
-    </EditUserProvider>
-  );
-};
+    return (
+        <EditUserProvider user={user} activeTab={activeTab}>
+            <EditProfileHeader />
+            <Navigation activeTab={activeTab} handleTabClick={handleTabClick} />
+            { activeTab === "basicInfo" && <BasicInformation/> }
+            { activeTab === "changePassword" && <ChangePassword/>}
+        </EditUserProvider>
+    );
+});
+
+EditProfile.displayName = 'EditProfile';
+
+export default EditProfile;

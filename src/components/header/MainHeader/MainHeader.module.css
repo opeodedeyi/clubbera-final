@@ -1,14 +1,25 @@
+.headerMainWrapper {
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
 .headerMain {
     display: flex;
     align-items: center;
-    position: fixed;
     width: 100%;
-    z-index: 10;
     height: 72px;
     padding: 0 var(--container-padding);
-    background-color: var(--background-color);
     justify-content: space-between;
-    border-bottom: 1px solid var(--border-color);
+}
+
+.headerMainSearch {
+    display: flex;
+    width: 100%;
+    padding: 0 var(--container-padding) 8px;
 }
 
 .headerButtons {
@@ -56,6 +67,41 @@
     display: none;
 }
 
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+.skeletonLogo {
+    width: 120px;
+    height: 32px;
+    border-radius: 100px;
+}
+
+.skeletonMenuButton {
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+}
+
+.skeletonSearchButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.skeletonProfileSection {
+    width: 80px;
+    height: 32px;
+    border-radius: 16px;
+}
+
+.skeletonSearchBar {
+    width: 200px;
+    height: 32px;
+    border-radius: 16px;
+}
+
 @media screen and  (max-width: 768px) {
     .headerMain {
         height: 60px;
@@ -76,5 +122,17 @@
     
     .mobileOnlyShow {
         display: flex;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
     }
 }

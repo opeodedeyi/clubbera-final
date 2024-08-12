@@ -1,0 +1,101 @@
+.profileHero {
+    width: 100%;
+    padding: 32px var(--container-padding) 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.profileHeroCont {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.profileHeroName {
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+    color: var(--color-text-secondary);
+}
+
+.profileHeroSpeech {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 120%;
+    letter-spacing: -0.32px;
+    color: var(--color-text-main);
+}
+
+.profileHeroInnbtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+}
+
+.skeletonCard {
+    background-color: var(--background-color);
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+.profileHero .profileHeroName.skeleton {
+    height: 32px;
+    width: 200px;
+    border-radius: 1000px;
+}
+
+.profileHero .profileHeroSpeech.skeleton {
+    height: 24px;
+    width: 250px;
+    border-radius: 1000px;
+}
+
+@media screen and (max-width: 768px) {
+    .profileHero {
+        padding: 32px var(--container-padding) 32px;
+    }
+
+    .profileHeroCont {
+        gap: 2px;
+    }
+    
+    .profileHeroName {
+        font-size: 16px;
+        letter-spacing: -0.32px;
+    }
+    
+    .profileHeroSpeech {
+        font-size: 14px;
+        letter-spacing: -0.28px;
+    }
+    
+    .profileHero .profileHeroName.skeleton {
+        height: 22px;
+        width: 150px;
+    }
+    
+    .profileHero .profileHeroSpeech.skeleton {
+        height: 20px;
+        width: 200px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

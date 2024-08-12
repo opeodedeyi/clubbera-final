@@ -19,7 +19,8 @@
     object-fit: cover;
 }
 
-.overlay {
+.overlay,
+.spinnerOverlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,6 +32,10 @@
     align-items: center;
     opacity: 0.6;
     transition: opacity 0.3s ease;
+}
+
+.spinnerOverlay {
+    opacity: 0.9;
 }
 
 .imageContainer:hover .overlay {

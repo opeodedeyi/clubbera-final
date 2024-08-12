@@ -36,16 +36,17 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
     }
 
     const handleGoogleCredentialResponse = async (res) => {
+        console.log('response idToken : ', res.credential);
+        
         if (res.credential) {
             try {
-                await googleLogin(res.credential)
+                await googleLogin(res.credential, 'idToken')
+                // await googleLogin(res.credential)
             } catch (error) {
                 console.error('Google login error:', error)
-                // Handle error (e.g., show error message to user)
             }
         } else {
             console.log('Sign-in was canceled')
-            // Handle cancellation (e.g., show message to user)
         }
     }
 
@@ -57,7 +58,6 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
 
     const triggerGoogleSignIn = () => {
         if (window.google && window.google.accounts && window.google.accounts.id) {
-            // Try to display the One Tap prompt
             window.google.accounts.id.prompt((notification) => {
                 if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
                     // If One Tap is not displayed, fallback to manual sign-in
@@ -66,9 +66,9 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
                         scope: 'email profile',
                         callback: (response) => {
                             if (response.code) {
-                                // Send the code to your server
-                                console.log('Google login response : ', response);
-                                googleLogin(response.code);
+                                console.log('Google login response : ', response.code);
+                                googleLogin(response.code, 'code');
+                                // googleLogin(response.code);
                             }
                         },
                     }).requestCode();
@@ -84,8 +84,7 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
             type="button"
             className={`${style.socialLoginButton} ${style[coloring]}`}
             onClick={handleLogin}
-            disabled={loading || (socialType === 'google' && !isSdkLoaded)}
-        >
+            disabled={loading || (socialType === 'google' && !isSdkLoaded)}>
             <img src={imgSrc} alt="google" className="google-icon" />
             <span>{children}</span>
             { (loading || !isSdkLoaded) && <LoadingSpinner /> }

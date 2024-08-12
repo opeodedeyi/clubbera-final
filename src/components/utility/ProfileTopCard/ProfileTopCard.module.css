@@ -1,6 +1,6 @@
 .profileHero {
     width: 100%;
-    padding: 112px var(--container-padding) 32px;
+    padding: 32px var(--container-padding) 32px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,14 +22,6 @@
     color: var(--color-text-secondary);
 }
 
-.profileHeroNameLoading {
-    width: 100%;
-    max-width: 240px;
-    height: 24px;
-    background-color: var(--color-text-main);
-    border-radius: 4px;
-}
-
 .profileHeroSpeech {
     font-size: 16px;
     font-weight: 400;
@@ -47,7 +39,7 @@
 
 @media screen and  (max-width: 768px) {
     .profileHero {
-        padding: 92px var(--container-padding) 32px;
+        padding: 32px var(--container-padding) 32px;
     }
 
     .profileHeroCont {
@@ -57,11 +49,6 @@
     .profileHeroName {
         font-size: 16px;
         letter-spacing: -0.32px;
-    }
-
-    .profileHeroNameLoading {
-        max-width: 160px;
-        height: 20px;
     }
     
     .profileHeroSpeech {

@@ -6,7 +6,7 @@ import { fetchWithTimeout } from "@/utils/fetchWithTimeout";
 import NodeCache from 'node-cache';
 
 
-const cache = new NodeCache({ stdTTL: 60 * 30, checkperiod: 60 * 10 });
+// const cache = new NodeCache({ stdTTL: 60 * 30, checkperiod: 60 * 10 });
 
 async function fetchUserFromAPI(token) {
     try {
@@ -32,20 +32,23 @@ export async function getUserData() {
     if (!token) return null;
 
     try {
-        const cachedUser = cache.get(token);
+        // const cachedUser = cache.get(token);
 
-        if (cachedUser) {
-            return cachedUser;
-        }
+        // if (cachedUser) {
+        //     return cachedUser;
+        // }
 
         const user = await fetchUserFromAPI(token);
-        if (user) {
-            cache.set(token, user);
-        }
-
+        // if (user) {
+        //     cache.set(token, user);
+        // }
         return user;
     } catch (error) {
         console.error('Error in getUserData:', error);
         return null;
     }
 }
+
+// export async function clearUserCache(token) {
+//     cache.del(token);
+// }

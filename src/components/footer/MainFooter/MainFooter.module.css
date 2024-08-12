@@ -160,6 +160,13 @@
         margin-bottom: 32px;
     }
 
+    .mainFooterBottom {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+    }
+
     .mainFooterBottomText {
         font-size: 0.875rem;
         line-height: 135%;

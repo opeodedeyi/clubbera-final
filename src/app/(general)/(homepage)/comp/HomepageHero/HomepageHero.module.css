@@ -1,7 +1,7 @@
 .homepageHero {
     width: 100%;
     height: 750px;
-    padding: 72px var(--container-padding) 0;
+    padding: 0 var(--container-padding);
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -223,8 +223,8 @@
 
 @media screen and  (max-width: 768px) {
     .homepageHero {
-        height: 663px;
-        padding: 108.5px var(--container-padding) 0;
+        height: 603px;
+        padding: 48.5px var(--container-padding) 0;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

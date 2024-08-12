@@ -1,0 +1,43 @@
+.backHeader {
+    padding: 0 var(--container-padding);
+    height: 90px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.button {
+    width: 100px;
+    height: 40px;
+    border-radius: 1000px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .backHeader {
+        height: 80px;
+    }
+
+    .button {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

@@ -49,8 +49,8 @@ export default function EventSetup() {
                     placeholder="Tell people how to easily find the venue" 
                     input="How can people find the venue?"
                     maxLength={250}
-                    value={meetingData.location_helper}
-                    onChange={(e) => createMeetingData({ location_helper: e.target.value})}/>
+                    value={meetingData.location_details}
+                    onChange={(e) => createMeetingData({ location_details: e.target.value})}/>
             </div>
         </div>
     );

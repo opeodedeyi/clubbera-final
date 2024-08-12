@@ -4,26 +4,35 @@ import style from "./TimeInput.module.css";
 
 export default function TimeInput({ label, name, value, onChange }) {
     const inputRef = useRef(null);
-    const [displayValue, setDisplayValue] = useState(value);
+    const [displayValue, setDisplayValue] = useState('');
 
     useEffect(() => {
         setDisplayValue(formatTime(value));
     }, [value]);
 
-    const handleIconClick = () => {
+    const handleWrapperClick = () => {
         inputRef.current.showPicker();
     };
 
     const handleChange = (e) => {
         const newTime = e.target.value;
-        setDisplayValue(formatTime(newTime));
-        onChange({ target: { name, value: newTime } });
+        const [hours, minutes] = newTime.split(':');
+        
+        // Create a new Date object with the current date and selected time
+        const date = new Date();
+        date.setHours(parseInt(hours, 10));
+        date.setMinutes(parseInt(minutes, 10));
+        date.setSeconds(0);
+        date.setMilliseconds(0);
+
+        setDisplayValue(formatTime(date));
+        onChange({ target: { name, value: date.toISOString() } });
     };
 
-    const formatTime = (time) => {
-        if (!time) return '';
-        const [hours, minutes] = time.split(':');
-        return `${hours.padStart(2, '0')}:${minutes.padStart(2, '0')}`;
+    const formatTime = (dateString) => {
+        if (!dateString) return '';
+        const date = new Date(dateString);
+        return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
     };
 
     const handleBlur = () => {
@@ -34,7 +43,7 @@ export default function TimeInput({ label, name, value, onChange }) {
         <div className={style.timeInputContainer}>
             {label && <label htmlFor={name}>{label}</label>}
 
-            <div className={style.timeInputWrapper}>
+            <div className={style.timeInputWrapper} onClick={handleWrapperClick}>
                 <input
                     ref={inputRef}
                     type="time"
@@ -43,13 +52,10 @@ export default function TimeInput({ label, name, value, onChange }) {
                     value={displayValue}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className={style.timeInput}
-                    />
+                    className={style.timeInput} />
 
                 <HiOutlineClock 
-                    className={style.clockIcon} 
-                    onClick={handleIconClick}
-                    />
+                    className={style.clockIcon} />
             </div>
         </div>
     );

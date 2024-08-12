@@ -1,5 +1,5 @@
 import AboutSection from "./steps/AboutSection/AboutSection";
-import EventSection from "@/components/pages/groupDetails/EventSection";
+import EventSection from "./steps/EventSection/EventSection";
 import DiscussionSection from "@/components/pages/groupDetails/DiscussionSection";
 import MemberSection from "./steps/MemberSection/MemberSection";
 

@@ -1,9 +1,7 @@
+import Image from 'next/image';
+import { HiOutlineLocationMarker, HiOutlineUserGroup, HiOutlineChevronDown } from "react-icons/hi";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupTag from "@/components/utility/GroupTag/GroupTag";
-import Image from 'next/image';
-import LocationMarkerIcon from '@/svg/LocationMarkerIcon';
-import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
-import DownArrowIcon from '@/svg/DownArrowIcon';
 import style from './GroupKeyDetails.module.css';
 
 
@@ -28,12 +26,18 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                                 <p>{group.tagline}</p>
                             </div>
                             <div className={style.groupKeydetailsLocMem}>
-                                <div className={style.grpKeydetLocItem}><div className={style.grpKeydetIconRounded}>
-                                    <LocationMarkerIcon color="--main-color-card"/>
-                                </div><span>{group.location}</span></div>
-                                <div className={style.grpKeydetLocItem}><div className={style.grpKeydetIconRounded}>
-                                    <GroupPeopleIcon color="--main-color-card"/>
-                                </div><span>{`${group.member_count} member ${(group.member_count > 1) ? 's' : ''}`}</span></div>
+                                <div className={style.grpKeydetLocItem}>
+                                    <div className={style.grpKeydetIconRounded}>
+                                        <HiOutlineLocationMarker color="var(--color-text-main)"/>
+                                    </div>
+                                    <span>{group.location}</span>
+                                </div>
+                                <div className={style.grpKeydetLocItem}>
+                                    <div className={style.grpKeydetIconRounded}>
+                                        <HiOutlineUserGroup color="var(--color-text-main)"/>
+                                    </div>
+                                    <span>{`${group.member_count} member${(group.member_count > 1) ? 's' : ''}`}</span>
+                                </div>
                             </div>
                         </div>
                         <div className={style.groupKeydetailsTextButtons}>
@@ -45,7 +49,7 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                                 {ctaText}
                             </CustomButton>
                             <CustomButton coloring="inverseColoring" size="normalButtonSize">
-                                <span>Share</span><DownArrowIcon/>
+                                <span>Share</span><HiOutlineChevronDown/>
                             </CustomButton>
                         </div>
                     </div>

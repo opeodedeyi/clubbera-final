@@ -2,6 +2,7 @@ import Link from "next/link";
 import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner";
 import style from "./CustomButton.module.css";
 
+
 const CustomButton = ({ type="button", size='defaultSize', coloring='defaultColoring', loadingText, link=false, destination, onClick, disabled, loading, children }) => {
     return (
         link ? 

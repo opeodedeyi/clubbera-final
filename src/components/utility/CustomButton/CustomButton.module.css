@@ -140,13 +140,13 @@
 }
 
 .buttonNobuttonColoring {
-    color: var(---main-color-card-danger);
+    color: var(--color-text-secondary);
     background: transparent;
     border: none;
 }
 
 .buttonNobuttonColoring:hover {
-    color: var(--color-text-secondary);
+    color: var(--color-text-alternate);
 }
 
 @media screen and  (max-width: 768px) {
