@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 0 var(--container-padding);
+}
+
+@media (max-width: 576px) {
+    .container {
+        gap: 8px;
+    }
+}
