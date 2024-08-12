@@ -10,6 +10,8 @@
 
 .flexGroupCard {
     width: 300px;
+    flex: 0 0 auto;
+    /* scroll-snap-align: start; */
 }
 
 .cardContent {
