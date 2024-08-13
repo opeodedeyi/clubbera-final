@@ -35,7 +35,6 @@ export async function createMeeting(groupUniqueUrl, data) {
         }
 
         const result = await response.json();
-        console.log('result: ', result);
         
         return { data: result };
     } catch (error) {

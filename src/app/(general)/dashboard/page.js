@@ -1,8 +1,8 @@
 import CTABanner from "@/components/utility/CTABanner/CTABanner";
 import CTASideBanner from "@/components/utility/CTASideBanner/CTASideBanner";
 import ProfileTopCard from "@/components/utility/ProfileTopCard/ProfileTopCard";
-import CardFlex from "@/components/layout/CardFlex/CardFlex";
-import GroupCardSkeleton from "@/components/skeleton/GroupCardSkeleton/GroupCardSkeleton";
+import CommCard from "./comp/CommCard/CommCard";
+import MeetCard from "./comp/MeetCard/MeetCard";
 
 
 export default function Dashboard() {
@@ -17,15 +17,7 @@ export default function Dashboard() {
                 buttonText="Create new commuity"
                 destination="/creategroup"/>
             
-            
-            <CardFlex>
-                <GroupCardSkeleton type='flex'/>
-                <GroupCardSkeleton type='flex'/>
-                <GroupCardSkeleton type='flex'/>
-                <GroupCardSkeleton type='flex'/>
-                <GroupCardSkeleton type='flex'/>
-                <GroupCardSkeleton type='flex'/>
-            </CardFlex>
+            <CommCard />
 
             <CTASideBanner
                 title="Community-building is your most valuable asset"
@@ -35,15 +27,7 @@ export default function Dashboard() {
                 destination="/creategroup"
                 reverse={true}/>
 
-            {/* more to go here */}
-
-            <CTABanner 
-                title="Offer your support"
-                image="/support.svg"
-                description="Help communities get the items they require to thrive" 
-                buttonText="Sponsor a community"
-                destination="/sponsor"/>
-              
+            <MeetCard />
         </>
     );
 };

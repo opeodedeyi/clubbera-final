@@ -1,5 +1,6 @@
 .flexGroupCard {
     width: 300px;
+    flex: 0 0 auto;
 }
 
 .gridGroupCard,

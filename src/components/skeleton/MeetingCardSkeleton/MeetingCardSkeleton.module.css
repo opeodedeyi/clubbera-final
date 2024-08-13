@@ -1,5 +1,6 @@
 .flexMeetingCard {
     width: 330px;
+    flex: 0 0 auto;
 }
 
 .gridMeetingCard,
