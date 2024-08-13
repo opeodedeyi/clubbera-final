@@ -1,16 +1,15 @@
-.member-card-small {
-    width: 280px;
+.memberCardSmall {
     display: flex;
     padding: 12px;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     border-radius: 8px;
-    border: 1px solid var(--color-white-six);
-    background: var(--color-white-four);
+    border: 1px solid var(--border-color);
+    background: transparent;
 }
 
-.member-card-small-gen {
+.memberCardSmallGen {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -18,25 +17,28 @@
     gap: 8px;
 }
 
-.member-card-small-img {
+.memberCardSmallImg {
     width: 40px;
     height: 40px;
     border-radius: 40px;
+    overflow: hidden;
 }
 
-.member-card-small-img img {
+.memberCardSmallImg img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.member-card-small-text {
+.memberCardSmallText {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: 8px;
 }
 
-.member-card-small-name {
-    color: var(--color-text-input);
+.memberCardSmallName {
+    color: var(--color-text-secondary);
     font-size: 1rem;
     font-style: normal;
     font-weight: 500;
@@ -44,8 +46,8 @@
     letter-spacing: -0.32px;
 }
 
-.member-card-small-role {
-    color: var(--color-gray);
+.memberCardSmallRole {
+    color: var(--color-text-main);
     font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
@@ -54,23 +56,23 @@
 }
 
 @media screen and  (max-width: 768px) {
-    .member-card-small {
+    .memberCardSmall {
         width: 100%;
         max-width: 400px;
         border-radius: 4px;
     }
 
-    .member-card-small-img {
+    .memberCardSmallImg {
         width: 28px;
         height: 28px;
     }
 
-    .member-card-small-name {
+    .memberCardSmallName {
         font-size: 0.875rem;
         letter-spacing: -0.28px;
     }
     
-    .member-card-small-role {
+    .memberCardSmallRole {
         font-size: 0.75rem;
         line-height: 100%;
         letter-spacing: -0.24px;

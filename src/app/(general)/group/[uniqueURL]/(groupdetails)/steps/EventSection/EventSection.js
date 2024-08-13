@@ -21,7 +21,7 @@ export default function EventsSection() {
 
     useEffect(() => {
         loadMeetings();
-    }, [currentPage]);
+    }, [currentPage, upcoming]);
 
     const loadMeetings = async () => {
         setIsLoading(true);

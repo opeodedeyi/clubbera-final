@@ -1,3 +1,26 @@
+export function timeAgo(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const secondsPast = (now.getTime() - date.getTime()) / 1000;
+
+    if (secondsPast < 60) {
+        return `${Math.round(secondsPast)}s ago`;
+    }
+    if (secondsPast < 3600) {
+        return `${Math.round(secondsPast / 60)}m ago`;
+    }
+    if (secondsPast <= 86400) {
+        return `${Math.round(secondsPast / 3600)}h ago`;
+    }
+    if (secondsPast <= 2592000) {
+        return `${Math.round(secondsPast / 86400)}d ago`;
+    }
+    if (secondsPast <= 31536000) {
+        return `${Math.round(secondsPast / 2592000)}mo ago`;
+    }
+    return `${Math.round(secondsPast / 31536000)}y ago`;
+}
+
 export function formatDate(dateString) {
     const date = new Date(dateString);
     const day = date.getUTCDate().toString().padStart(2, '0');
