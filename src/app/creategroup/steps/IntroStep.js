@@ -13,13 +13,13 @@ export default function IntroStep({ onClick }) {
             
             <div className={style.authFormContentMain}>
                 <div className={style.authFormContentIntro}>
-                    <h3>Welcome to Clubbera! Create your community now.</h3>
-                    <p className={style.authFormContentIntroText}>Create your community in four (4) simple steps: Choose a location, select topics, add description and other key details, and you&apos;re done!</p>
+                    <h3>You're About to Create Some Magic! </h3>
+                    <p className={style.authFormContentIntroText}>Hey there, community builder! You're just a few steps away from bringing your vision to life. To start creating, simply choose a catchy name, select tags, set your preferences, and start inviting friends. Don't forget to follow our community guidelines to keep things friendly. We'll guide you through each step, so have fun!</p>
                 </div>
             </div>
 
             <div className={style.authFormContentColumn}>
-                <CustomButton size="fullwidthSize" onClick={onClick}>Create now</CustomButton>
+                <CustomButton size="fullwidthSize" onClick={onClick}>Start creating</CustomButton>
                 <CustomButton link destination='/' coloring="buttonNobuttonColoring" size="buttonNobuttonSize">Go back</CustomButton>
             </div>
         </div>

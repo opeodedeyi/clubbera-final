@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { getGroupDiscussions } from '@/app/actions/getDiscussions';
 import { postGroupDiscussion } from '@/app/actions/postDiscussion';
+import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
 import DiscussionInput from '@/components/forminput/DiscussionInput/DiscussionInput';
 import DiscussionCont from "@/components/cards/DiscussionCard/DiscussionCard";
 import style from './DiscussionSection.module.css';
@@ -63,7 +64,8 @@ const DiscussionSection = () => {
                 isLoading ? (
                     <p>Loading...</p>
                 ) : discussions.length === 0 ? (
-                    <p>No discussions yet</p>
+                    <NoResultCard
+                        message="Start a conversation..."/>
                 ) : (
                     discussions.map((discussion) => (
                         <DiscussionCont 

@@ -43,5 +43,5 @@ export async function getMeetingDiscussions(uniqueURL, page, limit=12) {
 }
 
 export async function getReplies (id, page, limit=5) {
-    return fetchDiscussions(`/discussion/${id}/replies?limit=${limit}&page=${page}`, 10000);
+    return fetchDiscussions(`/discussion/${id}/reply?limit=${limit}&page=${page}`, 10000);
 }

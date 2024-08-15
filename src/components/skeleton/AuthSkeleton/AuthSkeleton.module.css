@@ -1,6 +1,5 @@
 .authContainer {
-    padding-top: 130px;
-    padding-bottom: 130px;
+    padding: 130px 0;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -10,63 +9,34 @@
 .authContainerMain {
     width: 100%;
     max-width: 504px;
-    padding: 32px;
+    padding: var(--gap-xl);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    border-radius: 16px;
+    gap: var(--gap-xxl);
+    border-radius: var(--border-radius-lg);
     border: 1px solid var(--border-color);
     background: var(--background-color);
     box-shadow: -4px 4px 4px 0px var(--border-shadow);
-    border-radius: 8px;
 }
 
-.authFormContent {
+.authFormContent, .authFormContentMain, .authFormContentIntro, .authFormInputs, .authFormActions {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 32px;
     align-self: stretch;
 }
 
-.authFormContentMain {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    align-self: stretch;
-}
-
-.authFormContentIntro {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 8px;
-    align-self: stretch;
-}
-
-.authFormInputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    align-self: stretch;
-}
-
+.authFormContent { gap: var(--gap-xl); }
+.authFormContentMain { gap: var(--gap-lg); }
+.authFormContentIntro { gap: var(--gap-sm); }
+.authFormInputs { gap: var(--gap-lg); }
 .authFormActions {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 16px;
-    align-self: stretch;
+    gap: var(--gap-md);
 }
 
 .logo {
@@ -77,35 +47,31 @@
 .title {
     width: 70%;
     height: 28px;
-    border-radius: 1000px;
 }
 
 .text {
     width: 100%;
     height: 20px;
-    border-radius: 1000px;
 }
 
-.socialButton {
+.socialButton, .button {
     width: 100%;
     height: 48px;
-    border-radius: 1000px;
 }
 
 .input {
     width: 100%;
     height: 48px;
-    border-radius: 8px;
+    border-radius: var(--border-radius-sm);
 }
 
-.button {
-    width: 100%;
-    height: 48px;
-    border-radius: 1000px;
+.title, .text, .socialButton, .button {
+    border-radius: var(--border-radius-full);
 }
 
 .skeleton {
     background-color: var(--border-color);
+    border: none;
     animation: pulse 1.5s infinite;
 }
 
@@ -115,19 +81,12 @@
     }
 
     .authContainerMain {
-        padding: 32px 24px;
-        border-radius: 8px;
+        padding: var(--gap-xl) 24px;
+        border-radius: var(--border-radius-sm);
     }
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 0.6;
-    }
-    50% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0.6;
-    }
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }

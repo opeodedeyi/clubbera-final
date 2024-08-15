@@ -3,30 +3,30 @@ import style from './AuthSkeleton.module.css';
 
 export default function AuthSkeleton() {
     return (
-        <div className={style.authContainer}>
-            <div className={style.authContainerMain}>
+        <main className={style.authContainer}>
+            <section className={style.authContainerMain}>
                 <div className={style.authFormContent}>
-                    <div className={`${style.logo} ${style.skeleton}`}></div>
+                    <div className={`${style.logo} ${style.skeleton}`} aria-hidden="true"></div>
                     <div className={style.authFormContentMain}>
-                        <div className={style.authFormContentIntro}>
-                            <div className={`${style.title} ${style.skeleton}`}></div>
-                            <div className={`${style.text} ${style.skeleton}`}></div>
-                        </div>
+                        <header className={style.authFormContentIntro}>
+                            <h1 className={`${style.title} ${style.skeleton}`} aria-hidden="true"></h1>
+                            <p className={`${style.text} ${style.skeleton}`} aria-hidden="true"></p>
+                        </header>
                     </div>
 
-                    <div className={`${style.socialButton} ${style.skeleton}`}></div>
+                    <button className={`${style.socialButton} ${style.skeleton}`} aria-hidden="true"></button>
 
-                    <div className={style.authFormInputs}>
-                        <div className={`${style.input} ${style.skeleton}`}></div>
-                        <div className={`${style.input} ${style.skeleton}`}></div>
-                    </div>
+                    <form className={style.authFormInputs}>
+                        <div className={`${style.input} ${style.skeleton}`} aria-hidden="true"></div>
+                        <div className={`${style.input} ${style.skeleton}`} aria-hidden="true"></div>
+                    </form>
                 </div>
 
                 <div className={style.authFormActions}>
-                    <div className={`${style.button} ${style.skeleton}`}></div>
-                    <div className={`${style.text} ${style.skeleton}`}></div>
+                    <button className={`${style.button} ${style.skeleton}`} aria-hidden="true"></button>
+                    <p className={`${style.text} ${style.skeleton}`} aria-hidden="true"></p>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 };

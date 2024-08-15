@@ -13,7 +13,7 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                     <Image 
                         fill={true}
                         priority
-                        src={group.banner || "/group.png"}
+                        src={group.banner || "/general/noImage.avif"}
                         alt="picture of group" />
                 </div>
                 <div className={style.groupKeydetailsMajorText}>
@@ -42,7 +42,7 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                         </div>
                         <div className={style.groupKeydetailsTextButtons}>
                             <CustomButton 
-                                coloring={(ctaText === "Requested" || ctaText === "Leave Group") ? "inverseColoring" : "defaultColoring"} 
+                                coloring={(ctaText === "Requested" || ctaText === "Leave Community") ? "inverseColoring" : "defaultColoring"} 
                                 size="normalButtonSize"
                                 loading={isLoading}
                                 onClick={onJoinLeave}>
