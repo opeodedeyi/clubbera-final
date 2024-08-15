@@ -5,43 +5,63 @@ import GroupsSection from "./comp/HomepageGroup/HomepageGroup";
 
 const worksCards = [
     {
-        image: '/explore_main.png',
-        title: 'Explore & Discover',
-        subtext: 'Discover engaging social experiences on Clubbera. Sign up to explore diverse non-profit clubs matching your interests, find activities and hobbies you love, and foster a vibrant community spirit.',
+        image: '/homepage/explore.jpg',
+        title: 'Discover Communities & Events',
+        subtext: 'Start exploring the amazing communities and events on Clubbera. Search for keywords that match your interests, or browse through our curated categories. From hiking adventures to cooking classes, there\'\s something for everyone!',
     },
     {
-        image: '/connect_main.png',
-        title: 'Connect & Engage',
-        subtext: 'Connect with like-minded individuals by joining resonating clubs. Share experiences, ideas, and passions in a user-friendly space. Engage in meaningful conversations, collaborate, and build genuine connections based on shared interests.'
+        image: '/homepage/attend.jpg',
+        title: 'Attend Events & Make Connections',
+        subtext: 'Now for the fun part \–\ attending events and meeting new people! Clubbera events are all about forming genuine connections through shared experiences. So go ahead, strike up a conversation, and let the good times roll!'
     },
     {
-        image: '/customize_main.png',
-        title: 'Customize & Grow',
-        subtext: "Bring your vision to life as a club creator on Clubbera. Customize your club's dynamics, add moderators, and shape the environment to match your vision. Foster ownership and enhance user satisfaction as your community grows and thrives."
+        image: '/homepage/create.jpg',
+        title: 'Create Your Own Community or Event',
+        subtext: "Can't find a community or event that matches your interests? No problem \–\ create your own! It's completely free to start a new community on Clubbera. Plus, you'll have the satisfaction of bringing people together and watching your community grow."
     }
 ];
 
 const groupTypes = [
     {
-        image: '/dance_com.png',
-        title: 'Dance community',
+        image: '/homepage/running.jpg',
+        title: 'Athletics',
     },
     {
-        image: '/game_com.png',
-        title: 'Game community',
+        image: '/homepage/basketballl.jpg',
+        title: 'Hoop lovers',
     },
     {
-        image: '/gym_com.png',
-        title: 'Gym community',
+        image: '/homepage/chess.jpg',
+        title: 'Strategy Masters',
     },
     {
-        image: '/cooking_com.png',
-        title: 'Cooking community',
+        image: '/homepage/creatives.jpg',
+        title: 'Creatives',
     },
     {
-        image: '/sport_com.png',
-        title: 'Sport community',
-    }
+        image: '/homepage/football.jpg',
+        title: 'Goal Getters',
+    },
+    {
+        image: '/homepage/reading.jpg',
+        title: 'Page Turners',
+    },
+    {
+        image: '/homepage/womenInTech.jpg',
+        title: 'Tech Trailblazers',
+    },
+    {
+        image: '/homepage/hiking.jpg',
+        title: 'Adventure Seekers',
+    },
+    {
+        image: '/homepage/dancing.jpg',
+        title: 'Rhythm Nation',
+    },
+    {
+        image: '/homepage/safe.jpg',
+        title: 'Safe Spaces',
+    },
 ];
 
 const HomepageContent = () => {  

@@ -65,7 +65,8 @@ export default function EventsSection() {
                                 showButton={false}/>
                         ))
                     ) : (
-                        <NoResultCard />
+                        <NoResultCard
+                            message="The organizer is yet to create their first event"/>
                     )
                 }
             </CardGrid>

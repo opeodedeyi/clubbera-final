@@ -1,9 +1,15 @@
+import Image from 'next/image';
 import style from "./HomepageWorks.module.css";
 
 function WorkCard({ title, text, workimage }) {
     return (
         <div className={style.homepageWorkCard}>
-            <img className={style.homepageWorkCardImg} src={workimage} alt="" />
+            <Image
+            className={style.homepageWorkCardImg}
+            src={workimage}
+            alt={`photo of ${title}`}
+            width={400}
+            height={400}/>
             <p className={style.homepageWorkCardTitle}>
             {title.split('&').map((part, index) => (
                 <span key={index}>
@@ -35,7 +41,7 @@ const WorksSection = ({ works }) => (
     <div className={style.homepageWorks}>
         <div className={style.homepageWorksContent}>
             <h2 className={style.homepageWorksTitle}>How Clubbera <span className="spicy-text">works</span></h2>
-            <p className={style.homepageWorksText}>Form new connections with individuals who have common interests through a wide range of physical events. Joining our platform and creating an account is absolutely free.</p>
+            <p className={style.homepageWorksText}>Ready to break free from the virtual world and make some real-life connections? Clubbera is here to help you do just that! Our platform is all about bringing people together through shared interests and unforgettable experiences.</p>
         </div>
 
         <div className={style.homepageWorksCards}>

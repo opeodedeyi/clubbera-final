@@ -11,9 +11,9 @@ export default function Dashboard() {
             <ProfileTopCard/>
             
             <CTABanner 
-                title="Create your first community"
+                title="Create your community"
                 image="/people-two.svg"
-                description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
+                description="Bring people together around your passion. Start building your community on Clubbera today, absolutely free!" 
                 buttonText="Create new commuity"
                 destination="/creategroup"/>
             

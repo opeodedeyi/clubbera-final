@@ -39,10 +39,10 @@ export function useGroupMembership(initialStatus, groupId, isPrivate) {
     }, [membershipStatus, groupId, isPrivate, router]);
 
     const ctaText = {
-        'owner': 'Manage Group',
+        'owner': 'Manage community',
         'pending': 'Requested',
-        'member': 'Leave Group',
-        'not-member': 'Join Group',
+        'member': 'Leave community',
+        'not-member': 'Join community',
     }[membershipStatus];
 
     return { ctaText, handleMembershipAction, isLoading };
