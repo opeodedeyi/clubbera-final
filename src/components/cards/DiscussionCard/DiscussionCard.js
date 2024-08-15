@@ -6,6 +6,7 @@ import { postReply } from '@/app/actions/postDiscussion';
 import { truncateTextWithDot } from '@/utils/textUtils';
 import { timeAgo } from '@/utils/dateUtils';
 import { HiOutlineChatAlt2 } from "react-icons/hi";
+import LoadingSpinner from '@/components/animation/LoadingSpinner/LoadingSpinner';
 import DiscussionInput from '@/components/forminput/DiscussionInput/DiscussionInput';
 import style from './DiscussionCard.module.css';
 
@@ -52,7 +53,7 @@ const DiscussionCard = ({ id, type="reply", name, avatar, comment, timeSince, re
 };
 
 export default function DiscussionCont({ id, name, avatar, comment, timeSince, replyCount=0 }) {
-    const [replies, setReply] = useState('');
+    const [replies, setReply] = useState([]);
     const [replyComment, setReplyComment] = useState('');
     const [replyPage, setReplyPage] = useState(0);
     const [isLoadingReplies, setIsLoadingReplies] = useState(false);
@@ -90,12 +91,17 @@ export default function DiscussionCont({ id, name, avatar, comment, timeSince, r
     }
 
     const showRepliesPage = () => {
+        
         if (replyPage===0) {
             setShowReplies(true);
             showMoreReplies();
         } else {
             setShowReplies(true);
         }
+    }
+
+    const hideRepliesPage = () => {
+        setShowReplies(false);
     }
 
     return (
@@ -111,15 +117,19 @@ export default function DiscussionCont({ id, name, avatar, comment, timeSince, r
                 onClick={toggleShowReplies} />
 
             {   replyCount > 0 && (
-                // fixing here tomorrow
-                <button
-                    className={`${style.discussionCardReply} ${style.marginOne}`}
-                    onClick={toggleShowReplies}>
-                    {showReplies ? 
-                        <span>Hide replies</span> : 
-                        <span>Show replies</span>
-                    }
-                </button>
+                ( showReplies ? (
+                    <button
+                        className={`${style.discussionCardReply} ${style.marginOne}`}
+                        onClick={hideRepliesPage}>
+                            <span>Hide replies</span> 
+                    </button>
+                    ) :
+                    <button
+                        className={`${style.discussionCardReply} ${style.marginOne}`}
+                        onClick={showRepliesPage}>
+                            <span>Show replies</span> 
+                    </button>
+                )
             )}
 
             {
@@ -134,34 +144,36 @@ export default function DiscussionCont({ id, name, avatar, comment, timeSince, r
                                 placeholder="Write a reply to the comment"
                                 onClick={postCommentReply} />
 
-                            {/* {
-                                isLoadingReplies ? (
-                                    <p>Loading...</p>
-                                ) : replies.length === 0 ? (
-                                    <p>No replies yet</p>
-                                ) : (
-                                    replies.map((reply) => (
-                                        <DiscussionCard
-                                            key={reply.id}
-                                            type="reply"
-                                            id={reply.id}
-                                            name={reply.user_name}
-                                            avatar={reply.user_image}
-                                            comment={reply.comment}
-                                            timeSince={reply.created_at} />
-                                    ))
-                                )
-                            } */}
+                            {
+                                replies.map((reply) => (
+                                    <DiscussionCard
+                                        key={reply.id}
+                                        type="reply"
+                                        id={reply.id}
+                                        name={reply.user_name}
+                                        avatar={reply.user_image}
+                                        comment={reply.comment}
+                                        timeSince={reply.created_at} />
+                                ))
+                            }
+                            
 
                             {   (replyCount > replies.length) && (
-                                <button
-                                    className={`${style.discussionCardReply} ${style.marginOne}`}
-                                    onClick={showMoreReplies}>
-                                        {replies.length===0 ? 
-                                            <span>Show replies</span> : 
-                                            <span>Show more</span>
-                                        }
-                                </button>
+
+                                isLoadingReplies ? (
+                                    <div className={style.loadingContainer}>
+                                        <LoadingSpinner height='18px' backgroundColor="var(--main-color)"/>
+                                    </div>
+                                ) : (
+                                    <button
+                                        className={`${style.discussionCardReply} ${style.marginOne}`}
+                                        onClick={showMoreReplies}>
+                                            {replies.length===0 ? 
+                                                <span>Show replies</span> : 
+                                                <span>Show more</span>
+                                            }
+                                    </button>
+                                )
                             )}
                         </div>
                     </div>

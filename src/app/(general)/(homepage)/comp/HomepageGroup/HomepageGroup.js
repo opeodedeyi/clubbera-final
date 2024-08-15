@@ -6,7 +6,12 @@ import style from "./HomepageGroup.module.css";
 function GroupTypeCard({ title, grpimage }) {
     return (
         <div className={style.homepageTypeGroupCard}>
-            <Image className={style.homepageGroupCardImg} src={grpimage} alt={title} width="400" height="400" />
+            <Image
+                className={style.homepageGroupCardImg}
+                src={grpimage}
+                alt={title}
+                width={400}
+                height={400} />
             <p className={style.homepageGroupCardTitle}>{title}</p>
         </div>
     );
@@ -15,9 +20,9 @@ function GroupTypeCard({ title, grpimage }) {
 const GroupsSection = ({ groupTypes }) => (
     <div className={style.homepageGroups}>
         <div className={style.homepageGroupsContent}>
-            <h2 className={style.homepageGroupsTitle}>Create a <span className="spicy-text">group</span></h2>
-            <p className={style.homepageGroupsText}>Start today by creating your dynamic and perfect group.</p>
-            <CustomButton link destination="/creategroup" size="normalSize">Create group</CustomButton>
+            <h2 className={style.homepageGroupsTitle}>Create Your <span className="spicy-text">Free</span> Community Today!</h2>
+            <p className={style.homepageGroupsText}>Ready to bring people together around what matters to you? Create your own community on Clubbera for free and start building your tribe today!</p>
+            <CustomButton link destination="/creategroup" size="normalSize">Create community</CustomButton>
         </div>
         <div className={style.homepageGroupsMain}>
             <div className={style.homepageGroupsMainCards}>

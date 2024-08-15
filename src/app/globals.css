@@ -2,7 +2,17 @@
     /* Common variables */
     --font-gt-walsheim: var(--font-gt-walsheim);
     --font-nantes: var(--font-nantes);
+    --border-radius-sm: 8px;
     --border-radius: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-full: 1000px;
+
+    --gap-sm: 8px;
+    --gap-md: 16px;
+    --gap-lg: 24px;
+    --gap-xl: 32px;
+    --gap-xxl: 40px;
+
     --container-padding: 80px;
 
     /* Color palette */

@@ -1,4 +1,5 @@
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
+import Image from "next/image";
 import style from "./HomepageHero.module.css";
 
 
@@ -14,11 +15,11 @@ export default function HeroSection() {
                     <span className="colored-text">Clubbera</span>
                 </h1>
                 <p className={style.homepageHeroSubtag}>
-                    We connect individuals with local comunities and clubs
+                    Connecting people with local communities 
                 </p>
                 <div className={`${style.flexC} ${style.homepageHeroButtons}`}>
                     <CustomButton link destination="/creategroup" size="normalSize">
-                        Create group
+                        Create community
                     </CustomButton>
                     <CustomButton
                         link
@@ -33,20 +34,36 @@ export default function HeroSection() {
             {/* Hero section glow design */}
             <div className={`${style.homepageHeroGlow} ${style.heroPosOne}`}></div>
             <div className={`${style.homepageHeroGlow} ${style.heroPosTwo}`}></div>
-            <div
-                className={`${style.homepageHeroGlow} ${style.heroPosThree}`}>
-            </div>
+            <div className={`${style.homepageHeroGlow} ${style.heroPosThree}`}></div>
 
             {/* Hero section images */}
-            <div
-                className={`${style.homepageHeroImage} ${style.heroPosFour}`}>
+            <div className={`${style.homepageHeroImage} ${style.heroPosFour}`}>
+                <Image
+                    src="/hero_image_one.png"
+                    alt="Hero image"
+                    width={500}
+                    height={500} />
             </div>
-            <div
-                className={`${style.homepageHeroImage} ${style.heroPosFive}`}>
+            <div className={`${style.homepageHeroImage} ${style.heroPosFive}`}>
+                <Image
+                    src="/homepage/basketball.jpg"
+                    alt="Hero image"
+                    width={500}
+                    height={500} />
             </div>
-            <div className={`${style.homepageHeroImage} ${style.heroPosSix}`}></div>
-            <div
-                className={`${style.homepageHeroImage} ${style.heroPosSeven}`}>
+            <div className={`${style.homepageHeroImage} ${style.heroPosSix}`}>
+                <Image
+                    src="/homepage/yoga.jpg"
+                    alt="Hero image"
+                    width={500}
+                    height={500} />
+            </div>
+            <div className={`${style.homepageHeroImage} ${style.heroPosSeven}`}>
+                <Image
+                    src="/hero_image_four.png"
+                    alt="Hero image"
+                    width={500}
+                    height={500} />
             </div>
         </div>
     );
