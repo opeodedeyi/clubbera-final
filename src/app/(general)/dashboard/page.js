@@ -1,6 +1,8 @@
 import CTABanner from "@/components/utility/CTABanner/CTABanner";
 import CTASideBanner from "@/components/utility/CTASideBanner/CTASideBanner";
 import ProfileTopCard from "@/components/utility/ProfileTopCard/ProfileTopCard";
+import CommCard from "./comp/CommCard/CommCard";
+import MeetCard from "./comp/MeetCard/MeetCard";
 
 
 export default function Dashboard() {
@@ -8,31 +10,31 @@ export default function Dashboard() {
         <>
             <ProfileTopCard/>
             
-            <CTABanner 
-                title="Create your first community"
-                image="/people-two.svg"
-                description="Connecting people on Clubbera is exciting; the best part is that its completely free" 
+            <CTASideBanner
+                title="Create your community"
+                image="/dashboard/groupp.jpg"
+                description="Bring people together around your passion. Start building your community on Clubbera today, absolutely free!" 
                 buttonText="Create new commuity"
-                destination="/creategroup"/>
-            {/* more to go here */}
+                destination="/creategroup"
+                reverse={true} />
+            
+            <CommCard />
+
+            {/* <CTABanner 
+                title="Community-building is your most valuable asset"
+                image="/people-two.svg"
+                description="Bring people together around your passion. Start building your community on Clubbera today, absolutely free!" 
+                buttonText="Create new commuity"
+                destination="/creategroup"/> */}
 
             <CTASideBanner
                 title="Community-building is your most valuable asset"
-                image="/group-of-people.png"
+                image="/dashboard/event.jpg"
                 description="Begin your asset-building today by creating communities" 
                 buttonText="Begin building"
-                destination="/creategroup"
-                reverse={true}/>
+                destination="/creategroup"/>
 
-            {/* more to go here */}
-
-            <CTABanner 
-                title="Offer your support"
-                image="/support.svg"
-                description="Help communities get the items they require to thrive" 
-                buttonText="Sponsor a community"
-                destination="/sponsor"/>
-              
+            <MeetCard />
         </>
     );
 };

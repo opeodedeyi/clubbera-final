@@ -1,0 +1,119 @@
+.paginationWrapper {
+    container-type: inline-size;
+    width: 100%;
+}
+
+.paginationContainer {
+    width: 100%;
+    padding: 16px 60px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.paginationFullContainer {
+    width: 100%;
+    padding: 16px var(--container-padding);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+}
+
+.pageNavigationButton {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    color: var(--color-text-main);
+    cursor: pointer;
+}
+
+.pageNavigationButton:hover {
+    color: var(--color-text-secondary);
+}
+
+.pageNavigationButton:hover:disabled {
+    color: var(--color-text-main);
+}
+
+.pageNavigationButton:disabled {
+    cursor: initial;
+    opacity: 0.3;
+}
+
+.pageNumbersContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.pageNumber {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: var(--border-color);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    border: none;
+}
+
+.activePageNumber {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background-color: var(--main-color-tip);
+    color: var(--main-color);
+    border: none;
+}
+
+@container (max-width: 768px) {
+    .paginationContainer {
+        padding: 16px 24px;
+        gap: 15px;
+    }
+
+    .pageNavigationButton span {
+        display: none;
+    }
+
+    .pageNumbersContainer {
+        gap: 15px;
+    }
+
+    .pageNumber {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .activePageNumber {
+        width: 28px;
+        height: 28px;
+    }
+}

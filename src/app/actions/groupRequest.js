@@ -31,10 +31,11 @@ async function apiCall(url, method = 'GET') {
     return handleResponse(response, `Failed to ${method.toLowerCase()} ${url}`)
 }
 
-export async function fetchUsers(uniqueURL) {
+export async function fetchUsers(uniqueURL, currentPage) {
     try {
-        const data = await apiCall(`${API_URL}/group/${uniqueURL}/requests`)
-        return data.requests
+        const data = await apiCall(`${API_URL}/group/${uniqueURL}/requests?page=${currentPage}`)
+        console.log('Returned data:', data);
+        return data
     } catch (error) {
         console.error('Error fetching users:', error)
         throw error

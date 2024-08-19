@@ -6,35 +6,35 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import ProfileNavigation from "./comp/ProfileNavigation/ProfileNavigation";
 import FormedGroups from './steps/FormedGroups/FormedGroups';
 import JoinedGroups from './steps/JoinedGroups/JoinedGroups';
-import Style from "./Profile.module.css";
+import style from "./Profile.module.css";
 
 
 export default function ProfileContent({user}) {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const { createMultipleQueryString, createQueryString } = useQueryParams();
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const { createMultipleQueryString, createQueryString } = useQueryParams();
 
-  const activeTab = searchParams.get('profileTab');
+    const activeTab = searchParams.get('profileTab');
 
-  useEffect(() => {
-    if (!activeTab) {
-      const newParams = {
-        profileTab: 'joinedGroups',
-        currentEditTab: 'basicInfo'
-      };
-      router.push(`?${createMultipleQueryString(newParams)}`, { scroll: false });
-    }
-  }, []);
+    useEffect(() => {
+        if (!activeTab) {
+            const newParams = {
+                profileTab: 'joinedGroups',
+                currentEditTab: 'basicInfo'
+            };
+            router.push(`?${createMultipleQueryString(newParams)}`, { scroll: false });
+        }
+    }, []);
 
-  const handleTabClick = (tabName) => {
-    router.push(`?${createQueryString('profileTab', tabName)}`, { scroll: false });
-  };
-  
-  return (
-    <div className={Style.profileTabs}>
-      <ProfileNavigation activeTab={activeTab} handleTabClick={handleTabClick} />
-      {activeTab === 'joinedGroups' && <JoinedGroups user={user}/>}
-      {activeTab === 'formedGroups' && <FormedGroups user={user}/>}
-    </div>
-  )
+    const handleTabClick = (tabName) => {
+        router.push(`?${createQueryString('profileTab', tabName)}`, { scroll: false });
+    };
+    
+    return (
+        <div className={style.profileTabs}>
+            <ProfileNavigation activeTab={activeTab} handleTabClick={handleTabClick} />
+            {activeTab === 'joinedGroups' && <JoinedGroups user={user}/>}
+            {activeTab === 'formedGroups' && <FormedGroups user={user}/>}
+        </div>
+    )
 }

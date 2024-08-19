@@ -1,9 +1,7 @@
+import Image from 'next/image';
+import { HiOutlineLocationMarker, HiOutlineUserGroup, HiOutlineChevronDown } from "react-icons/hi";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import GroupTag from "@/components/utility/GroupTag/GroupTag";
-import Image from 'next/image';
-import LocationMarkerIcon from '@/svg/LocationMarkerIcon';
-import GroupPeopleIcon from '@/svg/GroupPeopleIcon';
-import DownArrowIcon from '@/svg/DownArrowIcon';
 import style from './GroupKeyDetails.module.css';
 
 
@@ -15,7 +13,7 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                     <Image 
                         fill={true}
                         priority
-                        src={group.banner || "/group.png"}
+                        src={group.banner || "/general/noImage.avif"}
                         alt="picture of group" />
                 </div>
                 <div className={style.groupKeydetailsMajorText}>
@@ -28,24 +26,30 @@ export default function GroupKeyDetails({ group, ctaText, onJoinLeave, isLoading
                                 <p>{group.tagline}</p>
                             </div>
                             <div className={style.groupKeydetailsLocMem}>
-                                <div className={style.grpKeydetLocItem}><div className={style.grpKeydetIconRounded}>
-                                    <LocationMarkerIcon color="--main-color-card"/>
-                                </div><span>{group.location}</span></div>
-                                <div className={style.grpKeydetLocItem}><div className={style.grpKeydetIconRounded}>
-                                    <GroupPeopleIcon color="--main-color-card"/>
-                                </div><span>{`${group.member_count} member ${(group.member_count > 1) ? 's' : ''}`}</span></div>
+                                <div className={style.grpKeydetLocItem}>
+                                    <div className={style.grpKeydetIconRounded}>
+                                        <HiOutlineLocationMarker color="var(--color-text-main)"/>
+                                    </div>
+                                    <span>{group.location}</span>
+                                </div>
+                                <div className={style.grpKeydetLocItem}>
+                                    <div className={style.grpKeydetIconRounded}>
+                                        <HiOutlineUserGroup color="var(--color-text-main)"/>
+                                    </div>
+                                    <span>{`${group.member_count} member${(group.member_count > 1) ? 's' : ''}`}</span>
+                                </div>
                             </div>
                         </div>
                         <div className={style.groupKeydetailsTextButtons}>
                             <CustomButton 
-                                coloring={(ctaText === "Requested" || ctaText === "Leave Group") ? "inverseColoring" : "defaultColoring"} 
+                                coloring={(ctaText === "Requested" || ctaText === "Leave Community") ? "inverseColoring" : "defaultColoring"} 
                                 size="normalButtonSize"
                                 loading={isLoading}
                                 onClick={onJoinLeave}>
                                 {ctaText}
                             </CustomButton>
                             <CustomButton coloring="inverseColoring" size="normalButtonSize">
-                                <span>Share</span><DownArrowIcon/>
+                                <span>Share</span><HiOutlineChevronDown/>
                             </CustomButton>
                         </div>
                     </div>

@@ -1,0 +1,19 @@
+.containerTB {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    box-sizing: border-box;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+@media (max-width: 576px) {
+    .containerTB {
+        gap: 16px;
+        padding-top: 24px;
+        padding-bottom: 24px;
+    }
+}

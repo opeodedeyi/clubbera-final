@@ -1,8 +1,5 @@
-import ProgressBar from '@/components/utility/ProgressBar/ProgressBar';
-import React from 'react';
+import AuthSkeleton from "@/components/skeleton/AuthSkeleton/AuthSkeleton";
 
-const Loading = () => {
-    return <ProgressBar />
+export default function Loading() {
+    return <AuthSkeleton />
 }
-
-export default Loading;

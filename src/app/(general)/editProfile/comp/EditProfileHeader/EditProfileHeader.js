@@ -1,10 +1,10 @@
-import CustomButton from '@/components/utility/CustomButton/CustomButton'
 import { useEditUser } from '@/app/context/EditUserContext';
+import CustomButton from '@/components/utility/CustomButton/CustomButton';
 import style from "./EditProfileHeader.module.css"
 
 
 export default function EditProfileHeader() {
-    const { submitUserData } = useEditUser();
+    const { submitUserData, isUpdatingUser } = useEditUser();
 
     return (
         <div className={style.editHeaderContainer}>
@@ -13,7 +13,11 @@ export default function EditProfileHeader() {
                 <p>Make changes to your profile</p>
             </div>
 
-            <CustomButton size='defaultButtonSize' onClick={submitUserData}>
+            <CustomButton
+                size='defaultButtonSize'
+                onClick={submitUserData}
+                loading={isUpdatingUser}
+                loadingText="Saving">
                 Save <span className={style.desktopOnlyShow}>changes</span>
             </CustomButton>
         </div>

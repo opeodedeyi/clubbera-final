@@ -1,0 +1,235 @@
+.discussionContainer {
+    width: 100%;
+}
+
+.discussionCard {
+    width: 100%;
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.02);
+}
+
+.discussionCardTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+}
+
+.discussionCardInfo {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.discussionCardInfoLeft {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discussionCardInfoImage {
+    width: 27px;
+    height: 27px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.discussionCardInfoImage img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.discussionCardUsername {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: hidden;
+}
+
+.discussionCardPoint {
+    width: 4px;
+    height: 4px;
+    border-radius: 10px;
+    background-color: var(--color-text-secondary);
+}
+
+.discussionCardTime {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.14px;
+}
+
+.discussionCardLine {
+    width: 100%;
+    height: 1px;
+    background-color: var(--border-color);
+}
+
+.discussionCardComment {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.32px;
+}
+
+.discussionCardBottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.discussionCardBottomLeft {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.discussionCardSmltxt {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.14px;
+}
+
+.discussionCardReply {
+    color: var(--color-text-main);
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.14px;
+    cursor: pointer;
+}
+
+.discussionCardReply {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--main-color);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    letter-spacing: -0.14px;
+    cursor: pointer;
+}
+
+.discussionCardReply:hover {
+    color: var(--main-color-hover);
+}
+
+.marginOne {
+    margin-top: 8px;
+}
+
+.discussionReplies {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding-left: 16px;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.replyLine {
+    width: 1px;
+    flex-grow: 1;
+    background-color: var(--border-color);
+}
+
+.replycontent {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.loadingContainer {
+    height: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and  (max-width: 768px) {
+    .discussionCard {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .discussionCardTop {
+        gap: 16px;
+    }
+
+    .discussionCardInfoLeft {
+        gap: 4px;
+    }
+
+    .discussionCardInfoImage {
+        width: 24px;
+        height: 24px;
+    }
+
+    .discussionCardUsername {
+        font-size: 0.875rem;
+        letter-spacing: -0.14px;
+    }
+
+    .discussionCardPoint {
+        width: 3px;
+        height: 3px;
+    }
+
+    .discussionCardTime {
+        font-size: 0.75rem;
+        line-height: 135%;
+        letter-spacing: -0.12px;
+    }
+
+    .discussionCardComment {
+        font-size: 0.875rem;
+        letter-spacing: -0.28px;
+    }
+    
+    .discussionCardSmltxt {
+        font-size: 0.75rem;
+    }
+
+    .discussionReplies {
+        padding-left: 8px;
+        gap: 12px;
+    }
+}

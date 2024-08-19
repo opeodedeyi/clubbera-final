@@ -1,0 +1,118 @@
+.flexMeetingCard {
+    width: 330px;
+    flex: 0 0 auto;
+}
+
+.gridMeetingCard,
+.flexMeetingCard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cardImage {
+    width: 100%;
+    height: 170px;
+}
+
+.cardContent {
+    padding: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.cardContentBasic {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cardContentText {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cardDate {
+    height: 14px;
+    width: 120px;
+    border-radius: 1000px;
+}
+
+.cardTitle {
+    height: 24px;
+    width: 80%;
+    border-radius: 1000px;
+}
+
+.cardLocation {
+    height: 14px;
+    width: 60%;
+    border-radius: 1000px;
+}
+
+.cardDescription {
+    height: 76px;
+    border-radius: 8px;
+}
+
+.cardFooter {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px 24px;
+}
+
+.cardFooterMembers {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.avatarWrapperMain {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.avatarWrapper {
+    height: 27px;
+    width: 27px;
+    margin-left: -10px;
+    border-radius: 100px;
+}
+
+.memberCount {
+    height: 14px;
+    width: 60px;
+    border-radius: 1000px;
+}
+
+.button {
+    height: 36px;
+    width: 100px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}

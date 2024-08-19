@@ -1,6 +1,6 @@
 import AboutSection from "./steps/AboutSection/AboutSection";
-import EventSection from "@/components/pages/groupDetails/EventSection";
-import DiscussionSection from "@/components/pages/groupDetails/DiscussionSection";
+import EventSection from "./steps/EventSection/EventSection";
+import DiscussionSection from "./steps/DiscussionSection/DiscussionSection";
 import MemberSection from "./steps/MemberSection/MemberSection";
 
 export default function GroupPages({ group, activeTab }) {

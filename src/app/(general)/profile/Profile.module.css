@@ -1,8 +1,3 @@
-.profileContainer {
-  padding: 72px 0 50px;
-  width: 100%;
-}
-
 .profileDetailsContainer {
   display: flex;
   flex-direction: row;

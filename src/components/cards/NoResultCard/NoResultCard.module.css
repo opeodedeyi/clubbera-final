@@ -1,0 +1,23 @@
+.noResults {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    padding: 24px;
+    gap: 24px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.noResultGrid {
+    grid-column: 1 / -1;
+}
+
+@media screen and (max-width: 768px) {
+    .noResults {
+        height: 250px;
+    }
+    
+}

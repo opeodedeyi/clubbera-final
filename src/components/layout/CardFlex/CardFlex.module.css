@@ -1,0 +1,23 @@
+.cardFlexWrapper {
+    width: 100%;
+    overflow: hidden;
+}
+
+.cardFlex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cardFlex {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

@@ -1,0 +1,81 @@
+.memberCardSmall {
+    display: flex;
+    padding: 12px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    background: transparent;
+}
+
+.memberCardSmallGen {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.memberCardSmallImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+}
+
+.memberCardSmallText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.memberCardSmallName {
+    width: 120px;
+    height: 16px;
+}
+
+.memberCardSmallRole {
+    width: 150px;
+    height: 14px;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .memberCardSmall {
+        width: 100%;
+        max-width: 400px;
+        border-radius: 4px;
+    }
+
+    .memberCardSmallImg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .memberCardSmallName {
+        width: 100px;
+        height: 14px;
+    }
+    
+    .memberCardSmallRole {
+        width: 120px;
+        height: 12px;
+    }
+}

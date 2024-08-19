@@ -1,18 +1,20 @@
 import { notFound } from 'next/navigation';
 import SecHeaderBack from '@/components/header/SecHeaderBack/SecHeaderBack';
-import style from './MeetingDetails.module.css';
-import HangoutDescription from './hangoutDescription';
-import HangoutInformation from './hangoutInformation';
+import FullBanner from './comp/FullBanner/FullBanner';
+import BasicDescription from './comp/BasicDescription/BasicDescription';
+import HangoutInformation from './comp/HangoutInformation/HangoutInformation';
+import { getMeetingDetails } from "@/app/actions/getMeetingDetails";
 
 
-const MeetingDetails = async ({ params }) => {
+export default async function MeetingDetails({ params }) {
+    const { meeting } = await getMeetingDetails(params.uniqueURL);
+    
     return (
-        <div className={style.meetingDetailsContainer}>
+        <>
             <SecHeaderBack />
-            <HangoutDescription />
-            <HangoutInformation/>
-        </div>
+            <FullBanner banner={meeting?.banner} />
+            <BasicDescription meeting={meeting} />
+            <HangoutInformation meeting={meeting}/>
+        </>
     );
 };
-
-export default MeetingDetails;

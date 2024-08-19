@@ -47,14 +47,15 @@
 
 .keyDetailIconRounded {
     display: flex;
-    width: 24px;
-    height: 24px;
-    padding: 8px;
+    width: 28px;
+    height: 28px;
+    padding: 5px;
     justify-content: center;
     align-items: center;
-    gap: 10px;
     border-radius: 1000px;
-    background: var(--color-text-main);
+    background-color: transparent;
+    color: var(--color-text-main);
+    border: 1px solid var(--border-color);
 }
 
 .keyDetailItemText {
