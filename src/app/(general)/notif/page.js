@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Notification from "@/components/notification/notification";
+import Alert from "@/components/alert/alert";
 
 const Notif = () => {
   const [showNotification, setShowNotificattion] = useState(false);
@@ -19,9 +19,9 @@ const Notif = () => {
         <button onClick={handleShowNotification}>Show Success Alert</button>
       </div>
       {showNotification && (
-        <Notification
+        <Alert
           type="error"
-          message="Your operation was successful!"
+          message="Your operation was not successful!"
           show={showNotification}
           onClose={handleCloseNotification}
         />

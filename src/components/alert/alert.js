@@ -3,9 +3,9 @@ import { FaCheckCircle } from "react-icons/fa";
 import { IoAlertCircle } from "react-icons/io5";
 import { IoMdInformationCircle } from "react-icons/io";
 import { FaCircleExclamation } from "react-icons/fa6";
-import styles from "./notification.module.css"
+import styles from "./alert.module.css";
 
-const Notification = ({ type, message, show, duration = 5000, onClose }) => {
+const Alert = ({ type, message, show, duration = 5000, onClose }) => {
   useEffect(() => {
     if (show) {
       const timer = setTimeout(onClose, duration);
@@ -54,4 +54,4 @@ const Notification = ({ type, message, show, duration = 5000, onClose }) => {
   );
 };
 
-export default Notification;
+export default Alert;
