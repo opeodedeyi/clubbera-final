@@ -1,5 +1,6 @@
 'use client'
 
+import { useSearchParams } from 'next/navigation';
 import { useEffect, useState, useRef } from 'react';
 import { googleLogin } from '@/app/actions/googleLogin';
 import LoadingSpinner from "@/components/animation/LoadingSpinner/LoadingSpinner";
@@ -8,7 +9,8 @@ import style from './SocialButton.module.css';
 
 const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id }) => {
     const [isSdkLoaded, setIsSdkLoaded] = useState(false);
-    const buttonRef = useRef(null);
+    const searchParams = useSearchParams();
+    const destination = searchParams.get('destination');
 
     useEffect(() => {
         if (socialType === 'google') {
@@ -40,8 +42,7 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
         
         if (res.credential) {
             try {
-                await googleLogin(res.credential, 'idToken')
-                // await googleLogin(res.credential)
+                await googleLogin(res.credential, 'idToken', destination)
             } catch (error) {
                 console.error('Google login error:', error)
             }
@@ -67,8 +68,7 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
                         callback: (response) => {
                             if (response.code) {
                                 console.log('Google login response : ', response.code);
-                                googleLogin(response.code, 'code');
-                                // googleLogin(response.code);
+                                googleLogin(response.code, 'code', destination);
                             }
                         },
                     }).requestCode();
@@ -93,6 +93,3 @@ const SocialLoginButton = ({ imgSrc, coloring, loading, children, socialType, id
 }
 
 export default SocialLoginButton
-
-
-

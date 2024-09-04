@@ -11,10 +11,19 @@ export async function middleware(request) {
     let response = NextResponse.next();
 
     const publicPaths = ['/', '/login', '/signup', '/forgotpassword'];
-    const privatePaths = ['/dashboard', '/profile', '/creategroup', '/group/:uniqueURL/edit'];
+    const privatePaths = [
+        '/dashboard', 
+        '/profile', 
+        '/creategroup',
+    ];
+
+    const privateGroupSubpaths = ['edit', 'members', 'discussions'];
 
     const isPublicPath = publicPaths.includes(pathname);
     const isPrivatePath = privatePaths.some(path => pathname.startsWith(path));
+
+    const isPrivateGroupPath = pathname.startsWith('/group/') && 
+        privateGroupSubpaths.some(subpath => pathname.includes(`/${subpath}`));
 
     if (isAuth) {
         try {
@@ -31,7 +40,7 @@ export async function middleware(request) {
         return NextResponse.redirect(new URL(nextPageURL, request.nextUrl));
     }
 
-    if (isPrivatePath && !isAuth) {
+    if ((isPrivatePath || isPrivateGroupPath) && !isAuth) {
         const redirectUrl = new URL('/login', request.nextUrl);
         redirectUrl.searchParams.set('destination', pathname);
         return NextResponse.redirect(redirectUrl);
@@ -50,5 +59,7 @@ export const config = {
         '/forgotpassword',
         '/creategroup',
         '/group/:uniqueURL/edit',
+        '/group/:uniqueURL/members', 
+        '/group/:uniqueURL/discussions'
     ],
 }

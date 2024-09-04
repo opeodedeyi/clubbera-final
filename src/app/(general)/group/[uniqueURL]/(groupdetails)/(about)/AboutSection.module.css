@@ -2,9 +2,10 @@
     width: 100%;
     display: flex;
     align-items: flex-start;
+    justify-content: space-between;
     gap: 40px;
     margin-top: 40px;
-    margin-bottom: 80px;
+    margin-bottom: 0;
     padding: 0 var(--container-padding);
 }
 
@@ -12,13 +13,10 @@
     display: flex;
     max-width: 880px;
     width: 60%;
-    padding: 32px 24px;
     flex-direction: column;
     align-items: flex-start;
     align-self: stretch;
-    gap: 16px;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
+    gap: 30px;
 }
 
 .groupAboutContent {
@@ -34,12 +32,12 @@
 .groupHostInfo {
     display: flex;
     width: 360px;
-    padding: 32px 24px;
+    /* padding: 32px 24px; */
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    /* border: 1px solid var(--border-color); */
 }
 
 .groupHostInfoContainer {
@@ -48,21 +46,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 12px;
+    gap: 24px;
     align-self: stretch;
+}
+
+.groupAboutTitle {
+    text-transform: none;
 }
 
 .HostInfoItem {
     display: flex;
+    justify-content: flex-start;
+    align-items: center;
     min-width: 278px;
-    align-items: flex-start;
     gap: 12px;
 }
 
 .HostInfoItemImg {
     display: flex;
-    width: 28px;
-    height: 28px;
+    width: 50px;
+    height: 50px;
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
@@ -117,14 +120,14 @@
 
 @media screen and  (max-width: 768px) {
     .groupOther {
-        gap: 24px;
+        gap: 40px;
         margin-top: 32px;
         padding-top: 0;
     }
 
     .groupAboutDescription {
         width: 100%;
-        padding: 24px 16px;
+        /* padding: 24px 16px; */
         flex-direction: column;
     }
 
@@ -135,7 +138,7 @@
 
     .groupHostInfo {
         width: 100%;
-        padding: 24px 16px;
+        /* padding: 24px 16px; */
     }
     
     .groupHostInfoContainer {
