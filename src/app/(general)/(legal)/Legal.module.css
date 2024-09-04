@@ -1,0 +1,66 @@
+.termsContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.title {
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+}
+  
+.lastUpdated {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.sectionTitle {
+    font-size: 1.125rem;
+    margin-bottom: 10px;
+}
+
+.subsectionTitle {
+    font-size: 1.125rem;
+    margin-bottom: 5px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section p {
+    margin-bottom: 8px;
+}
+
+.orderedList,
+.numeralList,
+.unorderedList {
+    margin-bottom: 15px;
+    margin-left: 24px;
+}
+
+.orderedList {
+    list-style-type: lower-alpha;
+}
+
+.numeralList {
+    list-style-type: lower-roman;
+}
+
+.unorderedList {
+    list-style-type: none;
+}
+
+.orderedList li,
+.numeralList li,
+.unorderedList li { /* a, b, c */
+    margin-bottom: 2px;
+}
+
+.link {
+    color: var(--main-color);
+    /* text-decoration: none; */
+}

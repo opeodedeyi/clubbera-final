@@ -1,0 +1,28 @@
+.attendeeInfo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.attendeeImages {
+    display: flex;
+    gap: 6px;
+}
+
+.attendeeImage {
+    width: 28px;
+    height: 28px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.totalAttendeesLink {
+    font-size: 0.875rem;
+    color: var(--main-color);
+    text-decoration: none;
+}
+
+.totalAttendeesLink:hover {
+    color: var(--main-color-hover);
+}

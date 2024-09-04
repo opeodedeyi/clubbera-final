@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { HiOutlineBookmark, HiOutlineShare } from "react-icons/hi";
+import AvatarCards from "@/components/utility/AvatarCards/AvatarCards";
 import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from "./BasicDescription.module.css";
 
@@ -10,23 +10,11 @@ export default function BasicDescription({ meeting }) {
             <div className={style.hangoutDetailsContainer}>
                 <div className={style.hangoutBasicInfo}>
                     <p className={style.hangoutTitle}>{meeting?.title}</p>
-                    
-                    <div className={style.attendeeInfo}>
-                        { meeting?.attending_count?.length > 0 &&
-                            <div className={style.attendeeImages}>
-                                { meeting?.attending_avatars.map((image, index) => (
-                                    <Image
-                                        key={index}
-                                        src={image}
-                                        alt="Attendee"
-                                        height={30}
-                                        width={30} />
-                                ))}
-                            </div>
-                        }
-                    
-                        <p className={style.totalAttendees}>{meeting?.attending_count} Attendee{ meeting?.attending_counts > 1 ? 's' : ''}</p>
-                    </div>
+
+                    <AvatarCards
+                        count={meeting?.attending_count}
+                        images={meeting?.attending_avatars}
+                        text="people going" />
                 </div>
 
                 <p className={style.hangoutDescription}>{meeting?.description}</p>
