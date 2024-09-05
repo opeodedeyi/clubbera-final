@@ -11,7 +11,7 @@ import PaginationFull from '@/components/utility/Pagination/PaginationFull';
 import style from './MemberSection.module.css';
 
 
-export default function MemberSection(){
+export default function GroupDetailsMembers(){
     const params = useParams();
     const uniqueURL = params.uniqueURL;
     const [members, setMembers] = useState([]);
@@ -28,8 +28,6 @@ export default function MemberSection(){
         try {
             const { members, pagination } = await fetchUsers(uniqueURL, currentPage, 30);
             setMembers(members);
-            console.log(members);
-            
             setTotalPages(pagination.totalPages);
         } catch (error) {
             console.error('Error loading users:', error);

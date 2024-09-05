@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import { getGroupMeetings } from '@/app/actions/getGroupMeetings';
+import Filters from '../comp/Filters/Filters';
 import CardGrid from "@/components/layout/CardGrid/CardGrid";
 import MeetingCard from "@/components/cards/MeetingCard/MeetingCard";
 import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
@@ -10,7 +11,7 @@ import MeetingCardSkeleton from '@/components/skeleton/MeetingCardSkeleton/Meeti
 import PaginationFull from '@/components/utility/Pagination/PaginationFull';
 
 
-export default function EventsSection() {
+export default function GroupDetailsActivities() {
     const params = useParams();
     const uniqueURL = params.uniqueURL;
     const [meetings, setMeetings] = useState([]);
@@ -48,9 +49,17 @@ export default function EventsSection() {
         setCurrentPage(page);
     };
 
+    const handleUpcomingChange = (e) => {
+        setUpcoming(e.target.value);
+    }
+
     return (
         <>
-            <CardGrid cardWidth='330'>
+            <Filters
+                upcoming={upcoming}
+                handleUpcomingChange={handleUpcomingChange}/>
+            
+            <CardGrid cardWidth='300'>
                 {
                     isLoading ? (
                         Array(10).fill().map((_, index) => (
@@ -66,7 +75,7 @@ export default function EventsSection() {
                         ))
                     ) : (
                         <NoResultCard
-                            message="The organizer is yet to create their first event"/>
+                            message="The organizer is yet to create their first Activity"/>
                     )
                 }
             </CardGrid>

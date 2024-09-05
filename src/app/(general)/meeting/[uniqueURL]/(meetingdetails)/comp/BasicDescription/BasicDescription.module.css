@@ -21,26 +21,10 @@
     gap: 8px;
 }
 
-.attendeeInfo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-}
-
-.attendeeImages {
-    display: flex;
-    gap: 4px;
-}
-
 .hangoutTitle {
     color: var(--color-text-secondary);
     font-weight: 500;
     font-size: 1.5rem;
-}
-
-.totalAttendees {
-    font-size: 0.875rem;
 }
 
 .rsvpContainer {

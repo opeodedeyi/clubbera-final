@@ -40,7 +40,7 @@ export default function MainFooter() {
                     <ul>
                         <li><p className={style.mainFooterLinkHeader}>Legal</p></li>
                         <li><Link href="/privacypolicy" className={style.mainFooterLink}>Privacy policy</Link></li>
-                        <li><Link href="/cookiepolicy" className={style.mainFooterLink}>Cookie policy</Link></li>
+                        <li><Link href="/terms" className={style.mainFooterLink}>Terms of Service</Link></li>
                     </ul>
                 </div>
             </div>
@@ -60,5 +60,5 @@ export default function MainFooter() {
                 </div>
             </div>
         </footer>
-    )
-}
+    );
+};

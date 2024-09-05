@@ -58,7 +58,7 @@ export default function MeetingCard({ type, meeting, showButton=false }) {
                         </div>
                     )}
 
-                    <p>{meeting?.attendee_count} attendee</p>
+                    <p>{meeting?.attendee_count} people going</p>
                 </div>
             </div>
 
