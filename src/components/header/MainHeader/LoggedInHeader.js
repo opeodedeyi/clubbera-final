@@ -6,17 +6,27 @@ import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
 import SearchBar from "@/components/forminput/SearchBar/SearchBar";
 import ProfileSection from "./ProfileSection/ProfileSection";
 import style from "./MainHeader.module.css";
+import NotificationBell from "./notification/NotificationBell";
 
 
 const LoggedInHeader = memo(({ navBtnClicked, toggleMobileSearch, searchText, handleSearchChange, onSubmit }) => {
-    const mobileButtons = useMemo(() => (
-        <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}>
-            <button className={style.headerToggleBarAlt} onClick={toggleMobileSearch}>
-                <HiOutlineSearch size="18px" color="var(--color-text-main)"/>
-            </button>
-            <ProfileSection/>
+    const mobileButtons = useMemo(
+      () => (
+        <div
+          className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}
+        >
+          <button
+            className={style.headerToggleBarAlt}
+            onClick={toggleMobileSearch}
+          >
+            <HiOutlineSearch size="18px" color="var(--color-text-main)" />
+          </button>
+          <NotificationBell />
+          <ProfileSection />
         </div>
-    ), [toggleMobileSearch]);
+      ),
+      [toggleMobileSearch]
+    );
 
     const desktopButtons = useMemo(() => (
         <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.desktopOnlyShow}`}>
@@ -28,6 +38,7 @@ const LoggedInHeader = memo(({ navBtnClicked, toggleMobileSearch, searchText, ha
                 width="325px"
                 onSubmit={onSubmit} />
             <div className={style.headerVertiLine}></div>
+            <NotificationBell/>
             <ProfileSection/>
         </div>
     ), [searchText, handleSearchChange]);
