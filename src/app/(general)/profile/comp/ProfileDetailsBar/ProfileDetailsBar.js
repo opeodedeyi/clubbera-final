@@ -1,7 +1,5 @@
 import { formatBirthday } from "@/utils/dateUtils";
 import style from "./ProfileDetailsBar.module.css";
-
-
 export default function ProfileDetailsBar({user}){
     return (
         <div className={style.profileDetailsBar}>
