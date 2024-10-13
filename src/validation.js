@@ -28,3 +28,17 @@ export const loginSchema = z.object({
       "Password must be at least 8 characters long and include at least one uppercase letter, one special character, and one number",
   }),
 });
+
+export const createMeetingSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  description: z.string().min(1, "Description is required."),
+  date_of_meeting: z.string().min(1, "Date of meeting is required."),
+  time_of_meeting: z.string().min(1, "Time of meeting is required."),
+  duration: z.string().min(1, "Duration is required"),
+  capacity: z.number().min(1, "At least 1 person required"),
+  banner: z.any().refine((file) => file instanceof File, {
+    message: "A valid image file must be uploaded",
+  }),
+  location: z.string().min(1, "Location is required"),
+  location_details: z.string().min(1, "Venue description is required"),
+});
