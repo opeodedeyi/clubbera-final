@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback } from 'react';
-// import { updateUser, changePassword, updateUserImage } from '@/app/actions/updateGroup';
+// import { updateMeeting, updateMeetingImage } from '@/app/actions/updateMeeting';
 
 const EditMeetingContext = createContext();
 

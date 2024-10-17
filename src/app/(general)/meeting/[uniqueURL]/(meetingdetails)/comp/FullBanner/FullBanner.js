@@ -3,7 +3,7 @@ import style from './FullBanner.module.css';
 
 export default function FullBanner({banner}) {
     return (
-        <div className={style.bannerContainer}>
+        <div className={style.bannerContainer} >
             <Image
                 src={ banner || '/meetingHeroImage.png' }
                 alt="Hero Image"

@@ -1,0 +1,42 @@
+.actionFooter {
+    border-top: 1px solid var(--border-color);
+    padding: 20px var(--container-padding);
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    position: sticky;
+    bottom: 0;
+    background-color: var(--background-color);
+}
+
+.actionFooterText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.actionFooterTextTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-secondary);
+}
+
+.actionFooterTextDesc {
+    font-size: 15px;
+    font-weight: 400;
+}
+
+@media screen and (max-width: 1200px) {
+    .actionFooter {
+        gap: 32px;
+    }
+}

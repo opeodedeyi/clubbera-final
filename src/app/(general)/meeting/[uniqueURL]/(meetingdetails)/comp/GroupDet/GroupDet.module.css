@@ -1,0 +1,79 @@
+.groupLink {
+    text-decoration: none;
+    color: var(--text-color-primary);
+}
+
+.groupInfo {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 28px;
+    gap: 16px;
+}
+
+.groupInfoTitle {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.groupInfoContent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* border: 1px solid var(--border-color); */
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.groupInfoContent img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.groupInfoContentTexts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0px 16px;
+    width: calc(100% - 116px);
+    max-width: 300px;
+}
+
+.groupInfoTT {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 100%;
+}
+
+.groupInfoTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.groupInfoText {
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .groupInfo {
+        border: none;
+        padding: 0;
+    }
+}
