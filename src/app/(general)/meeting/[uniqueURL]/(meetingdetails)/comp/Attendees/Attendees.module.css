@@ -1,0 +1,85 @@
+.profileCont {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px;
+    gap: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.hostProfileHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+}
+
+.hostProfileHeaderTitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-secondary);
+}
+
+.lighterText {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--text-color-main) !important;
+}
+
+.attendeesGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+}
+
+.attendeesCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.attendeesCardImg {
+    width: 100%;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.attendeesCardText {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.attendeesCardName {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-color-secondary);
+    text-align: center;
+}
+
+.attendeesCardRole {
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .profileCont {
+        padding: 0;
+        border: none;
+        gap: 16px;
+    }
+}

@@ -1,5 +1,5 @@
 .hangoutLTContainer {
-    width: 50%;
+    width: 100%;
     display: flex;
     gap: 16px;
 }
