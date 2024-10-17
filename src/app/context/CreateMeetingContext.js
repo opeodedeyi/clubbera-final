@@ -57,7 +57,6 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
       }));
       closeModal();
     } catch (error) {
-      console.error("Error saving user data:", error);
       throw error;
     } finally {
       setIsCreatingMeeting(false);
@@ -65,9 +64,6 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
   }, [meetingData]);
 
   const goToNextPage = useCallback(() => {
-    console.log("Meeting Data:", meetingData);
-    console.log("Current Tab:", currentTab);
-
     try {
       if (currentTab === 1) {
         createMeetingSchema
@@ -102,7 +98,6 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
           },
           {}
         );
-        console.log("Validation Errors:", newValidationErrors);
         setValidationErrors(newValidationErrors);
       }
     }
