@@ -1,0 +1,45 @@
+.notificationItems {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 1.5rem;
+    position: relative;
+}
+
+.headerProfilePhotoCardImg {
+    height: 36px;
+    width: 36px;
+    border-radius: 1000px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.headerProfilePhotoCard img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+.unreadDot {
+    position: absolute;
+    top: -0.6rem;
+    left: -0.6rem;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 10;
+}
+.notificationDetails {
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.notificationDetailsName {
+    color: var(--color-text-input);
+    font-size: 18px;
+}
+.notificationDetailsName > span {
+    font-size: 14px;
+    color: var(--color-text-main);
+}

@@ -1,0 +1,48 @@
+.notificationContainer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+
+    &.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &.alert-success {
+        background-color: #e6fffa;
+        color: #2f855a;
+    }
+
+    &.alert-error {
+        background-color: #fff5f5;
+        color: #c53030;
+    }
+
+    &.alert-warning {
+        background-color: #fefcbf;
+        color: #d69e2e;
+    }
+
+    &.alert-info {
+        background-color: #ebf8ff;
+        color: #3182ce;
+    }
+}
+
+.icon {
+    margin-right: 0.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.shadowLg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}

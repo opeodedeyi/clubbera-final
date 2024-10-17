@@ -32,16 +32,16 @@ export const EditUserProvider = ({ children, user, activeTab }) => {
     useEffect(() => {
         setUserData(prevData => ({
             ...prevData,
-            id: user.id,
-            unique_url: user.unique_url,
-            fullName: user.full_name,
-            bio: user.bio || '',
-            city: user.location,
-            lat: user.lat,
-            lng: user.lng,
-            gender: user.gender,
-            birthday: user.birthday,
-            avatar: user.avatar,
+            id: user?.id,
+            unique_url: user?.unique_url,
+            fullName: user?.full_name,
+            bio: user?.bio || '',
+            city: user?.location,
+            lat: user?.lat,
+            lng: user?.lng,
+            gender: user?.gender,
+            birthday: user?.birthday,
+            avatar: user?.avatar,
         }));
     }, [user]);
 
