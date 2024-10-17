@@ -1,4 +1,6 @@
-.container {
+.container,
+.cont,
+.contRev {
     width: 100%;
     display: flex;
 }
@@ -6,6 +8,24 @@
 .column {
     flex: 1;
     box-sizing: border-box;
+}
+
+.col {
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 1200px) {
+    .cont {
+        flex-direction: column;
+    }
+
+    .contRev {
+        flex-direction: column-reverse;
+    }
+
+    .col {
+        width: 100%;
+    }
 }
   
 @media (max-width: 500px) {
