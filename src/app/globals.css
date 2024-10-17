@@ -155,7 +155,7 @@ h5 {
     text-transform: uppercase;
 }
 
-p {
+p, ol, ul {
     color: var(--color-text-main);
     font-size: 1rem;
     font-weight: 400;
@@ -204,8 +204,13 @@ p {
         letter-spacing: -0.28px;
     }
 
-    p {
+    p, ol, ul {
         font-size: 0.875rem;
         letter-spacing: -0.28px;
     }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }

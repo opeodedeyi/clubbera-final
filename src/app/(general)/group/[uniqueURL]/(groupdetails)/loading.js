@@ -9,7 +9,6 @@ export default function GroupDetailsLoading() {
             <BackHeaderSke />
             <GrpKDSke />
             <NavigationFullSke />
-            {/* something goes here */}
         </>
     );
 };

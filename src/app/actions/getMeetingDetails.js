@@ -26,6 +26,8 @@ async function fetchMeetingData(endpoint, timeout) {
         }
 
         const data = await response.json();
+
+        console.log("server action data - ", data);
         
         return data.success 
             ? { success: true, meeting: data.meeting }
@@ -36,5 +38,7 @@ async function fetchMeetingData(endpoint, timeout) {
 }
 
 export async function getMeetingDetails(meetingUniqueURL) {
+    console.log("meetingUniqueURL - ", meetingUniqueURL);
+    
     return fetchMeetingData(`/meeting/${meetingUniqueURL}`, 5000);
 }

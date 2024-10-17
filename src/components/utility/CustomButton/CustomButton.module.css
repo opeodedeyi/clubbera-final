@@ -116,9 +116,9 @@
 }
 
 .customButton:disabled {
-    border: none;
-    background-color: var(--main-color);
-    color: var(--color-on-brand);
+    border: 1.2px solid var(--border-color);
+    background-color: transparent;
+    color: var(--color-text-main);
     cursor:  not-allowed;
     display: flex;
     flex-direction: row;

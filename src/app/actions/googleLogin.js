@@ -4,7 +4,7 @@ import { setAuthCookie } from "@/app/actions/setAuthCookie";
 import { redirect } from 'next/navigation';
 import { fetchWithTimeout } from '@/utils/fetchWithTimeout';
 
-export async function googleLogin(token, tokenType = 'idToken') {
+export async function googleLogin(token, tokenType = 'idToken', destination = null) {
     try {
         const body = tokenType === 'code' 
             ? { code: token }
@@ -22,7 +22,8 @@ export async function googleLogin(token, tokenType = 'idToken') {
 
         if (data.success) {
             await setAuthCookie(data.token);
-            redirect('/')
+            const decodedDestination = destination ? decodeURIComponent(destination) : '/';
+            redirect(decodedDestination);
         } else {
             throw new Error(data.message || 'Authentication failed')
         }

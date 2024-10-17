@@ -1,36 +1,22 @@
-import ProfileCard from "../ProfileCard/ProfileCard";
-import LTCard from "../LTCard/LTCard";
-import TwoColumnLayout from "@/components/layout/TwoColumnLayout/TwoColumnLayout";
-import Comments from "../Comments/Comments";
+import Map from "@/components/utility/Map/Map";
+import ExpandableDescription from "@/components/utility/ExpandableDescription/ExpandableDescription";
 import style from "./HangoutInformation.module.css";
 
 
 export default function HangoutInformation({ meeting }) {
     return (
-        <TwoColumnLayout padding="0px var(--container-padding)" gap="40px">
-            <div className={style.hangoutInformationWrapper}>
-                <div className={style.hostInformationContainer}>
-                    <p>HOST INFORMATION</p>
+        <div className={style.hangoutInformationWrapper}>
+            {   meeting?.location_details &&
+                <div className={style.accessInfo}>
+                    <p className={style.accessInfoTitle}>Access information</p>
 
-                    <ProfileCard user={meeting?.group_owner}/>
+                    <ExpandableDescription
+                        description={meeting?.location_details}
+                        maxLines={6}/>
                 </div>
-                
-                <div className={style.hangoutLocTime}>
-                    <LTCard 
-                        icon="calendar"
-                        title="Date"
-                        content={meeting?.date_of_meeting}/>
+            }
 
-                    <div className={style.hangoutLocTimeLine}></div>
-
-                    <LTCard 
-                        icon="location"
-                        title="Location"
-                        content={meeting?.location}/>
-                </div>
-            </div>
-
-            <Comments uniqueUrl={meeting?.unique_url}/>
-        </TwoColumnLayout>
+            <Map lat={meeting?.lat} lng={meeting?.lng} height="366px" />
+        </div>
     );
 };

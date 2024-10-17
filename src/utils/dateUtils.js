@@ -67,6 +67,77 @@ export function extractTimeFromDate(dateString) {
     const minutes = date.getUTCMinutes().toString().padStart(2, '0');
     const ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
-    hours = hours ? hours : 12; // the hour '0' should be '12'
+    hours = hours ? hours : 12;
     return `${hours}:${minutes}${ampm}`;
+}
+
+export function getTimeUntilMeeting(dateOfMeeting, timeOfMeeting, duration) {
+    const meetingStart = new Date(dateOfMeeting);
+    const meetingTime = new Date(timeOfMeeting);
+
+    meetingStart.setHours(meetingTime.getHours());
+    meetingStart.setMinutes(meetingTime.getMinutes());
+    meetingStart.setSeconds(meetingTime.getSeconds());
+
+    const [hours, minutes] = duration.split(':').map(Number);
+    const durationMs = (hours * 60 + minutes) * 60 * 1000;
+
+    const meetingEnd = new Date(meetingStart.getTime() + durationMs);
+
+    const now = new Date();
+
+    const diffToStart = meetingStart - now;
+    const diffToEnd = meetingEnd - now;
+
+    let message = '';
+    let isPastEvent = false;
+
+    if (diffToStart > 0) {
+        const days = Math.floor(diffToStart / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffToStart % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffToStart % (1000 * 60 * 60)) / (1000 * 60));
+
+        if (days > 0) {
+            message = `Starting in ${days}d ${hours}h`;
+        } else if (hours > 0) {
+            message = `Starting in ${hours}h ${minutes}m`;
+        } else {
+            message = `Starting in ${minutes}m`;
+        }
+    } else if (diffToEnd > 0) {
+        const hours = Math.floor((-diffToStart) / (1000 * 60 * 60));
+        const minutes = Math.floor(((-diffToStart) % (1000 * 60 * 60)) / (1000 * 60));
+
+        message = `Started ${hours}h ${minutes}m ago`;
+    } else {
+        isPastEvent = true;
+        const hours = Math.floor((-diffToEnd) / (1000 * 60 * 60));
+        const minutes = Math.floor(((-diffToEnd) % (1000 * 60 * 60)) / (1000 * 60));
+
+        if (hours < 24) {
+            message = `Ended ${hours}h ${minutes}m ago`;
+        } else {
+            const days = Math.floor(hours / 24);
+            message = `Ended ${days}d ago`;
+        }
+    }
+
+    return { message, isPastEvent };
+}
+
+export function getMeetingEndTime(time_of_meeting, duration) {
+    const startTime = new Date(time_of_meeting);
+
+    const [hours, minutes] = duration.split(':').map(Number);
+
+    const endTime = new Date(startTime.getTime());
+
+    endTime.setHours(endTime.getHours() + hours);
+    endTime.setMinutes(endTime.getMinutes() + minutes);
+
+    let hours12 = endTime.getHours() % 12 || 12;
+    let minutes12 = endTime.getMinutes().toString().padStart(2, '0');
+    let ampm = endTime.getHours() >= 12 ? 'PM' : 'AM';
+
+    return `${hours12}:${minutes12}${ampm}`;
 }
