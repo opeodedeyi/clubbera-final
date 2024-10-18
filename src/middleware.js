@@ -10,11 +10,11 @@ export async function middleware(request) {
     
     let response = NextResponse.next();
 
-    const publicPaths = ['/', '/login', '/signup', '/forgotpassword'];
+    const publicPaths = ['/', '/login/', '/signup/', '/forgotpassword/'];
     const privatePaths = [
-        '/dashboard', 
-        '/profile', 
-        '/creategroup',
+        '/dashboard/', 
+        '/profile/', 
+        '/creategroup/',
     ];
 
     const privateGroupSubpaths = ['edit', 'members', 'discussions'];
