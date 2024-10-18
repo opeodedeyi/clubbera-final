@@ -21,10 +21,9 @@ export default function EventSetup() {
         setSelectedImage(meetingData.banner);
     }, [meetingData.banner]);
 
-    const handleImageChange = (newImage) => {
-        setSelectedImage(newImage);
+    const handleImageChange = useCallback((newImage) => {
         uploadMeetingImage(newImage);
-    };
+    }, [uploadMeetingImage]);
 
     return (
         <div className={style.formContainer}>
@@ -55,9 +54,9 @@ export default function EventSetup() {
                     type="textarea"
                     placeholder="Tell people how to easily find the venue" 
                     input="How can people find the venue?"
-                    maxLength={250}
-                    value={meetingData.description}
-                    onChange={(e) => updateMeetingData({ description: e.target.value})}/>
+                    maxLength={500}
+                    value={meetingData.location_details}
+                    onChange={(e) => updateMeetingData({ location_details: e.target.value})}/>
             </div>
         </div>
     );

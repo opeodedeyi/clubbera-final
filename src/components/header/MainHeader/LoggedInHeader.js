@@ -10,23 +10,17 @@ import NotificationBell from "./notification/NotificationBell";
 
 
 const LoggedInHeader = memo(({ navBtnClicked, toggleMobileSearch, searchText, handleSearchChange, onSubmit }) => {
-    const mobileButtons = useMemo(
-      () => (
-        <div
-          className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}
-        >
-          <button
-            className={style.headerToggleBarAlt}
-            onClick={toggleMobileSearch}
-          >
-            <HiOutlineSearch size="18px" color="var(--color-text-main)" />
-          </button>
-          <NotificationBell />
-          <ProfileSection />
+    const mobileButtons = useMemo(() => (
+        <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.mobileOnlyShow}`}>
+            <button
+                className={style.headerToggleBarAlt}
+                onClick={toggleMobileSearch} >
+                <HiOutlineSearch size="18px" color="var(--color-text-main)" />
+            </button>
+            
+            <ProfileSection />
         </div>
-      ),
-      [toggleMobileSearch]
-    );
+    ), [toggleMobileSearch]);
 
     const desktopButtons = useMemo(() => (
         <div className={`${style.flexC} ${style.headerButtonsAlt} ${style.desktopOnlyShow}`}>
@@ -38,7 +32,7 @@ const LoggedInHeader = memo(({ navBtnClicked, toggleMobileSearch, searchText, ha
                 width="325px"
                 onSubmit={onSubmit} />
             <div className={style.headerVertiLine}></div>
-            <NotificationBell/>
+            
             <ProfileSection/>
         </div>
     ), [searchText, handleSearchChange]);
