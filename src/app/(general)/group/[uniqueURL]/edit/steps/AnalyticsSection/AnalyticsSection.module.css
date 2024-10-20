@@ -1,6 +1,6 @@
 .analytics {
     width: 100%;
-    padding: 60px var(--container-padding) 0;
+    padding: 60px var(--container-padding) 60px;
 }
 
 .analyticsMain {

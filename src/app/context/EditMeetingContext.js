@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback } from 'react';
-// import { updateMeeting, updateMeetingImage } from '@/app/actions/updateMeeting';
+import { updateMeeting, updateMeetingImage } from '@/app/actions/updateMeeting';
 
 const EditMeetingContext = createContext();
 
@@ -16,6 +16,7 @@ export const EditMeetingProvider = ({ children, meeting }) => {
         duration: meeting.duration,
         capacity: meeting.capacity,
         location: meeting.location,
+        location_details: meeting.location_details,
         lat: meeting.lat,
         lng: meeting.lng,
         banner: meeting.banner,
@@ -32,19 +33,15 @@ export const EditMeetingProvider = ({ children, meeting }) => {
         setIsUpdatingMeeting(true);
         try {
             if (currentTab === 'basicDetails') {
-                console.log('changing meeting details');
-                console.log(meetingData.duration);
-                // const result = await updateUser(user.unique_url, userData);
-                // return result;
+                const result = await updateMeeting(meetingData.unique_url, meetingData);
+                return result;
             } else if (currentTab === 'eventSetup') {
-                console.log('changing password');
-                console.log(meetingData.duration);
-                // const result = await changePassword(user.unique_url, userData);
-                // return result;
+                const result = await updateMeeting(meetingData.unique_url, meetingData);
+                return result;
             }
         } catch (error) {
-            // console.error('Error saving user data:', error);
-            // throw error;
+            console.error('Error saving user data:', error);
+            throw error;
         } finally {
             setIsUpdatingMeeting(false);
         }
@@ -53,13 +50,12 @@ export const EditMeetingProvider = ({ children, meeting }) => {
     const uploadMeetingImage = useCallback(async (imageData) => {
         setIsUploadingImage(true);
         try {
-            console.log('uploading image');
-            // const result = await updateUserImage(user.unique_url, { avatar: imageData });
-            // updateUserData({ avatar: result.banner });
-            // return result;
+            const result = await updateMeetingImage(meetingData.unique_url, { banner: imageData });
+            setMeetingData(prevData => ({ ...prevData, banner: imageData }));
+            return result;
         } catch (error) {
-            // console.error('Error uploading group image:', error);
-            // throw error;
+            console.error('Error uploading group image:', error);
+            throw error;
         } finally {
             setIsUploadingImage(false);
         }

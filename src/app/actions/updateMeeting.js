@@ -15,7 +15,7 @@ async function updateMeetingData(uniqueURL, newData, updateType) {
     }
 
     try {
-        const response = await fetchWithTimeout(`${process.env.API_URL}/group/${uniqueURL}/update`, {
+        const response = await fetchWithTimeout(`${process.env.API_URL}/meeting/${uniqueURL}/${updateType}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,19 +45,21 @@ export async function updateMeeting(uniqueURL, newData) {
     const updateData = {
         title: newData.title,
         description: newData.description,
-        tagline: newData.tagline,
-        is_private: newData.is_private,
-        topics: newData.topics,
-        city: newData.location,
+        date_of_meeting: newData.date_of_meeting,
+        time_of_meeting: newData.time_of_meeting,
+        duration: newData.duration,
+        capacity: newData.capacity,
+        location: newData.location,
+        location_details: newData.location_details,
         lat: newData.lat,
         lng: newData.lng
     };
-    return updateMeetingData(uniqueURL, updateData, 'details');
+    return updateMeetingData(uniqueURL, updateData, 'update');
 }
 
 export async function updateMeetingImage(uniqueURL, newData) {
     const updateData = {
         banner: newData.banner
     };
-    return updateMeetingData(uniqueURL, updateData, 'image');
+    return updateMeetingData(uniqueURL, updateData, 'updatebanner');
 }
