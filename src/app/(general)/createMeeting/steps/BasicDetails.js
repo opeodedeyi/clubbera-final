@@ -10,8 +10,7 @@ import DurationInput from "@/components/forminput/DurationInput/DurationInput";
 import style from "./EditMeeting.module.css";
 
 export default function BasicDetails() {
-    const { meetingData, createMeetingData, validationErrors } =
-        useCreateMeeting();
+    const { meetingData, createMeetingData, validationErrors } = useCreateMeeting();
 
     return (
         <div className={style.formContainer}>
@@ -23,7 +22,7 @@ export default function BasicDetails() {
                     onChange={(e) => createMeetingData({ title: e.target.value })}/>
                 
                 {validationErrors.title && (
-                    <span style={{ color: "red" }}>{validationErrors.title}</span>
+                    <span className={style.errorMessage}>{validationErrors.title}</span>
                 )}
 
                 <MainInput
@@ -34,7 +33,7 @@ export default function BasicDetails() {
                     onChange={(e) => createMeetingData({ description: e.target.value })}/>
 
                 {validationErrors.description && (
-                    <span style={{ color: "red" }}>{validationErrors.description}</span>
+                    <span className={style.errorMessage}>{validationErrors.description}</span>
                 )}
 
                 <AddressInput
@@ -48,11 +47,11 @@ export default function BasicDetails() {
                     setLngLocation={(lng) => createMeetingData({ lng: lng })} />
 
                 {validationErrors.location && (
-                    <span style={{ color: "red" }}>{validationErrors.location}</span>
+                    <span className={style.errorMessage}>{validationErrors.location}</span>
                 )}
 
                 <TwoColumnLayout>
-                    <div>
+                    <div className={style.spTCL}>
                         <DateInput
                             label="Date of meeting?"
                             name="date_of_meeting"
@@ -62,13 +61,11 @@ export default function BasicDetails() {
                             }/>
 
                         {validationErrors.date_of_meeting && (
-                            <span style={{ color: "red" }}>
-                                {validationErrors.date_of_meeting}
-                            </span>
+                            <span className={style.errorMessage}>{validationErrors.date_of_meeting}</span>
                         )}
                     </div>
 
-                    <div>
+                    <div className={style.spTCL}>
                         <TimeInput
                             label="Time"
                             name="time_of_meeting"
@@ -78,9 +75,7 @@ export default function BasicDetails() {
                             } />
                       
                         {validationErrors.time_of_meeting && (
-                            <span style={{ color: "red" }}>
-                                {validationErrors.time_of_meeting}
-                            </span>
+                            <span className={style.errorMessage}>{validationErrors.time_of_meeting}</span>
                         )}
                     </div>
                 </TwoColumnLayout>
@@ -92,7 +87,7 @@ export default function BasicDetails() {
                     onChange={(value) => createMeetingData({ duration: value })}/>
                 
                 {validationErrors.duration && (
-                    <span style={{ color: "red" }}>{validationErrors.duration}</span>
+                    <span className={style.errorMessage}>{validationErrors.duration}</span>
                 )}
             </div>
         </div>

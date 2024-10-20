@@ -36,7 +36,7 @@ export default function EventSetup() {
                 </SingleImageUpload>
                 
                 {validationErrors.banner && (
-                    <span style={{ color: "red" }}>{validationErrors.banner}</span>
+                    <span className={style.errorMessage}>{validationErrors.banner}</span>
                 )}
 
                 <MainInput
@@ -50,7 +50,7 @@ export default function EventSetup() {
                     step={1}/>
 
                 {validationErrors.capacity && (
-                    <span style={{ color: "red" }}>{validationErrors.capacity}</span>
+                    <span className={style.errorMessage}>{validationErrors.capacity}</span>
                 )}
 
                 <MainInput
@@ -64,9 +64,7 @@ export default function EventSetup() {
                     }/>
                     
                 {validationErrors.location_details && (
-                    <span style={{ color: "red" }}>
-                        {validationErrors.location_details}
-                    </span>
+                    <span className={style.errorMessage}>{validationErrors.location_details}</span>
                 )}
             </div>
         </div>
