@@ -17,7 +17,7 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
         description: "",
         date_of_meeting: "",
         time_of_meeting: "",
-        duration: "",
+        duration: "0:00",
         capacity: 0,
         banner: "",
         location: "",
@@ -47,7 +47,7 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
                 description: "",
                 date_of_meeting: "",
                 time_of_meeting: "",
-                duration: "",
+                duration: "0:00",
                 capacity: 0,
                 banner: "",
                 location: "",
@@ -55,6 +55,7 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
                 lng: 0,
                 location_details: "",
             }));
+            setCurrentTab(1);
             closeModal();
         } catch (error) {
             throw error;

@@ -8,6 +8,7 @@ import style from "./DurationInput.module.css";
 
 
 const INITIAL_PRESET_OPTIONS = [
+    { label: 'no duration set', value: '0:00' },
     { label: '15 minutes', value: '0:15' },
     { label: '30 minutes', value: '0:30' },
     { label: '45 minutes', value: '0:45' },

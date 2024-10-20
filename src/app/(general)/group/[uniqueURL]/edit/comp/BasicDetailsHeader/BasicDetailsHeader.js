@@ -50,7 +50,7 @@ export default function BasicDetailsHeader({ group }) {
                     </div>
                 </div>
 
-                <CustomButton onClick={openModal} coloring="inverseColoring">Create meeting</CustomButton>
+                <CustomButton onClick={openModal} coloring="inverseColoring">Create activity</CustomButton>
             </div>
 
             <Modal isOpen={isModalOpen} onClose={closeModal} maxWidth="775px" displayType="rightSide" hasBack={true}>
