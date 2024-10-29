@@ -5,6 +5,7 @@ import { useQueryParams } from "@/hooks/useQueryParams";
 import { useRouter } from "next/navigation";
 import { createMeeting } from "@/app/actions/createMeeting";
 import { createMeetingSchema } from "@/validation";
+import Alert from "@/components/alert/alert";
 import { z } from "zod";
 
 const CreateMeetingContext = createContext();
@@ -28,14 +29,25 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
     const [isCreatingMeeting, setIsCreatingMeeting] = useState(false);
     const [currentTab, setCurrentTab] = useState(1);
     const [validationErrors, setValidationErrors] = useState({});
+    const [alert, setAlert] = useState({ show: false, type: "", message: "" });
 
     const closeModal = useCallback(() => {
         router.push(`?${removeQueryParam("createMeeting")}`, { scroll: false });
     }, [router, removeQueryParam]);
 
     const createMeetingData = useCallback((newData) => {
+         const fieldName = Object.keys(newData)[0];
+         setValidationErrors((prev) => {
+           const newErrors = { ...prev };
+           delete newErrors[fieldName];
+           return newErrors;
+         });
         setMeetingData((prevData) => ({ ...prevData, ...newData }));
     }, []);
+
+    const handleAlertClose = useCallback(() => {
+        setAlert((prev) => ({ ...prev, show: false }));
+      }, []);
 
     const submitMeetingData = useCallback(async () => {
         setIsCreatingMeeting(true);
@@ -56,8 +68,18 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
                 location_details: "",
             }));
             setCurrentTab(1);
+            setAlert({
+              show: true,
+              type: "success",
+              message: "Activity created successfully!",
+            });
             closeModal();
         } catch (error) {
+            setAlert({
+              show: true,
+              type: "error",
+              message: "Failed to create activity. Please try again.",
+            });
             throw error;
         } finally {
             setIsCreatingMeeting(false);
@@ -108,19 +130,26 @@ export const CreateMeetingProvider = ({ children, groupUniqueUrl }) => {
     }, []);
 
     return (
-        <CreateMeetingContext.Provider
-            value={{
-                meetingData,
-                createMeetingData,
-                submitMeetingData,
-                isCreatingMeeting,
-                currentTab,
-                goToNextPage,
-                goToPreviousPage,
-                validationErrors,
-            }}>
-            {children}
-        </CreateMeetingContext.Provider>
+      <CreateMeetingContext.Provider
+        value={{
+          meetingData,
+          createMeetingData,
+          submitMeetingData,
+          isCreatingMeeting,
+          currentTab,
+          goToNextPage,
+          goToPreviousPage,
+          validationErrors,
+        }}
+      >
+        {children}
+        <Alert
+          type={alert.type}
+          message={alert.message}
+          show={alert.show}
+          onClose={handleAlertClose}
+        />
+      </CreateMeetingContext.Provider>
     );
 };
 
