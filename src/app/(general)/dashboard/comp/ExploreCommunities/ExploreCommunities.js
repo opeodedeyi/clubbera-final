@@ -1,28 +1,28 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { getSearchResults } from '@/app/actions/searchResults';
+import { searchGroup } from '@/app/actions/searchGroup';
 import ContainerTB from '@/components/layout/ContainerTB/ContainerTB';
 import ContainerInfo from '@/components/utility/ContainerInfo/ContainerInfo';
 import CardFlex from '@/components/layout/CardFlex/CardFlex';
-import MeetingCard from '@/components/cards/MeetingCard/MeetingCard';
+import GroupCard from '@/components/cards/GroupCard/GroupCard';
 import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
-import MeetingCardSkeleton from "@/components/skeleton/MeetingCardSkeleton/MeetingCardSkeleton";
+import GroupCardSkeleton from "@/components/skeleton/GroupCardSkeleton/GroupCardSkeleton";
 
 
-export default function MeetCard({children}) {
-    const [meetings, setMeetings] = useState([]);
+export default function ExploreCommunities({children}) {
+    const [groups, setGroups] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        loadMeetings();
+        loadCommunities();
     }, []);
 
-    const loadMeetings = async () => {
+    const loadCommunities = async () => {
         setLoading(true);
         try {
-            const { result } = await getSearchResults('a', 1, 8, 'relevance', true);
-            setMeetings(result);
+            const { groups } = await searchGroup('a', 1, 8);
+            setGroups(groups);
         } catch (error) {
             console.error('Error loading groups:', error);
         } finally {
@@ -33,21 +33,21 @@ export default function MeetCard({children}) {
     return (
         <ContainerTB>
             <ContainerInfo
-                title="Some fun events"
-                description="Events you could attend"
+                title="Explore communities"
+                description="Find communities you could connect to"
                 button="See more"
                 link='/search?q=a' />
             <CardFlex>
                 {loading ? (
                         Array(10).fill().map((_, index) => (
-                            <MeetingCardSkeleton key={index} type="flex" />
+                            <GroupCardSkeleton key={index} type="flex" />
                         ))
-                    ) : meetings.length > 0 ? (
-                        meetings.map(meeting => (
-                            <MeetingCard
-                                key={meeting.id}
+                    ) : groups.length > 0 ? (
+                        groups.map(group => (
+                            <GroupCard
+                                key={group.id}
                                 type="flex"
-                                meeting={meeting}/>
+                                group={group}/>
                         ))
                     ) : (
                         <NoResultCard

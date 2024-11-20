@@ -14,9 +14,11 @@
     --gap-xxl: 40px;
 
     --container-padding: 80px;
+    --max-page-width: 1440px;
 
     /* Color palette */
     --color-white: #FFFFFF;
+    --color-white-rgb: 255, 255, 255;
     --color-white-one: #F0F3F5;
     --color-white-two: #F4F4F4;
     --color-white-three: #DFDFDF;
@@ -35,6 +37,7 @@
     --color-text-input: #393535;
 
     /* Theme-specific variables */
+    --background-color-rgb: var(--color-white-rgb);
     --background-color: var(--color-white);
     --background-color-hover: var(--color-white-two);
     --background-google-trans: var(--color-white-two);
@@ -73,6 +76,7 @@
 }
 
 [data-theme="dark"] {
+    --background-color-rgb: 2, 9, 0;
     --background-color: #020900;
     --background-color-hover: #030D00;
     --background-google-trans: transparent;
@@ -179,6 +183,13 @@ p, ol, ul {
     color: var(--main-color);
 }
 
+.centerPage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media screen and (max-width: 900px) {
     :root {
         --border-radius: 12px;
@@ -205,7 +216,7 @@ p, ol, ul {
     }
 
     p, ol, ul {
-        font-size: 0.875rem;
+        font-size: 0.9375rem;
         letter-spacing: -0.28px;
     }
 }

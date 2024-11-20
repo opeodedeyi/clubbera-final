@@ -1,157 +1,62 @@
-.groupOther {
+.groupAbout {
     width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 40px;
+    gap: 50px;
     margin-top: 40px;
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    max-width: var(--max-page-width);
     padding: 0 var(--container-padding);
 }
 
-.groupAboutDescription {
+.groupMain {
     display: flex;
-    max-width: 880px;
-    width: 60%;
     flex-direction: column;
-    align-items: flex-start;
-    align-self: stretch;
-    gap: 30px;
-}
-
-.groupAboutContent {
-    color: var(--color-text-main);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
-    letter-spacing: -0.32px;
-    white-space: pre-wrap;
-}
-
-.groupHostInfo {
-    display: flex;
-    width: 360px;
-    /* padding: 32px 24px; */
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 16px;
-    border-radius: 8px;
-    /* border: 1px solid var(--border-color); */
-}
-
-.groupHostInfoContainer {
+    gap: 40px;
     width: 100%;
+}
+
+.groupMiniContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-    align-self: stretch;
+    gap: 16px;
 }
 
 .groupAboutTitle {
-    text-transform: none;
-}
-
-.HostInfoItem {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    min-width: 278px;
-    gap: 12px;
-}
-
-.HostInfoItemImg {
-    display: flex;
-    width: 50px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 100px;
-    overflow: hidden;
-    border-radius: 100px;
-}
-
-.HostInfoItemImg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.HostInfoItemText {
-    display: flex;
-    padding: 4px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    flex: 1 0 0;
-}
-
-.HostInfoItemTitle {
-    color:  var(--color-text-main);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    letter-spacing: -0.16px;
-    text-transform: capitalize;
-}
-
-.HostInfoItemContent {
     color: var(--color-text-secondary);
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 135%;
-    letter-spacing: -0.32px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 100%;
 }
+
+/* .groupOrganizersContent {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+    gap: 24px;
+} */
 
 @media screen and  (max-width: 1080px) {
-    .groupOther {
+    .groupAbout {
         flex-direction: column;
-    }
-
-    .groupAboutDescription {
-        width: 100%;
+        gap: 28px;
     }
 }
 
 @media screen and  (max-width: 768px) {
-    .groupOther {
-        gap: 40px;
+    .groupAbout {
         margin-top: 32px;
+        margin-bottom: 16px;
         padding-top: 0;
     }
 
-    .groupAboutDescription {
-        width: 100%;
-        /* padding: 24px 16px; */
-        flex-direction: column;
+    .groupMain {
+        gap: 28px;
     }
 
-    .groupAboutContent {
-        font-size: 0.875rem;
-        letter-spacing: -0.28px;
-    }
-
-    .groupHostInfo {
-        width: 100%;
-        /* padding: 24px 16px; */
-    }
-    
-    .groupHostInfoContainer {
-        gap: 16px;
-    }
-
-    .HostInfoItemTitle {
-        font-size: 0.875rem;
-        letter-spacing: -0.14px;
-    }
-    
-    .HostInfoItemContent {
-        font-size: 0.875rem;
-        letter-spacing: -0.28px;
+    .groupAboutTitle {
+        font-size: 20px;
     }
 }

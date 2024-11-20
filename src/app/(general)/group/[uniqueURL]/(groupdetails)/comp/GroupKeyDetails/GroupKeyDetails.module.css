@@ -4,7 +4,8 @@
     flex-direction: column;
     align-items: flex-start;
     margin-top: 8px;
-    padding: 0 var(--container-padding);
+    max-width: var(--max-page-width);
+    padding: 0 var(--container-padding) 16px;
 }
 
 .groupKeydetailsMajor {
@@ -12,20 +13,16 @@
     width: 100%;
     display: flex;
     align-items: center;
-    /* border-radius: 8px 8px 0px 0px;
-    border-top: 1px solid var(--border-color);
-    border-right: 1px solid var(--border-color);
-    border-left: 1px solid var(--border-color); */
     overflow: hidden;
 }
 
 .groupKeydetailsMajorImage {
-    width: 60%;
+    width: 55%;
     max-width: 800px;
     height: 380px;
     position: relative;
-    border-radius: 8px 8px 0px 0px; /* remove to revert */
-    overflow: hidden; /* remove to revert */
+    border-radius: 32px;
+    overflow: hidden;
 }
 
 .groupKeydetailsMajorImage img {
@@ -151,6 +148,10 @@
 }
 
 @media screen and  (max-width: 768px) {
+    .groupDetailsKeydetails {
+        padding: 0 var(--container-padding);
+    }
+
     .groupKeydetailsMajor {
         background: transparent;
         border-radius: 0;

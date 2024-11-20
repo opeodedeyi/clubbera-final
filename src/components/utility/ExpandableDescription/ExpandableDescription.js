@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 
-const ExpandableDescription = ({ description, maxLines = 4 }) => {
+const ExpandableDescription = ({ description, maxLines = 4, hideLess = false }) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const textRef = useRef(null);
@@ -36,7 +36,7 @@ const ExpandableDescription = ({ description, maxLines = 4 }) => {
                         overflow: 'hidden',
                         transition: 'max-height 0.3s ease',
                     }}>
-                    {isExpanded ? 'Show Less' : 'Show More'}
+                    {isExpanded && hideLess ? null : isExpanded ? 'Read less' : 'Read more'}
                 </div>
             )}
         </div>
