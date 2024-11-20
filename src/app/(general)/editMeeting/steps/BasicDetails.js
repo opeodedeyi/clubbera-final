@@ -11,10 +11,8 @@ import style from "./EditMeeting.module.css";
 
 
 export default function BasicDetails() {
-    const { 
-        meetingData,
-        updateMeetingData,
-    } = useEditMeeting();
+    const { meetingData, updateMeetingData, validationErrors } =
+      useEditMeeting();
 
     return (
         <div className={style.formContainer}>
@@ -24,6 +22,9 @@ export default function BasicDetails() {
                     placeholder="Enter event title"
                     value={meetingData.title}
                     onChange={(e) => updateMeetingData({ title: e.target.value})}/>
+                 {validationErrors.title && (
+                    <span className={style.errorMessage}>{validationErrors.title}</span>
+                )}
 
                 <MainInput
                     type="textarea"
@@ -31,6 +32,10 @@ export default function BasicDetails() {
                     input="Description"
                     value={meetingData.description}
                     onChange={(e) => updateMeetingData({ description: e.target.value})}/>
+                    
+                {validationErrors.description && (
+                    <span className={style.errorMessage}>{validationErrors.description}</span>
+                )}
 
                 <AddressInput
                     label="Location"
@@ -40,6 +45,10 @@ export default function BasicDetails() {
                     setLatLocation={(lat) => updateMeetingData({ lat: lat })}
                     setLngLocation={(lng) => updateMeetingData({ lng: lng })}/>
 
+                {validationErrors.location && (
+                    <span className={style.errorMessage}>{validationErrors.location}</span>
+                )}
+
                 <TwoColumnLayout>
                     <DateInput
                         label="Date of meeting?"
@@ -47,11 +56,19 @@ export default function BasicDetails() {
                         value={meetingData.date_of_meeting}
                         onChange={(e) => updateMeetingData({ date_of_meeting: e.target.value})} />
 
+                     {validationErrors.date_of_meeting && (
+                            <span className={style.errorMessage}>{validationErrors.date_of_meeting}</span>
+                        )}
+
                     <TimeInput
                         label="Time"
                         name="time_of_meeting"
                         value={meetingData.time_of_meeting}
                         onChange={(e) => updateMeetingData({ time_of_meeting: e.target.value})} />
+
+                     {validationErrors.time_of_meeting && (
+                            <span className={style.errorMessage}>{validationErrors.time_of_meeting}</span>
+                        )}
                 </TwoColumnLayout>
 
                 <DurationInput
@@ -59,6 +76,10 @@ export default function BasicDetails() {
                     name="duration"
                     value={meetingData.duration}
                     onChange={(value) => updateMeetingData({ duration: value })} />
+
+                 {validationErrors.duration && (
+                    <span className={style.errorMessage}>{validationErrors.duration}</span>
+                )}
             </div>
         </div>
     );

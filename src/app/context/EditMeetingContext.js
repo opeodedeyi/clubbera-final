@@ -2,6 +2,9 @@
 
 import { createContext, useContext, useState, useCallback } from 'react';
 import { updateMeeting, updateMeetingImage } from '@/app/actions/updateMeeting';
+import { editMeetingSchema } from "@/validation";
+import Alert from "@/components/alert/alert";
+import { z } from "zod";
 
 const EditMeetingContext = createContext();
 
@@ -24,24 +27,73 @@ export const EditMeetingProvider = ({ children, meeting }) => {
     const [isUpdatingMeeting, setIsUpdatingMeeting] = useState(false);
     const [isUploadingImage, setIsUploadingImage] = useState(false);
     const [currentTab, setCurrentTab] = useState("basicDetails");
+    const [validationErrors, setValidationErrors] = useState({});
+    const [alert, setAlert] = useState({ show: false, type: "", message: "" });
 
     const updateMeetingData = useCallback((newData) => {
+           const fieldName = Object.keys(newData)[0];
+           setValidationErrors((prev) => {
+             const newErrors = { ...prev };
+             delete newErrors[fieldName];
+             return newErrors;
+           });
         setMeetingData(prevData => ({ ...prevData, ...newData }));
+    }, []);
+
+    const handleAlertClose = useCallback(() => {
+      setAlert((prev) => ({ ...prev, show: false }));
     }, []);
 
     const submitMeetingData = useCallback(async () => {
         setIsUpdatingMeeting(true);
         try {
             if (currentTab === 'basicDetails') {
+                 editMeetingSchema
+                   .pick({
+                     title: true,
+                     description: true,
+                     location: true,
+                     date_of_meeting: true,
+                     time_of_meeting: true,
+                     duration: true,
+                   })
+                   .parse(meetingData);
                 const result = await updateMeeting(meetingData.unique_url, meetingData);
                 return result;
             } else if (currentTab === 'eventSetup') {
+                 editMeetingSchema
+                   .pick({
+                     capacity: true,
+                     banner: true,
+                     location_details: true,
+                   })
+                   .parse(meetingData);
                 const result = await updateMeeting(meetingData.unique_url, meetingData);
+                 setAlert({
+                   show: true,
+                   type: "success",
+                   message: "Activity updated successfully!",
+                 });
                 return result;
             }
         } catch (error) {
-            console.error('Error saving user data:', error);
-            throw error;
+           if (error instanceof z.ZodError) {
+             const newValidationErrors = error.errors.reduce(
+               (accumulator, currentError) => {
+                 accumulator[currentError.path[0]] = currentError.message;
+                 return accumulator;
+               },
+               {}
+             );
+             setValidationErrors(newValidationErrors);
+           } else {
+             setAlert({
+               show: true,
+               type: "error",
+               message: "Error updating activity data. Please try again.",
+             });
+           }
+           throw error;
         } finally {
             setIsUpdatingMeeting(false);
         }
@@ -70,8 +122,15 @@ export const EditMeetingProvider = ({ children, meeting }) => {
             isUpdatingMeeting,
             isUploadingImage,
             currentTab,
-            setCurrentTab
+            setCurrentTab,
+            validationErrors
         }}>
+        <Alert
+           type={alert.type}
+           message={alert.message}
+           show={alert.show}
+           onClose={handleAlertClose}
+        />
             {children}
         </EditMeetingContext.Provider>
     );
