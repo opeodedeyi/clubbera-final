@@ -1,6 +1,6 @@
 .profileHero {
     width: 100%;
-    padding: 32px var(--container-padding) 32px;
+    padding: 24px var(--container-padding) 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -37,9 +37,13 @@
     gap: 4px;
 }
 
+.mobileOnlyShow {
+    display: none;
+}
+
 @media screen and  (max-width: 768px) {
     .profileHero {
-        padding: 32px var(--container-padding) 32px;
+        padding: 16px var(--container-padding) 16px;
     }
 
     .profileHeroCont {
@@ -52,7 +56,15 @@
     }
     
     .profileHeroSpeech {
-        font-size: 14px;
+        font-size: 15px;
         letter-spacing: -0.28px;
+    }
+
+    .desktopOnlyShow {
+        display: none;
+    }
+
+    .mobileOnlyShow {
+        display: block;
     }
 }

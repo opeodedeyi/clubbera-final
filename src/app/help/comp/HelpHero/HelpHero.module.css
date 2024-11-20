@@ -1,0 +1,28 @@
+.heroContainer {
+    width: 100%;
+    max-width: var(--max-page-width);
+    padding: 0 var(--container-padding);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    height: 300px;
+}
+
+.heroTitle {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    line-height: 135%;
+    text-align: center;
+}
+
+@media (max-width: 576px) {
+    .heroContainer {
+        height: 200px;
+    }
+
+    .heroTitle {
+        font-size: 24px;
+    }
+}

@@ -11,7 +11,7 @@
     width: 100%;
     gap: 0;
     background-color: var(--main-color-light);
-    border-radius: 4px;
+    border-radius: 32px;
     overflow: hidden;
 }
 
@@ -60,7 +60,7 @@
 .CTASideContainerText {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .CTASideContainerTextTitle {
@@ -68,7 +68,7 @@
     font-size: 45px;
     font-style: normal;
     font-weight: 500;
-    line-height: 105%;
+    line-height: 110%;
     letter-spacing: -1.35px;
 }
 
@@ -88,6 +88,7 @@
 
     .CTASideContainer {
         gap: 0;
+        border-radius: 32px;
     }
 
     .CTASideContainerImage {
@@ -108,8 +109,8 @@
         width: 100%;
         align-items: center;
         justify-content: center;
-        padding: 24px;
-        gap: 16px;
+        padding: 32px 24px;
+        gap: 24px;
     }
 
     .CTASideContainerTextTitle {
@@ -119,7 +120,7 @@
     }
     
     .CTASideContainerTextDescription {
-        font-size: 0.875rem;
+        font-size: 15px;
         letter-spacing: -0.36px;
         text-align: center;
     }

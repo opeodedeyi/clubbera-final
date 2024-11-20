@@ -3,9 +3,7 @@
     display: flex;
     width: 100%;
     padding: 0 var(--container-padding);
-    border: 1px solid var(--border-color);
-    border-left: none;
-    border-right: none;
+    max-width: var(--max-page-width);
     align-items: center;
     overflow: hidden;
     position: sticky;
@@ -15,6 +13,7 @@
 }
 
 .groupDetailsNavigationItems {
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     width: 100%;
     height: 100%;

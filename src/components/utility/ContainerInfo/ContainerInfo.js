@@ -5,8 +5,8 @@ export default function ContainerInfo({ title, description, link, button }) {
     return (
         <div className={style.containerWrapper}>
             <div className={style.containerText}>
-                <h4 className={style.containerTitle}>{title}</h4>
-                <p className={style.containerDescription}>{description}</p>
+                { title && <h4 className={style.containerTitle}>{title}</h4> }
+                { description && <p className={style.containerDescription}>{description}</p> }
             </div>
 
             {button && (
