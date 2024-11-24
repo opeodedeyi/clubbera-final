@@ -1,0 +1,28 @@
+.getStartedContainer {
+    margin-bottom: 2rem;
+}
+
+.getStartedTitle {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.getStartedTitle > h2 {
+    font-size: 2rem;
+}
+.getStartedTitle p {
+    font-size: 0.875rem;
+    color: var(--main-color-card);
+    cursor: pointer;
+
+}
+.getStartedCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.getStartedCards a {
+    text-decoration: none;
+}

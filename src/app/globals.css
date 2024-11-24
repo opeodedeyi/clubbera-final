@@ -35,6 +35,7 @@
     --color-gray-three: #CAC9C9;
     --color-gray-dot: #B9B9B9;
     --color-text-input: #393535;
+    --color-light-green: #90C095;
 
     /* Theme-specific variables */
     --background-color-rgb: var(--color-white-rgb);

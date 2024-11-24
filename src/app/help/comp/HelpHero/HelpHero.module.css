@@ -2,10 +2,6 @@
     width: 100%;
     max-width: var(--max-page-width);
     padding: 0 var(--container-padding);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 28px;
     height: 300px;
 }
 
@@ -15,6 +11,31 @@
     color: var(--color-text-secondary);
     line-height: 135%;
     text-align: center;
+    margin-top: 3rem;
+}
+.searchBarContainer {
+    position: relative;
+    width: 100%;
+    max-width: 25rem;
+    margin: auto;
+}
+
+.searchBarInput {
+    width: 100%;
+    padding: 1.3rem 1rem;
+    font-size: 16px;
+    border: 1px solid var(--main-color-light);
+    border-radius: 3rem;
+    margin-top: 1rem;
+}
+
+.searchBarIcon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    color: #666;
+    font-size: 18px;
+    pointer-events: none;
 }
 
 @media (max-width: 576px) {

@@ -1,0 +1,27 @@
+.trendingTopicsContainer {
+    margin-bottom: 2rem;
+}
+
+.trendingTopicsTitle {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.trendingTopicsTitle > h2 {
+    font-size: 2rem;
+}
+
+.trendingTopicsTitle p {
+    font-size: 0.875rem;
+    color: var(--main-color-card);
+    cursor: pointer;
+
+}
+
+.trendingCards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
