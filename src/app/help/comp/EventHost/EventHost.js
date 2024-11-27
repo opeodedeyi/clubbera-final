@@ -1,3 +1,3 @@
 export default function EventHost() {
-  return <div>Quests Content</div>;
+  return <div>Event Host Content</div>;
 }

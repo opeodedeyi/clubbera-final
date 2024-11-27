@@ -1,3 +1,3 @@
 export default function CommunityMember() {
-  return <div>Quests Content</div>;
+  return <div>Community Member Content</div>;
 }

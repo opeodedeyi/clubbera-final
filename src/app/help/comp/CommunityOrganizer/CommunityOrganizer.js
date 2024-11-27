@@ -1,3 +1,3 @@
 export default function CommunityOrganizer() {
-  return <div>Quests Content</div>;
+  return <div>Community Organizer Content</div>;
 }

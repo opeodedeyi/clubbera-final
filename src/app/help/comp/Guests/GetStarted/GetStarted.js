@@ -1,13 +1,13 @@
 import { useState } from "react";
-import GuideCard from "../../GuideCard/GuideCard"
-import {getStartedData} from "../Data"
-import style from "./GetStarted.module.css"
+import GuideCard from "../../GuideCard/GuideCard";
+import { getStartedData } from "../Data";
+import style from "./GetStarted.module.css";
 import Link from "next/link";
 
 export default function GetStarted() {
-    const [showAll, setShowAll] = useState(false);
-    const toggleShowAll = () => setShowAll(!showAll);
-    const cardsToDisplay = showAll ? getStartedData : getStartedData.slice(0, 4);
+  const [showAll, setShowAll] = useState(false);
+  const toggleShowAll = () => setShowAll(!showAll);
+  const cardsToDisplay = showAll ? getStartedData : getStartedData.slice(0, 4);
 
   return (
     <>
@@ -22,7 +22,7 @@ export default function GetStarted() {
         </div>
         <div className={style.getStartedCards}>
           {cardsToDisplay.map((card, index) => (
-            <Link key={index} href={`/card-details/${card.id}`} passHref>
+            <Link key={card.id} href={`/help/${card.id}`} passHref>
               <GuideCard
                 title={card.title}
                 icon={card.icon}

@@ -7,22 +7,21 @@ import CommunityOrganizer from "../CommunityOrganizer/CommunityOrganizer";
 import CommunityMember from "../CommunityMember/CommunityMember";
 import Quests from "../Guests/Quests";
 
-
 export default function HelpNavigation() {
   const [activeTab, setActiveTab] = useState("quests");
 
   const renderContent = () => {
     switch (activeTab) {
       case "quests":
-        return <Quests/>
+        return <Quests />;
       case "eventHost":
-        return <EventHost/>;
+        return <EventHost />;
       case "communityOrganizer":
-        return <CommunityOrganizer/>;
+        return <CommunityOrganizer />;
       case "communityMember":
-        return <CommunityMember/>;
+        return <CommunityMember />;
       default:
-        return <div>Select a tab</div>;
+        return null;
     }
   };
 

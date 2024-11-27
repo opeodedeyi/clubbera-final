@@ -4,11 +4,11 @@ import { trendingTopicsData } from "../Data";
 import style from "./TrendingTopics.module.css";
 
 export default function TrendingTopics() {
-     const [showAll, setShowAll] = useState(false);
-     const toggleShowAll = () => setShowAll(!showAll);
-     const cardsToDisplay = showAll
-       ? trendingTopicsData
-       : trendingTopicsData.slice(0, 4);
+  const [showAll, setShowAll] = useState(false);
+  const toggleShowAll = () => setShowAll(!showAll);
+  const cardsToDisplay = showAll
+    ? trendingTopicsData
+    : trendingTopicsData.slice(0, 4);
   return (
     <>
       <div className={style.trendingTopicsContainer}>

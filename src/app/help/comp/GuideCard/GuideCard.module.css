@@ -3,8 +3,6 @@
     border-radius: 2rem;
     overflow: hidden;
     background-color: var(--color-white);
-    width: 18rem;
-    height: 20rem;
 }
 
 .guideCardImage {
@@ -21,12 +19,12 @@
     display: flex;
     justify-content: space-between;
 }
+
 .guideCardTitle {
     margin: 0 0 8px;
     font-size: 1.25rem;
     font-weight: 500;
     color: #000000;
-    
 }
 
 .guideCardIcon {
@@ -39,4 +37,3 @@
     font-size: 14px;
     color: #000000;
 }
-

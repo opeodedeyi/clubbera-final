@@ -3,13 +3,14 @@
     padding: 0 var(--container-padding);
     max-width: var(--max-page-width);
     align-items: center;
+    background: var(--background-color);
 }
 
 .helpNavigation {
     height: 62px;
     overflow-x: hidden;
     position: sticky;
-    top: 72px;
+    top: 0px;
     z-index: 9;
     background: var(--background-color);
 }
@@ -59,11 +60,8 @@
     border-top: 2px solid transparent;
 }
 
-.tabContent{
+.tabContent {
     margin-top: 2rem;
- 
-  
- 
 }
 
 @media screen and (max-width: 768px) {
@@ -81,6 +79,10 @@
         width: 100%;
         height: 100%;
         padding: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        white-space: nowrap;
     }
 
     .helpNavigationItem {
@@ -89,10 +91,6 @@
         letter-spacing: -0.42px;
         height: 100%;
         padding-top: 0;
-    }
-
-    .helpNavigationItem:first-child {
-        margin-left: 24px;
     }
 
     .helpNavigationItem:last-child {

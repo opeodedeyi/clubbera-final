@@ -3,9 +3,9 @@ import TrendingTopics from "./TrendingTopics/TrendingTopics";
 
 export default function Quests() {
   return (
-      <>
-      <GetStarted/>
-      <TrendingTopics/>
-      </>
+    <>
+      <GetStarted />
+      <TrendingTopics />
+    </>
   );
-};
+}

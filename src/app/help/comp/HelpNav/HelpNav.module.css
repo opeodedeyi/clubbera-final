@@ -6,10 +6,11 @@
 
 .banner {
     background-image: url('../../../../../public/helpDeskBanner.png');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 2rem 5rem;
+    width: 100%;
 }
 
 .breadcrumb {
@@ -29,25 +30,29 @@
     line-height: 1.75rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .NavContainer {
-            width: 100%;
-            padding: 0;
-        }
+        width: 100%;
+        padding: 0;
+    }
+
     .breadcrumb {
-            font-size: 0.75rem;
-        }
+        font-size: 0.75rem;
+    }
+
     .banner {
-            background-image: url('../../../../../public/mobileHelpDeskBanner.png');
-            background-size: cover;
-            padding: 1.5rem 1rem;
-       }
+        background-image: url('../../../../../public/mobileHelpDeskBanner.png');
+        background-size: cover;
+        padding: 1.5rem 1rem;
+    }
+
     .navTitle {
-            font-size: 2rem;
-            margin-top: 1.5rem;
-        }
-     .navDescription {
-            line-height: 1.25rem;
-            font-size: 0.85rem;
-        }
+        font-size: 2rem;
+        margin-top: 1.5rem;
+    }
+
+    .navDescription {
+        line-height: 1.25rem;
+        font-size: 0.85rem;
+    }
 }

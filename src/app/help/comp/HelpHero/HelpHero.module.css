@@ -2,7 +2,7 @@
     width: 100%;
     max-width: var(--max-page-width);
     padding: 0 var(--container-padding);
-    height: 300px;
+    height: 15rem;
 }
 
 .heroTitle {
@@ -13,6 +13,7 @@
     text-align: center;
     margin-top: 3rem;
 }
+
 .searchBarContainer {
     position: relative;
     width: 100%;
@@ -38,12 +39,19 @@
     pointer-events: none;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 767px) {
     .heroContainer {
-        height: 200px;
+        height: 12.5rem;
     }
 
     .heroTitle {
         font-size: 24px;
     }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .heroContainer {
+        height: 12.5rem;
+    }
+
 }

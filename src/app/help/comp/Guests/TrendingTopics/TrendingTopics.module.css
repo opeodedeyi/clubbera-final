@@ -9,7 +9,7 @@
     margin-bottom: 1rem;
 }
 
-.trendingTopicsTitle > h2 {
+.trendingTopicsTitle>h2 {
     font-size: 2rem;
 }
 
@@ -17,11 +17,30 @@
     font-size: 0.875rem;
     color: var(--main-color-card);
     cursor: pointer;
-
 }
 
 .trendingCards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+}
+
+@media screen and (max-width: 767px) {
+    .trendingTopicsTitle>h2 {
+        font-size: 1.25rem;
+    }
+
+    .trendingCards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .trendingCards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
 }
