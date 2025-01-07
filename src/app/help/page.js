@@ -1,10 +1,13 @@
 import HelpHero from './comp/HelpHero/HelpHero';
-import style from './Help.module.css';
+import HelpNav from './comp/HelpNav/HelpNav';
+import HelpNavigation from "./comp/HelpNavigation/HelpNavigation";
 
 export default function Help() {
     return (
-        <div className="centerPage">
-            <HelpHero />
-        </div>
+      <div className="centerPage">
+        <HelpNav />
+        <HelpHero />
+        <HelpNavigation />
+      </div>
     );
 }
