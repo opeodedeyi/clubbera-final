@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GuideCard from "../../GuideCard/GuideCard";
+import GuideCard from "../../../comp/GuideCard/GuideCard";
 import { getStartedData } from "../Data";
 import style from "./GetStarted.module.css";
 import Link from "next/link";

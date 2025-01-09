@@ -1,4 +1,4 @@
-import { relatedSearchesData } from "../../Guests/Data";
+import { relatedSearchesData } from "../../../pages/Guests/Data";
 import GuideCard from "../../GuideCard/GuideCard";
 import style from "./RelatedSearches.module.css";
 

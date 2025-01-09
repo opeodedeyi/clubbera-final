@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GuideCard from "../../GuideCard/GuideCard";
+import GuideCard from "../../../comp/GuideCard/GuideCard";
 import { trendingTopicsData } from "../Data";
 import style from "./TrendingTopics.module.css";
 
