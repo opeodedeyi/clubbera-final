@@ -39,7 +39,7 @@ export default function MainFooter() {
                     <ul>
                         <li><p className={style.mainFooterLinkHeader}>Company</p></li>
                         <li><Link href="/help" className={style.mainFooterLink}>Help</Link></li>
-                        <li><Link href="#" className={style.mainFooterLink}>Enquiries</Link></li>
+                        <li><Link href="/contactus" className={style.mainFooterLink}>Contact us</Link></li>
                     </ul>
                     <ul>
                         <li><p className={style.mainFooterLinkHeader}>Legal</p></li>

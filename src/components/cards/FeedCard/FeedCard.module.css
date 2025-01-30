@@ -71,7 +71,6 @@
 }
 
 .feedActivitySubtitle {
-    font-size: 15px;
     font-weight: 400;
     color: var(--color-white-two);
     opacity: 0.9;
@@ -121,7 +120,6 @@
 }
 
 .feedProfileTextMain {
-    font-size: 15px;
     font-weight: 400;
     gap: 4px;
 }

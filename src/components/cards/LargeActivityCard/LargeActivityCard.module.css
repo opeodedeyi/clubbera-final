@@ -11,20 +11,13 @@
     gap: 16px;
     width: 100%;
     height: 320px;
-    padding: 28px var(--container-padding);
+    padding: 28px 40px;
+    border-radius: 32px;
     overflow: hidden;
     background:
         linear-gradient(180deg, 
-            rgba(var(--background-color-rgb), 1) 0%,
-            rgba(var(--background-color-rgb), 0.8) 3%,
-            rgba(var(--background-color-rgb), 0.5) 6%,
-            rgba(var(--background-color-rgb), 0.3) 8%,
-            rgba(var(--background-color-rgb), 0.1) 10%,
-            rgba(var(--background-color-rgb), 0) 12%,
-            rgba(var(--background-color-rgb), 0.6) 60.24%,
-            rgba(var(--background-color-rgb), 0.8) 76.24%,
-            rgba(var(--background-color-rgb), 0.9) 90.24%,
-            rgba(var(--background-color-rgb), 1) 99.9%);
+            rgba(var(--background-color-rgb), 0),
+            rgba(var(--background-color-rgb), 0.6));
     transition: background-color 0.3s ease;
 }
 
@@ -71,7 +64,7 @@
 .activityTitle {
     font-size: 32px;
     font-weight: 500;
-    color: var(--color-text-secondary);
+    color: var(--color-white-two);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -81,7 +74,7 @@
 .activitySubtitle {
     font-size: 15px;
     font-weight: 400;
-    color: var(--color-text-secondary);
+    color: var(--color-white-two);
     opacity: 0.9;
     white-space: nowrap;
     overflow: hidden;

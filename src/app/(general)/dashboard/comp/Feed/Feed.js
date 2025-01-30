@@ -30,7 +30,9 @@ export default function Feed() {
     return (
         <div className={style.feedWrapper}>
             <ContainerInfo
-                title="Here is what's happening" />
+                title="Here is what's happening"
+                description="Be a part of ongoing conversations"
+                padding='0' />
             
             <div className={style.feed}>
                 <FeedCard

@@ -17,31 +17,6 @@
     text-align: center;
 }
 
-/* .searchBarContainer {
-    position: relative;
-    width: 100%;
-    max-width: 25rem;
-    margin: auto;
-}
-
-.searchBarInput {
-    width: 100%;
-    padding: 1.3rem 1rem;
-    font-size: 16px;
-    border: 1px solid var(--main-color-light);
-    border-radius: 3rem;
-    margin-top: 1rem;
-}
-
-.searchBarIcon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    color: #666;
-    font-size: 18px;
-    pointer-events: none;
-} */
-
 @media (max-width: 767px) {
     .heroTitle {
         font-size: 24px;

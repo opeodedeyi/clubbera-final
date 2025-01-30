@@ -1,9 +1,10 @@
 import { redirect } from 'next/navigation';
+import CenterCont from '@/components/layout/CenterCont/CenterCont';
+import TwoColMed from "@/components/layout/TwoColumnLayout/TwoColMed";
 import ProfileHeader from "./comp/ProfileHeader/ProfileHeader";
+import ProfileMain from "./comp/ProfileMain/ProfileMain";
+import ProfileSec from "./comp/ProfileSec/ProfileSec";
 import { getUserData } from "@/app/actions/getUserData";
-import ProfileDetailsBar from "./comp/ProfileDetailsBar/ProfileDetailsBar";
-import ProfileContent from "./ProfileContent";
-import style from "./Profile.module.css";
 
 export default async function Profile(){
     const user = await getUserData();
@@ -13,12 +14,17 @@ export default async function Profile(){
     }
 
     return (
-        <>
-            <ProfileHeader user={user} />
-            <div className={style.profileDetailsContainer}>
-                <ProfileDetailsBar user={user} />
-                <ProfileContent user={user} />
-            </div>
-        </>
+        <div className='centerPage'>
+            <CenterCont>
+                <ProfileHeader padding="24px 0" title="Personal info"/>
+                <TwoColMed
+                    firstWidth={1.8}
+                    padding="0"
+                    gap='72px' >
+                    <ProfileMain user={user} />
+                    <ProfileSec user={user} />
+                </TwoColMed>
+            </CenterCont>
+        </div>
     );
 }

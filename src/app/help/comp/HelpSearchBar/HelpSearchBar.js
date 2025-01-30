@@ -23,7 +23,7 @@ export default function HelpSearchBar({ type, placeholder, value, onChange, onSu
         <form
             onSubmit={handleSubmit}
             className={style.mainSearchBar}
-            style={{ width}} >
+            style={{ width}}>
             <input
                 name={type}
                 type="search"

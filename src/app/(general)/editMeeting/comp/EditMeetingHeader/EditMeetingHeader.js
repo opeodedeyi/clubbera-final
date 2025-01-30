@@ -1,4 +1,4 @@
-import CustomButton from '@/components/utility/CustomButton/CustomButton'
+import CustomButton from '@/components/utility/CustomButton/CustomButton';
 import { useEditMeeting } from '@/app/context/EditMeetingContext';
 import style from "./EditMeetingHeader.module.css"
 

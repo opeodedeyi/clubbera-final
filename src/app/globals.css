@@ -18,7 +18,7 @@
 
     /* Color palette */
     --color-white: #FFFFFF;
-    --color-white-rgb: 255, 255, 255;
+    --color-rgb: 0, 0, 0;
     --color-white-one: #F0F3F5;
     --color-white-two: #F4F4F4;
     --color-white-three: #DFDFDF;
@@ -38,7 +38,7 @@
     --color-light-green: #90C095;
 
     /* Theme-specific variables */
-    --background-color-rgb: var(--color-white-rgb);
+    --background-color-rgb: var(--color-rgb);
     --background-color: var(--color-white);
     --background-color-hover: var(--color-white-two);
     --background-google-trans: var(--color-white-two);
@@ -217,7 +217,7 @@ p, ol, ul {
     }
 
     p, ol, ul {
-        font-size: 0.9375rem;
+        font-size: 1rem;
         letter-spacing: -0.28px;
     }
 }

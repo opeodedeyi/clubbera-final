@@ -11,7 +11,7 @@ export default function HelpHero({ searchText, handleSearchChange, onSubmit }) {
                 placeholder="Search how tos and more"
                 value={searchText}
                 onChange={handleSearchChange}
-                width="325px"
+                width="325px" 
                 onSubmit={onSubmit} />
         </div>
     );
