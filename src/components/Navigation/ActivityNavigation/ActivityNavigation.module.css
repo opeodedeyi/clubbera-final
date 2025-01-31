@@ -1,0 +1,25 @@
+.activityNavigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 0 var(--container-padding);
+    cursor: pointer;
+}
+
+.activityNavigationDots {
+    height: 11px;
+    border-radius: 100px;
+    transition: width 0.3s ease;
+}
+
+.defaultColoring {
+    width: 13px;
+    background-color: var(--main-color-glow);
+}
+
+.activeColoring {
+    width:78px;
+    background-color: var(--main-color);
+}

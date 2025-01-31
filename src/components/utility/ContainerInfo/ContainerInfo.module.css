@@ -1,33 +1,41 @@
 .containerWrapper {
-    padding: 0 var(--container-padding);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 24px;
     width: 100%;
 }
 
 .containerText {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 8px;
 }
 
 .containerTitle {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     color: var(--color-text-secondary);
     font-weight: 500;
-}
-
-.containerDescription {
-    font-size: 0.875rem;
 }
 
 .containerButton {
     display: flex;
     align-items: center;
-    text-decoration: underline;
+    text-decoration: none;
     font-size: 0.875rem;
     color: var(--main-color);
     outline: none;
+}
+
+@media (max-width: 576px) {
+    .containerText {
+        gap: 4px;
+    }
+
+    .containerTitle {
+        font-size: 20px;
+    }
+
+    .containerDescription {
+        font-size: 15px;
+    }
 }

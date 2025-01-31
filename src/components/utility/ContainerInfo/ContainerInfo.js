@@ -1,12 +1,12 @@
 import style from './ContainerInfo.module.css';
 import Link from 'next/link'
 
-export default function ContainerInfo({ title, description, link, button }) {
+export default function ContainerInfo({ title, description, link, button, padding="0 var(--container-padding)", gap="24px" }) {
     return (
-        <div className={style.containerWrapper}>
+        <div className={style.containerWrapper} style={{ padding, gap }}>
             <div className={style.containerText}>
-                <h4 className={style.containerTitle}>{title}</h4>
-                <p className={style.containerDescription}>{description}</p>
+                { title && <h4 className={style.containerTitle}>{title}</h4> }
+                { description && <p className={style.containerDescription}>{description}</p> }
             </div>
 
             {button && (

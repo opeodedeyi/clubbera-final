@@ -147,12 +147,8 @@
     }
 
     .mainFooterLinkHeader {
-        font-size: 0.9375rem;
+        font-size: 1.125rem;
         padding-bottom: 0;
-    }
-    
-    .mainFooterLink {
-        font-size: 0.875rem;
     }
 
     .mainFooterMidline {
@@ -168,7 +164,6 @@
     }
 
     .mainFooterBottomText {
-        font-size: 0.875rem;
         line-height: 135%;
         letter-spacing: -0.13px;
     }

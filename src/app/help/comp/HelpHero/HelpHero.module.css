@@ -1,0 +1,24 @@
+.heroContainer {
+    width: 100%;
+    max-width: var(--max-page-width);
+    padding: 48px var(--container-padding);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.heroTitle {
+    font-size: 48px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    line-height: 135%;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .heroTitle {
+        font-size: 24px;
+    }
+}

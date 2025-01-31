@@ -1,0 +1,16 @@
+.meetingContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    box-sizing: border-box;
+    padding: 0 var(--container-padding);
+}
+
+@media (max-width: 576px) {
+    .meetingContainer {
+        padding: 0;
+    }
+}

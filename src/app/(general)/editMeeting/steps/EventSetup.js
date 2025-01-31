@@ -8,10 +8,11 @@ import style from "./EditMeeting.module.css";
 
 export default function EventSetup() {
     const {
-        meetingData,
-        updateMeetingData,
-        uploadMeetingImage,
-        isUploadingImage,
+      meetingData,
+      updateMeetingData,
+      uploadMeetingImage,
+      isUploadingImage,
+      validationErrors,
     } = useEditMeeting();
     const [selectedImage, setSelectedImage] = useState(meetingData.banner);
     const [imageName, setImageName] = useState('');
@@ -40,6 +41,11 @@ export default function EventSetup() {
                     Upload the meeting banner
                 </SingleImageUpload>
 
+                {validationErrors.banner && (
+                    <span className={style.errorMessage}>{validationErrors.banner}</span>
+                )}
+
+
                 <MainInput
                     type="number"
                     input="what is the maximum number of people that can attend?"
@@ -50,6 +56,11 @@ export default function EventSetup() {
                     max={1000}
                     step={1} />
 
+                 {validationErrors.capacity && (
+                    <span className={style.errorMessage}>{validationErrors.capacity}</span>
+                )}
+
+
                 <MainInput
                     type="textarea"
                     placeholder="Tell people how to easily find the venue" 
@@ -57,6 +68,10 @@ export default function EventSetup() {
                     maxLength={500}
                     value={meetingData.location_details}
                     onChange={(e) => updateMeetingData({ location_details: e.target.value})}/>
+                    
+                 {validationErrors.location_details && (
+                    <span className={style.errorMessage}>{validationErrors.location_details}</span>
+                )}
             </div>
         </div>
     );

@@ -1,6 +1,5 @@
 .CTASide {
     width: 100%;
-    padding: 40px var(--container-padding);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,15 +10,22 @@
     width: 100%;
     gap: 0;
     background-color: var(--main-color-light);
-    border-radius: 4px;
+    border-radius: 32px;
     overflow: hidden;
 }
 
 .CTASideContainerImage {
     width: 45%;
-    height: 450px;
     position: relative;
-    background-color: #f0f0f0;
+    background-color: transparent;
+}
+
+.largeSize {
+    height: 450px;
+}
+
+.normalSize {
+    height: 400px;
 }
 
 .CTASideContainerImage img {
@@ -60,21 +66,21 @@
 .CTASideContainerText {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .CTASideContainerTextTitle {
     color: var(--main-color);
-    font-size: 45px;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 500;
-    line-height: 105%;
+    line-height: 110%;
     letter-spacing: -1.35px;
 }
 
 .CTASideContainerTextDescription {
     color: var(--main-color-hover);
-    font-size: 16px;
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
     line-height: 115%;
@@ -88,11 +94,20 @@
 
     .CTASideContainer {
         gap: 0;
+        border-radius: 32px;
     }
 
     .CTASideContainerImage {
         width: 100%;
         max-width: 1000px;
+        height: 200px;
+    }
+
+    .largeSize {
+        height: 200px;
+    }
+    
+    .normalSize {
         height: 200px;
     }
 
@@ -108,8 +123,8 @@
         width: 100%;
         align-items: center;
         justify-content: center;
-        padding: 24px;
-        gap: 16px;
+        padding: 32px 24px;
+        gap: 24px;
     }
 
     .CTASideContainerTextTitle {
@@ -119,8 +134,12 @@
     }
     
     .CTASideContainerTextDescription {
-        font-size: 0.875rem;
+        font-size: 1rem;
         letter-spacing: -0.36px;
         text-align: center;
+    }
+
+    .dontShowMobile {
+        display: none;
     }
 }

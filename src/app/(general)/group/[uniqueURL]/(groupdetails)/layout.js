@@ -10,12 +10,14 @@ export default async function GroupDetailsLayout({ params, children }) {
     
     return (
         <GroupProvider value={result.group}>
-            <SecHeaderBack />
-            <GroupKeyDetails
-                group={result.group} />
-            <GroupNavigation
-                uniqueURL={params.uniqueURL}/>
-            {children}
+            <div className="centerPage">
+                <SecHeaderBack />
+                <GroupKeyDetails
+                    group={result.group} />
+                <GroupNavigation
+                    uniqueURL={params.uniqueURL}/>
+                {children}
+            </div>
         </GroupProvider>
     )
 }

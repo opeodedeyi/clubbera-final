@@ -1,0 +1,72 @@
+.helpNavigationContainer {
+    width: 100%;
+    padding: 0 var(--container-padding);
+    max-width: var(--max-page-width);
+    background: var(--background-color);
+}
+
+.helpNavigation {
+    height: 62px;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background: var(--background-color);
+}
+
+.helpNavigationItems {
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    height: 100%;
+    align-items: center;
+    gap: 24px;
+    overflow: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.helpNavigationItems::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.helpNavigationItem {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 135%;
+    letter-spacing: -0.48px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-top: 8px;
+    cursor: pointer;
+    transition: color 0.2s, font-weight 0.2s, border-bottom 0.2s;
+}
+
+.activeNavigationItem,
+.helpNavigationItem:hover {
+    color: var(--main-color);
+    font-weight: 500;
+    border-bottom: 2px solid var(--main-color);
+    border-top: 2px solid transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .helpNavigation {
+        height: 40px;
+        top: 60px;
+    }
+
+    .helpNavigationItems {
+        white-space: nowrap;
+    }
+
+    .helpNavigationItem {
+        font-size: 1rem;
+        letter-spacing: -0.42px;
+        padding-top: 0;
+    }
+
+    .helpNavigationItem:last-child {
+        margin-right: 24px;
+    }
+}

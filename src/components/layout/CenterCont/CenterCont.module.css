@@ -1,0 +1,9 @@
+.centerPage {
+    width: 100%;
+    padding: 0 var(--container-padding);
+    max-width: var(--max-page-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--background-color);
+}

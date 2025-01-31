@@ -44,3 +44,26 @@ export const createMeetingSchema = z.object({
     location: z.string().min(1, "Location is required"),
     location_details: z.string().min(1, "Venue description is required"),
 });
+export const editMeetingSchema = z.object({
+  title: z.string().min(1, "Title is required."),
+  description: z.string().min(1, "Description is required."),
+  date_of_meeting: z.string().min(1, "Date of meeting is required."),
+  time_of_meeting: z.string().min(1, "Time of meeting is required."),
+  duration: z.string().min(1, "Duration is required"),
+  capacity: z.number().min(1, "At least 1 person required"),
+  banner: z.string().refine(
+    (value) => {
+      return (
+        /^data:image\/(png|jpeg|webp|gif);base64,/.test(value) ||
+        /^https?:\/\/.*\.(png|jpeg|jpg|webp|gif)$/.test(value)
+      );
+    },
+    {
+      message: "A valid image must be uploaded",
+    }
+  ),
+
+  location: z.string().min(1, "Location is required"),
+  location_details: z.string().min(1, "Venue description is required"),
+});
+
