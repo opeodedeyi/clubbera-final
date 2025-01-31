@@ -1,0 +1,28 @@
+.articleCard {
+    width: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 0 20px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.articleCardSubcategory {
+    font-size: 14px;
+    line-height: 18.9px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.articleCardTitle {
+    font-size: 20px;
+    line-height: 32.4px;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+}
+
+.articleCardDescription {
+    color: var(--color-text-main);
+}

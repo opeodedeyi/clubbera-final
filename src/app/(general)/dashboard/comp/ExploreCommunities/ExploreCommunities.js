@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { searchGroup } from '@/app/actions/searchGroup';
 import ContainerTB from '@/components/layout/ContainerTB/ContainerTB';
 import ContainerInfo from '@/components/utility/ContainerInfo/ContainerInfo';
-import CardFlex from '@/components/layout/CardFlex/CardFlex';
+import CardColumn from '@/components/layout/CardColumn/CardColumn';
 import GroupCard from '@/components/cards/GroupCard/GroupCard';
 import NoResultCard from '@/components/cards/NoResultCard/NoResultCard';
 import GroupCardSkeleton from "@/components/skeleton/GroupCardSkeleton/GroupCardSkeleton";
@@ -31,13 +31,12 @@ export default function ExploreCommunities({children}) {
     };
 
     return (
-        <ContainerTB>
+        <ContainerTB gap='40px' justifyContent='flex-start' alignItems='flex-start'>
             <ContainerInfo
                 title="Explore communities"
                 description="Find communities you could connect to"
-                button="See more"
-                link='/search?q=a' />
-            <CardFlex>
+                padding='0' />
+            <CardColumn>
                 {loading ? (
                         Array(10).fill().map((_, index) => (
                             <GroupCardSkeleton key={index} type="flex" />
@@ -55,7 +54,7 @@ export default function ExploreCommunities({children}) {
                             message='Some fun ones will show up here' />
                     )
                 }
-            </CardFlex>
+            </CardColumn>
         </ContainerTB>
     )
 }

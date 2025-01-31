@@ -1,0 +1,4 @@
+.cardColumnWrapper {
+    display: flex;
+    flex-direction: column;
+}

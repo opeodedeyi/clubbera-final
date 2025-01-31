@@ -1,8 +1,6 @@
 .cardGrid {
     width: 100%;
     display: grid;
-    gap: 24px;
-    padding: 40px var(--container-padding);
 }
 
 @media (max-width: 576px) {

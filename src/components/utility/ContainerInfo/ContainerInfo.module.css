@@ -1,9 +1,7 @@
 .containerWrapper {
-    padding: 0 var(--container-padding);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 24px;
     width: 100%;
 }
 
@@ -35,5 +33,9 @@
 
     .containerTitle {
         font-size: 20px;
+    }
+
+    .containerDescription {
+        font-size: 15px;
     }
 }
