@@ -8,7 +8,9 @@ export default function GuideCard({ id, title, description, image, icon, width =
         <Link href={`/help/${id}`} style={{ textDecoration: 'none' }}>
             <div className={styles.guideCard} style={{ width }}>
                 {image && (
-                    <Image src={image} alt={title} className={styles.guideCardImage} />
+                    <div className={styles.guideCardImage}>
+                        <Image src={image} alt={title} />
+                    </div>
                 )}
 
                 <div className={styles.guideCardBody}>

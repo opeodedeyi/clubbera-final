@@ -1,13 +1,17 @@
-import { HiOutlineUserGroup } from "react-icons/hi";
+import CustomButton from "@/components/utility/CustomButton/CustomButton";
 import style from './NoResultCard.module.css';
 
-export default function NoResultCard({ message, type='grid' }) {
+
+export default function NoResultCard({ message, type='grid', svgPath, btnText, btnLink, padding="24px" }) {
     return (
-        <div className={`
-                ${style.noResults}
-                ${type==='grid' ? style.noResultGrid : ''}`}>
-            <HiOutlineUserGroup size={24} color="var(--color-text-main)"/>
-            <p>{message}</p>
+        <div style={{ padding }} className={`${style.noResults} ${type==='grid' ? style.noResultGrid : ''}`}>
+            {svgPath && (
+                <img src={svgPath} alt="No result" />
+            )}
+            <p className={style.noResultMessage}>{message}</p>
+            {btnText && btnLink && (
+                <CustomButton link destination={btnLink}>{btnText}</CustomButton>
+            )}
         </div>
     );
 }

@@ -12,9 +12,16 @@
     --gap-lg: 24px;
     --gap-xl: 32px;
     --gap-xxl: 40px;
+    --gap-comp: 100px;
+
+    --header-height: 80px;
 
     --container-padding: 80px;
     --max-page-width: 1440px;
+    --title-font-home: 1.5rem;
+    --title-font-profile: 1.125rem;
+
+    --padding-cont: 32px;
 
     /* Color palette */
     --color-white: #FFFFFF;
@@ -191,10 +198,23 @@ p, ol, ul {
     align-items: center;
 }
 
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+    body {
+        margin-bottom: env(safe-area-inset-bottom);
+    }
+}
+
 @media screen and (max-width: 900px) {
     :root {
         --border-radius: 12px;
         --container-padding: 24px;
+        --title-font-home: 1.25rem;
+        --title-font-profile: 1.125rem;
+
+        --header-height: 64px;
+        
+        --gap-comp: 36px;
+        --padding-cont: 16px;
     }
 
     h1, h2 {
@@ -219,6 +239,16 @@ p, ol, ul {
     p, ol, ul {
         font-size: 1rem;
         letter-spacing: -0.28px;
+    }
+
+    .main-content {
+        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+    }
+    
+    @supports (-webkit-touch-callout: none) {
+        .navContainer {
+            padding-bottom: max(env(safe-area-inset-bottom), 16px);
+        }
     }
 }
 

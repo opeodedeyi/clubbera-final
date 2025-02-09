@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import Logo from "@/components/utility/logo";
+import Logo from "@/components/utility/Logo/logo";
 import style from "./MainFooter.module.css";
 import { FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { useLogout } from '@/hooks/useLogout';

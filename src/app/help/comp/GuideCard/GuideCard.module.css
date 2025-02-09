@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     gap: 0;
-    /* border: 1px solid var(--border-color); */
     border-radius: 32px;
     overflow: hidden;
 }
@@ -12,6 +11,16 @@
     width: 100%;
     height: 180px;
     border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+}
+
+.guideCardImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
 }
 
 .guideCardBody {
@@ -34,10 +43,34 @@
 
 .guideCardIcon {
     color: var(--color-text-secondary);
-    /* color: var(--main-color-card); */
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .guideCardContent {
     color: var(--color-text-main);
+}
+
+@media screen and (max-width: 900px) {
+    .guideCard {
+        flex-direction: row;
+        gap: 16px;
+        border-radius: 0px;
+        overflow: hidden;
+    }
+
+    .guideCardImage {
+        width: 70px;
+        height: 70px;
+        border-radius: 16px;
+    }
+
+    .guideCardBody {
+        padding: 0;
+        gap: 0px;
+        flex: 1;
+    }
+
+    .guideCardTitle {
+        font-size: 1.125rem;
+    }
 }
