@@ -1,0 +1,29 @@
+.backButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.backButton span {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.mobileOnlyShow {
+    display: none;
+}
+
+@media screen and  (max-width: 900px) {
+    .desktopOnlyShow {
+        display: none;
+    }
+
+    .mobileOnlyShow {
+        display: flex;
+    }
+}

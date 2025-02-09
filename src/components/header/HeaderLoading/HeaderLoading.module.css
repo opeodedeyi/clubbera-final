@@ -1,0 +1,54 @@
+.headerLoading {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skeleton {
+    background-color: var(--border-color);
+    animation: pulse 1.5s infinite;
+}
+
+.skeletonLogo {
+    width: 115px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.skeletonProfileSection {
+    width: 82px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+.skeletonSearchBar {
+    width: 100%;
+    max-width: 450px;
+    height: 48px;
+    border-radius: 100px;
+}
+
+@media screen and  (max-width: 900px) {
+    .skeletonLogo {
+        width: 97px;
+        height: 24px;
+    }
+
+    .skeletonProfileSection {
+        width: 24px;
+        height: 24px;
+    }
+
+    .desktopOnlyShow {
+        display: none;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}

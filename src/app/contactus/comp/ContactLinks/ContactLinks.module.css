@@ -38,9 +38,9 @@
     display: flex;
     flex-direction: row;
     gap: 9px;
-    color: var(--color-text-main);
+    color: var(--color-text-secondary);
 }
 
 .linkItem a:visited {
-    color: var(--color-text-main);
+    color: var(--color-text-secondary);
 }
