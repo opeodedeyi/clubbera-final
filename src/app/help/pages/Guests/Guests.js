@@ -10,10 +10,10 @@ export default function Guests() {
         <>
             <ContainerInfo
                 title="Guides for getting started"
-                padding='32px 0' />
+                padding='var(--padding-cont) 0' />
             <CardGrid
-                gap='32px'
-                padding='0 0 32px'>
+                gap='var(--padding-cont)'
+                padding='0 0 var(--padding-cont)'>
                 {getStartedData.map((card, index) => (
                     <GuideCard
                         key={card.id}
@@ -26,10 +26,10 @@ export default function Guests() {
             </CardGrid>
             <ContainerInfo
                 title="Top articles"
-                padding='32px 0' />
+                padding='var(--padding-cont) 0' />
             <CardColumn
                 gap='24px'
-                padding='0 0 32px'
+                padding='0 0 var(--padding-cont)'
                 width="100%"
                 maxWidth="800px">
                 {trendingTopicsData.map((card, index) => (

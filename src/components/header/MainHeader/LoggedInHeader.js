@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback, useMemo, memo } from "react";
-import Logo from "@/components/utility/logo";
+import Logo from "@/components/utility/Logo/logo";
 import { HiOutlineSearch, HiOutlineMenu } from "react-icons/hi";
 import SearchBar from "@/components/forminput/SearchBar/SearchBar";
 import ProfileSection from "./ProfileSection/ProfileSection";
